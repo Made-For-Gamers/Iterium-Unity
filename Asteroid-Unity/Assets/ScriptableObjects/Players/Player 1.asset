@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef446240436fd92488493614ee60a2a3, type: 3}
-  m_Name: USA
+  m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
+  m_Name: Player 1
   m_EditorClassIdentifier: 
-  charName: USA
+  charName: Player 1
   description: 
-  image: {fileID: 0}
-  country: 
-  flag: {fileID: 0}
-  ship: {fileID: 0}
+  xp: 0

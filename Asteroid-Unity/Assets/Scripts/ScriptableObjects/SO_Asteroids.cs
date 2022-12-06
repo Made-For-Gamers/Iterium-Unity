@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Common/Enemies")]
+[CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Common/Asteroids")]
 
 public class SO_Asteroids : ScriptableObject
 {
