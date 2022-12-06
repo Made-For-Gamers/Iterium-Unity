@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private InputManager input;
+    [SerializeField] private SO_Ship ship;
+    private Vector3 shipRotate;
+    private Rigidbody rigidBody;
+
     void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody>();
     }
-
-    // Update is called once per frame
+  
     void Update()
     {
-        
+        Rotate();
+    }
+
+    private void FixedUpdate()
+    {
+        Thrust();
+    }
+
+    private void Rotate()
+    {
+        transform.Rotate(input.rotateInput.x * ship.TurnSpeed * Time.deltaTime,0 ,0 );
+    }
+
+    private void Thrust()
+    {
+        rigidBody.AddRelativeForce(new Vector3 (0,input.thrustInput.y * ship.Thrust * Time.deltaTime,0), ForceMode.Force);
     }
 }

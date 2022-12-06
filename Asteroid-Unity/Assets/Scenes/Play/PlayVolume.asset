@@ -9,17 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6016e341f1a5b9340ba9088cb94785a1, type: 3}
-  m_Name: Hammer
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: PlayVolume
   m_EditorClassIdentifier: 
-  shipName: Hammer
-  description: 
-  image: {fileID: 0}
-  faction: {fileID: 0}
-  health: 0
-  shieldPower: 0
-  shieldCooldown: 0
-  shieldTime: 0
-  thrust: 500
-  turnSpeed: 100
-  bullet: {fileID: 0}
+  components: []
