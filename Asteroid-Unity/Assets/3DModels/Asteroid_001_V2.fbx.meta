@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec4bc99aedd8c6f41affd9f4686df104
+guid: e938e5ee17b6c0740812335363136dfa
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Asteroid_001
-    second: {fileID: 2100000, guid: b1a648dd8b5af6447bea6061cca89b87, type: 2}
+      name: Terrain
+    second: {fileID: 2100000, guid: 21367023fe07c3943b1081d31841bfb3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
