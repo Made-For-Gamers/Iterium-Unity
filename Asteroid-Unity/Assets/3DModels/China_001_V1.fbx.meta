@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ec4bc99aedd8c6f41affd9f4686df104
+guid: dbb46903fbeb7964c828104eab5706fc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Asteroid_001
-    second: {fileID: 2100000, guid: b1a648dd8b5af6447bea6061cca89b87, type: 2}
+      name: Blue_Lines
+    second: {fileID: 2100000, guid: dc43ee9ca83e65d4a91ebc3767ffca1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Engine
+    second: {fileID: 2100000, guid: 305892b90c08acd4ea7410c7aee77a9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass dark
+    second: {fileID: 2100000, guid: 3bece931b33fb76489633a86188ec0b1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rnd_Grey
+    second: {fileID: 2100000, guid: 1e53fca29f6c0bd4490b7fb7bad5a553, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

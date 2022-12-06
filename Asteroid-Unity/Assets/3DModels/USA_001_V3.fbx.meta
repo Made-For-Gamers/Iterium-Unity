@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d218a0e400ba75c48a1d20611e09640c
+guid: eadb40fedbd592141945be1c44db646e
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Asteroid_003
-    second: {fileID: 2100000, guid: 43d7d40aacc3f154a90fc46f720ea94d, type: 2}
+      name: Brushed stainless steel
+    second: {fileID: 2100000, guid: fd1a66eed0a115d46b459d342a71364d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass blue
+    second: {fileID: 2100000, guid: 6eb13e138cae06648baac748fe4be005, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 82ac22aaad849874091a3b378c41023a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 4c5d3da4212354944b1ea694347eb894, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.002
+    second: {fileID: 2100000, guid: 66e4a360c76e11f4985d9fac76f0277a, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
