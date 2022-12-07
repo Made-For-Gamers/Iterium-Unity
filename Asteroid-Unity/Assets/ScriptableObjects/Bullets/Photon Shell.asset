@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11697c1fef89084e85ad513036405d3, type: 3}
   m_Name: Photon Shell
   m_EditorClassIdentifier: 
-  bulletName: 
+  bulletName: Photon Shell
   description: 
   image: {fileID: 0}
-  speed: 0
+  speed: 10
   firePower: 0
+  bulletLvl1: {fileID: 3683457768581028564, guid: 37857d6a960e9e54aac0de1e21679d43,
+    type: 3}
+  bulletLvl2: {fileID: 0}
+  bulletLvl3: {fileID: 0}

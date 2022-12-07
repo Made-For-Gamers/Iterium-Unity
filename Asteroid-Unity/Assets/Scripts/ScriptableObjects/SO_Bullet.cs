@@ -10,12 +10,18 @@ public class SO_Bullet : ScriptableObject
     [SerializeField] private Sprite image;
     [SerializeField] private float speed;
     [SerializeField] private float firePower;
+    [SerializeField] private GameObject bulletLvl1;
+    [SerializeField] private GameObject bulletLvl2;
+    [SerializeField] private GameObject bulletLvl3;
 
-    public string BulletName { get => bulletName; set => bulletName = value; }
-    public string Description { get => description; set => description = value; }
-    public Sprite Image { get => image; set => image = value; }
-    public float Speed { get => speed; set => speed = value; }
-    public float FirePower { get => firePower; set => firePower = value; }
+    public string BulletName { get => bulletName;}
+    public string Description { get => description;}
+    public Sprite Image { get => image;}
+    public float Speed { get => speed;}
+    public float FirePower { get => firePower;}
+    public GameObject BulletLvl1 { get => bulletLvl1;}
+    public GameObject BulletLvl2 { get => bulletLvl2;}
+    public GameObject BulletLvl3 { get => bulletLvl3;}
 
 
     //Editor change/update
@@ -23,7 +29,7 @@ public class SO_Bullet : ScriptableObject
     {
         if (string.IsNullOrEmpty(BulletName))
         {
-            BulletName = name;
+            bulletName = name;
         }
     }
 }
