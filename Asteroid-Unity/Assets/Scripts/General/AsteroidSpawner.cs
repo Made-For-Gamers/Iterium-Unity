@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Spawning of random asteroids at set intervals, random rotation and speed, targets an object for direction
+/// </summary>
 public class AsteroidSpawner : MonoBehaviour
 {
-    [SerializeField] SO_Asteroids asteroids;
-    [SerializeField] float spawnTime;
-    [SerializeField] float speedMin;
-    [SerializeField] float speedMax;
-    [SerializeField] GameObject target;
-    float speed;
+    [SerializeField] private SO_GameObjects asteroids;
+    [SerializeField] private float spawnTime;
+    [SerializeField] private float speedMin;
+    [SerializeField] private float speedMax;
+    [SerializeField] private GameObject target;
+    private float speed;
 
     private void Start()
     {
@@ -18,10 +22,16 @@ public class AsteroidSpawner : MonoBehaviour
 
     private void SpawnAsteroid()
     {
-        int randomAsteroid = Random.Range(0, asteroids.Asteroids.Count);
-        GameObject spawnedAsteroid = Instantiate(asteroids.Asteroids[randomAsteroid], transform.position, transform.rotation);
-        spawnedAsteroid.transform.LookAt(target.transform);
+        //Instantiate a new asteroid    
+        GameObject spawnedAsteroid = Instantiate(asteroids.GetRandomGameObject());
+        spawnedAsteroid.transform.position = transform.position;
         speed = Random.Range(speedMin, speedMax + 1);
+
+        //Look and move towards target
+        spawnedAsteroid.transform.LookAt(target.transform); 
         spawnedAsteroid.GetComponent<Rigidbody>().velocity = spawnedAsteroid.transform.forward * speed;
+
+        //Random rotation after Look and direction is set
+        spawnedAsteroid.transform.rotation = Random.rotation; 
     }
 }
