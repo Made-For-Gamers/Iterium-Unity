@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59500ca1ffd09eb4598a5969a45e5c8c, type: 3}
   m_Name: Asteroids
   m_EditorClassIdentifier: 
-  asteroids:
+  obj:
   - {fileID: 2265590906735085459, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
   - {fileID: 750036934536145966, guid: f24682cdab8586645a096b8757ba658f, type: 3}
   - {fileID: 5902638412427623914, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
