@@ -13,11 +13,9 @@ GameObject:
   - component: {fileID: 5398301019014519871}
   - component: {fileID: 5046650511024615605}
   - component: {fileID: 8352664996446247968}
-  - component: {fileID: -5243851054758680638}
-  - component: {fileID: 8319736821633970125}
   m_Layer: 0
   m_Name: Asteroid3
-  m_TagString: Asteroid
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -117,35 +115,3 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8053462470204907615, guid: 76b5f4d334513ef4f90a8f0488bfb145, type: 3}
---- !u!114 &-5243851054758680638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5902638412427623914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59c47667ffe6b65428a6463e4daf072b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  randomMaxSpeed: 5
-  reverseDirection: 0
-  randomDirection: 1
-  randomSpeed: 0
-  rotationX: 0
-  rotationY: 0
-  rotationZ: 0
---- !u!114 &8319736821633970125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5902638412427623914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2c0d1a35427baa4391772f9b8835734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
