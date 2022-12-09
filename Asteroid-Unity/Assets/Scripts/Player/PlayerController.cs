@@ -1,8 +1,5 @@
-using Mono.Cecil;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 /// <summary>
 /// Player ship script for moving/firing/shield
@@ -14,12 +11,42 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform firePosition;
     private Vector3 shipRotate;
     private Rigidbody rigidBody;
+    public static bool isBulletPooling = true;
+    [Header("Bullet Pooling")]
+    [SerializeField] private int capacity = 25;
+    [SerializeField] private int maxCapacity = 30;
+    [HideInInspector] public static ObjectPool<GameObject> bulletPool;
 
     void Start()
     {
+        if (isBulletPooling)
+        {
+            bulletPool = new ObjectPool<GameObject>(PoolNew, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
+        }
         rigidBody = GetComponent<Rigidbody>();
     }
-  
+    private GameObject PoolNew()
+    {
+        //Instantiate a new asteroid
+        GameObject newBullet = Instantiate(ship.Bullet.BulletLvl1);     
+        return newBullet;
+    }
+
+    private void PoolGet(GameObject obj)
+    {
+        obj.SetActive(true);
+    }
+
+    private void PoolReturn(GameObject obj)
+    {
+        obj?.SetActive(false);
+    }
+
+    private void PoolDestroy(GameObject obj)
+    {
+        Destroy(obj);
+    }
+
     void Update()
     {
         Rotate();
@@ -42,7 +69,9 @@ public class PlayerController : MonoBehaviour
     {
         if (input.isfire)
         {
-            GameObject bullet = Instantiate(ship.Bullet.BulletLvl1, firePosition.position, firePosition.transform.rotation);
+            GameObject bullet = isBulletPooling ? bulletPool.Get() : Instantiate(ship.Bullet.BulletLvl1);
+            bullet.transform.position = firePosition.position;
+            bullet.transform.rotation = firePosition.rotation;
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.up * ship.Bullet.Speed;
             input.isfire = false;
         }

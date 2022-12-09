@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 /// <summary>
 /// Singleton manager to manage static data
@@ -8,6 +7,7 @@ using UnityEngine;
 public class Singleton : MonoBehaviour
 {
     public static Singleton Instance;
+    public ObjectPool<SO_GameObjects> asteroids;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Singleton : MonoBehaviour
 
     void Start()
     {
-        
+      
     }
 
 
