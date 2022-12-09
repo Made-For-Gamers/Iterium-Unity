@@ -135,7 +135,7 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
   asteroids: {fileID: 11400000, guid: eea4ac0412d4eb2439d964b97098a2e6, type: 2}
   crystals: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
-  dropChance: 25
+  dropChance: 15
 --- !u!114 &1425559642768424050
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -133,7 +133,7 @@ MonoBehaviour:
   randomMaxSpeed: 5
   reverseDirection: 0
   randomDirection: 1
-  randomSpeed: 0
+  randomSpeed: 1
   rotationX: 0
   rotationY: 0
   rotationZ: 0

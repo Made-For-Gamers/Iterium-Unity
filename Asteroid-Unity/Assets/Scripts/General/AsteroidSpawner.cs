@@ -57,6 +57,7 @@ public class AsteroidSpawner : MonoBehaviour
         spawnedAsteroid = isAsteroidPooling ? asteroidPool.Get() : Instantiate(asteroids.GetRandomGameObject());
       
         spawnedAsteroid.transform.position = transform.position;
+        spawnedAsteroid.transform.localScale = Vector3.one;
         speed = Random.Range(speedMin, speedMax + 1);
 
         //Look and move towards target

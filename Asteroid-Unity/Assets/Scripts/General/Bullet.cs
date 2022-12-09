@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] SO_GameObjects asteroids;
     [SerializeField] SO_GameObjects crystals;
     [Header("Chance of crystal drop 1/?")]
-    [SerializeField] int dropChance = 25;
+    [SerializeField] int dropChance = 20;
     GameObject explosionObject;
 
     private void OnCollisionEnter(Collision collision)
