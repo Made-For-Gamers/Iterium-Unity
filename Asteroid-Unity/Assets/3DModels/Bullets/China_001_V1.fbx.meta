@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6d7a2f88083dcd64bab39d2b53c5abb2
+guid: 42659bb27f125444cb3f5c6d73927d99
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,28 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Brushed stainless steel
-    second: {fileID: 2100000, guid: 1fae307043a10604aba7f2454c76a1b1, type: 2}
+      name: Blue_Lines
+    second: {fileID: 2100000, guid: d2461ed111dbfaa44bf6b7bb4b51ab25, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Glass blue.001
-    second: {fileID: 2100000, guid: c08fcc48d5d8364449590f61394dcb93, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.001
-    second: {fileID: 2100000, guid: f83e8285b6a752c40823aeb297bb78aa, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Material.002
-    second: {fileID: 2100000, guid: 45ef3f4ad13572849a96f750b603514f, type: 2}
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Untitled-1
-    second: {fileID: 2800000, guid: 1c673a6da48ef624893a74eee00d6278, type: 3}
+      name: rnd_Blk
+    second: {fileID: 2100000, guid: 46f00fbe0f4c49d40b5fb10f3f5e3d49, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
