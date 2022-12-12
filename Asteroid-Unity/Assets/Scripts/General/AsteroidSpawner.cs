@@ -7,54 +7,23 @@ using UnityEngine.Pool;
 /// </summary>
 public class AsteroidSpawner : MonoBehaviour
 {
-    [SerializeField] private SO_GameObjects asteroids;
+    [Header("Asteroid Spawning")]   
     [SerializeField] private float spawnTime;
     [SerializeField] private float speedMin;
     [SerializeField] private float speedMax;
     [SerializeField] private GameObject target;
-    public static bool isAsteroidPooling = true;
-    [Header("Asteroid Pooling")]
-    [SerializeField] private int capacity = 30;
-    [SerializeField] private int maxCapacity = 50;
-    [HideInInspector] public static ObjectPool<GameObject> asteroidPool;
+
     private float speed;
-    private GameObject spawnedAsteroid;
 
     private void Start()
     {
-        if (isAsteroidPooling)
-        {
-            asteroidPool = new ObjectPool<GameObject>(PoolNew, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
-        }
         InvokeRepeating("SpawnAsteroid", 0, spawnTime);
-    }
-
-    private GameObject PoolNew()
-    {
-        //Instantiate a new asteroid
-        GameObject newAsteroid = Instantiate(asteroids.GetRandomGameObject());
-        return newAsteroid;
-    }
-
-    private void PoolGet(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
-
-    private void PoolReturn(GameObject obj)
-    {
-        obj?.SetActive(false);
-    }
-
-    private void PoolDestroy(GameObject obj)
-    {
-        Destroy(obj);
-    }
+    }  
 
     private GameObject SpawnAsteroid()
-    {     
-        //Instantiate an asteroid
-        spawnedAsteroid = isAsteroidPooling ? asteroidPool.Get() : Instantiate(asteroids.GetRandomGameObject());
+    {
+        //Instantiate asteroid
+        GameObject spawnedAsteroid = AsteroidPooling.asteroidPool.Get();
       
         spawnedAsteroid.transform.position = transform.position;
         spawnedAsteroid.transform.localScale = Vector3.one;
@@ -68,6 +37,4 @@ public class AsteroidSpawner : MonoBehaviour
         spawnedAsteroid.transform.rotation = Random.rotation;
         return spawnedAsteroid;
     }
-
-
 }

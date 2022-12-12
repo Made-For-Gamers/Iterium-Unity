@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 1198757683646573906}
   - component: {fileID: 1198757683646573907}
   - component: {fileID: 1198757683646573916}
-  - component: {fileID: -8047901406128960348}
+  - component: {fileID: 2688649807815879604}
   m_Layer: 0
   m_Name: Bullet_Explosion
-  m_TagString: Untagged
+  m_TagString: Explosion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -119,7 +119,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.2
+      scalar: 0.4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -604,7 +604,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4873,7 +4873,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-8047901406128960348
+--- !u!114 &2688649807815879604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4882,7 +4882,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1198757683646573917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b231ffbcb50f3040a8a1fb8e15b80a8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8d73d4c6caeef3a48916bc3027b1ddb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 0.5
@@ -5487,7 +5487,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -9813,7 +9813,7 @@ ParticleSystem:
   startDelay:
     serializedVersion: 2
     minMaxState: 0
-    scalar: 0.1
+    scalar: 0.15
     minScalar: 0
     maxCurve:
       serializedVersion: 2
@@ -10358,7 +10358,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0

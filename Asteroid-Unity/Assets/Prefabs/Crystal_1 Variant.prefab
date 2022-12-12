@@ -107,10 +107,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c47667ffe6b65428a6463e4daf072b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  randomMaxSpeed: 6
+  speed: 5
+  randomMaxSpeed: 10
   reverseDirection: 0
-  randomDirection: 1
+  randomDirection: 0
   randomSpeed: 1
   rotationX: 1
   rotationY: 1

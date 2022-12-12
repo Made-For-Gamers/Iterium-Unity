@@ -2,33 +2,37 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] SO_GameObjects explosion;
     [SerializeField] SO_Player player;
     [SerializeField] SO_GameObjects asteroids;
     [SerializeField] SO_GameObjects crystals;
     [Header("Chance of crystal drop 1/?")]
-    [SerializeField] int dropChance = 20;
-    GameObject explosionObject;
+    [SerializeField] int dropChance = 20;  
+
 
     private void OnCollisionEnter(Collision collision)
     {
-        //print("Collision: " + collision.gameObject.tag);
+        print(collision.gameObject.tag);
         switch (collision.gameObject.tag)
         {
             case "Asteroid":
-                gameObject.GetComponent<BoxCollider>().enabled = false;
+
+                //Remove bullet
+                BulletPooling.bulletPool.Release(this.gameObject);
+
                 player.Score += 100;
-                explosionObject = Instantiate(explosion.GetRandomGameObject(), collision.transform.position, collision.transform.rotation);
-                Destroy(explosionObject, 1.5f);
-                Vector3 position = collision.transform.position;
-                Vector3 scale = collision.transform.localScale;
+                GameObject explosionObject = ExplosionPooling.explosionPool.Get();
+                explosionObject.transform.position = collision.transform.position;
+                explosionObject.transform.rotation = collision.transform.rotation;
 
                 //Split asteroid if it is larger than a set size
+                Vector3 scale = collision.transform.localScale;
                 if (scale.x > 0.25)
                 {
                     for (int i = 0; i < 4; i++)
                     {
-                        GameObject spawnedAsteroid = Instantiate(asteroids.Obj[Random.Range(0, asteroids.Obj.Count)], position, transform.rotation);
+                        GameObject spawnedAsteroid = AsteroidPooling.asteroidPool.Get();
+                        spawnedAsteroid.transform.position = collision.transform.position;
+                        spawnedAsteroid.transform.rotation = collision.transform.rotation;
                         spawnedAsteroid.transform.localScale = new Vector3(scale.x / 2, scale.y / 2, scale.z / 2);
                     }
                 }
@@ -39,35 +43,21 @@ public class Bullet : MonoBehaviour
                 {
                     Instantiate(crystals.GetRandomGameObject(), collision.gameObject.transform.position, Random.rotation);
                 }
+
                 //Remove asteroid
-                if (AsteroidSpawner.isAsteroidPooling)
-                {
-                    AsteroidSpawner.asteroidPool.Release(collision.gameObject);
-                }
-                else
-                {
-                    Destroy(collision.gameObject);
-                }
-                //Remove bullet
-                if (PlayerController.isBulletPooling)
-                {
-                    PlayerController.bulletPool.Release(this.gameObject);
-                    gameObject.GetComponent<BoxCollider>().enabled = true;
-                }
-                else
-                {
-                    Destroy(this.gameObject);
-                }
+                AsteroidPooling.asteroidPool.Release(collision.gameObject);
                 break;
 
             case "P1":
             case "P2":
-                player.Score += 1000;
-                explosionObject = Instantiate(explosion.GetRandomGameObject(), collision.transform.position, collision.transform.rotation);
-                Destroy(explosionObject, 1.5f);
-                collision.transform.position = new Vector3(0, 0, 0);
-                Destroy(gameObject);
                 break;
         }
+    }
+
+
+    //Remove bullet after it leaves the screen
+    private void OnBecameInvisible()
+    {
+        BulletPooling.bulletPool.Release(this.gameObject);
     }
 }

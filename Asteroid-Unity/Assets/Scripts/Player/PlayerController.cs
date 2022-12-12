@@ -11,40 +11,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform firePosition;
     private Vector3 shipRotate;
     private Rigidbody rigidBody;
-    public static bool isBulletPooling = true;
-    [Header("Bullet Pooling")]
-    [SerializeField] private int capacity = 25;
-    [SerializeField] private int maxCapacity = 30;
-    [HideInInspector] public static ObjectPool<GameObject> bulletPool;
 
     void Start()
     {
-        if (isBulletPooling)
-        {
-            bulletPool = new ObjectPool<GameObject>(PoolNew, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
-        }
         rigidBody = GetComponent<Rigidbody>();
-    }
-    private GameObject PoolNew()
-    {
-        //Instantiate a new asteroid
-        GameObject newBullet = Instantiate(ship.Bullet.BulletLvl1);     
-        return newBullet;
-    }
-
-    private void PoolGet(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
-
-    private void PoolReturn(GameObject obj)
-    {
-        obj?.SetActive(false);
-    }
-
-    private void PoolDestroy(GameObject obj)
-    {
-        Destroy(obj);
     }
 
     void Update()
@@ -52,7 +22,7 @@ public class PlayerController : MonoBehaviour
         Rotate();
         Fire();
     }
-  
+
     private void FixedUpdate()
     {
         Thrust();
@@ -61,7 +31,7 @@ public class PlayerController : MonoBehaviour
     //Rorate the ship
     private void Rotate()
     {
-        transform.Rotate(0 ,input.rotateInput.x * ship.TurnSpeed * Time.deltaTime ,0 );
+        transform.Rotate(0, input.rotateInput.x * ship.TurnSpeed * Time.deltaTime, 0);
     }
 
     //Fire a bullet
@@ -69,7 +39,7 @@ public class PlayerController : MonoBehaviour
     {
         if (input.isfire)
         {
-            GameObject bullet = isBulletPooling ? bulletPool.Get() : Instantiate(ship.Bullet.BulletLvl1);
+            GameObject bullet = BulletPooling.bulletPool.Get();
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.up * ship.Bullet.Speed;
@@ -80,7 +50,7 @@ public class PlayerController : MonoBehaviour
     //Move the ship forward
     private void Thrust()
     {
-        rigidBody.AddRelativeForce(new Vector3 (0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);
+        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);
     }
 
     //Move ship when it leaves the screen
