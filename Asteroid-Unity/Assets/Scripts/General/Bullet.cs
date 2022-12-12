@@ -1,17 +1,22 @@
 using UnityEngine;
 
+/// <summary>
+/// Attached to the bullet prefab and handles...
+/// Collision detection
+/// Asteroid splitting
+/// Crystal spawning
+/// Bullet de-spawning
+/// </summary>
 public class Bullet : MonoBehaviour
 {
     [SerializeField] SO_Player player;
     [SerializeField] SO_GameObjects asteroids;
     [SerializeField] SO_GameObjects crystals;
     [Header("Chance of crystal drop 1/?")]
-    [SerializeField] int dropChance = 20;  
-
+    [SerializeField] int dropChance = 20;
 
     private void OnCollisionEnter(Collision collision)
-    {
-        print(collision.gameObject.tag);
+    {        
         switch (collision.gameObject.tag)
         {
             case "Asteroid":
@@ -31,9 +36,10 @@ public class Bullet : MonoBehaviour
                     for (int i = 0; i < 4; i++)
                     {
                         GameObject spawnedAsteroid = AsteroidPooling.asteroidPool.Get();
-                        spawnedAsteroid.transform.position = collision.transform.position;
                         spawnedAsteroid.transform.rotation = collision.transform.rotation;
                         spawnedAsteroid.transform.localScale = new Vector3(scale.x / 2, scale.y / 2, scale.z / 2);
+                        spawnedAsteroid.transform.position = collision.transform.position;
+                        spawnedAsteroid.GetComponent<Rigidbody>().mass = collision.transform.GetComponent<Rigidbody>().mass / 2;
                     }
                 }
 

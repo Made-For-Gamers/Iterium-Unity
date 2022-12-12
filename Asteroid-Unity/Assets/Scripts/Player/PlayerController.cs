@@ -2,7 +2,10 @@ using UnityEngine;
 using UnityEngine.Pool;
 
 /// <summary>
-/// Player ship script for moving/firing/shield
+/// Player ship script that handles...
+/// Movement
+/// Firing
+/// Shield
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
@@ -50,7 +53,10 @@ public class PlayerController : MonoBehaviour
     //Move the ship forward
     private void Thrust()
     {
-        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);
+        if (rigidBody.velocity.z <= ship.MaxSpeed)
+        {
+            rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);
+        }
     }
 
     //Move ship when it leaves the screen
