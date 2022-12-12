@@ -14,6 +14,7 @@ public class SO_Ship : ScriptableObject
     [SerializeField] private float shieldCooldown;
     [SerializeField] private float shieldTime;
     [SerializeField] private float thrust;
+    [SerializeField] private float maxSpeed;
     [SerializeField] private float turnSpeed;
     [SerializeField] private SO_Bullet bullet;
 
@@ -25,9 +26,11 @@ public class SO_Ship : ScriptableObject
     public float ShieldPower { get => shieldPower; set => shieldPower = value; }
     public float ShieldCooldown { get => shieldCooldown; set => shieldCooldown = value; }
     public float ShieldTime { get => shieldTime; set => shieldTime = value; }
-    public float Thrust { get => thrust; set => thrust = value; }
+    public float Thrust { get => thrust; set => thrust = value; } 
+    public float MaxSpeed { get => maxSpeed; set => maxSpeed = value; }
     public float TurnSpeed { get => turnSpeed; set => turnSpeed = value; }
     public SO_Bullet Bullet { get => bullet; set => bullet = value; }
+
 
     //Editor change/update
     private void OnValidate()

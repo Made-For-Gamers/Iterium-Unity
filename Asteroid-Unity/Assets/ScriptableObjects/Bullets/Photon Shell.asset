@@ -15,7 +15,7 @@ MonoBehaviour:
   bulletName: Photon Shell
   description: 
   image: {fileID: 0}
-  speed: 10
+  speed: 15
   firePower: 0
   bulletLvl1: {fileID: 6477874537485912609, guid: 77135423b6c032b44b707edc2b27bdb6,
     type: 3}

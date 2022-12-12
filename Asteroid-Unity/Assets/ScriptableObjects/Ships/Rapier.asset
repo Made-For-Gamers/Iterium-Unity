@@ -21,5 +21,6 @@ MonoBehaviour:
   shieldCooldown: 0
   shieldTime: 0
   thrust: 500
+  maxSpeed: 5
   turnSpeed: 100
   bullet: {fileID: 11400000, guid: 3620db854b039c1499e25795903929e5, type: 2}
