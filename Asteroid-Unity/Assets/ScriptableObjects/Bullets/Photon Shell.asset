@@ -16,7 +16,7 @@ MonoBehaviour:
   description: 
   image: {fileID: 0}
   speed: 15
-  firePower: 0
+  firePower: 80
   bulletLvl1: {fileID: 6477874537485912609, guid: 77135423b6c032b44b707edc2b27bdb6,
     type: 3}
   bulletLvl2: {fileID: 6095568876105111573, guid: c9fc5f0a1ae744c468aad239443869e8,

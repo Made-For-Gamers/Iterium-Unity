@@ -22,4 +22,4 @@ MonoBehaviour:
   shieldTime: 0
   thrust: 500
   turnSpeed: 100
-  bullet: {fileID: 0}
+  bullet: {fileID: 11400000, guid: 71a77fb2bfe52ac4da2a8321be77097e, type: 2}

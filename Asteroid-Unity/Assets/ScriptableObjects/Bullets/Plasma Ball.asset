@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11697c1fef89084e85ad513036405d3, type: 3}
   m_Name: Plasma Ball
   m_EditorClassIdentifier: 
-  bulletName: 
+  bulletName: Plasma Ball
   description: 
   image: {fileID: 0}
-  speed: 0
-  firePower: 0
+  speed: 15
+  firePower: 80
+  bulletLvl1: {fileID: 6861711253440168329, guid: 96545a8fcd0312043b64ac70b66893b5,
+    type: 3}
+  bulletLvl2: {fileID: 8221427476355596872, guid: 439078a0c249af04181830827abe571d,
+    type: 3}
+  bulletLvl3: {fileID: 7465634539134578376, guid: c7dbab823c7e7cc40a1b3aad7034d285,
+    type: 3}

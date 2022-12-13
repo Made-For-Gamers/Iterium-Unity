@@ -53,10 +53,7 @@ public class PlayerController : MonoBehaviour
     //Move the ship forward
     private void Thrust()
     {
-        if (rigidBody.velocity.z <= ship.MaxSpeed)
-        {
-            rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);
-        }
+        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);       
     }
 
     //Move ship when it leaves the screen

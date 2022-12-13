@@ -12,8 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11697c1fef89084e85ad513036405d3, type: 3}
   m_Name: Rocket
   m_EditorClassIdentifier: 
-  bulletName: 
+  bulletName: Rocket
   description: 
   image: {fileID: 0}
-  speed: 0
-  firePower: 0
+  speed: 12.5
+  firePower: 100
+  bulletLvl1: {fileID: 4355779235204838513, guid: 3127e35e5386e774ea2d1c00016ae2c7,
+    type: 3}
+  bulletLvl2: {fileID: 566127569921528746, guid: 442c4dcd09fb9584688ed52d60c5ae1f,
+    type: 3}
+  bulletLvl3: {fileID: 6093000125942237260, guid: 262a91b95b809f54d9079c657ad4546e,
+    type: 3}
