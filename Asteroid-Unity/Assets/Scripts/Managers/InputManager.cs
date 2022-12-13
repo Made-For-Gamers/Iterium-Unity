@@ -12,6 +12,7 @@ public class InputManager : MonoBehaviour
     public Vector2 rotateInput; //Ship rotation
     public Vector2 thrustInput; //Ship thrust
     public bool isfire; //Player firing
+    public bool isShield; //Player shielding
 
     private void OnEnable()
     {
@@ -60,7 +61,7 @@ public class InputManager : MonoBehaviour
     //Ship shield input
     private void Shield(InputAction.CallbackContext obj)
     {
-        print("Shield");
+       isShield = true;
     }
 
 }

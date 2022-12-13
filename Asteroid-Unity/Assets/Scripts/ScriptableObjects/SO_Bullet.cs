@@ -2,6 +2,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Bullet")]
 
+//Default properties and data for a bullet
 public class SO_Bullet : ScriptableObject
 {
     [SerializeField] private string bulletName;
@@ -23,13 +24,4 @@ public class SO_Bullet : ScriptableObject
     public GameObject BulletLvl2 { get => bulletLvl2;}
     public GameObject BulletLvl3 { get => bulletLvl3;}
 
-
-    //Editor change/update
-    private void OnValidate()
-    {
-        if (string.IsNullOrEmpty(BulletName))
-        {
-            bulletName = name;
-        }
-    }
 }

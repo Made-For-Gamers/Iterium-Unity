@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.Pool;
+using System.Collections;
 
 /// <summary>
 /// Player ship script that handles...
@@ -12,8 +12,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputManager input;
     [SerializeField] private SO_Ship ship;
     [SerializeField] private Transform firePosition;
+    [SerializeField] private GameObject shield;
     private Vector3 shipRotate;
-    private Rigidbody rigidBody;
+    private Rigidbody rigidBody;  
 
     void Start()
     {
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
         Fire();
+        Shield();
     }
 
     private void FixedUpdate()
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
             GameObject bullet = BulletPooling.bulletPool.Get();
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
-            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.up * ship.Bullet.Speed;
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * ship.Bullet.Speed;
             input.isfire = false;
         }
     }
@@ -53,7 +55,24 @@ public class PlayerController : MonoBehaviour
     //Move the ship forward
     private void Thrust()
     {
-        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);       
+        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * ship.Thrust * Time.deltaTime), ForceMode.Force);
+    }
+
+    //Shield
+    private void Shield()
+    {
+        if (input.isShield)
+        {
+            shield.SetActive(true);
+            StartCoroutine(ShieldTime());
+            input.isShield = false;
+        }
+    }
+
+    private IEnumerator ShieldTime()
+    {
+        yield return new WaitForSeconds(ship.ShieldTime);
+        shield.SetActive(false);
     }
 
     //Move ship when it leaves the screen

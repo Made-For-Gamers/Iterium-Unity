@@ -163,13 +163,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37027778}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 73275448}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &37027782
 MonoBehaviour:
@@ -241,6 +241,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2075369461}
+  - {fileID: 37027781}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -259,7 +260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &92324015
 Transform:
   m_ObjectHideFlags: 0
@@ -289,7 +290,7 @@ GameObject:
   - component: {fileID: 250917985}
   - component: {fileID: 250917984}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: Asteroid 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +338,7 @@ GameObject:
   - component: {fileID: 308645259}
   - component: {fileID: 308645258}
   m_Layer: 0
-  m_Name: Spawner (1)
+  m_Name: Asteroid 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -411,7 +412,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.0540673, g: 0.07850526, b: 0.084905684, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -618,7 +619,7 @@ GameObject:
   - component: {fileID: 431738498}
   - component: {fileID: 431738497}
   m_Layer: 0
-  m_Name: Spawner (2)
+  m_Name: Asteroid 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -672,7 +673,7 @@ GameObject:
   - component: {fileID: 682639495}
   - component: {fileID: 682639494}
   m_Layer: 0
-  m_Name: Spawner (3)
+  m_Name: Asteroid 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -805,7 +806,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capacity: 25
   maxCapacity: 30
-  ship: {fileID: 11400000, guid: cd4c06634a525a74eb26c8106cb4bdb7, type: 2}
+  player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
 --- !u!114 &1373962212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1037,16 +1038,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 92324015}
     m_Modifications:
-    - target: {fileID: 3950277619106096648, guid: 54fdbd79afd3bf24e8b0c74f2069fa3e,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3950277619106096648, guid: 54fdbd79afd3bf24e8b0c74f2069fa3e,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 15.9
-      objectReference: {fileID: 0}
     - target: {fileID: 7077789994623568591, guid: 54fdbd79afd3bf24e8b0c74f2069fa3e,
         type: 3}
       propertyPath: m_Name
@@ -1055,7 +1046,7 @@ PrefabInstance:
     - target: {fileID: 7077789994623568591, guid: 54fdbd79afd3bf24e8b0c74f2069fa3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7598289644130291829, guid: 54fdbd79afd3bf24e8b0c74f2069fa3e,
         type: 3}
@@ -1114,6 +1105,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fdbd79afd3bf24e8b0c74f2069fa3e, type: 3}
+--- !u!1 &1832306436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1832306437}
+  - component: {fileID: 1832306438}
+  m_Layer: 0
+  m_Name: Player 1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1832306437
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832306436}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1901911960}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1832306438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1832306436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9cdce1605f415e4ba67e1bbb804132f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
 --- !u!1 &1901911959
 GameObject:
   m_ObjectHideFlags: 0
@@ -1124,12 +1160,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1901911960}
   m_Layer: 0
-  m_Name: Spawning
+  m_Name: Spawners
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1901911960
 Transform:
   m_ObjectHideFlags: 0
@@ -1147,6 +1183,7 @@ Transform:
   - {fileID: 308645259}
   - {fileID: 431738498}
   - {fileID: 682639495}
+  - {fileID: 1832306437}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1323,16 +1360,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8208081413025333748, guid: 63bec4179593a584ca357d4400652016,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8208081413025333748, guid: 63bec4179593a584ca357d4400652016,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 11.52
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 63bec4179593a584ca357d4400652016, type: 3}
 --- !u!4 &2095019176 stripped
@@ -1348,6 +1375,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 92324015}
     m_Modifications:
+    - target: {fileID: 2916229604853988125, guid: 0eb79f271bc0c5f4fa344e1677e19625,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 8361944897133174190, guid: 0eb79f271bc0c5f4fa344e1677e19625,
         type: 3}
       propertyPath: m_Name

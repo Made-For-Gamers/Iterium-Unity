@@ -3,6 +3,7 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Common/Factions")]
 
+//List of character SOs
 public class SO_Factions : ScriptableObject
 {
     [SerializeField] private List<SO_Character> factions = new List<SO_Character>();

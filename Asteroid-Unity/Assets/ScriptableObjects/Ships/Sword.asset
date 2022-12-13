@@ -19,7 +19,9 @@ MonoBehaviour:
   health: 0
   shieldPower: 0
   shieldCooldown: 0
-  shieldTime: 0
+  shieldTime: 5
   thrust: 500
   turnSpeed: 100
   bullet: {fileID: 11400000, guid: ffe65248ec0bf2747b9eacc23088181c, type: 2}
+  shipPrefab: {fileID: 8361944897133174190, guid: 0eb79f271bc0c5f4fa344e1677e19625,
+    type: 3}

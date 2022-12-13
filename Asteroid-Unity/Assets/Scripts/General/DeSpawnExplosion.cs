@@ -11,7 +11,7 @@ public class DeSpawnExplosion : MonoBehaviour
         StartCoroutine(RemoveExplosions());
     }
 
-    IEnumerator RemoveExplosions()
+    private IEnumerator RemoveExplosions()
     {
         yield return new WaitForSeconds(destroyTime);
         ExplosionPooling.explosionPool.Release(this.gameObject);

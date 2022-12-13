@@ -9,7 +9,7 @@ public class BulletPooling : MonoBehaviour
     [Header("Bullet Pooling")]
     [SerializeField] private int capacity = 25;
     [SerializeField] private int maxCapacity = 30;
-    [SerializeField] private SO_Ship ship;
+    [SerializeField] private SO_Player player;
     public static ObjectPool<GameObject> bulletPool;
 
     private void Start()
@@ -20,7 +20,7 @@ public class BulletPooling : MonoBehaviour
     private GameObject PoolNew()
     {
         //Instantiate a new asteroid
-        return Instantiate(ship.Bullet.BulletLvl1);
+        return Instantiate(player.Ship.Bullet.BulletLvl1);
     }
 
     private void PoolGet(GameObject obj)

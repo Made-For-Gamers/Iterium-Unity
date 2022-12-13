@@ -16,6 +16,7 @@ public class SO_Ship : ScriptableObject
     [SerializeField] private float thrust;  
     [SerializeField] private float turnSpeed;
     [SerializeField] private SO_Bullet bullet;
+    [SerializeField] private GameObject shipPrefab;
 
     public string ShipName { get => shipName; set => shipName = value; }
     public string Description { get => description; set => description = value; }
@@ -28,6 +29,7 @@ public class SO_Ship : ScriptableObject
     public float Thrust { get => thrust; set => thrust = value; }
     public float TurnSpeed { get => turnSpeed; set => turnSpeed = value; }
     public SO_Bullet Bullet { get => bullet; set => bullet = value; }
+    public GameObject ShipPrefab { get => shipPrefab; set => shipPrefab = value; }
 
 
     //Editor change/update

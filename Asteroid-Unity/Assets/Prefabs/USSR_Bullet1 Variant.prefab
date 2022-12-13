@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &6135979961840334704
+--- !u!1001 &4265007876889574684
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -15,22 +15,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c586e3619f6d0fe48846a7c9d81276a2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c586e3619f6d0fe48846a7c9d81276a2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c586e3619f6d0fe48846a7c9d81276a2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.3
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c586e3619f6d0fe48846a7c9d81276a2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c586e3619f6d0fe48846a7c9d81276a2,
         type: 3}
@@ -77,26 +77,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: c586e3619f6d0fe48846a7c9d81276a2,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: c586e3619f6d0fe48846a7c9d81276a2,
         type: 3}
       propertyPath: m_Name
-      value: USSR_BUL_Lv1 Variant
+      value: USSR_Bullet1 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c586e3619f6d0fe48846a7c9d81276a2, type: 3}
---- !u!1 &6477874537485912609 stripped
+--- !u!1 &4031060044659540045 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c586e3619f6d0fe48846a7c9d81276a2,
     type: 3}
-  m_PrefabInstance: {fileID: 6135979961840334704}
+  m_PrefabInstance: {fileID: 4265007876889574684}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &2325270250713611895
+--- !u!54 &3477327153854033814
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6477874537485912609}
+  m_GameObject: {fileID: 4031060044659540045}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -104,28 +109,28 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 116
   m_CollisionDetection: 0
---- !u!65 &2909188268411933798
+--- !u!65 &2171317003654582639
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6477874537485912609}
+  m_GameObject: {fileID: 4031060044659540045}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.9805928, y: 1.0963387, z: 0.93258953}
+  m_Size: {x: 1.78885, y: 2, z: 1.70128}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-5485463654752447717
+--- !u!114 &7200379601522021794
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6477874537485912609}
+  m_GameObject: {fileID: 4031060044659540045}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88e7759f1f6f87247bfb8f3e6efbf68b, type: 3}
@@ -134,4 +139,4 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
   asteroids: {fileID: 11400000, guid: eea4ac0412d4eb2439d964b97098a2e6, type: 2}
   crystals: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
-  dropChance: 15
+  dropChance: 20

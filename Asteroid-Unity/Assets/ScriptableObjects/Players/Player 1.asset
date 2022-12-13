@@ -15,3 +15,5 @@ MonoBehaviour:
   charName: Player 1
   description: 
   xp: 0
+  score: 26500
+  ship: {fileID: 11400000, guid: a8a1e506ef485154ca30b6e60d5c90e2, type: 2}

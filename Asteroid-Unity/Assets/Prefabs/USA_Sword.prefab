@@ -23,14 +23,89 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 211659930209424370}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 8.03}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 11.41}
   m_LocalScale: {x: 0.67489994, y: 0.67489994, z: 0.67489994}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 9169408246743762708}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7108857243791321679
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 9169408246743762708}
+    m_Modifications:
+    - target: {fileID: 3543209681440896873, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_Name
+      value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e332a68bb630d94899bddd6545a047d, type: 3}
+--- !u!1 &6020109359536053542 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3543209681440896873, guid: 1e332a68bb630d94899bddd6545a047d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7108857243791321679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8704034510600036607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -111,7 +186,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: eadb40fedbd592141945be1c44db646e,
         type: 3}
       propertyPath: m_Name
-      value: USA Variant
+      value: USA_Sword
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eadb40fedbd592141945be1c44db646e, type: 3}
@@ -135,7 +210,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 84
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!64 &8539860608274614437
 MeshCollider:
@@ -166,6 +241,7 @@ MonoBehaviour:
   rotateInput: {x: 0, y: 0}
   thrustInput: {x: 0, y: 0}
   isfire: 0
+  isShield: 0
 --- !u!114 &6028933540864628750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,6 +257,7 @@ MonoBehaviour:
   input: {fileID: 886977962807956760}
   ship: {fileID: 11400000, guid: a8a1e506ef485154ca30b6e60d5c90e2, type: 2}
   firePosition: {fileID: 180218147745910868}
+  shield: {fileID: 6020109359536053542}
 --- !u!4 &9169408246743762708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eadb40fedbd592141945be1c44db646e,
