@@ -12,8 +12,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Brushed stainless steel.003
+    second: {fileID: 2100000, guid: 49bb70ed57d6fd6449fc53ece0c23d40, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Glass blue
     second: {fileID: 2100000, guid: 7ee7738ea4016ca498845a449a1f665a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Glass blue.003
+    second: {fileID: 2100000, guid: 93b4822e40d569b40ab1d705a5876145, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -29,6 +39,21 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: Material.002
     second: {fileID: 2100000, guid: c50c83afdfdc7e347bfadc157854d13f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.004
+    second: {fileID: 2100000, guid: 441b72d430e643e4db4e56621b10cfb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 441b72d430e643e4db4e56621b10cfb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.006
+    second: {fileID: 2100000, guid: 6d0bd1ad838ae4e498b6ab9a7f492fe4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -8,12 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Blue_Lines
-    second: {fileID: 2100000, guid: d2461ed111dbfaa44bf6b7bb4b51ab25, type: 2}
+    second: {fileID: 2100000, guid: dc43ee9ca83e65d4a91ebc3767ffca1f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rnd_Blk
     second: {fileID: 2100000, guid: 46f00fbe0f4c49d40b5fb10f3f5e3d49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rnd_Blk.001
+    second: {fileID: 2100000, guid: c74e6e2c345844546baa758272085e0d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

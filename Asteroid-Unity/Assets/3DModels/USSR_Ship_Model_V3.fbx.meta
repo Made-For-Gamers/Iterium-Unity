@@ -8,12 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Blue_lines
-    second: {fileID: 2100000, guid: a9d0cc77358ddaf44a754e8dabceabca, type: 2}
+    second: {fileID: 2100000, guid: 6d0bd1ad838ae4e498b6ab9a7f492fe4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glass dark
-    second: {fileID: 2100000, guid: ee44da29bf169e94bb81ed897b88635e, type: 2}
+    second: {fileID: 2100000, guid: 401f45f1f03d42b4d8199d7c07086de3, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

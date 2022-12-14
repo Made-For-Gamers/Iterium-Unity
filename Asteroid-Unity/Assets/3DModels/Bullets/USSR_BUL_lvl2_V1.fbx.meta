@@ -12,8 +12,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Plasma_glow.002
+    second: {fileID: 2100000, guid: 8d47f16f3eb19634a90a286e80ac371a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Yellow_steel
-    second: {fileID: 2100000, guid: b4976c00decdc364a82e8d76dc456cc7, type: 2}
+    second: {fileID: 2100000, guid: 6d0bd1ad838ae4e498b6ab9a7f492fe4, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

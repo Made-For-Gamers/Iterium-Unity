@@ -8,12 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Glow_tip
-    second: {fileID: 2100000, guid: e538222e3a0d4894e9513162a9c5add7, type: 2}
+    second: {fileID: 2100000, guid: 6d0bd1ad838ae4e498b6ab9a7f492fe4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Orange_steel
-    second: {fileID: 2100000, guid: 7e194fe3521c06e4cbb3ef66ff177e36, type: 2}
+    second: {fileID: 2100000, guid: 441b72d430e643e4db4e56621b10cfb7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Plasma_glow
+    second: {fileID: 2100000, guid: 8d47f16f3eb19634a90a286e80ac371a, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

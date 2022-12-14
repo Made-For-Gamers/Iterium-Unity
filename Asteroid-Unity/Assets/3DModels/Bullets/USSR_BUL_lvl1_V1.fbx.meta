@@ -13,7 +13,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rough Iron Steel.001
-    second: {fileID: 2100000, guid: 85c46aad2fb51f44885e8ff351d36d0b, type: 2}
+    second: {fileID: 2100000, guid: c74e6e2c345844546baa758272085e0d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

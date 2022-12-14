@@ -8,12 +8,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Yellow
-    second: {fileID: 2100000, guid: 7df77eb02b58d2442b76f468c9865758, type: 2}
+    second: {fileID: 2100000, guid: 6d0bd1ad838ae4e498b6ab9a7f492fe4, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rnd_Blk
     second: {fileID: 2100000, guid: f2dda7cbc3c4e8145a1018b0cdc04dad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rnd_Blk.002
+    second: {fileID: 2100000, guid: c74e6e2c345844546baa758272085e0d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

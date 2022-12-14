@@ -23,12 +23,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rnd_Blk
-    second: {fileID: 2100000, guid: 12f37c9dce7c3674dbbbd68be8baa81e, type: 2}
+    second: {fileID: 2100000, guid: c74e6e2c345844546baa758272085e0d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: rnd_Grey
-    second: {fileID: 2100000, guid: c73850b0c34089f47992c1d4f71ece16, type: 2}
+    second: {fileID: 2100000, guid: c74e6e2c345844546baa758272085e0d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
