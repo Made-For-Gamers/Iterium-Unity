@@ -11,6 +11,6 @@ public class SO_Character : ScriptableObject
     [SerializeField] private Sprite image;
     [SerializeField] private string country;
     [SerializeField] private Sprite flag;
-    [SerializeField] private SO_Ship ship;
+    [SerializeField] private SO_Player ship;
    
 }

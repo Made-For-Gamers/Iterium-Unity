@@ -3,9 +3,15 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// Input System for Keyboard/Mouse/Controller (see "Settings/Input System" folder)
+/// Handles device input for the following functions...
+/// * Movement
+/// * Firing
+/// * Shields
+/// </summary>
 public class InputManager : MonoBehaviour
 {
-    //Input System - see "Settings/Input System" to change the controls
     private InputSystem input;
     
     //The following values are read from the PlayerController script

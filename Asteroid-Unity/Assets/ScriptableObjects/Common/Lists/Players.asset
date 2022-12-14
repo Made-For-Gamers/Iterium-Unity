@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
-  m_Name: Player 2
+  m_Script: {fileID: 11500000, guid: d6de21e02a1584746b0edd2d2496f587, type: 3}
+  m_Name: Players
   m_EditorClassIdentifier: 
-  charName: Player 2
-  description: 
-  xp: 0
-  score: 0
-  ship: {fileID: 11400000, guid: cd4c06634a525a74eb26c8106cb4bdb7, type: 2}
-  player2: 1
+  players:
+  - {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
+  - {fileID: 11400000, guid: 691af218c3a659243a9c385fefa84e1d, type: 2}

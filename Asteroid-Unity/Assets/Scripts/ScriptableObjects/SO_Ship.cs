@@ -10,10 +10,10 @@ public class SO_Ship : ScriptableObject
     [SerializeField] private Sprite image;
     [SerializeField] private SO_Types faction;
     [SerializeField] private int health;
-    [SerializeField] private float shieldPower;
+    [SerializeField] private int shieldPower;
     [SerializeField] private float shieldCooldown;
     [SerializeField] private float shieldTime;
-    [SerializeField] private float thrust;  
+    [SerializeField] private float thrust;
     [SerializeField] private float turnSpeed;
     [SerializeField] private SO_Bullet bullet;
     [SerializeField] private GameObject shipPrefab;
@@ -23,7 +23,7 @@ public class SO_Ship : ScriptableObject
     public Sprite Image { get => image; set => image = value; }
     public SO_Types Faction { get => faction; set => faction = value; }
     public int Health { get => health; set => health = value; }
-    public float ShieldPower { get => shieldPower; set => shieldPower = value; }
+    public int ShieldPower { get => shieldPower; set => shieldPower = value; }
     public float ShieldCooldown { get => shieldCooldown; set => shieldCooldown = value; }
     public float ShieldTime { get => shieldTime; set => shieldTime = value; }
     public float Thrust { get => thrust; set => thrust = value; }
@@ -31,6 +31,17 @@ public class SO_Ship : ScriptableObject
     public SO_Bullet Bullet { get => bullet; set => bullet = value; }
     public GameObject ShipPrefab { get => shipPrefab; set => shipPrefab = value; }
 
+    public void BulletHit(int firePower, int shieldPower)
+    {
+        if (PlayerController.isShielding)
+        {
+            health -= firePower / shieldPower;
+        }
+        else
+        { 
+            health -= firePower;
+        }
+    }
 
     //Editor change/update
     private void OnValidate()

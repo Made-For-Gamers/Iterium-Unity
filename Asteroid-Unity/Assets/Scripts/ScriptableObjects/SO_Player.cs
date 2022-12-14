@@ -11,11 +11,12 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int xp;
     [SerializeField] private int score;
     [SerializeField] private SO_Ship ship;
+    [SerializeField] private bool player2;
 
     public string CharName { get => charName; set => charName = value; } 
     public string Description { get => description; set => description = value; } 
     public int Xp { get => xp; set => xp = value; }
     public int Score { get => score; set => score = value; }
     public SO_Ship Ship { get => ship; set => ship = value; }
-
+    public bool Player2 { get => player2; set => player2 = value; }
 }

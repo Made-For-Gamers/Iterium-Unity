@@ -16,9 +16,9 @@ MonoBehaviour:
   description: 
   image: {fileID: 0}
   faction: {fileID: 0}
-  health: 0
-  shieldPower: 0
-  shieldCooldown: 0
+  health: 100
+  shieldPower: 20
+  shieldCooldown: 10
   shieldTime: 5
   thrust: 500
   turnSpeed: 100

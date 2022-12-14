@@ -6,6 +6,15 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Start()
     {
-        Instantiate(player.Ship.ShipPrefab);
+       GameObject ship = Instantiate(player.Ship.ShipPrefab);
+        ship.transform.position = transform.position;
+        if (player.Player2)
+        {
+            ship.transform.tag = "Player2";
+        }
+        else
+        {
+            ship.transform.tag = "Player1";
+        }
     }
 }
