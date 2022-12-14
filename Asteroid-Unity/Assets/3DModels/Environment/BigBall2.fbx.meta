@@ -1,13 +1,18 @@
 fileFormatVersion: 2
-guid: afac2a7275ed82a47901055f21993d67
+guid: 476264e0aa6156147b9e93399bd594da
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BigBall
+    second: {fileID: 2100000, guid: c4c60eef42dc1444fbae3323c5590ff2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
-    materialSearch: 1
+    materialSearch: 0
     materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
