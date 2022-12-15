@@ -17,4 +17,4 @@ MonoBehaviour:
   xp: 0
   score: 0
   ship: {fileID: 11400000, guid: cd4c06634a525a74eb26c8106cb4bdb7, type: 2}
-  player2: 1
+  health: 925

@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject shield;
     [SerializeField] private Transform player1Spawnpoint;
     [SerializeField] private Transform player2Spawnpoint;
+    [SerializeField] public int playerNumber;
     private float shieldCooldown;
     private Rigidbody rigidBody;
     public static bool isShielding;
@@ -23,12 +24,12 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        switch (transform.tag)
+        switch (playerNumber)
         {
-            case "Player1":
+            case 1:
                 player = playerList.Players[0];
                 break;
-            case "Player2":
+            case 2:
                 player = playerList.Players[1];
                 break;
         }
@@ -58,6 +59,7 @@ public class PlayerController : MonoBehaviour
         if (input.isfire)
         {
             GameObject bullet = BulletPooling.bulletPool.Get();
+            bullet.GetComponent<Bullet>().player = player;
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * player.Ship.Bullet.Speed;
@@ -96,17 +98,30 @@ public class PlayerController : MonoBehaviour
         shield.SetActive(false);
     }
 
-    //Move ship when it leaves the screen
-    private void OnBecameInvisible()
+    public void BulletHit(float firePower)
     {
-        transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        if (transform.tag == "Player2")
+        if (isShielding)
         {
-            transform.position = player2Spawnpoint.position;
+            player.Health -= (int)(firePower / player.Ship.ShieldPower);
         }
         else
         {
-            transform.position = player1Spawnpoint.position;
+            player.Health -= (int)firePower;
+        }
+    }
+
+    //Move ship when it leaves the screen
+    private void OnBecameInvisible()
+    {        
+        transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
+        switch (playerNumber)
+        {
+            case 1:
+                  transform.position = player1Spawnpoint.position;
+                break;
+            case 2:
+                transform.position = player2Spawnpoint.position;
+                break;
         }
     }
 }

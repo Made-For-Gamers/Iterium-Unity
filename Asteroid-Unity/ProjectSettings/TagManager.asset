@@ -6,8 +6,6 @@ TagManager:
   tags:
   - Asteroid
   - Explosion
-  - Player1
-  - Player2
   layers:
   - Default
   - TransparentFX

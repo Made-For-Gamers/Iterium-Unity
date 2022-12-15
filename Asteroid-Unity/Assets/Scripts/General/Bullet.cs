@@ -9,12 +9,13 @@ using UnityEngine;
 /// </summary>
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] SO_Player player;
-    [SerializeField] SO_GameObjects asteroids;
-    [SerializeField] SO_GameObjects crystals;
+    public SO_Player player;
+    [SerializeField] private SO_GameObjects asteroids;
+    [SerializeField] private SO_GameObjects crystals;
     [Header("Chance of crystal drop 1/?")]
-    [SerializeField] int dropChance = 20;   
+    [SerializeField] private int dropChance = 20;
 
+    //Take action when bullet hits a specific object
     private void OnCollisionEnter(Collision collision)
     {
         switch (collision.gameObject.tag)
@@ -51,13 +52,9 @@ public class Bullet : MonoBehaviour
                 AsteroidPooling.asteroidPool.Release(collision.gameObject);
                 break;
 
-            case "Player1":
-                var player1Hit = collision.transform.GetComponent<PlayerController>().player.Ship;
-                player1Hit.BulletHit(player1Hit.Bullet.FirePower, player1Hit.ShieldPower);
-                break;
-            case "Player2":
-                var player2Hit = collision.transform.GetComponent<PlayerController>().player.Ship;
-                player2Hit.BulletHit(player2Hit.Bullet.FirePower, player2Hit.ShieldPower);
+            case "Player":
+                var player1Hit = collision.transform.GetComponent<PlayerController>();
+                player1Hit.BulletHit(player.Ship.Bullet.FirePower);
                 break;
         }
     }
