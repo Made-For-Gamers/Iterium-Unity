@@ -133,6 +133,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: China_Rapier
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dbb46903fbeb7964c828104eab5706fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dbb46903fbeb7964c828104eab5706fc, type: 3}
 --- !u!1 &7077789994623568591 stripped
@@ -207,6 +212,7 @@ MonoBehaviour:
     type: 3}
   player2Spawnpoint: {fileID: 8052643502944813606, guid: 4c22e1b855b480a47a03e5008280492a,
     type: 3}
+  playerNumber: 0
   player: {fileID: 0}
 --- !u!4 &7598289644130291829 stripped
 Transform:

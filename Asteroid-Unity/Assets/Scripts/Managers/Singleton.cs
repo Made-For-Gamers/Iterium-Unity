@@ -11,19 +11,20 @@ public class Singleton : MonoBehaviour
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
         if (Instance != null && Instance != this)
         {
             Destroy(this);
         }
         else
-        { 
-        Instance = this;
+        {
+            Instance = this;
         }
     }
 
     void Start()
     {
-      
+
     }
 
 

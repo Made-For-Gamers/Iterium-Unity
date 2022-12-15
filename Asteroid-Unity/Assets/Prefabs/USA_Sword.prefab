@@ -292,6 +292,7 @@ MonoBehaviour:
     type: 3}
   player2Spawnpoint: {fileID: 8052643502944813606, guid: 4c22e1b855b480a47a03e5008280492a,
     type: 3}
+  playerNumber: 0
   player: {fileID: 0}
 --- !u!4 &9169408246743762708 stripped
 Transform:
