@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class UI_Score : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SO_Player player;
+    private TextMeshProUGUI scoreText;
+
+    private void Start()
     {
-        
+        scoreText = GetComponent<TextMeshProUGUI>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        scoreText.text = player.Score.ToString();
     }
 }
