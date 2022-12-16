@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private SO_GameObjects crystals;
     [Header("Chance of crystal drop 1/?")]
     [SerializeField] private int dropChance = 20;
+    public int PlayerNumber;
 
     //Take action when bullet hits a specific object
     private void OnCollisionEnter(Collision collision)
@@ -22,7 +23,7 @@ public class Bullet : MonoBehaviour
         {
             case "Asteroid":
 
-                BulletHit(collision);
+                BulletExplosion(collision);
                 player.Score += 100;
                 player.Xp += 1;
 
@@ -55,14 +56,15 @@ public class Bullet : MonoBehaviour
             case "Player":
                 var player1Hit = collision.transform.GetComponent<PlayerController>();
                 player1Hit.BulletHit(player.Ship.Bullet.FirePower);
+                BulletExplosion(collision);
                 break;
         }
     }
 
-    private void BulletHit(Collision obj)
+    private void BulletExplosion(Collision obj)
     {
         //Remove bullet
-        BulletPooling.bulletPool.Release(this.gameObject);
+        BulletPooling.bulletPool[PlayerNumber-1].Release(this.gameObject);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
@@ -72,6 +74,6 @@ public class Bullet : MonoBehaviour
     //Remove bullet after it leaves the screen
     private void OnBecameInvisible()
     {
-        BulletPooling.bulletPool.Release(this.gameObject);
+        BulletPooling.bulletPool[PlayerNumber-1].Release(this.gameObject);
     }
 }

@@ -535,7 +535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &250917984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &308645258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,7 +879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &431738497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1499,7 +1499,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &682639494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,7 +1747,7 @@ GameObject:
   - component: {fileID: 1373962214}
   - component: {fileID: 1373962213}
   - component: {fileID: 1373962212}
-  - component: {fileID: 1373962211}
+  - component: {fileID: 1373962215}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -1755,21 +1755,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1373962211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373962210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f604c2311c7cc894c997e72d3a3a47c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  capacity: 25
-  maxCapacity: 30
-  player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
 --- !u!114 &1373962212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,6 +1800,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1373962215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373962210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f604c2311c7cc894c997e72d3a3a47c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  capacity: 25
+  maxCapacity: 30
+  players: {fileID: 11400000, guid: 43b805e9a1f7e194eae91b5c9d624a53, type: 2}
 --- !u!1 &1417713978
 GameObject:
   m_ObjectHideFlags: 0

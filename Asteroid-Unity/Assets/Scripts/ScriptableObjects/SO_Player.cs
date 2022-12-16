@@ -10,7 +10,7 @@ public class SO_Player : ScriptableObject
     [SerializeField] private string description;
     [SerializeField] private int xp;
     [SerializeField] private int score;
-    [SerializeField] private SO_Ship ship;   
+    [SerializeField] private SO_Ship ship;
     [SerializeField] private int health;
 
     public string CharName { get => charName; set => charName = value; } 

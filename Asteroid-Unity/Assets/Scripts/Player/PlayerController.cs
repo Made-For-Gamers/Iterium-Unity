@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
                 player = playerList.Players[1];
                 break;
         }
+        player.Health = 100;
     }
 
     void Update()
@@ -58,11 +59,12 @@ public class PlayerController : MonoBehaviour
     {
         if (input.isfire)
         {
-            GameObject bullet = BulletPooling.bulletPool.Get();
+            GameObject bullet = BulletPooling.bulletPool[playerNumber-1].Get();
             bullet.GetComponent<Bullet>().player = player;
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * player.Ship.Bullet.Speed;
+            bullet.GetComponentInParent<Bullet>().PlayerNumber = playerNumber;
             input.isfire = false;
         }
     }
@@ -108,16 +110,33 @@ public class PlayerController : MonoBehaviour
         {
             player.Health -= (int)firePower;
         }
+        if (player.Health <= 0)
+        {
+            StartCoroutine(DestroyShip());
+        }
+    }
+
+    IEnumerator DestroyShip()
+    {
+        for (int i = 0; i < 3; i++)
+        {            
+            GameObject explosionObject = ExplosionPooling.explosionPool.Get();
+            explosionObject.transform.position = transform.position;
+            explosionObject.transform.rotation = transform.rotation;
+            explosionObject.transform.localScale = new Vector3(i, i, i);
+            yield return new WaitForSeconds(0.1f);
+        }
+        Destroy(this.gameObject);
     }
 
     //Move ship when it leaves the screen
     private void OnBecameInvisible()
-    {        
+    {
         transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
         switch (playerNumber)
         {
             case 1:
-                  transform.position = player1Spawnpoint.position;
+                transform.position = player1Spawnpoint.position;
                 break;
             case 2:
                 transform.position = player2Spawnpoint.position;
