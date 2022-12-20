@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: Player 3
   m_EditorClassIdentifier: 
-  charName: Player 2
+  charName: Player 3
   description: 
   xp: 0
   score: 0
   ship: {fileID: 11400000, guid: 20feafd5063d60e46b1f1d66c19f5d40, type: 2}
-  health: 100
+  health: 85

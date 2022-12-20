@@ -9,35 +9,37 @@ using UnityEngine;
 /// </summary>
 public class Bullet : MonoBehaviour
 {
-    public SO_Player player;
     [SerializeField] private SO_GameObjects asteroids;
     [SerializeField] private SO_GameObjects crystals;
+
     [Header("Chance of crystal drop 1/?")]
     [SerializeField] private int dropChance = 20;
-    public int PlayerNumber;
+
+    [HideInInspector] public int PlayerNumber;
+    [HideInInspector] public SO_Player player;
 
     //Take action when bullet hits a specific object
     private void OnCollisionEnter(Collision collision)
     {
         switch (collision.gameObject.tag)
         {
+            //Bullet hits an asteroid
             case "Asteroid":
-
                 BulletExplosion(collision);
-                player.Score += 100;
-                player.Xp += 1;
+                player.Score += 50;
+                player.Xp += 10;
 
                 //Split asteroid if it is larger than a set size
                 Vector3 scale = collision.transform.localScale;
                 if (scale.x > 0.25)
                 {
-                    int rnd = Random.Range(2, 5);
+                    int rnd = Random.Range(2, 5); //Split into random number of pieces
                     for (int i = 0; i < rnd; i++)
                     {
                         GameObject spawnedAsteroid = AsteroidPooling.asteroidPool.Get();
                         spawnedAsteroid.transform.rotation = collision.transform.rotation;
                         spawnedAsteroid.transform.localScale = new Vector3(scale.x / rnd, scale.y / rnd, scale.z / rnd);
-                        spawnedAsteroid.transform.position = new Vector3(collision.transform.position.x, 0 , collision.transform.position.z);
+                        spawnedAsteroid.transform.position = new Vector3(collision.transform.position.x, 0, collision.transform.position.z);
                         spawnedAsteroid.GetComponent<Rigidbody>().mass = collision.transform.GetComponent<Rigidbody>().mass / rnd;
                     }
 
@@ -53,18 +55,22 @@ public class Bullet : MonoBehaviour
                 AsteroidPooling.asteroidPool.Release(collision.gameObject);
                 break;
 
+            //Bullet hits a player
             case "Player":
                 var player1Hit = collision.transform.GetComponent<PlayerController>();
-                player1Hit.BulletHit(player.Ship.Bullet.FirePower);
+                player1Hit.BulletHit(player.Ship.Bullet.FirePower, player);
+                player.Score += 250;
+                player.Xp += 25;
                 BulletExplosion(collision);
                 break;
         }
     }
 
+    //Remove bullet after a collision
     private void BulletExplosion(Collision obj)
     {
-        //Remove bullet
-        BulletPooling.bulletPool[PlayerNumber-1].Release(this.gameObject);
+
+        BulletPooling.bulletPool[PlayerNumber - 1].Release(this.gameObject);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
@@ -74,6 +80,6 @@ public class Bullet : MonoBehaviour
     //Remove bullet after it leaves the screen
     private void OnBecameInvisible()
     {
-        BulletPooling.bulletPool[PlayerNumber-1].Release(this.gameObject);
+        BulletPooling.bulletPool[PlayerNumber - 1].Release(this.gameObject);
     }
 }

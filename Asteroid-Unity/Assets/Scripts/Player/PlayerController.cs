@@ -1,6 +1,10 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Timeline;
+using System.ComponentModel;
+using UnityEditor.ShaderGraph.Drawing;
+using Unity.Collections;
 
 /// <summary>
 /// Player ship script that handles...
@@ -13,13 +17,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputManager input;
     [SerializeField] private SO_Players playerList;
     [SerializeField] private Transform firePosition;
-    [SerializeField] private GameObject shield;
-    public Transform spawnPoint;   
-    public int playerNumber;
+    [SerializeField] private GameObject shield;     
+   
+    [HideInInspector] public SO_Player player;
+    [HideInInspector] public Transform spawnPoint; 
+    [HideInInspector] public int playerNumber;
+    
     private float shieldCooldown;
     private bool isShielding;
-    private Rigidbody rigidBody;   
-    [HideInInspector] public SO_Player player;
+    private Rigidbody rigidBody;
 
     void Start()
     {
@@ -77,9 +83,13 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(ShieldTime());
             shieldCooldown = player.Ship.ShieldCooldown;
         }
-        else if (shieldCooldown > 0) //Cooldown countdown
+
+        if (shieldCooldown > 0) //Cooldown countdown
         {
             shieldCooldown -= 1 * Time.deltaTime;
+        }
+        else 
+        {
             input.isShield = false;
             isShielding = false;
         }
@@ -90,9 +100,10 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(player.Ship.ShieldTime);
         shield.SetActive(false);
+
     }
 
-    public void BulletHit(float firePower)
+    public void BulletHit(float firePower, SO_Player shootingPlayer)
     {
         if (isShielding)
         {
@@ -104,6 +115,8 @@ public class PlayerController : MonoBehaviour
         }
         if (player.Health <= 0)
         {
+            shootingPlayer.Score += 1000;
+            shootingPlayer.Xp += 250;
             StartCoroutine(DestroyShip());
         }
     }

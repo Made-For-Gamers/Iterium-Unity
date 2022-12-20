@@ -1,8 +1,12 @@
 using UnityEngine;
 using TMPro;
 
+/// <summary>
+/// Displays a players health - TextMeshPro text field
+/// </summary>
 public class UI_PlayerHealth : MonoBehaviour
 {
+    
     [SerializeField] private SO_Player player;
     private TextMeshProUGUI healthText;
 

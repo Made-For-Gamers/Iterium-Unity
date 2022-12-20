@@ -1,6 +1,9 @@
 using TMPro;
 using UnityEngine;
 
+/// <summary>
+/// Displays a players score - TextMeshPro text field
+/// </summary>
 public class UI_Score : MonoBehaviour
 {
     [SerializeField] private SO_Player player;
