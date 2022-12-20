@@ -7,11 +7,16 @@ using UnityEngine;
 public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private SO_Player npc;
+    [Header("Spawning")]
     [SerializeField] int minSpawnTime;
     [SerializeField] int maxSpawnTime;
 
+    [Header("Movement")]
+    [SerializeField] int minSpeed;
+    [SerializeField] int maxSpeed;
+
     private int rnd;
-    public bool isNpcSpawned;
+    [HideInInspector] public bool isNpcSpawned;
 
     private void Update()
     {
@@ -30,6 +35,8 @@ public class NPCSpawner : MonoBehaviour
         ship.transform.position = transform.position;
         ship.transform.rotation = transform.rotation;
         ship.GetComponent<NPCController>().spawnPoint = transform;
-        ship.GetComponent<Rigidbody>().velocity = new Vector3(5, 0, 0);      
+        int rndX = Random.Range(minSpeed, maxSpeed);
+        int rndZ = Random.Range(minSpeed / 2, maxSpeed / 2);
+        ship.GetComponent<Rigidbody>().velocity = new Vector3(rndX, 0, -rndZ);      
     }
 }
