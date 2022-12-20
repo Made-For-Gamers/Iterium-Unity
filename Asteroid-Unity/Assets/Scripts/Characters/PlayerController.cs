@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    //Move ship when it leaves the screen
+    //Remove ship when it leaves the screen
     private void OnBecameInvisible()
     {
         transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
