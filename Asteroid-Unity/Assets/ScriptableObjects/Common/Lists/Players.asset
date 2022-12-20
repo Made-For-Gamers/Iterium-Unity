@@ -15,3 +15,4 @@ MonoBehaviour:
   players:
   - {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
   - {fileID: 11400000, guid: 691af218c3a659243a9c385fefa84e1d, type: 2}
+  - {fileID: 11400000, guid: 3352d686486efc842bebb774e7bb8363, type: 2}

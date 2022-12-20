@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 /// <summary>
 /// Player ship script that handles...
@@ -13,26 +14,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private SO_Players playerList;
     [SerializeField] private Transform firePosition;
     [SerializeField] private GameObject shield;
-    [SerializeField] private Transform player1Spawnpoint;
-    [SerializeField] private Transform player2Spawnpoint;
-    [SerializeField] public int playerNumber;
+    public Transform spawnPoint;   
+    public int playerNumber;
     private float shieldCooldown;
-    private Rigidbody rigidBody;
-    public static bool isShielding;
-    public SO_Player player;
+    private bool isShielding;
+    private Rigidbody rigidBody;   
+    [HideInInspector] public SO_Player player;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        switch (playerNumber)
-        {
-            case 1:
-                player = playerList.Players[0];
-                break;
-            case 2:
-                player = playerList.Players[1];
-                break;
-        }
+        player = playerList.Players[playerNumber - 1];
         player.Health = 100;
     }
 
@@ -59,7 +51,7 @@ public class PlayerController : MonoBehaviour
     {
         if (input.isfire)
         {
-            GameObject bullet = BulletPooling.bulletPool[playerNumber-1].Get();
+            GameObject bullet = BulletPooling.bulletPool[playerNumber - 1].Get();
             bullet.GetComponent<Bullet>().player = player;
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
@@ -78,7 +70,7 @@ public class PlayerController : MonoBehaviour
     //Shield
     private void Shield()
     {
-        if (input.isShield & !isShielding) //Desploy Shield
+        if (input.isShield & !isShielding) //Deploy Shield
         {
             shield.SetActive(true);
             isShielding = true;
@@ -119,7 +111,7 @@ public class PlayerController : MonoBehaviour
     IEnumerator DestroyShip()
     {
         for (int i = 0; i < 3; i++)
-        {            
+        {
             GameObject explosionObject = ExplosionPooling.explosionPool.Get();
             explosionObject.transform.position = transform.position;
             explosionObject.transform.rotation = transform.rotation;
@@ -133,14 +125,6 @@ public class PlayerController : MonoBehaviour
     private void OnBecameInvisible()
     {
         transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        switch (playerNumber)
-        {
-            case 1:
-                transform.position = player1Spawnpoint.position;
-                break;
-            case 2:
-                transform.position = player2Spawnpoint.position;
-                break;
-        }
+        transform.position = spawnPoint.position;
     }
 }

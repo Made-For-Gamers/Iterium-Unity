@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595410998879127688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11.43}
+  m_LocalPosition: {x: 0, y: 0, z: 12.84}
   m_LocalScale: {x: 0.67489994, y: 0.67489994, z: 0.67489994}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -61,7 +61,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4404b5363efd6bc4591e34d8a0f5957a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4404b5363efd6bc4591e34d8a0f5957a,
         type: 3}
@@ -198,10 +198,8 @@ MonoBehaviour:
   playerList: {fileID: 11400000, guid: 43b805e9a1f7e194eae91b5c9d624a53, type: 2}
   firePosition: {fileID: 8208081413025333748}
   shield: {fileID: 5301118893624841161}
-  player1Spawnpoint: {fileID: 454254025818764624, guid: 1889916712eb23049bd5ff76791fd707,
-    type: 3}
-  player2Spawnpoint: {fileID: 8052643502944813606, guid: 4c22e1b855b480a47a03e5008280492a,
-    type: 3}
+  spawnPoints:
+  - {fileID: 454254025818764625, guid: 1889916712eb23049bd5ff76791fd707, type: 3}
   playerNumber: 0
   player: {fileID: 0}
 --- !u!4 &5199458798182027165 stripped
@@ -222,10 +220,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 3543209681440896873, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
         type: 3}

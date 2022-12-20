@@ -10,5 +10,6 @@ public class PlayerSpawner : MonoBehaviour
         GameObject ship = Instantiate(player.Ship.ShipPrefab);
         ship.transform.position = transform.position;
         ship.GetComponent<PlayerController>().playerNumber = playerNumber;
+        ship.GetComponent<PlayerController>().spawnPoint = transform;
     }
 }

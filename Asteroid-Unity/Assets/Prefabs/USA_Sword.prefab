@@ -43,10 +43,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield
       objectReference: {fileID: 0}
+    - target: {fileID: 3543209681440896873, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 8734933771251435355, guid: 1e332a68bb630d94899bddd6545a047d,
         type: 3}
