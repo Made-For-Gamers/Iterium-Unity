@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /// <summary>
@@ -9,26 +7,27 @@ public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private SO_Player npc;
     [Header("Spawning")]
-    [SerializeField] int spawnTime = 45;   
+    [SerializeField] int spawnInterval = 45;   
 
     [Header("Movement")]
     [SerializeField] int minSpeed;
     [SerializeField] int maxSpeed;
+    [SerializeField] Transform target;
+    private int speed;
     
 
     private void Start()
     {
-        InvokeRepeating("SpawnNPC", spawnTime, spawnTime);
+        InvokeRepeating("SpawnNPC", spawnInterval, spawnInterval);
     }
 
     private void SpawnNPC()
-    {       
-        GameObject ship = Instantiate(npc.Ship.ShipPrefab);      
-        ship.transform.position = transform.position;
-        ship.transform.rotation = transform.rotation;
-        ship.GetComponent<NPCController>().spawnPoint = transform;
-        int rndX = Random.Range(minSpeed, maxSpeed);
-        int rndZ = Random.Range(minSpeed / 2, maxSpeed / 2);
-        ship.GetComponent<Rigidbody>().velocity = new Vector3(rndX, 0, -rndZ);      
+    {
+        int rnd = Random.Range(1, 5);
+        GameObject ship = Instantiate(npc.Ship.ShipPrefab);  
+        ship.transform.position = GetComponentsInChildren<Transform>()[rnd].position;
+        ship.transform.LookAt(target);        
+        speed = Random.Range(minSpeed, maxSpeed);      
+        ship.GetComponent<Rigidbody>().velocity = ship.transform.forward * speed;      
     }
 }

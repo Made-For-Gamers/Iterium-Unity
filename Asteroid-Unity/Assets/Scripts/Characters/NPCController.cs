@@ -2,11 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class NPCController : MonoBehaviour
-{
-    [HideInInspector] public Transform spawnPoint;
+{   
     [Header("Bullet")]
-    private float fireStart = 2f;
-    private float fireInterval = 1f;   
+    [SerializeField] private float fireStart = 3f;
+    [SerializeField] private float fireInterval = 1.5f;
+
+    [Header("Characters")]
     [SerializeField] private SO_Players players; //Drag in the ScriptableObject list of players
     [SerializeField] private SO_Players npcs; //Drag in the ScriptableObject list of NPCs
 
@@ -28,7 +29,7 @@ public class NPCController : MonoBehaviour
         //Increase NPC velocity if ship speed becomes too slow due to collision with asteroids
         if (transform.GetComponent<Rigidbody>().velocity.x <= 2f)
         {
-            transform.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(4,8), 0, Random.Range(4, 8));
+            transform.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-6,7), 0, Random.Range(-6, 7));
         }
     }
 
