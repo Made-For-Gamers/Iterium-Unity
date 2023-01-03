@@ -70,7 +70,7 @@ public class Bullet : MonoBehaviour
     private void BulletExplosion(Collision obj)
     {
 
-        BulletPooling.bulletPool[PlayerNumber - 1].Release(this.gameObject);
+        BulletPooling.bulletPool[PlayerNumber].Release(this.gameObject);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
@@ -80,6 +80,6 @@ public class Bullet : MonoBehaviour
     //Remove bullet after it leaves the screen
     private void OnBecameInvisible()
     {
-        BulletPooling.bulletPool[PlayerNumber - 1].Release(this.gameObject);
+        BulletPooling.bulletPool[PlayerNumber].Release(this.gameObject);
     }
 }
