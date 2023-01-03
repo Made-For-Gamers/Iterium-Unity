@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 /// <summary>
@@ -8,29 +9,20 @@ public class NPCSpawner : MonoBehaviour
 {
     [SerializeField] private SO_Player npc;
     [Header("Spawning")]
-    [SerializeField] int minSpawnTime;
-    [SerializeField] int maxSpawnTime;
+    [SerializeField] int spawnTime = 45;   
 
     [Header("Movement")]
     [SerializeField] int minSpeed;
     [SerializeField] int maxSpeed;
+    
 
-    private int rnd;
-    [HideInInspector] public bool isNpcSpawned;
-
-    private void Update()
+    private void Start()
     {
-        if (!isNpcSpawned)
-        {
-            int rnd = Random.Range(minSpawnTime, maxSpawnTime);
-            isNpcSpawned = true;
-            StartCoroutine(SpawnNPC());
-        }
+        InvokeRepeating("SpawnNPC", spawnTime, spawnTime);
     }
 
-    IEnumerator SpawnNPC()
-    {
-        yield return new WaitForSeconds(rnd);
+    private void SpawnNPC()
+    {       
         GameObject ship = Instantiate(npc.Ship.ShipPrefab);      
         ship.transform.position = transform.position;
         ship.transform.rotation = transform.rotation;

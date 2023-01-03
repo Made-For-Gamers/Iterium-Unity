@@ -11,9 +11,9 @@ public class NpcBullet : MonoBehaviour
     [SerializeField] private SO_Players npcs;
 
     //Take action when bullet hits a specific object
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        switch (collision.gameObject.tag)
+          switch (collision.gameObject.tag)
         {
             //Bullet hits a player
             case "Player":
@@ -23,9 +23,10 @@ public class NpcBullet : MonoBehaviour
                 break;          
         }
     }
+  
 
     //Remove bullet after a collision
-    private void BulletExplosion(Collision obj)
+    private void BulletExplosion(Collider obj)
     {
 
         BulletPooling.bulletPool[0].Release(this.gameObject);

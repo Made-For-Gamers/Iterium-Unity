@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour
     [HideInInspector] public SO_Player player;
 
     //Take action when bullet hits a specific object
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         switch (collision.gameObject.tag)
         {
@@ -65,17 +65,17 @@ public class Bullet : MonoBehaviour
                 break;
 
             //Bullet hits NPC
-            case "NPC":             
+            case "NPC":
                 player.Score += 500;
                 player.Xp += 50;
                 BulletExplosion(collision);
                 Destroy(collision.gameObject);
                 break;
         }
-    }
+    } 
 
     //Remove bullet after a collision
-    private void BulletExplosion(Collision obj)
+    private void BulletExplosion(Collider obj)
     {
 
         BulletPooling.bulletPool[PlayerNumber].Release(this.gameObject);

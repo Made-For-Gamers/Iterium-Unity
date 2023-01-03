@@ -129,7 +129,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4031060044659540045}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.78885, y: 2, z: 1.70128}
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e7759f1f6f87247bfb8f3e6efbf68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   asteroids: {fileID: 11400000, guid: eea4ac0412d4eb2439d964b97098a2e6, type: 2}
   crystals: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
   dropChance: 20
   PlayerNumber: 0
+  player: {fileID: 0}

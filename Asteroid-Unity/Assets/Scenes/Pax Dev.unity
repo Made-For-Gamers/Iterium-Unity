@@ -672,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &250917984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 10
+  spawnTime: 6
   speedMin: 1
   speedMax: 5
   target: {fileID: 1444972401}
@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &308645258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,7 +733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 6
+  spawnTime: 5
   speedMin: 1
   speedMax: 2
   target: {fileID: 1444972401}
@@ -1016,7 +1016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &431738497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1029,9 +1029,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 15
+  spawnTime: 10
   speedMin: 1
-  speedMax: 3
+  speedMax: 5
   target: {fileID: 1444972401}
 --- !u!4 &431738498
 Transform:
@@ -1724,7 +1724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &682639494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,9 +1737,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 5
-  speedMin: 1
-  speedMax: 4
+  spawnTime: 4
+  speedMin: 2
+  speedMax: 5
   target: {fileID: 1444972401}
 --- !u!4 &682639495
 Transform:
@@ -1806,7 +1806,7 @@ PrefabInstance:
     - target: {fileID: 454254025818764624, guid: 1889916712eb23049bd5ff76791fd707,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 454254025818764624, guid: 1889916712eb23049bd5ff76791fd707,
         type: 3}
@@ -1852,6 +1852,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 454254025818764625, guid: 1889916712eb23049bd5ff76791fd707,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 454254025818764627, guid: 1889916712eb23049bd5ff76791fd707,
         type: 3}
