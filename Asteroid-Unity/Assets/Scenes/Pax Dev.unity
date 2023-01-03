@@ -672,7 +672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &250917984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -720,7 +720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &308645258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &431738497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1724,7 +1724,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &682639494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2576,6 +2576,9 @@ MonoBehaviour:
   capacity: 25
   maxCapacity: 30
   players: {fileID: 11400000, guid: 43b805e9a1f7e194eae91b5c9d624a53, type: 2}
+  capacityNpc: 10
+  maxCapacityNpc: 15
+  npcs: {fileID: 11400000, guid: 19c5083fa9023124b9d32b4e02e80c06, type: 2}
 --- !u!1 &1417713978
 GameObject:
   m_ObjectHideFlags: 0

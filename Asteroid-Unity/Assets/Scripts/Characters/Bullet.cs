@@ -63,6 +63,14 @@ public class Bullet : MonoBehaviour
                 player.Xp += 25;
                 BulletExplosion(collision);
                 break;
+
+            //Bullet hits NPC
+            case "NPC":             
+                player.Score += 500;
+                player.Xp += 50;
+                BulletExplosion(collision);
+                Destroy(collision.gameObject);
+                break;
         }
     }
 

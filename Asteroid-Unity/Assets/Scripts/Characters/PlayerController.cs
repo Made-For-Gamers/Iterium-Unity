@@ -17,12 +17,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private InputManager input;
     [SerializeField] private SO_Players playerList;
     [SerializeField] private Transform firePosition;
-    [SerializeField] private GameObject shield;     
-   
+    [SerializeField] private GameObject shield;
+
     [HideInInspector] public SO_Player player;
-    [HideInInspector] public Transform spawnPoint; 
+    [HideInInspector] public Transform spawnPoint;
     [HideInInspector] public int playerNumber;
-    
+
     private float shieldCooldown;
     private bool isShielding;
     private Rigidbody rigidBody;
@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
         {
             shieldCooldown -= 1 * Time.deltaTime;
         }
-        else 
+        else
         {
             input.isShield = false;
             isShielding = false;
@@ -115,8 +115,11 @@ public class PlayerController : MonoBehaviour
         }
         if (player.Health <= 0)
         {
-            shootingPlayer.Score += 1000;
-            shootingPlayer.Xp += 250;
+            if (shootingPlayer != null)
+            {
+                shootingPlayer.Score += 1000;
+                shootingPlayer.Xp += 250;
+            }
             StartCoroutine(DestroyShip());
         }
     }

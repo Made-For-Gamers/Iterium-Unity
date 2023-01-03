@@ -15,11 +15,9 @@ MonoBehaviour:
   bulletName: Rocket
   description: 
   image: {fileID: 0}
-  speed: 12.5
-  firePower: 15
-  bulletLvl1: {fileID: 3803158083815380232, guid: 68bebe3bf1e85dc41a55456b754a1f12,
+  speed: 13
+  firePower: 10
+  bulletLvl1: {fileID: 4031060044659540045, guid: 286080af90cefa346adebf2fcfb1f313,
     type: 3}
-  bulletLvl2: {fileID: 2567051218182355147, guid: 7e87f85841b3b024aba6c11bbed9fb87,
-    type: 3}
-  bulletLvl3: {fileID: 3082461456648297911, guid: 0f5621cadadfdb34aafba8350c62fd31,
-    type: 3}
+  bulletLvl2: {fileID: 0}
+  bulletLvl3: {fileID: 0}

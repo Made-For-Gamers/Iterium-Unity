@@ -31,7 +31,7 @@ public class NPCSpawner : MonoBehaviour
     IEnumerator SpawnNPC()
     {
         yield return new WaitForSeconds(rnd);
-        GameObject ship = Instantiate(npc.Ship.ShipPrefab);
+        GameObject ship = Instantiate(npc.Ship.ShipPrefab);      
         ship.transform.position = transform.position;
         ship.transform.rotation = transform.rotation;
         ship.GetComponent<NPCController>().spawnPoint = transform;
