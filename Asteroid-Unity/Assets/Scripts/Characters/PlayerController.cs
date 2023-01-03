@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
     {
         if (input.isfire)
         {
-            GameObject bullet = BulletPooling.bulletPool[playerNumber - 1].Get();
+            GameObject bullet = BulletPooling.bulletPool[playerNumber].Get();
             bullet.GetComponent<Bullet>().player = player;
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;

@@ -11,7 +11,7 @@ public class AsteroidSpawner : MonoBehaviour
     [SerializeField] private float spawnTime;
     [SerializeField] private float speedMin;
     [SerializeField] private float speedMax;
-    [SerializeField] private GameObject target;
+    [SerializeField] private GameObject target; //asteroids move towards target
 
     private float speed;
 

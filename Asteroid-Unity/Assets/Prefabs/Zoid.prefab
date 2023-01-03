@@ -119,3 +119,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 0}
+  players: {fileID: 11400000, guid: 43b805e9a1f7e194eae91b5c9d624a53, type: 2}
