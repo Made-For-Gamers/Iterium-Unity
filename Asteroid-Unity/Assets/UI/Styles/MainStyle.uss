@@ -1,5 +1,5 @@
 .button {
-    width: 350px;
+    width: 400px;
     height: 100px;
     align-items: center;
     justify-content: center;
@@ -7,10 +7,10 @@
     border-right-width: 5px;
     border-top-width: 5px;
     border-bottom-width: 5px;
-    border-left-color: rgb(243, 15, 15);
-    border-right-color: rgb(243, 15, 15);
-    border-top-color: rgb(243, 15, 15);
-    border-bottom-color: rgb(243, 15, 15);
+    border-left-color: rgb(15, 243, 34);
+    border-right-color: rgb(15, 243, 34);
+    border-top-color: rgb(15, 243, 34);
+    border-bottom-color: rgb(15, 243, 34);
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 10px;
@@ -18,15 +18,12 @@
     visibility: visible;
     background-color: rgba(34, 34, 34, 0.69);
     font-size: 40px;
-    color: rgba(0, 255, 233, 255);
+    color: rgb(0, 255, 233);
     scale: 1 1;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
-}
-
-.header {
 }
 
 .text {
@@ -37,7 +34,36 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
-    font-size: 500px;
+    font-size: 250px;
     -unity-text-align: upper-center;
-    -unity-text-outline-color: rgba(255, 4, 4, 255);
+    -unity-text-outline-color: rgb(0, 0, 0);
+    text-shadow: 10px 10px 0 rgb(0, 0, 0);
+    -unity-text-outline-width: 2px;
+    color: rgb(72, 255, 32);
+    -unity-font-style: bold-and-italic;
+    align-items: center;
+    justify-content: center;
+}
+
+.header {
+    position: absolute;
+    top: 50px;
+    font-size: 150px;
+    color: rgba(12, 255, 0, 255);
+    align-items: center;
+    justify-content: center;
+    -unity-font-style: bold;
+    -unity-background-scale-mode: stretch-to-fill;
+    -unity-slice-left: 0;
+    -unity-slice-top: 0;
+    -unity-slice-right: 0;
+    -unity-slice-bottom: 0;
+    border-left-color: rgba(0, 0, 0, 255);
+    border-right-color: rgba(0, 0, 0, 255);
+    border-top-color: rgba(0, 0, 0, 255);
+    border-bottom-color: rgba(0, 0, 0, 255);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
 }
