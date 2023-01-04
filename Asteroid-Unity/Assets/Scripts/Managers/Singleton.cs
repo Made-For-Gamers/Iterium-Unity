@@ -6,8 +6,7 @@ using UnityEngine.Pool;
 /// </summary>
 public class Singleton : MonoBehaviour
 {
-    public static Singleton Instance;
-    public ObjectPool<SO_GameObjects> asteroids;
+    public static Singleton Instance; 
 
     private void Awake()
     {

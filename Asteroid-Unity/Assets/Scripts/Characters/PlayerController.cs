@@ -126,14 +126,17 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator DestroyShip()
     {
+       
         for (int i = 0; i < 3; i++)
-        {
+        {           
             GameObject explosionObject = ExplosionPooling.explosionPool.Get();
             explosionObject.transform.position = transform.position;
             explosionObject.transform.rotation = transform.rotation;
             explosionObject.transform.localScale = new Vector3(i, i, i);
             yield return new WaitForSeconds(0.1f);
-        }
+            explosionObject.transform.localScale = new Vector3(1, 1, 1); 
+            ExplosionPooling.explosionPool.Release(explosionObject);       
+        }    
         Destroy(this.gameObject);
     }
 
