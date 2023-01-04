@@ -87,7 +87,7 @@ public class Bullet : MonoBehaviour
 
     //Remove bullet after it leaves the screen
     private void OnBecameInvisible()
-    {
+    {      
         BulletPooling.bulletPool[PlayerNumber].Release(this.gameObject);
     }
 }
