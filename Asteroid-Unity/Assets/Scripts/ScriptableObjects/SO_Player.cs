@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Player")]
 
 //Default properties and data of a player
-public class SO_Player : ScriptableObject
+public class SO_Player : ScriptableObject, ISave
 {
     [SerializeField] private string charName;
     [TextArea(5, 5)]
@@ -23,4 +23,16 @@ public class SO_Player : ScriptableObject
     public int Health { get => health; set => health = value; }
     public int BulletLvl { get => bulletLvl; set => bulletLvl = value; }
     public int ShieldLvl { get => shieldLvl; set => shieldLvl = value; }
+
+    public void LoadData(SaveData saveData)
+    {
+        score = saveData.score;
+        xp = saveData.xp;
+    }
+
+    public void SaveData(ref SaveData saveData)
+    {
+       saveData.score = score;
+       saveData.xp = xp;
+    }
 }
