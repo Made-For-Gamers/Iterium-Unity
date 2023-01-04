@@ -129,11 +129,13 @@ public class PlayerController : MonoBehaviour
        
         for (int i = 0; i < 3; i++)
         {           
+            //Spawn new explosion
             GameObject explosionObject = ExplosionPooling.explosionPool.Get();
             explosionObject.transform.position = transform.position;
             explosionObject.transform.rotation = transform.rotation;
             explosionObject.transform.localScale = new Vector3(i, i, i);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.15f);
+            //Prepare to return explosion to pool
             explosionObject.transform.localScale = new Vector3(1, 1, 1); 
             ExplosionPooling.explosionPool.Release(explosionObject);       
         }    
