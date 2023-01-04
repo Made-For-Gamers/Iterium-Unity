@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 613977454}
   - component: {fileID: 613977453}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 613977451}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: -3.28}
+  m_LocalPosition: {x: -0.217, y: 0, z: -3.139}
   m_LocalScale: {x: 0.45719838, y: 1.72965, z: 0.667593}
   m_ConstrainProportionsScale: 0
   m_Children: []
