@@ -90,4 +90,6 @@ public class Bullet : MonoBehaviour
     {      
         BulletPooling.bulletPool[PlayerNumber].Release(this.gameObject);
     }
+
+  
 }
