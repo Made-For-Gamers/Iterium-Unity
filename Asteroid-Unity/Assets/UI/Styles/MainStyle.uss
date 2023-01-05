@@ -83,3 +83,20 @@
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
 }
+
+.image-button {
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    border-left-color: rgba(15, 243, 34, 255);
+    border-right-color: rgba(15, 243, 34, 255);
+    border-top-color: rgba(15, 243, 34, 255);
+    border-bottom-color: rgba(15, 243, 34, 255);
+    color: rgba(0, 255, 233, 255);
+    background-color: rgba(0, 0, 0, 0.49);
+    width: 700px;
+    height: 1000px;
+    font-size: 30px;
+    -unity-text-align: lower-center;
+}
