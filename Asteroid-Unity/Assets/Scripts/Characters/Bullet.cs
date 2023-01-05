@@ -59,15 +59,15 @@ public class Bullet : MonoBehaviour
             case "Player":
                 var player1Hit = collision.transform.GetComponent<PlayerController>();
                 player1Hit.BulletHit(player.Ship.Bullet.FirePower, player);
-                player.Score += 250;
+                player.Score += 500;
                 player.Xp += 25;
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits NPC
             case "NPC":
-                player.Score += 500;
-                player.Xp += 50;
+                player.Score += 2500;
+                player.Xp += 100;
                 BulletExplosion(collision);
                 Destroy(collision.gameObject);
                 break;

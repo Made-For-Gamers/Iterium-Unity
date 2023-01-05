@@ -2605,6 +2605,7 @@ GameObject:
   - component: {fileID: 1373962213}
   - component: {fileID: 1373962212}
   - component: {fileID: 1373962215}
+  - component: {fileID: 1373962216}
   m_Layer: 0
   m_Name: Scripts
   m_TagString: Untagged
@@ -2675,6 +2676,19 @@ MonoBehaviour:
   capacityNpc: 10
   maxCapacityNpc: 15
   npcs: {fileID: 11400000, guid: 19c5083fa9023124b9d32b4e02e80c06, type: 2}
+--- !u!114 &1373962216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373962210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f0ebac4725ef140978f443f20e9f9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: IteriumSave
 --- !u!1 &1417713978
 GameObject:
   m_ObjectHideFlags: 0

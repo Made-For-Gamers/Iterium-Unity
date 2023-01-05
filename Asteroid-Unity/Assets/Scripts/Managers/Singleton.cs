@@ -8,8 +8,13 @@ using System.Collections.Generic;
 public class Singleton : MonoBehaviour
 {
     public static Singleton Instance;
+
+    [Header("Save Game Settings")]
+    [SerializeField] private string fileName;
+
     private SaveData saveData;
     private List<ISave> iSave;
+    private FileSaveHandler fileSaveHandler;
 
     private void Awake()
     {
@@ -26,7 +31,8 @@ public class Singleton : MonoBehaviour
 
     private void Start()
     {
-        iSave = FindSaveData();
+        fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
+        iSave = GetSaveData();
         LoadGame();
     }
 
@@ -36,11 +42,14 @@ public class Singleton : MonoBehaviour
         {
             saveItems.SaveData(ref saveData);
         }
+        fileSaveHandler.Save(saveData);
     }
 
     public void LoadGame()
-    {
+    {        
         print("Loading game data");
+        saveData = fileSaveHandler.Load();
+
         if (saveData == null)
         {           
             NewGame();
@@ -65,7 +74,7 @@ public class Singleton : MonoBehaviour
         print(saveData.score);
     }
 
-    private List<ISave> FindSaveData()
+    private List<ISave> GetSaveData()
     {
         IEnumerable<ISave> result = FindObjectsOfType<MonoBehaviour>().OfType<ISave>();
         return new List<ISave>(result);

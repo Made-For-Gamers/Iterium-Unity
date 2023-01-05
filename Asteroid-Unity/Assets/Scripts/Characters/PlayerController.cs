@@ -1,10 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Timeline;
-using System.ComponentModel;
-using UnityEditor.ShaderGraph.Drawing;
-using Unity.Collections;
 
 /// <summary>
 /// Player ship script that handles...
