@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 147354634}
   - component: {fileID: 147354633}
+  - component: {fileID: 147354635}
   m_Layer: 5
   m_Name: UIMenu
   m_TagString: Untagged
@@ -172,6 +173,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &147354635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147354632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
+  buttonName: mainMenu
 --- !u!1 &583209816
 GameObject:
   m_ObjectHideFlags: 0

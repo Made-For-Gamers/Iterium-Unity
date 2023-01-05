@@ -6,9 +6,10 @@
             <ui:Button text="Player Name" display-tooltip-when-elided="true" name="playerName" class="button" style="align-items: center; justify-content: center;" />
             <ui:Button text="Description" display-tooltip-when-elided="true" name="descriptionName" class="button" style="align-items: center; justify-content: center;" />
             <ui:Button text="Select Avatar" display-tooltip-when-elided="true" name="selectAvatar" class="button" style="align-items: center; justify-content: center;" />
-            <ui:Button text="Change Password" display-tooltip-when-elided="true" name="changePassword" class="button" style="align-items: center; justify-content: center;" />
+            <ui:Button text="Reset Password" display-tooltip-when-elided="true" name="resetPassword" class="button" style="align-items: center; justify-content: center;" />
             <ui:Button text="Email Address" display-tooltip-when-elided="true" name="emailAddress" class="button" style="align-items: center; justify-content: center;" />
             <ui:Button text="Delete Account" display-tooltip-when-elided="true" name="deleteAccount" class="button" style="align-items: center; justify-content: center;" />
+            <ui:Button text="Main Menu" display-tooltip-when-elided="true" name="mainMenu" class="button" style="align-items: center; justify-content: center;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -12,5 +12,6 @@
             <ui:Button text="Player Profile" display-tooltip-when-elided="true" name="playerProfile" class="button" style="align-items: center; justify-content: center; left: 311px;" />
             <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit" class="button" style="align-items: center; justify-content: center; left: 405px;" />
         </ui:VisualElement>
+        <ui:Label text="MFG Arcade 1980 ©" display-tooltip-when-elided="true" name="mfgCopyright" style="width: 300px; height: 42px; position: absolute; left: auto; right: 77px; bottom: 24px; font-size: 25px; -unity-text-align: upper-center; -unity-font-style: italic;" />
     </ui:VisualElement>
 </ui:UXML>
