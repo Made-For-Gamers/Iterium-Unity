@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
+  destinationScene: {fileID: 102900000, guid: bfe1cb492f67ef144bade8694c68dcab, type: 3}
   buttonName: singlePlayer
 --- !u!114 &147354636
 MonoBehaviour:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
+  destinationScene: {fileID: 102900000, guid: bfe1cb492f67ef144bade8694c68dcab, type: 3}
   buttonName: multiPlayer
 --- !u!114 &147354637
 MonoBehaviour:
