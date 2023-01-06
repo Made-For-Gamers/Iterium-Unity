@@ -30,14 +30,14 @@ public class BulletPooling : MonoBehaviour
     private GameObject PoolNew_NPC() //NPC bullet type
     {
         //Instantiate a new asteroid
-        return Instantiate(Singleton.Instance.npc.Ship.Bullet.BulletLvl1);
+        return Instantiate(Singleton.Instance.npc.Ship.Bullet.Bullet[0]);
     }
 
     // Add a PoolNew_P?() method, for every player pool above to indication the bullet type to spawn.
     private GameObject PoolNew_Player() //Player 1 bullet type
     {
         //Instantiate a new asteroid
-        return Instantiate(Singleton.Instance.player.Ship.Bullet.BulletLvl3);
+        return Instantiate(Singleton.Instance.player.Ship.Bullet.Bullet[Singleton.Instance.player.BulletLvl]);
     }   
 
     //Get bullet from the pool
