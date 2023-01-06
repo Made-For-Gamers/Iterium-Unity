@@ -96,27 +96,84 @@
     margin-bottom: 10px;
     color: rgb(255, 0, 0);
     -unity-font-style: bold;
-    background-color: rgba(0, 0, 0, 0.25);
-    border-left-color: rgb(99, 248, 110);
-    border-right-color: rgb(99, 248, 110);
-    border-top-color: rgb(99, 248, 110);
-    border-bottom-color: rgb(99, 248, 110);
-    border-left-width: 1px;
-    border-right-width: 1px;
-    border-top-width: 1px;
-    border-bottom-width: 1px;
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
     -unity-text-align: middle-left;
-    border-top-left-radius: 9px;
-    border-bottom-left-radius: 9px;
-    border-top-right-radius: 9px;
-    border-bottom-right-radius: 9px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     opacity: 1;
+    left: 66px;
 }
 
 .header {
     -unity-font: none;
     font-size: 150px;
-    color: rgba(15, 243, 34, 255);
+    color: rgb(15, 243, 34);
     top: -549px;
     -unity-font-definition: url('project://database/Assets/Fonts/Game_Of_Squids%20SDF.asset?fileID=11400000&guid=283bc5808fa10444c98871dc1974a18a&type=2#Game_Of_Squids SDF');
+}
+
+.unity-progress-bar__container {
+    color: rgba(238, 0, 0, 255);
+    width: 320px;
+    border-top-left-radius: -25px;
+    border-bottom-left-radius: -25px;
+    border-top-right-radius: -25px;
+    border-bottom-right-radius: -25px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgba(250, 0, 0, 255);
+    border-right-color: rgba(250, 0, 0, 255);
+    border-top-color: rgba(250, 0, 0, 255);
+    border-bottom-color: rgba(250, 0, 0, 255);
+}
+
+.unity-progress-bar__progress {
+    color: rgb(238, 0, 0);
+    background-color: rgba(255, 2, 0, 255);
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.unity-progress-bar__title {
+    color: rgba(255, 255, 255, 255);
+    background-color: rgba(0, 0, 0, 0);
+    left: -230px;
+    align-items: flex-end;
+    flex-direction: column;
+    -unity-text-align: middle-right;
+    white-space: nowrap;
+    width: 100px;
+    -unity-font-style: bold;
+    font-size: 26px;
+}
+
+.unity-progress-bar__background {
+    color: rgb(238, 0, 0);
+    width: 320px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgb(250, 0, 0);
+    border-right-color: rgb(250, 0, 0);
+    border-top-color: rgb(250, 0, 0);
+    border-bottom-color: rgb(250, 0, 0);
 }

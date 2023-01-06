@@ -15,9 +15,9 @@
                 <ui:ProgressBar value="22" title="FIREPOWER" name="firepowerStatus" class="stats" />
             </ui:Button>
             <ui:Button text="China" display-tooltip-when-elided="true" name="chinaFaction" class="image-button" style="align-items: center; justify-content: center; background-image: url(&apos;project://database/Assets/RenderTextures/ChinaRapier.renderTexture?fileID=8400000&amp;guid=b8c6d1e1fec33a244a8e3b1a94adf023&amp;type=2#ChinaRapier&apos;); background-color: rgba(0, 0, 0, 0.45); -unity-text-align: upper-center; font-size: 40px;">
-                <ui:ProgressBar value="50" title="HEALTH" name="healthStatus" class="stats" style="-unity-text-align: lower-left;" />
-                <ui:ProgressBar value="22" title="SHIELD" name="shieldStatus" class="stats" />
-                <ui:ProgressBar value="22" title="FIREPOWER" name="firepowerStatus" class="stats" />
+                <ui:ProgressBar value="83.4" name="healthStatus" title="HEALTH" class="stats" style="-unity-text-align: lower-left;" />
+                <ui:ProgressBar value="23.1" name="shieldStatus" title="SHIELD" class="stats" />
+                <ui:ProgressBar value="50.6" name="firepowerStatus" title="FIREPOWER" class="stats" />
             </ui:Button>
         </ui:VisualElement>
     </ui:VisualElement>
