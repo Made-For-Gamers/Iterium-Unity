@@ -305,15 +305,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 886977962807956760}
-  playerList: {fileID: 11400000, guid: 43b805e9a1f7e194eae91b5c9d624a53, type: 2}
   firePosition: {fileID: 180218147745910868}
   shield: {fileID: 6020109359536053542}
-  player1Spawnpoint: {fileID: 454254025818764624, guid: 1889916712eb23049bd5ff76791fd707,
-    type: 3}
-  player2Spawnpoint: {fileID: 8052643502944813606, guid: 4c22e1b855b480a47a03e5008280492a,
-    type: 3}
+  player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
+  spawnPoint: {fileID: 0}
   playerNumber: 0
-  player: {fileID: 0}
 --- !u!4 &9169408246743762708 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: eadb40fedbd592141945be1c44db646e,

@@ -14,6 +14,7 @@ public class SaveData
     //Constructor can be called to reset fields to defaults
     public SaveData()
     {
-      
+        score = 0;
+        xp = 0;
     }
 }

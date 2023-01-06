@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// Attached to the bullet prefab and handles...
@@ -9,14 +10,14 @@ using UnityEngine;
 /// </summary>
 public class Bullet : MonoBehaviour
 {
+    [Header("ScriptableObject Lists")]
     [SerializeField] private SO_GameObjects asteroids;
     [SerializeField] private SO_GameObjects crystals;
 
     [Header("Chance of crystal drop 1/?")]
     [SerializeField] private int dropChance = 20;
 
-    [HideInInspector] public int PlayerNumber;
-    [HideInInspector] public SO_Player player;
+    [HideInInspector] public int PlayerNumber;   
 
     //Take action when bullet hits a specific object
     private void OnTriggerEnter(Collider collision)
@@ -26,8 +27,8 @@ public class Bullet : MonoBehaviour
             //Bullet hits an asteroid
             case "Asteroid":
                 BulletExplosion(collision);
-                player.Score += 50;
-                player.Xp += 10;
+                Singleton.Instance.player.Score += 50;
+                Singleton.Instance.player.Xp += 10;
 
                 //Split asteroid if it is larger than a set size
                 Vector3 scale = collision.transform.localScale;
@@ -58,16 +59,16 @@ public class Bullet : MonoBehaviour
             //Bullet hits a player
             case "Player":
                 var player1Hit = collision.transform.GetComponent<PlayerController>();
-                player1Hit.BulletHit(player.Ship.Bullet.FirePower, player);
-                player.Score += 500;
-                player.Xp += 25;
+                player1Hit.BulletHit(Singleton.Instance.player.Ship.Bullet.FirePower);
+                Singleton.Instance.player.Score += 500;
+                Singleton.Instance.player.Xp += 25;
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits NPC
             case "NPC":
-                player.Score += 2500;
-                player.Xp += 100;
+                Singleton.Instance.player.Score += 2500;
+                Singleton.Instance.player.Xp += 100;
                 BulletExplosion(collision);
                 Destroy(collision.gameObject);
                 break;
@@ -78,17 +79,16 @@ public class Bullet : MonoBehaviour
     private void BulletExplosion(Collider obj)
     {
 
-        BulletPooling.bulletPool[PlayerNumber].Release(this.gameObject);
+        BulletPooling.bulletPoolPlayer.Release(this.gameObject);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
     }
 
-
     //Remove bullet after it leaves the screen
     private void OnBecameInvisible()
     {      
-        BulletPooling.bulletPool[PlayerNumber].Release(this.gameObject);
+        BulletPooling.bulletPoolPlayer.Release(this.gameObject);
     }
 
   

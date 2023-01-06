@@ -7,38 +7,35 @@ using UnityEngine;
 /// </summary>
 
 public class NpcBullet : MonoBehaviour
-{  
-    [SerializeField] private SO_Players npcs;
+{    
 
     //Take action when bullet hits a specific object
     private void OnTriggerEnter(Collider collision)
     {
           switch (collision.gameObject.tag)
         {
-            //Bullet hits a player
+            //NPC Bullet hits a player
             case "Player":
-                var player1Hit = collision.transform.GetComponent<PlayerController>();
-                player1Hit.BulletHit(npcs.Players[0].Ship.Bullet.FirePower, null);              
+                var playerHit = collision.transform.GetComponent<PlayerController>();
+                playerHit.BulletHit(Singleton.Instance.npc.Ship.Bullet.FirePower);              
                 BulletExplosion(collision);
                 break;          
         }
-    }
-  
+    }  
 
-    //Remove bullet after a collision
+    //Return bullet to pool after a collision, explosion effect
     private void BulletExplosion(Collider obj)
     {
 
-        BulletPooling.bulletPool[0].Release(this.gameObject);
+        BulletPooling.bulletPoolNpc.Release(this.gameObject);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
     }
 
-
-    //Remove bullet after it leaves the screen
+    //Return bullet to pool after it leaves the screen
     private void OnBecameInvisible()
     {
-        BulletPooling.bulletPool[0].Release(this.gameObject);
+        BulletPooling.bulletPoolNpc.Release(this.gameObject);
     }
 }

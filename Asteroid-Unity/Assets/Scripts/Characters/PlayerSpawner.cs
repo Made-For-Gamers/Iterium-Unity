@@ -2,17 +2,14 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    [SerializeField] private SO_Player player;
-    [SerializeField] private int playerNumber;
+    [SerializeField] private SO_Player player;   
 
     private void Start()
     {
-        GameObject ship = Instantiate(player.Ship.ShipPrefab);
-        ship.transform.name = "Player " + playerNumber;
+        GameObject ship = Instantiate(player.Ship.ShipPrefab);       
         ship.transform.position = transform.position;
         ship.transform.rotation = transform.rotation;
-        ship.GetComponent<PlayerController>().playerNumber = playerNumber;
-        ship.GetComponent<PlayerController>().spawnPoint = transform;
-       
+        ship.transform.name = "Player";
+        ship.GetComponent<PlayerController>().spawnPoint = transform;       
     }
 }
