@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 /// <summary>
 /// File system handler to write/read save data to/from a file
@@ -9,11 +10,19 @@ using System.IO;
 public class FileSaveHandler
 {
     private string fileName;
-    private string dirPath;   
+    private string dirPath;
+
+    //WegGL plugin - force browser IndexDB sync on a save
+    [DllImport("__Internal")]
+    private static extern void syncSave();
+
+    //WegGL plugin - browser alert popup for errors etc
+    [DllImport("__Internal")]
+    private static extern void alert(string message);
 
     public FileSaveHandler(string dirPath, string fileName)
     {
-        this.fileName = fileName;      
+        this.fileName = fileName;
         this.dirPath = dirPath;
         Debug.Log("Save Folder: " + this.dirPath);
     }
@@ -28,7 +37,7 @@ public class FileSaveHandler
             try
             {
                 string dataToLoad = null;
-                using (FileStream fileStream = new FileStream(fullPath, FileMode.Open))
+                using (FileStream fileStream = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
                 {
                     using (StreamReader streamReader = new StreamReader(fileStream))
                     {
@@ -40,10 +49,16 @@ public class FileSaveHandler
             }
             catch (Exception ex)
             {
-                Debug.LogError("Error loading save file: " + fullPath + "\n" + ex);
+                if (Application.platform == RuntimePlatform.WebGLPlayer)
+                {
+                    alert("Error loading save file: " + fullPath + "\n" + ex);
+                }
+                else
+                {
+                    Debug.LogError("Error loading save file: " + fullPath + "\n" + ex);
+                }
             }
         }
-        
         return loadData;
     }
 
@@ -52,21 +67,35 @@ public class FileSaveHandler
         string fullPath = Path.Combine(dirPath, fileName);
         try
         {
-            Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(fullPath));
+            }
             string dataToSave = JsonUtility.ToJson(saveData, true);
 
-            using (FileStream fileStream = new FileStream(fullPath, FileMode.Create))
+            using (FileStream fileStream = new FileStream(fullPath, FileMode.Create, FileAccess.ReadWrite))
             {
                 using (StreamWriter streamWriter = new StreamWriter(fileStream))
                 {
                     streamWriter.Write(dataToSave);
                 }
             }
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                syncSave();             
+            }
             Debug.Log("Successfully Saved File");
         }
         catch (Exception ex)
         {
-            Debug.LogError("Error writing save file: " + fullPath + "\n" + ex);
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                alert("Error writing save file: " + fullPath + "\n" + ex);
+            }
+            else
+            { 
+             Debug.LogError("Error writing save file: " + fullPath + "\n" + ex);
+            }  
         }
     }
 
