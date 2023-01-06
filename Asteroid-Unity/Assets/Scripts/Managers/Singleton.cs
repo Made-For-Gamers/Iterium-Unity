@@ -3,17 +3,20 @@ using System.Linq;
 using System.Collections.Generic;
 
 /// <summary>
-/// Singleton manager to manage static data
+/// Singleton manager to manage static data and methods
 /// </summary>
 public class Singleton : MonoBehaviour
 {
     public static Singleton Instance;
 
     [Header("Save Game Settings")]
-    [SerializeField] private string fileName;
+    [SerializeField] private string fileName;  
 
-    private SaveData saveData;
-    private List<ISave> iSave;
+    [Header("Characters")]
+    public SO_Player player;
+    public SO_Player npc;
+
+    [HideInInspector] public SaveData saveData;  
     private FileSaveHandler fileSaveHandler;
 
     private void Awake()
@@ -27,21 +30,18 @@ public class Singleton : MonoBehaviour
         {
             Instance = this;
         }
+        this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);     
+        LoadGame();
     }
 
     private void Start()
     {
-        fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
-        iSave = GetSaveData();
-        LoadGame();
+       
     }
 
     public void SaveGame()
     {
-        foreach (ISave saveItems in iSave)
-        {
-            saveItems.SaveData(ref saveData);
-        }
+        print("Saving game data");       
         fileSaveHandler.Save(saveData);
     }
 
@@ -55,10 +55,8 @@ public class Singleton : MonoBehaviour
             NewGame();
         }
 
-        foreach (ISave saveItems in iSave)
-        {
-            saveItems.LoadData(saveData);
-        }
+        player.Score = saveData.score;
+        player.Xp = saveData.xp;
     }
 
     public void NewGame()
@@ -68,16 +66,8 @@ public class Singleton : MonoBehaviour
     }
 
     private void OnApplicationQuit()
-    {
-        print("Saving game data");
-        SaveGame();
-        print(saveData.score);
-    }
-
-    private List<ISave> GetSaveData()
-    {
-        IEnumerable<ISave> result = FindObjectsOfType<MonoBehaviour>().OfType<ISave>();
-        return new List<ISave>(result);
+    {       
+        SaveGame();     
     }
 
 }

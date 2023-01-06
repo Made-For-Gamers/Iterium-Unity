@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// Player ship script that handles...
@@ -9,14 +10,11 @@ using System.Collections;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private InputManager input;
-    [SerializeField] private SO_Players playerList;
+    [SerializeField] private InputManager input;   
     [SerializeField] private Transform firePosition;
-    [SerializeField] private GameObject shield;
+    [SerializeField] private GameObject shield;  
 
-    [HideInInspector] public SO_Player player;
-    [HideInInspector] public Transform spawnPoint;
-    [HideInInspector] public int playerNumber;
+    [HideInInspector] public Transform spawnPoint;   
 
     private float shieldCooldown;
     private bool isShielding;
@@ -24,9 +22,8 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();
-        player = playerList.Players[playerNumber - 1];
-        player.Health = 100;
+        rigidBody = GetComponent<Rigidbody>();       
+        Singleton.Instance.player.Health = 100;
     }
 
     void Update()
@@ -44,7 +41,7 @@ public class PlayerController : MonoBehaviour
     //Ship rotation
     private void Rotate()
     {
-        transform.Rotate(0, input.rotateInput.x * player.Ship.TurnSpeed * Time.deltaTime, 0);
+        transform.Rotate(0, input.rotateInput.x * Singleton.Instance.player.Ship.TurnSpeed * Time.deltaTime, 0);
     }
 
     //Firing
@@ -52,12 +49,10 @@ public class PlayerController : MonoBehaviour
     {
         if (input.isfire)
         {
-            GameObject bullet = BulletPooling.bulletPool[playerNumber].Get();
-            bullet.GetComponent<Bullet>().player = player;
+            GameObject bullet = BulletPooling.bulletPoolPlayer.Get();           
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
-            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * player.Ship.Bullet.Speed;
-            bullet.GetComponentInParent<Bullet>().PlayerNumber = playerNumber;
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * Singleton.Instance.player.Ship.Bullet.Speed;           
             input.isfire = false;
         }
     }
@@ -65,7 +60,7 @@ public class PlayerController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * player.Ship.Thrust * Time.deltaTime), ForceMode.Force);
+        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * Singleton.Instance.player.Ship.Thrust * Time.deltaTime), ForceMode.Force);
     }
 
     //Shield
@@ -76,7 +71,7 @@ public class PlayerController : MonoBehaviour
             shield.SetActive(true);
             isShielding = true;
             StartCoroutine(ShieldTime());
-            shieldCooldown = player.Ship.ShieldCooldown;
+            shieldCooldown = Singleton.Instance.player.Ship.ShieldCooldown;
         }
 
         if (shieldCooldown > 0) //Cooldown countdown
@@ -93,28 +88,24 @@ public class PlayerController : MonoBehaviour
     //Shield cooldown timer
     private IEnumerator ShieldTime()
     {
-        yield return new WaitForSeconds(player.Ship.ShieldTime);
+        yield return new WaitForSeconds(Singleton.Instance.player.Ship.ShieldTime);
         shield.SetActive(false);
 
     }
 
-    public void BulletHit(float firePower, SO_Player shootingPlayer)
+    public void BulletHit(float firePower)
     {
         if (isShielding)
         {
-            player.Health -= (int)(firePower / player.Ship.ShieldPower);
+            Singleton.Instance.player.Health -= (int)(firePower / Singleton.Instance.player.Ship.ShieldPower);
         }
         else
         {
-            player.Health -= (int)firePower;
+            Singleton.Instance.player.Health -= (int)firePower;
         }
-        if (player.Health <= 0)
+        if (Singleton.Instance.player.Health <= 0)
         {
-            if (shootingPlayer != null)
-            {
-                shootingPlayer.Score += 1000;
-                shootingPlayer.Xp += 250;
-            }
+           
             StartCoroutine(DestroyShip());
         }
     }
@@ -143,4 +134,5 @@ public class PlayerController : MonoBehaviour
         transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
         transform.position = spawnPoint.position;
     }
+  
 }

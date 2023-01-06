@@ -10,11 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
-  m_Name: Player 1
+  m_Name: Player
   m_EditorClassIdentifier: 
   charName: Player 1
   description: 
   xp: 0
-  score: 26500
+  score: 0
   ship: {fileID: 11400000, guid: a8a1e506ef485154ca30b6e60d5c90e2, type: 2}
   health: 100
+  bulletLvl: 0
+  shieldLvl: 0

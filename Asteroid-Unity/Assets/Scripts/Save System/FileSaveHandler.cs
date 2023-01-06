@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
@@ -8,20 +6,22 @@ using System.IO;
 /// File system handler to write/read save data to/from a file
 /// </summary>
 
-public class FileSaveHandler : MonoBehaviour
+public class FileSaveHandler
 {
     private string fileName;
-    private string dirPath;
+    private string dirPath;   
 
-    public FileSaveHandler(string fileName, string dirPath)
-    { 
-        this.fileName = fileName;
+    public FileSaveHandler(string dirPath, string fileName)
+    {
+        this.fileName = fileName;      
         this.dirPath = dirPath;
+        Debug.Log("Save Folder: " + this.dirPath);
     }
 
     public SaveData Load()
     {
         string fullPath = Path.Combine(dirPath, fileName);
+
         SaveData loadData = null;
         if (File.Exists(fullPath))
         {
@@ -32,21 +32,23 @@ public class FileSaveHandler : MonoBehaviour
                 {
                     using (StreamReader streamReader = new StreamReader(fileStream))
                     {
-                      dataToLoad = streamReader.ReadToEnd();
+                        dataToLoad = streamReader.ReadToEnd();
                     }
                 }
                 loadData = JsonUtility.FromJson<SaveData>(dataToLoad);
+                Debug.Log("Successfully Loaded File");
             }
             catch (Exception ex)
             {
                 Debug.LogError("Error loading save file: " + fullPath + "\n" + ex);
             }
         }
+        
         return loadData;
     }
 
     public void Save(SaveData saveData)
-    { 
+    {
         string fullPath = Path.Combine(dirPath, fileName);
         try
         {
@@ -60,6 +62,7 @@ public class FileSaveHandler : MonoBehaviour
                     streamWriter.Write(dataToSave);
                 }
             }
+            Debug.Log("Successfully Saved File");
         }
         catch (Exception ex)
         {

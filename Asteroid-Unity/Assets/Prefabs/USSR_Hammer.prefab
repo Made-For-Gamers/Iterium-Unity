@@ -195,13 +195,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1275363712953260093}
-  playerList: {fileID: 11400000, guid: 43b805e9a1f7e194eae91b5c9d624a53, type: 2}
   firePosition: {fileID: 8208081413025333748}
   shield: {fileID: 5301118893624841161}
-  spawnPoints:
-  - {fileID: 454254025818764625, guid: 1889916712eb23049bd5ff76791fd707, type: 3}
+  player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
+  spawnPoint: {fileID: 0}
   playerNumber: 0
-  player: {fileID: 0}
 --- !u!4 &5199458798182027165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4404b5363efd6bc4591e34d8a0f5957a,

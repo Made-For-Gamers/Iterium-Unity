@@ -9,52 +9,36 @@ public class BulletPooling : MonoBehaviour
     /// </summary>
     [Header("Player Bullet Pooling")]
     [SerializeField] private int capacity = 25;
-    [SerializeField] private int maxCapacity = 30; 
-    [SerializeField] private SO_Players players; //Drag in the ScriptableObject list for players
+    [SerializeField] private int maxCapacity = 30;    
 
     [Header("NPC Bullet Pooling")]
     [SerializeField] private int capacityNpc = 10;
     [SerializeField] private int maxCapacityNpc = 15;
-    [SerializeField] private SO_Players npcs; //Drag in the ScriptableObject list for NPCs
-  
-    public static ObjectPool<GameObject>[] bulletPool;
+     
+    public static ObjectPool<GameObject> bulletPoolPlayer;
+    public static ObjectPool<GameObject> bulletPoolNpc;
 
     private void Start()
-    {
-        bulletPool = new ObjectPool<GameObject>[players.Players.Count + npcs.Players.Count];
-
+    {     
         //NPC Pool
-        bulletPool[0] = new ObjectPool<GameObject>(PoolNew_NPC, PoolGet, PoolReturn, PoolDestroy, false, capacityNpc, maxCapacityNpc);
+        bulletPoolNpc = new ObjectPool<GameObject>(PoolNew_NPC, PoolGet, PoolReturn, PoolDestroy, false, capacityNpc, maxCapacityNpc);
 
-        //Player Pools - Add an additional pool below when increasing the player number.
-        bulletPool[1] = new ObjectPool<GameObject>(PoolNew_P1, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
-        bulletPool[2] = new ObjectPool<GameObject>(PoolNew_P2, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
-        bulletPool[3] = new ObjectPool<GameObject>(PoolNew_P3, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
+        //Player Pool
+        bulletPoolPlayer = new ObjectPool<GameObject>(PoolNew_Player, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
     }
 
     private GameObject PoolNew_NPC() //NPC bullet type
     {
         //Instantiate a new asteroid
-        return Instantiate(npcs.Players[0].Ship.Bullet.BulletLvl1);
+        return Instantiate(Singleton.Instance.npc.Ship.Bullet.BulletLvl1);
     }
 
     // Add a PoolNew_P?() method, for every player pool above to indication the bullet type to spawn.
-    private GameObject PoolNew_P1() //Player 1 bullet type
+    private GameObject PoolNew_Player() //Player 1 bullet type
     {
         //Instantiate a new asteroid
-        return Instantiate(players.Players[0].Ship.Bullet.BulletLvl3);
-    }
-    private GameObject PoolNew_P2() //Player 2 bullet type
-    {
-        //Instantiate a new asteroid
-        return Instantiate(players.Players[1].Ship.Bullet.BulletLvl3);
-    }
-
-    private GameObject PoolNew_P3() //Player 3 bullet type
-    {
-        //Instantiate a new asteroid
-        return Instantiate(players.Players[2].Ship.Bullet.BulletLvl3);
-    }
+        return Instantiate(Singleton.Instance.player.Ship.Bullet.BulletLvl3);
+    }   
 
     //Get bullet from the pool
     private void PoolGet(GameObject obj)
