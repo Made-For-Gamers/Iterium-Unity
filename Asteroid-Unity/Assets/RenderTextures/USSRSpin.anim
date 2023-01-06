@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ChinaSpin
+  m_Name: USSRSpin
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,18 +19,18 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: {x: 4.204, y: 2.997, z: 0.04}
-        inSlope: {x: 0, y: 14.266961, z: 0}
-        outSlope: {x: 0, y: 14.266961, z: 0}
+        value: {x: 0, y: -210, z: 0}
+        inSlope: {x: 0, y: 14.361702, z: 0}
+        outSlope: {x: 0, y: 14.361702, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
-        time: 25.233334
-        value: {x: 4.204, y: 363, z: 0.04}
-        inSlope: {x: 0, y: 14.266961, z: 0}
-        outSlope: {x: 0, y: 14.266961, z: 0}
+        time: 25.066668
+        value: {x: 0, y: 150, z: 0}
+        inSlope: {x: 0, y: 14.361702, z: 0}
+        outSlope: {x: 0, y: 14.361702, z: 0}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
@@ -63,7 +63,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 25.233334
+    m_StopTime: 25.066668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -84,7 +84,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 4.204
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -92,8 +92,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 25.233334
-        value: 4.204
+        time: 25.066668
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -112,18 +112,18 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 2.997
-        inSlope: 14.266961
-        outSlope: 14.266961
+        value: -210
+        inSlope: 14.361702
+        outSlope: 14.361702
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 25.233334
-        value: 363
-        inSlope: 14.266961
-        outSlope: 14.266961
+        time: 25.066668
+        value: 150
+        inSlope: 14.361702
+        outSlope: 14.361702
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -140,7 +140,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.04
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -148,8 +148,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 25.233334
-        value: 0.04
+        time: 25.066668
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
