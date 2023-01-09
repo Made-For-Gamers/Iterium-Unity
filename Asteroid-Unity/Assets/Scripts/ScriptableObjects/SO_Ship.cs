@@ -2,6 +2,10 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Ship")]
 
+//Ship data
+//SO_Character contains a reference SO_Ship (faction ship)
+//Ship contains a reference to SO_Bullet (bullet type)
+
 public class SO_Ship : ScriptableObject
 {
     [SerializeField] private string shipName;

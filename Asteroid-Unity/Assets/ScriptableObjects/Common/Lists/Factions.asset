@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: Factions
   m_EditorClassIdentifier: 
   factions:
+  - {fileID: 11400000, guid: abf9b3b698f041c4eb70d61f567ae4f3, type: 2}
   - {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
   - {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
   - {fileID: 11400000, guid: fb9486489f068b14cb18ed72264d1663, type: 2}
+  - {fileID: 11400000, guid: 6ed49feb5c86c734f894db03a698612f, type: 2}
+  - {fileID: 11400000, guid: 104091d209230934e9bd2704b2b58205, type: 2}
+  - {fileID: 11400000, guid: d289aa2dbd075a24ab3a9806c5739951, type: 2}

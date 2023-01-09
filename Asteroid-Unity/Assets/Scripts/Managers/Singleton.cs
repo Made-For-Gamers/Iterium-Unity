@@ -1,8 +1,4 @@
 using UnityEngine;
-using System.Linq;
-using System.Collections.Generic;
-using System;
-using Unity.Mathematics;
 
 /// <summary>
 /// Singleton manager to manage static data and methods
@@ -17,11 +13,12 @@ public class Singleton : MonoBehaviour
     [Header("Characters")]
     public SO_Player player;
     public SO_Player npc;
-    public SO_Character defaultCharacter;
-    private SO_Ship playerAi;
+    public SO_Factions factions;   
 
     [HideInInspector] public SaveData saveData;
+    [HideInInspector] public  SO_Character aiCharacter;
     private FileSaveHandler fileSaveHandler;
+   
 
     private void Awake()
     {
@@ -35,20 +32,20 @@ public class Singleton : MonoBehaviour
             Instance = this;
         }
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
-        LoadGame();
-
+        LoadGame(); 
+        SelectAiPlayer();
     }
 
     private void Start()
     {
         ResetGame();
-        SelectAiPlayer();
+      
     }
 
     private void SelectAiPlayer()
     {
-        int rnd = UnityEngine.Random.Range(0,2);
-
+        int rnd = UnityEngine.Random.Range(4, 7);
+        aiCharacter = factions.Factions[rnd];
     }
 
     public void SaveGame()
@@ -72,14 +69,14 @@ public class Singleton : MonoBehaviour
         player.Xp = saveData.xp;
         player.ShieldLvl = saveData.shieldLvl;
         player.BulletLvl = saveData.bulletLvl;
-        player.Iterium = saveData.iterium;      
+        player.Iterium = saveData.iterium;
         if (saveData.character != null)
         {
             player.Character = saveData.character;
         }
         else
         {
-            player.Character = defaultCharacter;
+            player.Character = factions.Factions[2];
         }
     }
 

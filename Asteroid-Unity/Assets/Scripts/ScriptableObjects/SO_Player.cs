@@ -6,8 +6,9 @@ using UnityEngine;
 // Data is changed here during runtime and the game reads player data from here
 // Save game data is also duplicated from here and you can therefore have a async save process when a cloud save handeler is used
 // The default ScriptablObject values are updated after a save game load during startup;
-// Ship field contains a reference to the SO_Bullet (bullet type)
-// BulletLvl field below indicates which of the 3 bullets levels is fired from the SO_Bullet. (bullet level)
+// SO_Character is the currently selected faction character
+// SO_Character contains a reference to the faction specific ship
+// BulletLvl indicates which of the 3 bullets levels is fired from the SO_Bullet. (bullet level)
 public class SO_Player : ScriptableObject
 {
     [SerializeField] private string charName;

@@ -2,7 +2,9 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Character")]
 
-//Default properties and data for a faction character
+//Faction character
+//Contains a reference to the faction ship
+//Ship contains a reference to the SO_Bullet
 public class SO_Character : ScriptableObject
 {
     [SerializeField] private string charName;

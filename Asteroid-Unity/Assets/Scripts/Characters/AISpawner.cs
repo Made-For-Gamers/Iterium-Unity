@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AISpawner : MonoBehaviour
@@ -7,10 +5,10 @@ public class AISpawner : MonoBehaviour
 
     private void Start()
     {
-        GameObject ship = Instantiate(Singleton.Instance.player.Character.Ship.ShipPrefab);
+        GameObject ship = Instantiate(Singleton.Instance.aiCharacter.Ship.ShipPrefab);
         ship.transform.position = transform.position;
         ship.transform.rotation = transform.rotation;
-        ship.transform.name = "Player";
-        ship.GetComponent<PlayerController>().spawnPoint = transform;
+        ship.transform.name = "AI";
+        //ship.GetComponent<PlayerController>().spawnPoint = transform;
     }
 }

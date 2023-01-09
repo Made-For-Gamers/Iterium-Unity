@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6016e341f1a5b9340ba9088cb94785a1, type: 3}
+  m_Name: AI Sword
+  m_EditorClassIdentifier: 
+  shipName: AI Sword
+  description: 
+  image: {fileID: 0}
+  faction: {fileID: 0}
+  shieldPower: 2
+  shieldCooldown: 10
+  shieldTime: 5
+  thrust: 500
+  turnSpeed: 100
+  bullet: {fileID: 11400000, guid: ffe65248ec0bf2747b9eacc23088181c, type: 2}
+  shipPrefab: {fileID: 8361944897133174190, guid: 70bf730096dfc5c45afa768f18be2eb3,
+    type: 3}
