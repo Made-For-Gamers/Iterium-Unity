@@ -17,7 +17,7 @@ public class NpcBullet : MonoBehaviour
             //NPC Bullet hits a player
             case "Player":
                 var playerHit = collision.transform.GetComponent<PlayerController>();
-                playerHit.BulletHit(Singleton.Instance.npc.Ship.Bullet.FirePower);              
+                playerHit.BulletHit(Singleton.Instance.npc.Character.Ship.Bullet.FirePower);              
                 BulletExplosion(collision);
                 break;          
         }

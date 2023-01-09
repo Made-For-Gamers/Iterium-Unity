@@ -2,11 +2,9 @@ using UnityEngine;
 
 public class PlayerSpawner : MonoBehaviour
 {
-    [SerializeField] private SO_Player player;   
-
     private void Start()
     {
-        GameObject ship = Instantiate(player.Ship.ShipPrefab);       
+        GameObject ship = Instantiate(Singleton.Instance.player.Character.Ship.ShipPrefab);       
         ship.transform.position = transform.position;
         ship.transform.rotation = transform.rotation;
         ship.transform.name = "Player";

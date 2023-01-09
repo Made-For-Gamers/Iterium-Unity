@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Player 1
   description: 
-  xp: 1520
-  score: 25600
-  ship: {fileID: 11400000, guid: cd4c06634a525a74eb26c8106cb4bdb7, type: 2}
-  health: -55
+  xp: 1800
+  score: 27000
+  character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
+  health: 50
   bulletLvl: 0
   shieldLvl: 0
+  iterium: 0

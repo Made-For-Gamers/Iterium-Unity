@@ -4,8 +4,7 @@ using UnityEngine;
 /// Spawn NPC at random interval
 /// </summary>
 public class NPCSpawner : MonoBehaviour
-{
-    [SerializeField] private SO_Player npc;
+{   
     [Header("Spawning")]
     [SerializeField] int spawnInterval = 45;   
 
@@ -24,7 +23,7 @@ public class NPCSpawner : MonoBehaviour
     private void SpawnNPC()
     {
         int rnd = Random.Range(1, 5);
-        GameObject ship = Instantiate(npc.Ship.ShipPrefab);  
+        GameObject ship = Instantiate(Singleton.Instance.npc.Character.Ship.ShipPrefab);  
         ship.transform.position = GetComponentsInChildren<Transform>()[rnd].position;
         ship.transform.LookAt(target);       
         speed = Random.Range(minSpeed, maxSpeed);      

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Class of all data fields that need to be save or loaded in the game
+/// Class of all save data that need to be saved or loaded in the game
 /// </summary>
 
 [System.Serializable]
@@ -13,7 +13,7 @@ public class SaveData
     public int shieldLvl;
     public int bulletLvl;
     public int iterium;
-    public SO_Ship ship;
+    public SO_Character character;
 
     //Constructor can be called to reset fields to defaults
     public SaveData()
@@ -24,5 +24,6 @@ public class SaveData
         shieldLvl = 0;
         bulletLvl = 0;
         iterium = 0;
+        character = null;
     }
 }

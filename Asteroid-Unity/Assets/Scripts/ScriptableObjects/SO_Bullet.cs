@@ -3,7 +3,9 @@ using System.Collections.Generic;
 
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Bullet")]
 
-//Default properties and data for a bullet
+// Bullet data
+// SO_Player contains a reference to SO_Ship that in turn contains a reference to this SO_Bullet.
+// SO_Player field bulletLvl (upgrading) will indicate which bullet is fired from the Bullet List below.
 public class SO_Bullet : ScriptableObject
 {
     [SerializeField] private string bulletName;

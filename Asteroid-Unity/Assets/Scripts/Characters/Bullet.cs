@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
             //Bullet hits a player
             case "Player":
                 var player1Hit = collision.transform.GetComponent<PlayerController>();
-                player1Hit.BulletHit(Singleton.Instance.player.Ship.Bullet.FirePower);
+                player1Hit.BulletHit(Singleton.Instance.player.Character.Ship.Bullet.FirePower);
                 Singleton.Instance.player.Score += 500;
                 Singleton.Instance.player.Xp += 25;
                 BulletExplosion(collision);

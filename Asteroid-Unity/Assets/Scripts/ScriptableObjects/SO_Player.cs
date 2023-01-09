@@ -3,8 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Player")]
 
 // Player data
-// Data is changed here during runtime with save game data (which can happen in a async proicess and not effect the game).
-// The default ScriptablObject values are updated after a game load at startup;
+// Data is changed here during runtime and the game reads player data from here
+// Save game data is also duplicated from here and you can therefore have a async save process when a cloud save handeler is used
+// The default ScriptablObject values are updated after a save game load during startup;
+// Ship field contains a reference to the SO_Bullet (bullet type)
+// BulletLvl field below indicates which of the 3 bullets levels is fired from the SO_Bullet. (bullet level)
 public class SO_Player : ScriptableObject
 {
     [SerializeField] private string charName;
@@ -12,7 +15,7 @@ public class SO_Player : ScriptableObject
     [SerializeField] private string description;
     [SerializeField] private int xp;
     [SerializeField] private int score;
-    [SerializeField] private SO_Ship ship;
+    [SerializeField] private SO_Character character;
     [SerializeField] private int health;
     [SerializeField] private int bulletLvl;
     [SerializeField] private int shieldLvl;
@@ -38,13 +41,13 @@ public class SO_Player : ScriptableObject
             Singleton.Instance.saveData.score = value;
         }
     }
-    public SO_Ship Ship
+    public SO_Character Character
     {
-        get => ship;
+        get => character;
         set
         {
-            ship = value;
-            Singleton.Instance.saveData.ship = value;
+            character = value;
+            Singleton.Instance.saveData.character = value;
         }
     }
     public int Health { get => health; set => health = value; }

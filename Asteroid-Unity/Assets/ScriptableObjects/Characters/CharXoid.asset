@@ -17,4 +17,4 @@ MonoBehaviour:
   image: {fileID: 0}
   country: 
   flag: {fileID: 0}
-  ship: {fileID: 0}
+  ship: {fileID: 11400000, guid: 28ec4a4cf4b12d34ea5ac8f3b6954881, type: 2}

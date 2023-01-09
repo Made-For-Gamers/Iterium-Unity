@@ -4,7 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 
 /// <summary>
-/// File system handler to write/read save data to/from a file
+/// File system handler to write/read save data to/from a file, additional handler can be created for cloud saves etc
 /// </summary>
 
 public class FileSaveHandler
