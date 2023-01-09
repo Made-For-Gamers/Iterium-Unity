@@ -14,9 +14,7 @@ public class NPCController : MonoBehaviour
 
     private void Fire()
     {               
-        GameObject bullet = BulletPooling.bulletPoolNpc.Get();
-        Vector3 position = transform.position;
-        position.x = position.x + transform.localScale.x + bullet.transform.localScale.x;
+        GameObject bullet = BulletPooling.bulletPoolNpc.Get(); 
         bullet.transform.position = transform.position ;
         bullet.transform.LookAt(GameObject.Find("Player").transform);
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * Singleton.Instance.npc.Ship.Bullet.Speed;
