@@ -32,6 +32,7 @@ public class Singleton : MonoBehaviour
         }
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);     
         LoadGame();
+        NewArena();
     }
 
     public void SaveGame()
@@ -50,14 +51,23 @@ public class Singleton : MonoBehaviour
             NewGame();
         }
 
+        //Update player data with loaded values
         player.Score = saveData.score;
         player.Xp = saveData.xp;
+        player.ShieldLvl = saveData.shieldLvl;
+        player.BulletLvl = saveData.bulletLvl;
+        player.Iterium = saveData.iterium;
     }
 
     public void NewGame()
     {
         print("Loading game defaults");
         saveData = new SaveData();
+    }
+
+    public void NewArena()
+    {
+        player.Health = 100;
     }
 
     private void OnApplicationQuit()
