@@ -34,11 +34,6 @@ public class Singleton : MonoBehaviour
         LoadGame();
     }
 
-    private void Start()
-    {
-       
-    }
-
     public void SaveGame()
     {
         print("Saving game data");       

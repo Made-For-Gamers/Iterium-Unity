@@ -1449,7 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   npc: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
-  spawnInterval: 10
+  spawnInterval: 20
   minSpeed: 4
   maxSpeed: 10
   target: {fileID: 1444972402}
@@ -1973,7 +1973,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capacity: 30
-  maxCapacity: 50
+  maxCapacity: 45
   asteroids: {fileID: 11400000, guid: eea4ac0412d4eb2439d964b97098a2e6, type: 2}
 --- !u!114 &1373962213
 MonoBehaviour:
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capacity: 10
-  maxCapacity: 10
+  maxCapacity: 15
   explosion: {fileID: 11400000, guid: 96c4feb405c07d14ebb52e42fc0d0c4a, type: 2}
 --- !u!4 &1373962214
 Transform:
@@ -2039,6 +2039,9 @@ MonoBehaviour:
   saveData:
     score: 0
     xp: 0
+    shieldLvl: 0
+    bulletLvl: 0
+    ship: {fileID: 0}
 --- !u!1 &1417713978
 GameObject:
   m_ObjectHideFlags: 0

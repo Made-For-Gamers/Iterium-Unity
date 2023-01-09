@@ -146,20 +146,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6aac310eaafd54941b827a3d850b4bda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npcs: {fileID: 11400000, guid: 19c5083fa9023124b9d32b4e02e80c06, type: 2}
---- !u!114 &4715517287359545318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031060044659540045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PanelSettings: {fileID: 0}
-  m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 0}
-  m_SortingOrder: 0

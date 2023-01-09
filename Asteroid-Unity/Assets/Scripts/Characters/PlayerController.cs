@@ -22,8 +22,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();       
-        Singleton.Instance.player.Health = 100;
+        rigidBody = GetComponent<Rigidbody>();  
     }
 
     void Update()

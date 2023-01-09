@@ -10,15 +10,17 @@ public class SaveData
 {
     public int score;
     public int xp;
-    public int shield;
-    public SO_Player player;
+    public int shieldLvl;
+    public int bulletLvl;
     public SO_Ship ship;
-    public SO_Bullet bullet;
 
     //Constructor can be called to reset fields to defaults
     public SaveData()
     {
+        //Reset game data to defaults
         score = 0;
         xp = 0;
+        shieldLvl = 0;
+        bulletLvl = 0;
     }
 }
