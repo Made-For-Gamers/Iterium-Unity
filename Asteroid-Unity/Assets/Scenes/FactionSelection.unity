@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
+  destinationScene: {fileID: 102900000, guid: 7b71a280715e87d4abd44286deef544b, type: 3}
   buttonName: chinaFaction
 --- !u!114 &147354637
 MonoBehaviour:
@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
+  destinationScene: {fileID: 102900000, guid: 7b71a280715e87d4abd44286deef544b, type: 3}
   buttonName: usaFaction
 --- !u!114 &147354638
 MonoBehaviour:
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
+  destinationScene: {fileID: 102900000, guid: 7b71a280715e87d4abd44286deef544b, type: 3}
   buttonName: ussrFaction
 --- !u!1 &613795269
 GameObject:
@@ -392,7 +392,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182923276}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
