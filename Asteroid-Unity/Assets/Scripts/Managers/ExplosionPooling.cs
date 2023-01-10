@@ -12,7 +12,7 @@ public class ExplosionPooling : MonoBehaviour
     [SerializeField] SO_GameObjects explosion;
     public static ObjectPool<GameObject> explosionPool;
 
-    void Start()
+    void Awake()
     {
         explosionPool = new ObjectPool<GameObject>(PoolNew, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
     }

@@ -20,6 +20,7 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int health;
     [SerializeField] private int bulletLvl;
     [SerializeField] private int shieldLvl;
+    [SerializeField] private int speedLvl;
     [SerializeField] private int iterium;
 
     public string CharName { get => charName; set => charName = value; }
@@ -77,6 +78,16 @@ public class SO_Player : ScriptableObject
         {
             iterium = value;
             GameManager.Instance.saveData.iterium = value;
+        }
+    }
+
+    public int SpeedLvl
+    { 
+        get => speedLvl;
+        set
+        {
+            speedLvl = value;
+            GameManager.Instance.saveData.speedLvl = value;
         }
     }
 }

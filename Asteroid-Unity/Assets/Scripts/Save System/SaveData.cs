@@ -12,6 +12,7 @@ public class SaveData
     public int xp;
     public int shieldLvl;
     public int bulletLvl;
+    public int speedLvl;
     public int iterium;
     public SO_Character character;
 
@@ -23,6 +24,7 @@ public class SaveData
         xp = 0;
         shieldLvl = 0;
         bulletLvl = 0;
+        speedLvl = 0;
         iterium = 0;
         character = null;
     }
