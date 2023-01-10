@@ -17,7 +17,7 @@ public class NPCController : MonoBehaviour
         GameObject bullet = BulletPooling.bulletPoolNpc.Get(); 
         bullet.transform.position = transform.position ;
         bullet.transform.LookAt(GameObject.Find("Player").transform);
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * Singleton.Instance.npc.Character.Ship.Bullet.Speed;
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npc.Character.Ship.Bullet.Speed;
 
         //Increase NPC velocity if ship speed becomes too slow due to collision with asteroids
         if (transform.GetComponent<Rigidbody>().velocity.x <= 2f)

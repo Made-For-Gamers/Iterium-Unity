@@ -30,7 +30,7 @@ public class SO_Player : ScriptableObject
         set
         {
             xp = value;
-            Singleton.Instance.saveData.xp = value;
+            GameManager.Instance.saveData.xp = value;
         }
     }
     public int Score
@@ -39,7 +39,7 @@ public class SO_Player : ScriptableObject
         set
         {
             score = value;
-            Singleton.Instance.saveData.score = value;
+            GameManager.Instance.saveData.score = value;
         }
     }
     public SO_Character Character
@@ -48,7 +48,7 @@ public class SO_Player : ScriptableObject
         set
         {
             character = value;
-            Singleton.Instance.saveData.character = value;
+            GameManager.Instance.saveData.character = value;
         }
     }
     public int Health { get => health; set => health = value; }
@@ -58,7 +58,7 @@ public class SO_Player : ScriptableObject
         set
         {
             bulletLvl = value;
-            Singleton.Instance.saveData.bulletLvl = value;
+            GameManager.Instance.saveData.bulletLvl = value;
         }
     }
     public int ShieldLvl
@@ -67,7 +67,7 @@ public class SO_Player : ScriptableObject
         set
         {
             shieldLvl = value;
-            Singleton.Instance.saveData.shieldLvl = value;
+            GameManager.Instance.saveData.shieldLvl = value;
         }
     }
     public int Iterium
@@ -76,7 +76,7 @@ public class SO_Player : ScriptableObject
         set
         {
             iterium = value;
-            Singleton.Instance.saveData.iterium = value;
+            GameManager.Instance.saveData.iterium = value;
         }
     }
 }

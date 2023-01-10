@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
     //Ship rotation
     private void Rotate()
     {
-        transform.Rotate(0, input.rotateInput.x * Singleton.Instance.player.Character.Ship.TurnSpeed * Time.deltaTime, 0);
+        transform.Rotate(0, input.rotateInput.x * GameManager.Instance.player.Character.Ship.TurnSpeed * Time.deltaTime, 0);
     }
 
     //Firing
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
             GameObject bullet = BulletPooling.bulletPoolPlayer.Get();           
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
-            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * Singleton.Instance.player.Character.Ship.Bullet.Speed;           
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.player.Character.Ship.Bullet.Speed;           
             input.isfire = false;
         }
     }
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * Singleton.Instance.player.Character.Ship.Thrust * Time.deltaTime), ForceMode.Force);
+        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * GameManager.Instance.player.Character.Ship.Thrust * Time.deltaTime), ForceMode.Force);
     }
 
     //Shield
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             shield.SetActive(true);
             isShielding = true;
             StartCoroutine(ShieldTime());
-            shieldCooldown = Singleton.Instance.player.Character.Ship.ShieldCooldown;
+            shieldCooldown = GameManager.Instance.player.Character.Ship.ShieldCooldown;
         }
 
         if (shieldCooldown > 0) //Cooldown countdown
@@ -87,7 +87,7 @@ public class PlayerController : MonoBehaviour
     //Shield cooldown timer
     private IEnumerator ShieldTime()
     {
-        yield return new WaitForSeconds(Singleton.Instance.player.Character.Ship.ShieldTime);
+        yield return new WaitForSeconds(GameManager.Instance.player.Character.Ship.ShieldTime);
         shield.SetActive(false);
 
     }
@@ -96,13 +96,13 @@ public class PlayerController : MonoBehaviour
     {
         if (isShielding)
         {
-            Singleton.Instance.player.Health -= (int)(firePower / Singleton.Instance.player.Character.Ship.ShieldPower);
+            GameManager.Instance.player.Health -= (int)(firePower / GameManager.Instance.player.Character.Ship.ShieldPower);
         }
         else
         {
-            Singleton.Instance.player.Health -= (int)firePower;
+            GameManager.Instance.player.Health -= (int)firePower;
         }
-        if (Singleton.Instance.player.Health <= 0)
+        if (GameManager.Instance.player.Health <= 0)
         {
            
             StartCoroutine(DestroyShip());
