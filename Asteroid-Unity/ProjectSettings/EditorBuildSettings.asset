@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 4909646902458244b84f7f753250ab9d
   - enabled: 1
-    path: Assets/Scenes/Upgrade.unity
+    path: Assets/Scenes/Upgrade1.unity
     guid: 9dd8f30e9bf76704aa2629e6d4fb6e50
   - enabled: 1
     path: Assets/Scenes/UserProfile.unity
