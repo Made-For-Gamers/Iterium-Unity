@@ -28,8 +28,7 @@ public class UI_Button : MonoBehaviour
     }
 
     private void Button_clicked()
-    {
-        print("clicked");
+    {       
         SceneManager.LoadScene(sceneName);
     }
 }

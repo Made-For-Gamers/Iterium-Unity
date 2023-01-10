@@ -134,11 +134,9 @@ GameObject:
   - component: {fileID: 147354634}
   - component: {fileID: 147354633}
   - component: {fileID: 147354635}
-  - component: {fileID: 147354638}
-  - component: {fileID: 147354637}
   - component: {fileID: 147354636}
   m_Layer: 5
-  m_Name: UIMenu
+  m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,39 +197,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 147354632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
+  m_Script: {fileID: 11500000, guid: b67074f1b1809394b81d37ee026173f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
-  buttonName: chinaFaction
---- !u!114 &147354637
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147354632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
-  buttonName: usaFaction
---- !u!114 &147354638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147354632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
-  buttonName: ussrFaction
+  targetScene: {fileID: 102900000, guid: ccc4f809a78172148b4a30d713c0985e, type: 3}
+  chinaFaction: chinaFaction
+  usaFaction: usaFaction
+  ussrFaction: ussrFaction
 --- !u!1 &613795269
 GameObject:
   m_ObjectHideFlags: 0

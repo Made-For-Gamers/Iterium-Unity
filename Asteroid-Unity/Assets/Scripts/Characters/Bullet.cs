@@ -27,8 +27,8 @@ public class Bullet : MonoBehaviour
             //Bullet hits an asteroid
             case "Asteroid":
                 BulletExplosion(collision);
-                Singleton.Instance.player.Score += 50;
-                Singleton.Instance.player.Xp += 10;
+                GameManager.Instance.player.Score += 50;
+                GameManager.Instance.player.Xp += 10;
 
                 //Split asteroid if it is larger than a set size
                 Vector3 scale = collision.transform.localScale;
@@ -59,16 +59,16 @@ public class Bullet : MonoBehaviour
             //Bullet hits a player
             case "Player":
                 var player1Hit = collision.transform.GetComponent<PlayerController>();
-                player1Hit.BulletHit(Singleton.Instance.player.Character.Ship.Bullet.FirePower);
-                Singleton.Instance.player.Score += 500;
-                Singleton.Instance.player.Xp += 25;
+                player1Hit.BulletHit(GameManager.Instance.player.Character.Ship.Bullet.FirePower);
+                GameManager.Instance.player.Score += 500;
+                GameManager.Instance.player.Xp += 25;
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits NPC
             case "NPC":
-                Singleton.Instance.player.Score += 2500;
-                Singleton.Instance.player.Xp += 100;
+                GameManager.Instance.player.Score += 2500;
+                GameManager.Instance.player.Xp += 100;
                 BulletExplosion(collision);
                 Destroy(collision.gameObject);
                 break;
