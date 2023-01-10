@@ -1466,7 +1466,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c59bb97a3be9a24499f511abddd2b226, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  npc: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
   spawnInterval: 10
   minSpeed: 4
   maxSpeed: 10
@@ -2054,12 +2053,16 @@ MonoBehaviour:
   fileName: Iterium.save
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
   npc: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
+  factions: {fileID: 0}
   saveData:
     score: 0
     xp: 0
     shieldLvl: 0
     bulletLvl: 0
-    ship: {fileID: 0}
+    speedLvl: 0
+    iterium: 0
+    character: {fileID: 0}
+  aiCharacter: {fileID: 0}
 --- !u!1 &1417713978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2879,7 +2882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2075369461
 RectTransform:
   m_ObjectHideFlags: 0

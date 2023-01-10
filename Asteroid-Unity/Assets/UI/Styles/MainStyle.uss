@@ -179,12 +179,68 @@
 }
 
 .text-score {
-    font-size: 60px;
+    font-size: 49px;
     color: rgba(0, 255, 233, 255);
-    -unity-text-align: lower-left;
-    white-space: normal;
+    -unity-text-align: middle-center;
+    white-space: nowrap;
     flex-direction: column;
-    flex-wrap: wrap-reverse;
+    flex-wrap: nowrap;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgba(15, 243, 34, 255);
+    border-right-color: rgba(15, 243, 34, 255);
+    border-top-color: rgba(15, 243, 34, 255);
+    border-bottom-color: rgba(15, 243, 34, 255);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+    width: auto;
+    height: auto;
+}
+
+.score-panels {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: rgba(0, 0, 0, 0.27);
+    border-top-left-radius: 41px;
+    border-bottom-left-radius: 41px;
+    border-top-right-radius: 41px;
+    border-bottom-right-radius: 41px;
+    justify-content: space-between;
+}
+
+.text-scoreHeading {
+    font-size: 60px;
+    color: rgb(255, 19, 0);
+    -unity-text-align: upper-center;
+    white-space: nowrap;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+    border-left-color: rgb(15, 243, 34);
+    border-right-color: rgb(15, 243, 34);
+    border-top-color: rgb(15, 243, 34);
+    border-bottom-color: rgb(15, 243, 34);
+    border-top-left-radius: 27px;
+    border-bottom-left-radius: 27px;
+    border-top-right-radius: 27px;
+    border-bottom-right-radius: 27px;
+    background-color: rgba(0, 0, 0, 0);
+    width: auto;
+    height: auto;
+    text-shadow: 0 0 0 rgb(0, 0, 0);
+    -unity-font-style: bold;
 }
