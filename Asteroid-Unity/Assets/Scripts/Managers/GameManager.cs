@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Singleton manager to manage static data and methods
@@ -53,6 +54,7 @@ public class GameManager : Singleton<GameManager>
         player.Xp = saveData.xp;
         player.ShieldLvl = saveData.shieldLvl;
         player.BulletLvl = saveData.bulletLvl;
+        player.SpeedLvl = saveData.speedLvl;
         player.Iterium = saveData.iterium;
         if (saveData.character != null)
         {
@@ -78,6 +80,11 @@ public class GameManager : Singleton<GameManager>
     private void OnApplicationQuit()
     {
         //SaveGame();     
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 
 }

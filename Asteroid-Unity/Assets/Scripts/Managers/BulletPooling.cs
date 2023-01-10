@@ -18,7 +18,7 @@ public class BulletPooling : MonoBehaviour
     public static ObjectPool<GameObject> bulletPoolPlayer;
     public static ObjectPool<GameObject> bulletPoolNpc;
 
-    private void Start()
+    private void Awake()
     {     
         //NPC Pool
         bulletPoolNpc = new ObjectPool<GameObject>(PoolNew_NPC, PoolGet, PoolReturn, PoolDestroy, false, capacityNpc, maxCapacityNpc);

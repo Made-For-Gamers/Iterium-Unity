@@ -12,7 +12,7 @@ public class AsteroidPooling : MonoBehaviour
     [SerializeField] private SO_GameObjects asteroids;
     public static ObjectPool<GameObject> asteroidPool;
 
-    private void Start()
+    private void Awake()
     {
         asteroidPool = new ObjectPool<GameObject>(PoolNew, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
     }
