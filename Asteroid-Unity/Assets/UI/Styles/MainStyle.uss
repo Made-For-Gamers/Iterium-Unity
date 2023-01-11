@@ -26,6 +26,8 @@
     border-bottom-right-radius: 35px;
     -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=0fb1fb9ef5333cd4699faacf74123412&type=3#NotInter-Regular');
     -unity-font-definition: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .text {
@@ -51,8 +53,8 @@
 .menu-button {
     background-color: rgb(0, 0, 0);
     position: absolute;
-    left: 65px;
-    top: 61px;
+    left: auto;
+    top: auto;
     width: 50px;
     height: 50px;
     border-left-color: rgba(0, 0, 0, 0);
@@ -130,11 +132,11 @@
 
 .unity-progress-bar__container {
     color: rgb(238, 0, 0);
-    width: 320px;
-    border-top-left-radius: -25px;
-    border-bottom-left-radius: -25px;
-    border-top-right-radius: -25px;
-    border-bottom-right-radius: -25px;
+    width: auto;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
     border-left-width: 0;
     border-right-width: 0;
     border-top-width: 0;
@@ -143,27 +145,27 @@
     border-right-color: rgb(250, 0, 0);
     border-top-color: rgb(250, 0, 0);
     border-bottom-color: rgb(250, 0, 0);
-    left: -46px;
+    left: auto;
 }
 
 .unity-progress-bar__progress {
     color: rgb(238, 0, 0);
     background-color: rgb(255, 2, 0);
-    border-top-left-radius: 12px;
-    border-bottom-left-radius: 12px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
 }
 
 .unity-progress-bar__title {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0);
-    left: -235px;
+    left: auto;
     align-items: flex-end;
     flex-direction: column;
     -unity-text-align: middle-right;
     white-space: nowrap;
-    width: 100px;
+    width: auto;
     -unity-font-style: bold;
     font-size: 26px;
 }
@@ -183,6 +185,7 @@
     border-right-color: rgb(250, 0, 0);
     border-top-color: rgb(250, 0, 0);
     border-bottom-color: rgb(250, 0, 0);
+    font-size: 14px;
 }
 
 .text-score {
