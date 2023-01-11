@@ -519,10 +519,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9da76faf3f1384aa445eab8923611c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: healthPlayer1
-  playerShield: shieldPlayer1
-  playerIterium: iteriumPlayer1
   playerScore: scorePlayer1
+  playerHealth: healthPlayer1
+  playerIterium: iteriumPlayer1
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1803,6 +1802,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AI Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 602120685965762839, guid: 3978e1be4afbd394989c8461bc58b5ba,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3978e1be4afbd394989c8461bc58b5ba, type: 3}
