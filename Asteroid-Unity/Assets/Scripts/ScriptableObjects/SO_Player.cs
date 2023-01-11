@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Player")]
 
@@ -22,6 +23,12 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int shieldLvl;
     [SerializeField] private int speedLvl;
     [SerializeField] private int iterium;
+    [SerializeField] private int lives;
+
+    //Events
+    public UnityEvent onChange_Health;
+    public UnityEvent onChange_Score;
+    public UnityEvent onChange_Iterium;
 
     public string CharName { get => charName; set => charName = value; }
     public string Description { get => description; set => description = value; }
@@ -41,6 +48,7 @@ public class SO_Player : ScriptableObject
         {
             score = value;
             GameManager.Instance.saveData.score = value;
+            onChange_Score.Invoke();
         }
     }
     public SO_Character Character
@@ -52,7 +60,15 @@ public class SO_Player : ScriptableObject
             GameManager.Instance.saveData.character = value;
         }
     }
-    public int Health { get => health; set => health = value; }
+    public int Health 
+    { 
+        get => health;
+        set
+        {
+            health = value;
+            onChange_Health.Invoke();
+        }
+    }
     public int BulletLvl
     {
         get => bulletLvl;
@@ -78,6 +94,7 @@ public class SO_Player : ScriptableObject
         {
             iterium = value;
             GameManager.Instance.saveData.iterium = value;
+            onChange_Iterium.Invoke();
         }
     }
 

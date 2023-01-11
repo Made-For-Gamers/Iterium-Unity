@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 
 //Faction selection using UI Toolkit
-public class FactionSelection : MonoBehaviour
+public class UI_FactionSelection : MonoBehaviour
 {
     [Header("Target scene")]
 #if UNITY_EDITOR
