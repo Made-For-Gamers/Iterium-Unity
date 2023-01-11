@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// Player ship script that handles...
@@ -10,19 +9,21 @@ using UnityEngine.SocialPlatforms.Impl;
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private InputManager input;   
-    [SerializeField] private Transform firePosition;
-    [SerializeField] private GameObject shield;  
+    [HideInInspector] public Transform spawnPoint;
 
-    [HideInInspector] public Transform spawnPoint;   
-
+    private InputManager input;
+    private Transform firePosition;
+    private GameObject shield;  
     private float shieldCooldown;
     private bool isShielding;
     private Rigidbody rigidBody;
 
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody>();  
+        input = GetComponent<InputManager>();
+        shield = transform.GetChild(0).gameObject;
+        firePosition = transform.GetChild(1);
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -48,10 +49,10 @@ public class PlayerController : MonoBehaviour
     {
         if (input.isfire)
         {
-            GameObject bullet = BulletPooling.bulletPoolPlayer.Get();           
+            GameObject bullet = BulletPooling.bulletPoolPlayer.Get();
             bullet.transform.position = firePosition.position;
             bullet.transform.rotation = firePosition.rotation;
-            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.player.Character.Ship.Bullet.Speed;           
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.player.Character.Ship.Bullet.Speed;
             input.isfire = false;
         }
     }
@@ -104,16 +105,16 @@ public class PlayerController : MonoBehaviour
         }
         if (GameManager.Instance.player.Health <= 0)
         {
-           
+
             StartCoroutine(DestroyShip());
         }
     }
 
     IEnumerator DestroyShip()
     {
-       
+
         for (int i = 0; i < 3; i++)
-        {           
+        {
             //Spawn new explosion
             GameObject explosionObject = ExplosionPooling.explosionPool.Get();
             explosionObject.transform.position = transform.position;
@@ -121,17 +122,17 @@ public class PlayerController : MonoBehaviour
             explosionObject.transform.localScale = new Vector3(i, i, i);
             yield return new WaitForSeconds(0.15f);
             //Prepare to return explosion to pool
-            explosionObject.transform.localScale = new Vector3(1, 1, 1); 
-            ExplosionPooling.explosionPool.Release(explosionObject);       
-        }    
+            explosionObject.transform.localScale = new Vector3(1, 1, 1);
+            ExplosionPooling.explosionPool.Release(explosionObject);
+        }
         Destroy(this.gameObject);
     }
 
-    //Remove ship when it leaves the screen
+    //Remove ship when it leaves the screen and re-spawn
     private void OnBecameInvisible()
     {
         transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
         transform.position = spawnPoint.position;
     }
-  
+
 }

@@ -29,7 +29,7 @@ public class GameManager : Singleton<GameManager>
 
     private void SelectAiPlayer()
     {
-        int rnd = UnityEngine.Random.Range(4, 7);
+        int rnd = UnityEngine.Random.Range(1, 4);
         aiCharacter = factions.Factions[rnd];
     }
 

@@ -56,10 +56,10 @@ public class Bullet : MonoBehaviour
                 AsteroidPooling.asteroidPool.Release(collision.gameObject);
                 break;
 
-            //Bullet hits a player
-            case "Player":
-                var player1Hit = collision.transform.GetComponent<PlayerController>();
-                player1Hit.BulletHit(GameManager.Instance.player.Character.Ship.Bullet.FirePower);
+            //Bullet hits another player
+            case "AI":
+                var aiIhit = collision.transform.GetComponent<AIController>();
+                aiIhit.BulletHit(GameManager.Instance.player.Character.Ship.Bullet.FirePower);
                 GameManager.Instance.player.Score += 500;
                 GameManager.Instance.player.Xp += 25;
                 BulletExplosion(collision);
