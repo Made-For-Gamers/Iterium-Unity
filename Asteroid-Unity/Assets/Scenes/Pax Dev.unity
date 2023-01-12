@@ -522,6 +522,9 @@ MonoBehaviour:
   playerScore: scorePlayer1
   playerHealth: healthPlayer1
   playerIterium: iteriumPlayer1
+  aiScore: scorePlayer2
+  aiHealth: healthPlayer2
+  aiIterium: iteriumPlayer2
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1231,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capacity: 25
   maxCapacity: 30
+  capacityAi: 15
+  maxCapacityAi: 20
   capacityNpc: 5
   maxCapacityNpc: 10
 --- !u!114 &1373962216
@@ -1244,7 +1249,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileName: Iterium.save
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
-  npc: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
+  aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
+  npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
   saveData:
     score: 0
@@ -1254,7 +1260,6 @@ MonoBehaviour:
     speedLvl: 0
     iterium: 0
     character: {fileID: 0}
-  aiCharacter: {fileID: 0}
 --- !u!1 &1444972401
 GameObject:
   m_ObjectHideFlags: 0

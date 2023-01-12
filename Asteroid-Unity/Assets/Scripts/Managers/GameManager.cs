@@ -6,21 +6,25 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : Singleton<GameManager>
 {
-    [Header("Save Game Settings")]
+    [Header("Save Game")]
     [SerializeField] private string fileName;
 
     [Header("Characters")]
     public SO_Player player;
-    public SO_Player npc;
+    public SO_Player aiPlayer;
+    public SO_Player npcPlayer;
     public SO_Factions factions;
 
+    public SO_GameObjects asteroids { get; private set; }
+    public SO_GameObjects crystals { get; private set; }
+    public int iteriumChance { get; private set; } = 20;
+
     [HideInInspector] public SaveData saveData;
-    [HideInInspector] public SO_Character aiCharacter;
     private FileSaveHandler fileSaveHandler;
-      
+
 
     private void Start()
-    {        
+    {
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
         LoadGame();
         SelectAiPlayer();
@@ -30,7 +34,7 @@ public class GameManager : Singleton<GameManager>
     private void SelectAiPlayer()
     {
         int rnd = UnityEngine.Random.Range(1, 4);
-        aiCharacter = factions.Factions[rnd];
+        aiPlayer.Character = factions.Factions[rnd];
     }
 
     public void SaveGame()
@@ -75,11 +79,12 @@ public class GameManager : Singleton<GameManager>
     public void ResetGame()
     {
         player.Health = 100;
+        aiPlayer.Health = 100;
     }
 
     private void OnApplicationQuit()
     {
-        //SaveGame();     
+        //SaveGame();
     }
 
     public void MainMenu()

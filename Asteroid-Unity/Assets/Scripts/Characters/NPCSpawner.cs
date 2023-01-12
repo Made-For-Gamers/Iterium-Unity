@@ -23,7 +23,7 @@ public class NPCSpawner : MonoBehaviour
     private void SpawnNPC()
     {
         int rnd = Random.Range(1, 5);
-        GameObject ship = Instantiate(GameManager.Instance.npc.Character.Ship.ShipPrefab);  
+        GameObject ship = Instantiate(GameManager.Instance.npcPlayer.Character.Ship.ShipPrefab);  
         ship.transform.position = GetComponentsInChildren<Transform>()[rnd].position;
         ship.transform.LookAt(target);       
         speed = Random.Range(minSpeed, maxSpeed);      

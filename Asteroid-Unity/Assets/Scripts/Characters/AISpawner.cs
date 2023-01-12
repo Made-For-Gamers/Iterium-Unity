@@ -5,7 +5,7 @@ public class AISpawner : MonoBehaviour
 
     private void Start()
     {
-        GameObject ship = Instantiate(GameManager.Instance.aiCharacter.Ship.ShipPrefab);
+        GameObject ship = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.ShipPrefab);
         Destroy(ship.GetComponent<PlayerController>());
         Destroy(ship.GetComponent<InputManager>());
         ship.AddComponent<AIController>();

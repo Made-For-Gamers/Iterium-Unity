@@ -1,14 +1,15 @@
 using UnityEngine;
 
 /// <summary>
-/// Player bullet that handles...
+/// AI bullet that handles...
 /// * Collision detection
 /// * Asteroid splitting
 /// * Crystal spawning
 /// * Bullet de-spawning
 /// </summary>
-public class Bullet : MonoBehaviour
-{  
+
+public class BulletAI : MonoBehaviour
+{
     //Take action when bullet hits a specific object
     private void OnTriggerEnter(Collider collision)
     {
@@ -17,8 +18,8 @@ public class Bullet : MonoBehaviour
             //Bullet hits an asteroid
             case "Asteroid":
                 BulletExplosion(collision);
-                GameManager.Instance.player.Score += 50;
-                GameManager.Instance.player.Xp += 10;
+                GameManager.Instance.aiPlayer.Score += 50;
+                GameManager.Instance.aiPlayer.Xp += 10;
 
                 //Split asteroid if it is larger than a set size
                 Vector3 scale = collision.transform.localScale;
@@ -46,24 +47,24 @@ public class Bullet : MonoBehaviour
                 AsteroidPooling.asteroidPool.Release(collision.gameObject);
                 break;
 
-            //Bullet hits AI player
-            case "AI":
-                var aiIhit = collision.transform.GetComponent<AIController>();
-                aiIhit.BulletHit(GameManager.Instance.player.Character.Ship.Bullet.FirePower);
-                GameManager.Instance.player.Score += 500;
-                GameManager.Instance.player.Xp += 25;
+            //Bullet hits another player
+            case "Player":
+                var playerhit = collision.transform.GetComponent<PlayerController>();
+                playerhit.BulletHit(GameManager.Instance.aiPlayer.Character.Ship.Bullet.FirePower);
+                GameManager.Instance.aiPlayer.Score += 500;
+                GameManager.Instance.aiPlayer.Xp += 25;
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits NPC
             case "NPC":
-                GameManager.Instance.player.Score += 2500;
-                GameManager.Instance.player.Xp += 100;
+                GameManager.Instance.aiPlayer.Score += 2500;
+                GameManager.Instance.aiPlayer.Xp += 100;
                 BulletExplosion(collision);
                 Destroy(collision.gameObject);
                 break;
         }
-    } 
+    }
 
     //Remove bullet after a collision
     private void BulletExplosion(Collider obj)
@@ -77,9 +78,7 @@ public class Bullet : MonoBehaviour
 
     //Remove bullet after it leaves the screen
     private void OnBecameInvisible()
-    {      
+    {
         BulletPooling.bulletPoolPlayer.Release(this.gameObject);
     }
-
-  
 }

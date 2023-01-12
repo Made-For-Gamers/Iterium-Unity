@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Collections;
-using UnityEngine.Windows;
 
 /// <summary>
 /// AI ship script that handles...
@@ -10,6 +9,10 @@ using UnityEngine.Windows;
 /// </summary>
 public class AIController : MonoBehaviour
 {
+    [Header("Bullet")]
+    [SerializeField] private float fireStart = 1f;
+    [SerializeField] private float fireInterval = 0.5f;
+
     [HideInInspector] public Transform spawnPoint;
 
     private GameObject player;
@@ -20,17 +23,17 @@ public class AIController : MonoBehaviour
     private Rigidbody rigidBody;
 
     private void Start()
-    {        
+    {
         player = GameObject.Find("Player");
         shield = transform.GetChild(0).gameObject;
         firePosition = transform.GetChild(1);
         rigidBody = GetComponent<Rigidbody>();
+        InvokeRepeating("Fire", fireStart, fireInterval);
     }
 
     private void Update()
     {
         Rotate();
-        Fire();
         Shield();
     }
 
@@ -51,14 +54,12 @@ public class AIController : MonoBehaviour
     //Firing
     private void Fire()
     {
-        //if (input.isfire)
-        //{
-        //    GameObject bullet = BulletPooling.bulletPoolPlayer.Get();
-        //    bullet.transform.position = firePosition.position;
-        //    bullet.transform.rotation = firePosition.rotation;
-        //    bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.player.Character.Ship.Bullet.Speed;
-        //    input.isfire = false;
-        //}
+        GameObject bullet = BulletPooling.bulletPoolAi.Get();
+        bullet.transform.position = firePosition.position;
+        bullet.transform.LookAt(GameObject.Find("Player").transform);
+        Destroy(bullet.GetComponent<Bullet>());
+        bullet.AddComponent<BulletAI>();
+        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
     }
 
     //Ship Thrust
@@ -75,7 +76,7 @@ public class AIController : MonoBehaviour
             shield.SetActive(true);
             isShielding = true;
             StartCoroutine(ShieldTime());
-            shieldCooldown = GameManager.Instance.player.Character.Ship.ShieldCooldown;
+            shieldCooldown = GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown;
         }
 
         if (shieldCooldown > 0) //Cooldown countdown
@@ -91,7 +92,7 @@ public class AIController : MonoBehaviour
     //Shield cooldown timer
     private IEnumerator ShieldTime()
     {
-        yield return new WaitForSeconds(GameManager.Instance.player.Character.Ship.ShieldTime);
+        yield return new WaitForSeconds(GameManager.Instance.aiPlayer.Character.Ship.ShieldTime);
         shield.SetActive(false);
 
     }
@@ -100,13 +101,13 @@ public class AIController : MonoBehaviour
     {
         if (isShielding)
         {
-            GameManager.Instance.player.Health -= (int)(firePower / GameManager.Instance.player.Character.Ship.ShieldPower);
+            GameManager.Instance.aiPlayer.Health -= (int)(firePower / GameManager.Instance.aiPlayer.Character.Ship.ShieldPower);
         }
         else
         {
-            GameManager.Instance.player.Health -= (int)firePower;
+            GameManager.Instance.aiPlayer.Health -= (int)firePower;
         }
-        if (GameManager.Instance.player.Health <= 0)
+        if (GameManager.Instance.aiPlayer.Health <= 0)
         {
 
             StartCoroutine(DestroyShip());
