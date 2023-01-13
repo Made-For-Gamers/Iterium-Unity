@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   charName: Player 1
   description: 
-  xp: 1660
-  score: 26300
+  xp: 1685
+  score: 27550
   character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
-  health: 100
+  health: -5
   bulletLvl: 0
   shieldLvl: 0
   speedLvl: 0
   iterium: 0
+  lives: 0
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []

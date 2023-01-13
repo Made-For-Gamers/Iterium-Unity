@@ -14,10 +14,9 @@ public class GameManager : Singleton<GameManager>
     public SO_Player aiPlayer;
     public SO_Player npcPlayer;
     public SO_Factions factions;
-
-    public SO_GameObjects asteroids { get; private set; }
-    public SO_GameObjects crystals { get; private set; }
-    public int iteriumChance { get; private set; } = 20;
+  
+    public SO_GameObjects crystals;
+    public int iteriumChance = 20;
 
     [HideInInspector] public SaveData saveData;
     private FileSaveHandler fileSaveHandler;

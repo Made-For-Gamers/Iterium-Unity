@@ -54,12 +54,15 @@ public class AIController : MonoBehaviour
     //Firing
     private void Fire()
     {
-        GameObject bullet = BulletPooling.bulletPoolAi.Get();
-        bullet.transform.position = firePosition.position;
-        bullet.transform.LookAt(GameObject.Find("Player").transform);
-        Destroy(bullet.GetComponent<Bullet>());
-        bullet.AddComponent<BulletAI>();
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
+        if (player.gameObject != null)
+        {
+            GameObject bullet = BulletPooling.bulletPoolAi.Get();
+            bullet.transform.position = firePosition.position;
+            bullet.transform.LookAt(player.transform);
+            Destroy(bullet.GetComponent<Bullet>());
+            bullet.AddComponent<BulletAI>();
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
+        }
     }
 
     //Ship Thrust

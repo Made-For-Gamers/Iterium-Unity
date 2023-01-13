@@ -17,7 +17,7 @@ public class BulletAI : MonoBehaviour
         {
             //Bullet hits an asteroid
             case "Asteroid":
-                BulletExplosion(collision);
+            
                 GameManager.Instance.aiPlayer.Score += 50;
                 GameManager.Instance.aiPlayer.Xp += 10;
 
@@ -43,8 +43,9 @@ public class BulletAI : MonoBehaviour
                     }
                 }
 
-                //Remove asteroid
+                //Remove objects
                 AsteroidPooling.asteroidPool.Release(collision.gameObject);
+                BulletExplosion(collision);
                 break;
 
             //Bullet hits another player
@@ -68,17 +69,22 @@ public class BulletAI : MonoBehaviour
 
     //Remove bullet after a collision
     private void BulletExplosion(Collider obj)
-    {
-
-        BulletPooling.bulletPoolPlayer.Release(this.gameObject);
+    {      
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
+        if (gameObject.activeSelf)
+        {
+            BulletPooling.bulletPoolAi.Release(this.gameObject);
+        }
     }
 
     //Remove bullet after it leaves the screen
     private void OnBecameInvisible()
     {
-        BulletPooling.bulletPoolPlayer.Release(this.gameObject);
+        if (gameObject.activeSelf)
+        {
+            BulletPooling.bulletPoolAi.Release(this.gameObject);
+        }
     }
 }

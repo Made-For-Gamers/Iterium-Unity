@@ -6,7 +6,7 @@ using UnityEngine;
 public class NPCSpawner : MonoBehaviour
 {   
     [Header("Spawning")]
-    [SerializeField] int spawnInterval = 45;   
+    [SerializeField] int spawnInterval = 45;
 
     [Header("Movement")]
     [SerializeField] int minSpeed;

@@ -15,8 +15,6 @@ public class BulletNpc : MonoBehaviour
         {
             //Bullet hits an asteroid
             case "Asteroid":
-                BulletExplosion(collision);
-
                 //Split asteroid if it is larger than a set size
                 Vector3 scale = collision.transform.localScale;
                 if (scale.x > 0.25)
@@ -39,12 +37,13 @@ public class BulletNpc : MonoBehaviour
                     }
                 }
 
-                //Remove asteroid
+                //Remove objects
                 AsteroidPooling.asteroidPool.Release(collision.gameObject);
+                BulletExplosion(collision);
                 break;
 
             //Bullet hits player
-            case "Player":
+            case "Player1":
                 var playerHit = collision.transform.GetComponent<PlayerController>();
                 playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower);
                 BulletExplosion(collision);
@@ -53,7 +52,7 @@ public class BulletNpc : MonoBehaviour
             //Bullet hits AI player
             case "AI":
                 var aiIhit = collision.transform.GetComponent<AIController>();
-                aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower);             
+                aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower);
                 BulletExplosion(collision);
                 break;
         }
@@ -62,16 +61,21 @@ public class BulletNpc : MonoBehaviour
     //Return bullet to pool after a collision, explosion effect
     private void BulletExplosion(Collider obj)
     {
-
-        BulletPooling.bulletPoolNpc.Release(this.gameObject);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
+        if (gameObject.activeSelf)
+        {
+            BulletPooling.bulletPoolNpc.Release(this.gameObject);
+        }
     }
 
     //Return bullet to pool after it leaves the screen
     private void OnBecameInvisible()
     {
-        BulletPooling.bulletPoolNpc.Release(this.gameObject);
+        if (gameObject.activeSelf)
+        {
+            BulletPooling.bulletPoolNpc.Release(this.gameObject);
+        }
     }
 }

@@ -40,6 +40,7 @@ public class BulletPooling : MonoBehaviour
     {
         //Instantiate a new asteroid
         return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.player.BulletLvl]);
+      
     }
     private GameObject PoolNew_Ai() //AI bullet
     {

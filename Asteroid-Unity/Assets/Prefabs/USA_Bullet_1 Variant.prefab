@@ -123,7 +123,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 267525fa70fd73245ab0cda35bc88770,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.993
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 267525fa70fd73245ab0cda35bc88770,
         type: 3}
@@ -239,11 +239,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e7759f1f6f87247bfb8f3e6efbf68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroids: {fileID: 11400000, guid: eea4ac0412d4eb2439d964b97098a2e6, type: 2}
-  crystals: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
-  dropChance: 20
-  PlayerNumber: 0
-  player: {fileID: 0}
 --- !u!4 &4579132279594995634 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 267525fa70fd73245ab0cda35bc88770,
