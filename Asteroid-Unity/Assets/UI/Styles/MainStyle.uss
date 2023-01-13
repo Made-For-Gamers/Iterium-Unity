@@ -53,8 +53,8 @@
 .menu-button {
     background-color: rgb(0, 0, 0);
     position: absolute;
-    left: auto;
-    top: auto;
+    left: 50px;
+    top: 61px;
     width: 50px;
     height: 50px;
     border-left-color: rgba(0, 0, 0, 0);
@@ -253,4 +253,120 @@
     height: auto;
     text-shadow: 0 0 0 rgb(0, 0, 0);
     -unity-font-style: bold;
+}
+
+.progress-slider {
+    align-items: center;
+    justify-content: center;
+    padding-left: 100px;
+    padding-right: 100px;
+    color: rgb(15, 243, 34);
+    -unity-text-align: lower-center;
+    -unity-font-style: bold;
+    font-size: 30px;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.progress-slider-text {
+    color: rgb(15, 243, 34);
+    font-size: 30px;
+    white-space: normal;
+    flex-direction: column;
+}
+
+.button:hover {
+    width: 300px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(243, 49, 15);
+    border-right-color: rgb(243, 49, 15);
+    border-top-color: rgb(243, 49, 15);
+    border-bottom-color: rgb(243, 49, 15);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    visibility: visible;
+    background-color: rgba(34, 34, 34, 0.85);
+    font-size: 30px;
+    color: rgb(0, 255, 233);
+    scale: 1 1;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=0fb1fb9ef5333cd4699faacf74123412&type=3#NotInter-Regular');
+    -unity-font-definition: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button:active {
+    width: 300px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(15, 143, 243);
+    border-right-color: rgb(15, 143, 243);
+    border-top-color: rgb(15, 143, 243);
+    border-bottom-color: rgb(15, 143, 243);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    visibility: visible;
+    background-color: rgba(34, 34, 34, 0.85);
+    font-size: 30px;
+    color: rgb(0, 255, 233);
+    scale: 1 1;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=0fb1fb9ef5333cd4699faacf74123412&type=3#NotInter-Regular');
+    -unity-font-definition: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.button:focus {
+    width: 300px;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(15, 243, 34);
+    border-right-color: rgb(15, 243, 34);
+    border-top-color: rgb(15, 243, 34);
+    border-bottom-color: rgb(15, 243, 34);
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    visibility: visible;
+    background-color: rgba(255, 0, 0, 0.85);
+    font-size: 30px;
+    color: rgb(0, 255, 233);
+    scale: 1 1;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=0fb1fb9ef5333cd4699faacf74123412&type=3#NotInter-Regular');
+    -unity-font-definition: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
