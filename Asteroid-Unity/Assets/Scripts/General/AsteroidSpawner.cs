@@ -7,17 +7,25 @@ using UnityEngine.Pool;
 /// </summary>
 public class AsteroidSpawner : MonoBehaviour
 {
-    [Header("Asteroid Spawning")]   
+    [Header("Asteroid Spawning")]
     [SerializeField] private float spawnTime;
     [SerializeField] private float speedMin;
     [SerializeField] private float speedMax;
+    [SerializeField] private bool spawnOnceOnly;
     [SerializeField] private GameObject target; //asteroids move towards target
 
     private float speed;
 
     private void Start()
     {
-        InvokeRepeating("SpawnAsteroid", 0, spawnTime);
+        if (!spawnOnceOnly)
+        {
+            InvokeRepeating("SpawnAsteroid", 0, spawnTime);
+        }
+        else
+        { 
+        SpawnAsteroid();
+        }
     }  
 
     private GameObject SpawnAsteroid()

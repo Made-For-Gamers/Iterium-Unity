@@ -44,7 +44,10 @@ public class BulletAI : MonoBehaviour
                 }
 
                 //Remove objects
-                AsteroidPooling.asteroidPool.Release(collision.gameObject);
+                if (gameObject.activeSelf)
+                {
+                    AsteroidPooling.asteroidPool.Release(collision.gameObject);
+                }
                 BulletExplosion(collision);
                 break;
 

@@ -78,7 +78,10 @@ public class GameManager : Singleton<GameManager>
     public void ResetGame()
     {
         player.Health = 100;
+        player.Score = 0;
         aiPlayer.Health = 100;
+        aiPlayer.Score = 0;
+
     }
 
     private void OnApplicationQuit()

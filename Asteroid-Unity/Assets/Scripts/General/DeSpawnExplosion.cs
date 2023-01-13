@@ -14,7 +14,10 @@ public class DeSpawnExplosion : MonoBehaviour
     private IEnumerator RemoveExplosions()
     {
         yield return new WaitForSeconds(destroyTime);
-        ExplosionPooling.explosionPool.Release(this.gameObject);
+        if (gameObject.activeSelf)
+        {
+            ExplosionPooling.explosionPool.Release(this.gameObject);
+        }
     }
 }
 

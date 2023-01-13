@@ -130,7 +130,10 @@ public class AIController : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             //Prepare to return explosion to pool
             explosionObject.transform.localScale = new Vector3(1, 1, 1);
-            ExplosionPooling.explosionPool.Release(explosionObject);
+            if (gameObject.activeSelf)
+            {
+                ExplosionPooling.explosionPool.Release(explosionObject);
+            }
         }
         Destroy(this.gameObject);
     }

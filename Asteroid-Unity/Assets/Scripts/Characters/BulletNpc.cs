@@ -38,12 +38,15 @@ public class BulletNpc : MonoBehaviour
                 }
 
                 //Remove objects
-                AsteroidPooling.asteroidPool.Release(collision.gameObject);
+                if (gameObject.activeSelf)
+                {
+                    AsteroidPooling.asteroidPool.Release(collision.gameObject);
+                }
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits player
-            case "Player1":
+            case "Player":
                 var playerHit = collision.transform.GetComponent<PlayerController>();
                 playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower);
                 BulletExplosion(collision);

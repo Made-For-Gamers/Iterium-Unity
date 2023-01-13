@@ -5,7 +5,7 @@ public class NPCController : MonoBehaviour
 {   
     [Header("Bullet")]
     [SerializeField] private float fireStart = 3f;
-    [SerializeField] private float fireInterval = 1f;   
+    [SerializeField] private float fireInterval = 0.8f;
 
     private void Start()
     {
