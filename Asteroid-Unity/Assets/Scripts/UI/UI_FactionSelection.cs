@@ -24,7 +24,7 @@ public class UI_FactionSelection : MonoBehaviour
     [SerializeField] private string usaFaction;
     [SerializeField] private string ussrFaction;
 
-    private string sceneName;
+    [HideInInspector] public string sceneName;
 
     private void OnEnable()
     {

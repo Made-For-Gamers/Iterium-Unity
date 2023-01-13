@@ -18,7 +18,7 @@ public class UI_Button : MonoBehaviour
    
     [Header("UI button")]
     [SerializeField] private string buttonName;
-    private string sceneName;
+    [HideInInspector] public string sceneName;
    
     private void OnEnable()
     {
