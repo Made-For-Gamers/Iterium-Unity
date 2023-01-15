@@ -15,8 +15,7 @@ public class SO_Ship : ScriptableObject
     [SerializeField] private SO_Types faction;
     [SerializeField] private float shieldPower;
     [SerializeField] private float shieldCooldown;
-    [Header("Shield: milliseconds")]
-    [SerializeField] private int shieldTime;
+    [SerializeField] private float shieldTime;
     [SerializeField] private float thrust;
     [SerializeField] private float turnSpeed;
     [SerializeField] private SO_Bullet bullet;
@@ -28,7 +27,7 @@ public class SO_Ship : ScriptableObject
     public SO_Types Faction { get => faction; set => faction = value; }
     public float ShieldPower { get => shieldPower; set => shieldPower = value; }
     public float ShieldCooldown { get => shieldCooldown; set => shieldCooldown = value; }
-    public int ShieldTime { get => shieldTime; set => shieldTime = value; }
+    public float ShieldTime { get => shieldTime; set => shieldTime = value; }
     public float Thrust { get => thrust; set => thrust = value; }
     public float TurnSpeed { get => turnSpeed; set => turnSpeed = value; }
     public SO_Bullet Bullet { get => bullet; set => bullet = value; }

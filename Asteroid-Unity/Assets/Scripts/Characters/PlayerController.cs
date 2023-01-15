@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Threading.Tasks;
+using System.Collections;
 
 /// <summary>
 /// Player ship script that handles...
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private InputManager input;
     private Transform firePosition;
-    private GameObject shield;
+    private GameObject shield;  
     private float shieldCooldown;
     private bool isShielding;
     private Rigidbody rigidBody;
@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         {
             shield.SetActive(true);
             isShielding = true;
-            ShieldTime();
+            StartCoroutine(ShieldTime());
             shieldCooldown = GameManager.Instance.player.Character.Ship.ShieldCooldown;
         }
 
@@ -86,9 +86,9 @@ public class PlayerController : MonoBehaviour
     }
 
     //Shield cooldown timer
-    private async void ShieldTime()
+    private IEnumerator ShieldTime()
     {
-        await Task.Delay(GameManager.Instance.player.Character.Ship.ShieldTime);
+        yield return new WaitForSeconds(GameManager.Instance.player.Character.Ship.ShieldTime);
         shield.SetActive(false);
 
     }
@@ -106,11 +106,11 @@ public class PlayerController : MonoBehaviour
         if (GameManager.Instance.player.Health <= 0)
         {
 
-            DestroyShip();
+            StartCoroutine(DestroyShip());
         }
     }
 
-    async void DestroyShip()
+    IEnumerator DestroyShip()
     {
 
         for (int i = 0; i < 3; i++)
@@ -120,7 +120,7 @@ public class PlayerController : MonoBehaviour
             explosionObject.transform.position = transform.position;
             explosionObject.transform.rotation = transform.rotation;
             explosionObject.transform.localScale = new Vector3(i, i, i);
-            await Task.Delay(150);
+            yield return new WaitForSeconds(0.15f);
             //Prepare to return explosion to pool
             explosionObject.transform.localScale = new Vector3(1, 1, 1);
             if (gameObject.activeSelf)

@@ -1,5 +1,5 @@
 using UnityEngine;
-using System.Threading.Tasks;
+using System.Collections;
 
 /// <summary>
 /// AI ship script that handles...
@@ -78,7 +78,7 @@ public class AIController : MonoBehaviour
         {
             shield.SetActive(true);
             isShielding = true;
-            ShieldTime();
+            StartCoroutine(ShieldTime());
             shieldCooldown = GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown;
         }
 
@@ -93,10 +93,11 @@ public class AIController : MonoBehaviour
     }
 
     //Shield cooldown timer
-    private async void ShieldTime()
+    private IEnumerator ShieldTime()
     {
-        await Task.Delay(GameManager.Instance.aiPlayer.Character.Ship.ShieldTime);
+        yield return new WaitForSeconds(GameManager.Instance.aiPlayer.Character.Ship.ShieldTime);
         shield.SetActive(false);
+
     }
 
     public void BulletHit(float firePower)
@@ -112,11 +113,11 @@ public class AIController : MonoBehaviour
         if (GameManager.Instance.aiPlayer.Health <= 0)
         {
 
-            DestroyShip();
+            StartCoroutine(DestroyShip());
         }
     }
 
-    async void DestroyShip()
+    IEnumerator DestroyShip()
     {
 
         for (int i = 0; i < 3; i++)
@@ -126,7 +127,7 @@ public class AIController : MonoBehaviour
             explosionObject.transform.position = transform.position;
             explosionObject.transform.rotation = transform.rotation;
             explosionObject.transform.localScale = new Vector3(i, i, i);
-            await Task.Delay(150);
+            yield return new WaitForSeconds(0.15f);
             //Prepare to return explosion to pool
             explosionObject.transform.localScale = new Vector3(1, 1, 1);
             if (gameObject.activeSelf)
