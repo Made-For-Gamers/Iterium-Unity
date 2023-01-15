@@ -1,19 +1,20 @@
-using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class DeSpawnExplosion : MonoBehaviour
 {
     //Remove explsion after effect is complete
-    [SerializeField] private float destroyTime;
+    [Header("destroy time in milliseconds")]
+    [SerializeField] private int destroyTime;
 
     void OnEnable()
     {
-        StartCoroutine(RemoveExplosions());
+        RemoveExplosions();
     }
 
-    private IEnumerator RemoveExplosions()
+    private async void RemoveExplosions()
     {
-        yield return new WaitForSeconds(destroyTime);
+        await Task.Delay(destroyTime);
         if (gameObject.activeSelf)
         {
             ExplosionPooling.explosionPool.Release(this.gameObject);

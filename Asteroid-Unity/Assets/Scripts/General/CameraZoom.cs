@@ -1,4 +1,4 @@
-using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
 
 /// <summary>
@@ -7,19 +7,20 @@ using UnityEngine;
 public class CameraZoom : MonoBehaviour
 {
     [SerializeField] private float zoomLevel = 8f;
-    [SerializeField] private float speed = 0.3f;
+    [Header("Zoom Speed in milliseconds")]
+    [SerializeField] private int speed = 300;
 
     private void Start()
     {
-        StartCoroutine(ZoomCamera());
+        ZoomCamera();
     }
 
-    IEnumerator ZoomCamera()
+    async void ZoomCamera()
     {
         for (float i = Camera.main.orthographicSize; i >= zoomLevel; i--)
         {
             Camera.main.orthographicSize = i;
-            yield return new WaitForSeconds(speed);
+            await Task.Delay(speed);
         }
     }
 }
