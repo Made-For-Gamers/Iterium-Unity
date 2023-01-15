@@ -18,7 +18,7 @@ MonoBehaviour:
   faction: {fileID: 0}
   shieldPower: 2
   shieldCooldown: 10
-  shieldTime: 5000
+  shieldTime: 5
   thrust: 500
   turnSpeed: 100
   bullet: {fileID: 11400000, guid: 3620db854b039c1499e25795903929e5, type: 2}

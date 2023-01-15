@@ -18,9 +18,10 @@ MonoBehaviour:
   faction: {fileID: 0}
   shieldPower: 2
   shieldCooldown: 10
-  shieldTime: 5000
+  shieldTime: 5
   thrust: 500
   turnSpeed: 100
   bullet: {fileID: 11400000, guid: 71a77fb2bfe52ac4da2a8321be77097e, type: 2}
   shipPrefab: {fileID: 4855971759081067815, guid: 63bec4179593a584ca357d4400652016,
     type: 3}
+  playerNumber: 0
