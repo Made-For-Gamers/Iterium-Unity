@@ -45,7 +45,7 @@ public class BulletPooling : MonoBehaviour
     private GameObject PoolNew_Ai() //AI bullet
     {
         //Instantiate a new asteroid
-        return Instantiate(GameManager.Instance.aiPlayer.Character.Ship.Bullet.Bullet[2]);
+        return Instantiate(GameManager.Instance.aiPlayer.Character.Ship.Bullet.Bullet[0]);
     }
 
     private GameObject PoolNew_NPC() //NPC bullet
