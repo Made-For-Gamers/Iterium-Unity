@@ -140,12 +140,10 @@ public class PlayerController : MonoBehaviour
         if (viewPort.x > 1 || viewPort.x < 0)
         {
             movePos.x = -movePos.x;
-            print("X");
         }
         if (viewPort.y > 1 || viewPort.y < 0)
         { 
             movePos.z = -movePos.z;
-            print("Y");
         }
         transform.position = movePos;
     }

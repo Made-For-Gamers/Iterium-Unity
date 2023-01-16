@@ -14,22 +14,22 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FactionSelection.unity
     guid: bfe1cb492f67ef144bade8694c68dcab
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/HighScore.unity
     guid: 217616ecb973ab644bf7c0d62a0b00fb
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Lobby.unity
     guid: 384d6b989280c324d94246e0968955a7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Login.unity
     guid: 7b8e0cb12149da6419c8b53071509452
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 9a252c22469c1a946a0cc1f591ec7827
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 4909646902458244b84f7f753250ab9d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/UserProfile1.unity
     guid: 876b19a494f0bd54d948a5864d53b9fa
   m_configObjects:

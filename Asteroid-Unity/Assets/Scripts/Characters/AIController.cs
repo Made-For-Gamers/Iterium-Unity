@@ -15,16 +15,18 @@ public class AIController : MonoBehaviour
 
     [HideInInspector] public Transform spawnPoint;
 
-    private GameObject player;
     private Transform firePosition;
     private GameObject shield;
     private float shieldCooldown;
     private bool isShielding;
     private Rigidbody rigidBody;
+    private int shots;
+    private bool attackNPC;
+    private GameObject fireTarget;
 
     private void Start()
     {
-        player = GameObject.Find("Player");
+        fireTarget = GameObject.Find("Player");
         shield = transform.GetChild(0).gameObject;
         firePosition = transform.GetChild(1);
         rigidBody = GetComponent<Rigidbody>();
@@ -45,25 +47,49 @@ public class AIController : MonoBehaviour
     //Ship rotation
     private void Rotate()
     {
-        if (player.gameObject != null)
+        if (fireTarget.gameObject != null)
         {
-            transform.LookAt(player.transform);
+            transform.LookAt(fireTarget.transform);
         }
     }
 
     //Firing
     private void Fire()
     {
-        if (player.gameObject != null)
+        if (fireTarget.gameObject != null)
         {
             GameObject bullet = BulletPooling.bulletPoolAi.Get();
             bullet.transform.position = firePosition.position;
-            bullet.transform.LookAt(player.transform);
             Destroy(bullet.GetComponent<Bullet>());
             bullet.AddComponent<BulletAI>();
+            if (attackNPC == false && shots == 0)
+            {
+                if (GameObject.Find("NPC"))
+                {
+                    int rnd = Random.Range(1, 3);
+                    //Radomly attack player or AI
+                    if (rnd == 1)
+                    {
+                        fireTarget = GameObject.Find("NPC");
+                        attackNPC = true;
+                    }
+                }
+            }
+            bullet.transform.LookAt(fireTarget.transform);
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
+            shots++;
+            if (shots >= 4)
+            {
+                shots = 0;
+                if (attackNPC)
+                {
+                    attackNPC = false;
+                    fireTarget = GameObject.Find("Player");
+                }
+            }
         }
     }
+
 
     //Ship Thrust
     private void Thrust()
