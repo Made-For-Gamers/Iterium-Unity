@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.000021276945, g: 0.0062304954, b: 0.0069598122, a: 1}
+  m_IndirectSpecularColor: {r: 0.000043354223, g: 0.0062350743, b: 0.0069595417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
-  buttonName: mainMenu
+  buttonName: mainMenuIcon
 --- !u!114 &147354636
 MonoBehaviour:
   m_ObjectHideFlags: 0
