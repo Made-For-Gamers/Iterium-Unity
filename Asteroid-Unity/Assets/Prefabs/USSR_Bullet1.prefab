@@ -97,6 +97,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: USSR_Bullet1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c586e3619f6d0fe48846a7c9d81276a2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c586e3619f6d0fe48846a7c9d81276a2, type: 3}
 --- !u!1 &4031060044659540045 stripped

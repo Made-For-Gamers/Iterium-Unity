@@ -10,8 +10,8 @@ using System.Collections;
 public class AIController : MonoBehaviour
 {
     [Header("Bullet")]
-    [SerializeField] private float fireStart = 1f;
-    [SerializeField] private float fireInterval = 0.5f;
+    [SerializeField] private float fireStart = 2f;
+    [SerializeField] private float fireInterval = 0.8f;
 
     [HideInInspector] public Transform spawnPoint;
 
@@ -68,7 +68,10 @@ public class AIController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        //  rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * GameManager.Instance.player.Character.Ship.Thrust * Time.deltaTime), ForceMode.Force);
+        if (rigidBody.velocity.x <= 1)
+        {
+            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * GameManager.Instance.player.Character.Ship.Thrust * Time.deltaTime), ForceMode.Force);
+        }
     }
 
     //Shield
@@ -142,7 +145,17 @@ public class AIController : MonoBehaviour
     //Remove AI when it leaves the screen and re-spawn
     private void OnBecameInvisible()
     {
-        transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        transform.position = spawnPoint.position;
+        //Wrap ship to opposite side of the screen when exiting
+        Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);
+        Vector3 movePos = transform.position;
+        if (viewPort.x > 1 || viewPort.x < 0)
+        {
+            movePos.x = -movePos.x;
+        }
+        if (viewPort.y > 1 || viewPort.y < 0)
+        {
+            movePos.z = -movePos.z;
+        }
+        transform.position = movePos;
     }
 }

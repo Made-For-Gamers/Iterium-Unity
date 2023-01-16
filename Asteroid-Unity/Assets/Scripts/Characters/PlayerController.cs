@@ -134,8 +134,19 @@ public class PlayerController : MonoBehaviour
     //Remove ship when it leaves the screen and re-spawn
     private void OnBecameInvisible()
     {
-        transform.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        transform.position = spawnPoint.position;
+        //Wrap ship to opposite side of the screen when exiting
+        Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);
+        Vector3 movePos = transform.position;
+        if (viewPort.x > 1 || viewPort.x < 0)
+        {
+            movePos.x = -movePos.x;
+            print("X");
+        }
+        if (viewPort.y > 1 || viewPort.y < 0)
+        { 
+            movePos.z = -movePos.z;
+            print("Y");
+        }
+        transform.position = movePos;
     }
-
 }

@@ -8,6 +8,7 @@ TagManager:
   - Explosion
   - NPC
   - AI
+  - Bullet
   layers:
   - Default
   - TransparentFX

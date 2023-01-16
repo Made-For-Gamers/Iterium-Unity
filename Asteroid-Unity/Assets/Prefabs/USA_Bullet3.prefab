@@ -193,7 +193,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 6bd26d0624cdac6448a608b8a2339ac0,
         type: 3}
       propertyPath: m_Name
-      value: USA_Bullet_3 Variant
+      value: USA_Bullet3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6bd26d0624cdac6448a608b8a2339ac0,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6bd26d0624cdac6448a608b8a2339ac0, type: 3}

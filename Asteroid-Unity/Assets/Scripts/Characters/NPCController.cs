@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class NPCController : MonoBehaviour
 {   
@@ -13,10 +12,19 @@ public class NPCController : MonoBehaviour
     }
 
     private void Fire()
-    {               
-        GameObject bullet = BulletPooling.bulletPoolNpc.Get(); 
-        bullet.transform.position = transform.position ;
-        bullet.transform.LookAt(GameObject.Find("Player").transform);
+    {
+        GameObject bullet = BulletPooling.bulletPoolNpc.Get();
+        bullet.transform.position = transform.position;
+        int rnd = Random.Range(1,3);
+        //Radomly attack player or AI
+        if (rnd == 1)
+        {
+            bullet.transform.LookAt(GameObject.Find("Player").transform);
+        }
+        else
+        {
+            bullet.transform.LookAt(GameObject.Find("AI").transform);
+        }
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Character.Ship.Bullet.Speed;
 
         //Increase NPC velocity if ship speed becomes too slow due to collision with asteroids

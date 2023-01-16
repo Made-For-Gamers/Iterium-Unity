@@ -90,7 +90,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 42659bb27f125444cb3f5c6d73927d99,
         type: 3}
       propertyPath: m_Name
-      value: China_Bullet_1 Variant
+      value: China_Bullet1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 42659bb27f125444cb3f5c6d73927d99,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bullet
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42659bb27f125444cb3f5c6d73927d99, type: 3}
@@ -141,8 +146,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e7759f1f6f87247bfb8f3e6efbf68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  asteroids: {fileID: 11400000, guid: eea4ac0412d4eb2439d964b97098a2e6, type: 2}
-  crystals: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
-  dropChance: 20
-  PlayerNumber: 0
-  player: {fileID: 0}
