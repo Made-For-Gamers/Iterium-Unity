@@ -58,6 +58,11 @@ public class BulletNpc : MonoBehaviour
                 aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower);
                 BulletExplosion(collision);
                 break;
+            //Bullet hits another bullet
+            case "Bullet":
+                Destroy(collision.gameObject);
+                BulletExplosion(collision);
+                break;
         }
     }
 

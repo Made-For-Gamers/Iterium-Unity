@@ -67,6 +67,11 @@ public class BulletAI : MonoBehaviour
                 BulletExplosion(collision);
                 Destroy(collision.gameObject);
                 break;
+            //Bullet hits another bullet
+            case "Bullet":
+                Destroy(collision.gameObject);
+                BulletExplosion(collision);
+                break;
         }
     }
 
