@@ -376,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &250917984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &308645258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -791,7 +791,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &431738497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -840,7 +840,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &682639494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1050,7 +1050,7 @@ MonoBehaviour:
   npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
   crystals: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
-  iteriumChance: 20
+  iteriumChance: 10
   saveData:
     score: 0
     xp: 0
@@ -1493,7 +1493,7 @@ PrefabInstance:
     - target: {fileID: 602120685965762839, guid: 3978e1be4afbd394989c8461bc58b5ba,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3978e1be4afbd394989c8461bc58b5ba, type: 3}
@@ -1587,7 +1587,7 @@ PrefabInstance:
     - target: {fileID: 5589843235130775554, guid: 95ee9ef301b4885429de2b1c8a8036f1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 95ee9ef301b4885429de2b1c8a8036f1, type: 3}
