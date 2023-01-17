@@ -32,6 +32,9 @@
 
 .text {
     -unity-background-image-tint-color: rgb(255, 255, 255);
+    font-size: 60px;
+    color: rgb(255, 19, 0);
+    -unity-font-style: bold;
 }
 
 .footer {
