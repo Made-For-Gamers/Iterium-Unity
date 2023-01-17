@@ -85,7 +85,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 322965c6cacf50d4d9cda5e7465385d0,
         type: 3}
       propertyPath: m_Name
-      value: Crystal_1 Variant
+      value: Iterium
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 322965c6cacf50d4d9cda5e7465385d0, type: 3}
@@ -95,6 +95,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7571646947726921324}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &-1273786243710198310
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337081884672930621}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0414714, y: 3.0152469, z: 0.9351362}
+  m_Center: {x: 0.057874963, y: 0.89901286, z: 0.020139903}
 --- !u!114 &-1236477759259115354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,3 +128,17 @@ MonoBehaviour:
   rotationX: 1
   rotationY: 1
   rotationZ: 1
+--- !u!114 &7699286246990711046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7337081884672930621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5a4a28b2aff9ea4298f311ae2c3f758, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 250
+  xp: 25

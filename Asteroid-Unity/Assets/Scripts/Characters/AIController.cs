@@ -12,6 +12,7 @@ public class AIController : MonoBehaviour
     [Header("Bullet")]
     [SerializeField] private float fireStart = 2f;
     [SerializeField] private float fireInterval = 0.8f;
+    [SerializeField] private int descisionCycle = 3; //number of bullets to fire at a target before deciding to changing targets
 
     [HideInInspector] public Transform spawnPoint;
 
@@ -44,7 +45,7 @@ public class AIController : MonoBehaviour
         Thrust();
     }
 
-    //Ship rotation
+    //Ship rotation targeting the player or NPC
     private void Rotate()
     {
         if (fireTarget.gameObject != null)
@@ -64,13 +65,12 @@ public class AIController : MonoBehaviour
             bullet.AddComponent<BulletAI>();
             if (attackNPC == false && shots == 0)
             {
-                if (GameObject.Find("NPC"))
+                if (GameObject.Find("NPC")) //If there is an NPC in the scene randomly decide to target it or not
                 {
                     int rnd = Random.Range(1, 3);
-                    //Radomly attack player or AI
                     if (rnd == 1)
                     {
-                        fireTarget = GameObject.Find("NPC");
+                        fireTarget = GameObject.Find("NPC"); //change target to NPC
                         attackNPC = true;
                     }
                 }
@@ -78,10 +78,10 @@ public class AIController : MonoBehaviour
             bullet.transform.LookAt(fireTarget.transform);
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
             shots++;
-            if (shots >= 4)
+            if (shots >= descisionCycle)
             {
                 shots = 0;
-                if (attackNPC)
+                if (attackNPC) // re-target player when the decision cycle is reached
                 {
                     attackNPC = false;
                     fireTarget = GameObject.Find("Player");
@@ -111,7 +111,7 @@ public class AIController : MonoBehaviour
             shieldCooldown = GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown;
         }
 
-        if (shieldCooldown > 0) //Cooldown countdown
+        if (shieldCooldown > 0) //Shield cooldown 
         {
             shieldCooldown -= 1 * Time.deltaTime;
         }
