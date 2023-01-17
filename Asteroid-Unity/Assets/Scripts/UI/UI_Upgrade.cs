@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.UIElements;
 using UnityEngine;
 
-public class Upgrades : MonoBehaviour
+public class UI_Upgrade : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()

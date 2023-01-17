@@ -14,7 +14,7 @@ public class GameManager : Singleton<GameManager>
     public SO_Player aiPlayer;
     public SO_Player npcPlayer;
     public SO_Factions factions;
-  
+
     public SO_GameObjects crystals;
     public int iteriumChance = 20;
 
@@ -89,9 +89,25 @@ public class GameManager : Singleton<GameManager>
         //SaveGame();
     }
 
-    public void MainMenu()
+    public void SceneMainMenu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void SceneUpgrade()
+    {
+        switch (player.Character.Country)
+        {
+            case "China":
+                SceneManager.LoadScene("UpgradeChina");
+                break;
+            case "United States":
+                SceneManager.LoadScene("UpgradeUSA");
+                break;
+            case "Russia":
+                SceneManager.LoadScene("UpgradeUSSR");
+                break;
+        }
     }
 
 }
