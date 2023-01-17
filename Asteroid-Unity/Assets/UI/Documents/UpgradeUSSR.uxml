@@ -22,7 +22,7 @@
                                     <ui:Label text="10" display-tooltip-when-elided="true" name="thrustHammer2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
                                     <ui:Label text="30" display-tooltip-when-elided="true" name="thrustHammer3" class="progress-slider-text" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="thrustSliderHammer" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                                <ui:VisualElement name="thrustSlider" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
                                     <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
@@ -44,7 +44,7 @@
                                     <ui:Label text="10" display-tooltip-when-elided="true" name="shieldHammer2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
                                     <ui:Label text="30" display-tooltip-when-elided="true" name="shieldHammer3" class="progress-slider-text" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="shieldSliderHammer" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                                <ui:VisualElement name="shieldSlider" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
                                     <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
@@ -66,7 +66,7 @@
                                     <ui:Label text="10" display-tooltip-when-elided="true" name="firepowerHammer2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
                                     <ui:Label text="30" display-tooltip-when-elided="true" name="firepowerHammer3" class="progress-slider-text" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="firepowerSliderHammer" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                                <ui:VisualElement name="firepowerSlider" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
                                     <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
                                 </ui:VisualElement>
                             </ui:VisualElement>
