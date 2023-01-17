@@ -1,8 +1,34 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Styles/MainStyle.uss?fileID=7433441132597879392&amp;guid=623600fb91639d5459e218780f48bef2&amp;type=3#MainStyle" />
-    <ui:VisualElement name="background" style="flex-grow: 1; align-items: center; justify-content: center; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; width: 2560px; height: 1440px; background-image: url(&apos;project://database/Assets/Images/pexels-zch-csaba-12498754.jpg?fileID=2800000&amp;guid=a8fae7cb5b0c07f4aa0504adb2bd6938&amp;type=3#pexels-zch-csaba-12498754&apos;); -unity-background-image-tint-color: rgb(255, 255, 255);">
-        <ui:Button display-tooltip-when-elided="true" name="mainMenu" class="menu-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-image: url(&apos;project://database/Assets/Images/Icons/outline-home.png?fileID=2800000&amp;guid=61cc39b4a70ed0040a7770057df150d1&amp;type=3#outline-home&apos;);" />
-        <ui:Label text="Settings" display-tooltip-when-elided="true" name="settings" class="header" />
-        <ui:VisualElement name="menuPanel" style="align-items: center; justify-content: center; width: 800px; height: 1000px; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); position: absolute; top: 330px; background-color: rgba(0, 0, 0, 0); -unity-text-outline-color: rgba(0, 0, 0, 0);" />
+    <ui:VisualElement name="background" style="flex-grow: 1; align-items: center; justify-content: center; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; width: auto; height: auto; background-image: url(&apos;project://database/Assets/Images/MultiMenu.jpg?fileID=2800000&amp;guid=b55f5c2ad4ce6514e94785f08ec119cb&amp;type=3#MultiMenu&apos;); -unity-background-image-tint-color: rgb(255, 255, 255);">
+        <ui:Button display-tooltip-when-elided="true" name="mainMenuIcon" class="menu-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-image: url(&apos;project://database/Assets/Images/Icons/outline-home.png?fileID=2800000&amp;guid=61cc39b4a70ed0040a7770057df150d1&amp;type=3#outline-home&apos;);" />
+        <ui:VisualElement name="menuPanel" style="align-items: center; justify-content: center; width: 100%; height: auto; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); position: relative; top: auto; background-color: rgba(0, 0, 0, 0); -unity-text-outline-color: rgba(0, 0, 0, 0); flex-grow: 1;">
+            <ui:VisualElement name="header">
+                <ui:Label text="Settings" display-tooltip-when-elided="true" name="settings" class="header" />
+            </ui:VisualElement>
+            <ui:VisualElement name="selectionPanel" style="width: 100%; height: 100%; flex-direction: row; justify-content: space-between;">
+                <ui:VisualElement name="image" style="width: 20%;">
+                    <ui:VisualElement />
+                </ui:VisualElement>
+                <ui:VisualElement name="buttons" style="width: 80%; align-items: stretch; padding-right: 20%; justify-content: center; padding-bottom: 10%;">
+                    <ui:VisualElement name="sound" style="flex-direction: row; justify-content: space-around;">
+                        <ui:Label text="Sound" display-tooltip-when-elided="true" name="sound" style="font-size: 50px; color: rgba(0, 255, 233, 255);" />
+                        <ui:RadioButton label="On/Off" name="radioSound" style="font-size: 50px; color: rgba(0, 255, 233, 255); justify-content: flex-start; flex-direction: row-reverse;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="music" style="flex-direction: row; justify-content: space-around;">
+                        <ui:Label text="Music" display-tooltip-when-elided="true" name="music" style="font-size: 50px; color: rgba(0, 255, 233, 255);" />
+                        <ui:RadioButton label="On/Off" name="radioMusic" style="font-size: 50px; color: rgba(0, 255, 233, 255); flex-direction: row-reverse;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="bloom" style="flex-direction: row; justify-content: space-around;">
+                        <ui:Label text="Bloom" display-tooltip-when-elided="true" name="bloom" style="font-size: 50px; color: rgba(0, 255, 233, 255);" />
+                        <ui:RadioButton label="On/Off" name="radioBloom" style="font-size: 50px; color: rgba(0, 255, 233, 255); flex-direction: row-reverse;" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="other" style="flex-direction: row; justify-content: space-around;">
+                        <ui:Label text="Other" display-tooltip-when-elided="true" name="other" style="font-size: 50px; color: rgba(0, 255, 233, 255); -unity-text-align: middle-left; align-items: flex-start; justify-content: flex-start;" />
+                        <ui:RadioButton label="On/Off" name="radioOther" style="font-size: 50px; color: rgba(0, 255, 233, 255); flex-direction: row-reverse;" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

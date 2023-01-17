@@ -155,7 +155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_PanelSettings: {fileID: 11400000, guid: f8a6dd5dd772212479857023eaae789a, type: 2}
   m_ParentUI: {fileID: 0}
-  sourceAsset: {fileID: 9197481963319205126, guid: ce4513276df910043b4073c1f1d18790,
+  sourceAsset: {fileID: 9197481963319205126, guid: d3194b2d0cba1f547b243ccbf0147a52,
     type: 3}
   m_SortingOrder: 0
 --- !u!4 &147354634
@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
   buttonName: mainMenu
+  sceneName: MainMenu
 --- !u!1 &583209816
 GameObject:
   m_ObjectHideFlags: 0
