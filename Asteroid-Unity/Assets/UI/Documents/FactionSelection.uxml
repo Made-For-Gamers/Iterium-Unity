@@ -29,6 +29,6 @@
                 </ui:Button>
             </ui:VisualElement>
         </ui:VisualElement>
-        <ui:Button display-tooltip-when-elided="true" name="mainMenuIcon" class="menu-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-image: url(&apos;project://database/Assets/Images/Icons/outline-home.png?fileID=2800000&amp;guid=61cc39b4a70ed0040a7770057df150d1&amp;type=3#outline-home&apos;); align-items: center; justify-content: flex-start;" />
+        <ui:Button display-tooltip-when-elided="true" name="mainMenu" class="menu-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-image: url(&apos;project://database/Assets/Images/outline-home.png?fileID=2800000&amp;guid=61cc39b4a70ed0040a7770057df150d1&amp;type=3#outline-home&apos;); align-items: center; justify-content: flex-start;" />
     </ui:VisualElement>
 </ui:UXML>

@@ -187,6 +187,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
   buttonName: mainMenu
+  sceneName: MainMenu
 --- !u!1 &1182923276
 GameObject:
   m_ObjectHideFlags: 0

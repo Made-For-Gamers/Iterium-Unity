@@ -187,7 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
-  buttonName: mainMenuIcon
+  buttonName: mainMenu
+  sceneName: MainMenu
 --- !u!114 &147354636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,6 +205,7 @@ MonoBehaviour:
   chinaFaction: chinaFaction
   usaFaction: usaFaction
   ussrFaction: ussrFaction
+  sceneName: Pax Dev
 --- !u!1 &613795269
 GameObject:
   m_ObjectHideFlags: 0
