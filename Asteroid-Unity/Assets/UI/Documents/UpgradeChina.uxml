@@ -18,9 +18,9 @@
                                 </ui:VisualElement>
                                 <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
                                     <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
-                                        <ui:Label text="0" display-tooltip-when-elided="false" name="thrustRapier1" focusable="false" picking-mode="Ignore" class="progress-slider-text" />
-                                        <ui:Label text="10" display-tooltip-when-elided="false" name="thrustRapier2" focusable="false" picking-mode="Ignore" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
-                                        <ui:Label text="30" display-tooltip-when-elided="false" name="thrustRapier3" focusable="false" picking-mode="Ignore" class="progress-slider-text" />
+                                        <ui:Label text="0" display-tooltip-when-elided="false" name="thrustLevel0" focusable="false" picking-mode="Ignore" class="progress-slider-text" />
+                                        <ui:Label text="10" display-tooltip-when-elided="false" name="thrustLevel1" focusable="false" picking-mode="Ignore" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
+                                        <ui:Label text="30" display-tooltip-when-elided="false" name="thrustLevel2" focusable="false" picking-mode="Ignore" class="progress-slider-text" />
                                     </ui:VisualElement>
                                     <ui:VisualElement name="thrustSliderPanel" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
                                         <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" name="thrustSlider" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
@@ -43,9 +43,9 @@
                                 </ui:VisualElement>
                                 <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
                                     <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
-                                        <ui:Label text="0" display-tooltip-when-elided="true" name="shieldRapier1" class="progress-slider-text" />
-                                        <ui:Label text="10" display-tooltip-when-elided="true" name="shieldRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
-                                        <ui:Label text="30" display-tooltip-when-elided="true" name="shieldRapier3" class="progress-slider-text" />
+                                        <ui:Label text="0" display-tooltip-when-elided="true" name="shieldLevel0" class="progress-slider-text" />
+                                        <ui:Label text="10" display-tooltip-when-elided="true" name="shieldLevel1" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
+                                        <ui:Label text="30" display-tooltip-when-elided="true" name="shieldLevel2" class="progress-slider-text" />
                                     </ui:VisualElement>
                                     <ui:VisualElement name="shieldSliderPanel" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
                                         <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" name="shieldSlider" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
@@ -68,9 +68,9 @@
                                 </ui:VisualElement>
                                 <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
                                     <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
-                                        <ui:Label text="0" display-tooltip-when-elided="true" name="firepowerRapier1" class="progress-slider-text" />
-                                        <ui:Label text="10" display-tooltip-when-elided="true" name="firepowerRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
-                                        <ui:Label text="30" display-tooltip-when-elided="true" name="firepowerRapier3" class="progress-slider-text" />
+                                        <ui:Label text="0" display-tooltip-when-elided="true" name="firepowerLevel0" class="progress-slider-text" />
+                                        <ui:Label text="10" display-tooltip-when-elided="true" name="firepowerLevel1" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
+                                        <ui:Label text="30" display-tooltip-when-elided="true" name="firepowerLevel2" class="progress-slider-text" />
                                     </ui:VisualElement>
                                     <ui:VisualElement name="firepowerSliderPanel" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
                                         <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" name="firepowerSlider" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
