@@ -6,72 +6,87 @@
             <ui:VisualElement name="header">
                 <ui:Label text="Upgrades" display-tooltip-when-elided="true" name="Upgrades" class="header" />
             </ui:VisualElement>
-            <ui:VisualElement name="rapierImage" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Images/China_text_V1.png?fileID=2800000&amp;guid=2379bd2dd9a357644883f923f4258a89&amp;type=3#China_text_V1&apos;); width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(0, 228, 255, 0.25); align-items: center; justify-content: center; padding-bottom: 0; flex-direction: row; -unity-text-align: lower-left;">
-                <ui:VisualElement name="speed" style="background-image: none; width: 33%; height: 60%; -unity-background-image-tint-color: rgb(255, 255, 255); flex-direction: column; -unity-text-align: lower-left; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
-                    <ui:VisualElement name="shipwindow" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/Images/China_white_V1.png?fileID=2800000&amp;guid=6adb39a98e7bfdd479a464fd02a71015&amp;type=3#China_white_V1&apos;);">
-                        <ui:VisualElement name="engines" style="background-image: url(&apos;project://database/Assets/Images/China_ShipThrusters_V1.exr?fileID=2800000&amp;guid=be00120d1ef9ba747a6967d3cc53f693&amp;type=3#China_ShipThrusters_V1&apos;); width: 100%; height: 100%; flex-direction: row; justify-content: space-between; -unity-text-align: lower-center;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="stats" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 200px; padding-right: 200px; -unity-text-align: lower-center; width: 100%; height: 15%;">
-                        <ui:VisualElement name="mainpanelslider" style="flex-direction: row; justify-content: center; align-items: stretch;">
-                            <ui:VisualElement name="lhs" style="align-items: flex-end; flex-direction: row; justify-content: space-between; flex-wrap: nowrap;">
-                                <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="color: rgb(255, 4, 4); font-size: 30px; -unity-text-align: lower-center; flex-direction: row; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 100px; height: 100px;" />
+            <ui:VisualElement name="rapierImage" style="flex-grow: 1; background-image: url(&apos;project://database/Assets/Images/China_text_V1.png?fileID=2800000&amp;guid=2379bd2dd9a357644883f923f4258a89&amp;type=3#China_text_V1&apos;); width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(0, 228, 255, 0.25); align-items: center; justify-content: center; padding-bottom: 0; flex-direction: column; -unity-text-align: lower-left;">
+                <ui:VisualElement name="mainContentPanel" style="flex-direction: row; width: 100%; height: 90%; margin-top: 100px;">
+                    <ui:VisualElement name="speed" style="background-image: none; width: 33%; height: 60%; -unity-background-image-tint-color: rgb(255, 255, 255); flex-direction: column; -unity-text-align: lower-left; align-items: center; justify-content: space-between; flex-wrap: nowrap;">
+                        <ui:VisualElement name="shipwindow" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/Images/China_white_V1.png?fileID=2800000&amp;guid=6adb39a98e7bfdd479a464fd02a71015&amp;type=3#China_white_V1&apos;);">
+                            <ui:VisualElement name="engines" style="background-image: url(&apos;project://database/Assets/Images/China_ShipThrusters_V1.exr?fileID=2800000&amp;guid=be00120d1ef9ba747a6967d3cc53f693&amp;type=3#China_ShipThrusters_V1&apos;); width: 100%; height: 100%; flex-direction: row; justify-content: space-between; -unity-text-align: lower-center; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0.14);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="stats" style="flex-direction: column; align-items: center; justify-content: center; padding-left: 200px; padding-right: 200px; -unity-text-align: lower-center; width: 100%; height: 15%;">
+                            <ui:VisualElement name="mainpanelslider" style="flex-direction: row; justify-content: center; align-items: center;">
+                                <ui:VisualElement name="lhs" style="align-items: flex-end; flex-direction: row; justify-content: space-between; flex-wrap: nowrap;">
+                                    <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="color: rgb(255, 4, 4); font-size: 30px; -unity-text-align: lower-center; flex-direction: column; flex-wrap: nowrap; align-items: flex-end; justify-content: flex-end; background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 100px; height: 100px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
+                                    <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
+                                        <ui:Label text="0" display-tooltip-when-elided="true" name="thrustRapier1" class="progress-slider-text" />
+                                        <ui:Label text="10" display-tooltip-when-elided="true" name="thrustRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
+                                        <ui:Label text="30" display-tooltip-when-elided="true" name="thrustRapier3" class="progress-slider-text" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="thrustSliderPanel" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                                        <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" name="thrustSlider" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
                             </ui:VisualElement>
-                            <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
-                                <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
-                                    <ui:Label text="0" display-tooltip-when-elided="true" name="thrustRapier1" class="progress-slider-text" />
-                                    <ui:Label text="10" display-tooltip-when-elided="true" name="thrustRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
-                                    <ui:Label text="30" display-tooltip-when-elided="true" name="thrustRapier3" class="progress-slider-text" />
+                            <ui:VisualElement name="upgrade" style="margin-left: 70px;">
+                                <ui:Button text="Upgrade" display-tooltip-when-elided="true" name="speedUpgrade" class="button" style="-unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;); margin-top: 100px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="shield" style="width: 33%; height: 60%; align-items: center; justify-content: space-between;">
+                        <ui:VisualElement name="shipWindow" style="background-image: url(&apos;project://database/Assets/Images/China_white_V1.png?fileID=2800000&amp;guid=6adb39a98e7bfdd479a464fd02a71015&amp;type=3#China_white_V1&apos;); width: 100%; height: 100%; align-items: center; justify-content: center;">
+                            <ui:VisualElement name="bubble" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/Images/bubble_V4.png?fileID=2800000&amp;guid=686e057db8202a0408dc51ae0f72f1b8&amp;type=3#bubble_V4&apos;); align-items: center; justify-content: center; -unity-background-image-tint-color: rgb(255, 255, 255);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="stats" style="flex-direction: column; align-items: center; justify-content: center; padding-left: 200px; padding-right: 200px; -unity-text-align: lower-center; width: 100%; height: 15%;">
+                            <ui:VisualElement name="mainpanelslider" style="flex-direction: row; justify-content: center; align-items: center;">
+                                <ui:VisualElement name="lhs" style="align-items: flex-end; flex-direction: row; justify-content: space-between; flex-wrap: nowrap;">
+                                    <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="color: rgb(255, 4, 4); font-size: 30px; -unity-text-align: lower-center; flex-direction: row; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 100px; height: 100px;" />
                                 </ui:VisualElement>
-                                <ui:VisualElement name="thrustSlider" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
-                                    <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                                <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
+                                    <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
+                                        <ui:Label text="0" display-tooltip-when-elided="true" name="shieldRapier1" class="progress-slider-text" />
+                                        <ui:Label text="10" display-tooltip-when-elided="true" name="shieldRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
+                                        <ui:Label text="30" display-tooltip-when-elided="true" name="shieldRapier3" class="progress-slider-text" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="shieldSliderPanel" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                                        <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" name="shieldSlider" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                                    </ui:VisualElement>
                                 </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="upgrade" style="margin-left: 70px;">
+                                <ui:Button text="Upgrade" display-tooltip-when-elided="true" name="shieldUpgrade" class="button" style="-unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;); margin-top: 100px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                    <ui:VisualElement name="firepower" style="width: 33%; height: 60%; align-items: center; justify-content: space-between;">
+                        <ui:VisualElement name="guns" style="background-image: url(&apos;project://database/Assets/Images/China_guns_V2.png?fileID=2800000&amp;guid=faf77b6226f31704b9b1a55c172bf80a&amp;type=3#China_guns_V2&apos;); width: 100%; height: 100%;">
+                            <ui:VisualElement name="shipWindow" style="background-image: url(&apos;project://database/Assets/Images/China_white_V1.png?fileID=2800000&amp;guid=6adb39a98e7bfdd479a464fd02a71015&amp;type=3#China_white_V1&apos;); width: 100%; height: 100%;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="stats" style="flex-direction: column; align-items: center; justify-content: center; padding-left: 200px; padding-right: 200px; -unity-text-align: lower-center; width: 100%; height: 15%;">
+                            <ui:VisualElement name="mainpanelslider" style="flex-direction: row; justify-content: center; align-items: center;">
+                                <ui:VisualElement name="lhs" style="align-items: flex-end; flex-direction: row; justify-content: space-between; flex-wrap: nowrap;">
+                                    <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="color: rgb(255, 4, 4); font-size: 30px; -unity-text-align: lower-center; flex-direction: row; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 100px; height: 100px;" />
+                                </ui:VisualElement>
+                                <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
+                                    <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
+                                        <ui:Label text="0" display-tooltip-when-elided="true" name="firepowerRapier1" class="progress-slider-text" />
+                                        <ui:Label text="10" display-tooltip-when-elided="true" name="firepowerRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
+                                        <ui:Label text="30" display-tooltip-when-elided="true" name="firepowerRapier3" class="progress-slider-text" />
+                                    </ui:VisualElement>
+                                    <ui:VisualElement name="firepowerSliderPanel" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
+                                        <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" name="firepowerSlider" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
+                                    </ui:VisualElement>
+                                </ui:VisualElement>
+                            </ui:VisualElement>
+                            <ui:VisualElement name="upgrade" style="margin-left: 70px;">
+                                <ui:Button text="Upgrade" display-tooltip-when-elided="true" name="firepowerUpgrade" class="button" style="-unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;); margin-top: 100px;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="shield" style="width: 33%; height: 60%; align-items: center; justify-content: space-between;">
-                    <ui:VisualElement name="shipWindow" style="background-image: url(&apos;project://database/Assets/Images/China_white_V1.png?fileID=2800000&amp;guid=6adb39a98e7bfdd479a464fd02a71015&amp;type=3#China_white_V1&apos;); width: 100%; height: 100%; align-items: center; justify-content: center;">
-                        <ui:VisualElement name="bubble" style="width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/Images/bubble_V4.png?fileID=2800000&amp;guid=686e057db8202a0408dc51ae0f72f1b8&amp;type=3#bubble_V4&apos;); align-items: center; justify-content: center; -unity-background-image-tint-color: rgb(255, 255, 255);" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="stats" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 200px; padding-right: 200px; -unity-text-align: lower-center; width: 100%; height: 15%;">
-                        <ui:VisualElement name="mainpanelslider" style="flex-direction: row; justify-content: center; align-items: stretch;">
-                            <ui:VisualElement name="lhs" style="align-items: flex-end; flex-direction: row; justify-content: space-between; flex-wrap: nowrap;">
-                                <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="color: rgb(255, 4, 4); font-size: 30px; -unity-text-align: lower-center; flex-direction: row; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 100px; height: 100px;" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
-                                <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
-                                    <ui:Label text="0" display-tooltip-when-elided="true" name="shieldRapier1" class="progress-slider-text" />
-                                    <ui:Label text="10" display-tooltip-when-elided="true" name="shieldRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
-                                    <ui:Label text="30" display-tooltip-when-elided="true" name="shieldRapier3" class="progress-slider-text" />
-                                </ui:VisualElement>
-                                <ui:VisualElement name="shieldSlider" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
-                                    <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement name="firepower" style="width: 33%; height: 60%; align-items: center; justify-content: space-between;">
-                    <ui:VisualElement name="guns" style="background-image: url(&apos;project://database/Assets/Images/China_guns_V2.png?fileID=2800000&amp;guid=faf77b6226f31704b9b1a55c172bf80a&amp;type=3#China_guns_V2&apos;); width: 100%; height: 100%;">
-                        <ui:VisualElement name="shipWindow" style="background-image: url(&apos;project://database/Assets/Images/China_white_V1.png?fileID=2800000&amp;guid=6adb39a98e7bfdd479a464fd02a71015&amp;type=3#China_white_V1&apos;); width: 100%; height: 100%;" />
-                    </ui:VisualElement>
-                    <ui:VisualElement name="stats" style="flex-direction: row; align-items: center; justify-content: center; padding-left: 200px; padding-right: 200px; -unity-text-align: lower-center; width: 100%; height: 15%;">
-                        <ui:VisualElement name="mainpanelslider" style="flex-direction: row; justify-content: center; align-items: stretch;">
-                            <ui:VisualElement name="lhs" style="align-items: flex-end; flex-direction: row; justify-content: space-between; flex-wrap: nowrap;">
-                                <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="color: rgb(255, 4, 4); font-size: 30px; -unity-text-align: lower-center; flex-direction: row; flex-wrap: nowrap; align-items: flex-end; justify-content: space-between; background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 100px; height: 100px;" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="rhs" style="flex-wrap: nowrap; align-items: center;">
-                                <ui:VisualElement name="values" style="flex-direction: row; justify-content: space-between; flex-wrap: nowrap; width: 100%;">
-                                    <ui:Label text="0" display-tooltip-when-elided="true" name="firepowerRapier1" class="progress-slider-text" />
-                                    <ui:Label text="10" display-tooltip-when-elided="true" name="firepowerRapier2" class="progress-slider-text" style="background-image: none; -unity-background-scale-mode: scale-and-crop; -unity-text-align: lower-left; -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0;" />
-                                    <ui:Label text="30" display-tooltip-when-elided="true" name="firepowerRapier3" class="progress-slider-text" />
-                                </ui:VisualElement>
-                                <ui:VisualElement name="firepowerSlider" style="flex-direction: row; flex-wrap: nowrap; align-items: center; justify-content: space-between;">
-                                    <ui:Slider picking-mode="Ignore" value="0" high-value="2" show-input-field="false" page-size="0" low-value="0" tabindex="0" inverted="false" direction="Horizontal" usage-hints="None" class="progress-slider" style="flex-grow: 1; flex-direction: row; flex-wrap: wrap; justify-content: center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0;" />
-                                </ui:VisualElement>
-                            </ui:VisualElement>
-                        </ui:VisualElement>
-                    </ui:VisualElement>
+                <ui:VisualElement name="iteriumPanel" style="width: 90%; height: 5%; flex-direction: row; align-items: center; justify-content: center; margin-bottom: 40px;">
+                    <ui:Label display-tooltip-when-elided="true" name="iterium" style="width: 100px; height: 80px; background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=21300000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;);" />
+                    <ui:Label text="0" display-tooltip-when-elided="true" name="iteriumAmount" style="font-size: 40px; color: rgb(255, 19, 0);" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
