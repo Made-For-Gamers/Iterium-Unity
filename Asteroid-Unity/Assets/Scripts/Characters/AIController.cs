@@ -11,7 +11,7 @@ public class AIController : MonoBehaviour
 {
     [Header("Bullet")]
     [SerializeField] private float fireStart = 2f;
-    [SerializeField] private float fireInterval = 0.8f;
+    [SerializeField] private float fireInterval = 0.9f;
     [SerializeField] private int descisionCycle = 3; //number of bullets to fire at a target before deciding to changing targets
 
     [HideInInspector] public Transform spawnPoint;
@@ -61,8 +61,6 @@ public class AIController : MonoBehaviour
         {
             GameObject bullet = BulletPooling.bulletPoolAi.Get();
             bullet.transform.position = firePosition.position;
-            Destroy(bullet.GetComponent<Bullet>());
-            bullet.AddComponent<BulletAI>();
             if (attackNPC == false && shots == 0)
             {
                 if (GameObject.Find("NPC")) //If there is an NPC in the scene randomly decide to target it or not
@@ -96,7 +94,7 @@ public class AIController : MonoBehaviour
     {
         if (rigidBody.velocity.x <= 1)
         {
-            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * GameManager.Instance.player.Character.Ship.Thrust * Time.deltaTime), ForceMode.Force);
+            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * GameManager.Instance.aiPlayer.SpeedLvl) * Time.deltaTime), ForceMode.Force);
         }
     }
 
@@ -133,7 +131,7 @@ public class AIController : MonoBehaviour
     {
         if (isShielding)
         {
-            GameManager.Instance.aiPlayer.Health -= (int)(firePower / GameManager.Instance.aiPlayer.Character.Ship.ShieldPower);
+            GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Character.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvl));
         }
         else
         {

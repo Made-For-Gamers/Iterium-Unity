@@ -54,7 +54,7 @@ public class BulletAI : MonoBehaviour
             //Bullet hits another player
             case "Player":
                 var playerhit = collision.transform.GetComponent<PlayerController>();
-                playerhit.BulletHit(GameManager.Instance.aiPlayer.Character.Ship.Bullet.FirePower);
+                playerhit.BulletHit(GameManager.Instance.aiPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.aiPlayer.BulletLvl);
                 GameManager.Instance.aiPlayer.Score += 500;
                 GameManager.Instance.aiPlayer.Xp += 25;
                 BulletExplosion(collision);

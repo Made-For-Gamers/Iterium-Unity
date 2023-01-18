@@ -48,14 +48,14 @@ public class BulletNpc : MonoBehaviour
             //Bullet hits player
             case "Player":
                 var playerHit = collision.transform.GetComponent<PlayerController>();
-                playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower);
+                playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvl);
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits AI player
             case "AI":
                 var aiIhit = collision.transform.GetComponent<AIController>();
-                aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower);
+                aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvl);
                 BulletExplosion(collision);
                 break;
             //Bullet hits another bullet

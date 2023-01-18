@@ -38,23 +38,26 @@ public class BulletPooling : MonoBehaviour
     // Add a PoolNew method for each firing character (bullet type)
     private GameObject PoolNew_Player() //Player 1 bullet
     {
-        //Instantiate a new asteroid
+        //Instantiate new player bullet
         return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.player.BulletLvl]);
       
     }
     private GameObject PoolNew_Ai() //AI bullet
     {
-        //Instantiate a new asteroid
-        return Instantiate(GameManager.Instance.aiPlayer.Character.Ship.Bullet.Bullet[0]);
+        //Instantiate new AI bullet
+        GameObject aiBullet = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.Bullet.Bullet[0]);
+        Destroy(aiBullet.GetComponent<Bullet>());
+        aiBullet.AddComponent<BulletAI>();
+        return aiBullet;
     }
 
     private GameObject PoolNew_NPC() //NPC bullet
     {
-        //Instantiate a new asteroid
+        //Instantiate new NPC bullet
         return Instantiate(GameManager.Instance.npcPlayer.Character.Ship.Bullet.Bullet[0]);
     }
 
-    //Get bullet from the pool
+    //Get a bullet from the pool
     private void PoolGet(GameObject obj)
     {
         obj.SetActive(true);

@@ -97,54 +97,54 @@ public class UI_Upgrade : MonoBehaviour
 
     void UpgradeThrust()
     {
-        if (GameManager.Instance.player.SpeedLvl == 0 && GameManager.Instance.player.Iterium >= thrustLevel1)
+        if (GameManager.Instance.player.SpeedLvl == 1 && GameManager.Instance.player.Iterium >= thrustLevel1)
         {
             //Upgrade speed to lvl 1
             GameManager.Instance.player.Iterium -= thrustLevel1;
-            GameManager.Instance.player.SpeedLvl = 1;
+            GameManager.Instance.player.SpeedLvl = 2;
             thrust.value = 1;
         }
-        else if (GameManager.Instance.player.SpeedLvl == 1 && GameManager.Instance.player.Iterium >= thrustLevel2)
+        else if (GameManager.Instance.player.SpeedLvl == 2 && GameManager.Instance.player.Iterium >= thrustLevel2)
         {
             //Upgrade speed to lvl 2
             GameManager.Instance.player.Iterium -= thrustLevel2;
-            GameManager.Instance.player.SpeedLvl = 2;
+            GameManager.Instance.player.SpeedLvl = 3;
             thrust.value = 2;
         }
     }
 
     void UpgradeShield()
     {
-        if (GameManager.Instance.player.ShieldLvl == 0 && GameManager.Instance.player.Iterium >= shieldLevel1)
+        if (GameManager.Instance.player.ShieldLvl == 1 && GameManager.Instance.player.Iterium >= shieldLevel1)
         {
             //Upgrade shield to lvl 1
             GameManager.Instance.player.Iterium -= shieldLevel1;
-            GameManager.Instance.player.ShieldLvl = 1;
+            GameManager.Instance.player.ShieldLvl = 2;
             shield.value = 1;
         }
-        else if (GameManager.Instance.player.ShieldLvl == 1 && GameManager.Instance.player.Iterium >= shieldLevel2)
+        else if (GameManager.Instance.player.ShieldLvl == 2 && GameManager.Instance.player.Iterium >= shieldLevel2)
         {
             //Upgrade shield to lvl 1
             GameManager.Instance.player.Iterium -= shieldLevel2;
-            GameManager.Instance.player.ShieldLvl = 2;
+            GameManager.Instance.player.ShieldLvl = 3;
             shield.value = 2;
         }
     }
 
     void UpgradeFirepower()
     {
-        if (GameManager.Instance.player.BulletLvl == 0 && GameManager.Instance.player.Iterium >= firepowerLevel1)
+        if (GameManager.Instance.player.BulletLvl == 1 && GameManager.Instance.player.Iterium >= firepowerLevel1)
         {
             //Upgrade bullet to lvl 1
             GameManager.Instance.player.Iterium -= firepowerLevel1;
-            GameManager.Instance.player.BulletLvl = 1;
+            GameManager.Instance.player.BulletLvl = 2;
             firepower.value = 1;
         }
-        else if (GameManager.Instance.player.BulletLvl == 1 && GameManager.Instance.player.Iterium >= firepowerLevel2)
+        else if (GameManager.Instance.player.BulletLvl == 2 && GameManager.Instance.player.Iterium >= firepowerLevel2)
         {
             //Upgrade bullet to lvl 2
             GameManager.Instance.player.Iterium -= firepowerLevel2;
-            GameManager.Instance.player.BulletLvl = 2;
+            GameManager.Instance.player.BulletLvl = 3;
             firepower.value = 2;
         }
     }

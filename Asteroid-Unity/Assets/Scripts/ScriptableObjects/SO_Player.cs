@@ -29,6 +29,7 @@ public class SO_Player : ScriptableObject
     public UnityEvent onChange_Health;
     public UnityEvent onChange_Score;
     public UnityEvent onChange_Iterium;
+    public UnityEvent onChange_Lives;
 
     public string CharName { get => charName; set => charName = value; }
     public string Description { get => description; set => description = value; }
@@ -60,8 +61,8 @@ public class SO_Player : ScriptableObject
             GameManager.Instance.saveData.character = value;
         }
     }
-    public int Health 
-    { 
+    public int Health
+    {
         get => health;
         set
         {
@@ -99,12 +100,22 @@ public class SO_Player : ScriptableObject
     }
 
     public int SpeedLvl
-    { 
+    {
         get => speedLvl;
         set
         {
             speedLvl = value;
             GameManager.Instance.saveData.speedLvl = value;
+        }
+    }
+
+    public int Lives
+    {
+        get => lives;
+        set
+        {
+            lives = value;
+            onChange_Lives.Invoke();
         }
     }
 }

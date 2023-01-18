@@ -28,10 +28,6 @@ public class GameManager : Singleton<GameManager>
         LoadGame();
         SelectAiPlayer();
         ResetGame();
-        player.Iterium = 1000;
-        player.SpeedLvl = 0;
-        player.ShieldLvl = 0;
-        player.BulletLvl = 0;
     }
 
     private void SelectAiPlayer()
@@ -83,14 +79,32 @@ public class GameManager : Singleton<GameManager>
     {
         player.Health = 100;
         player.Score = 0;
+        player.Iterium = 1000;
+        player.SpeedLvl = 1;
+        player.ShieldLvl = 1;
+        player.BulletLvl = 1;
+        player.Lives = 3;
+
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
+        aiPlayer.Iterium = 0;
+        aiPlayer.Lives = 3;
+        aiPlayer.SpeedLvl = 1;
+        aiPlayer.ShieldLvl = 1;
+        aiPlayer.BulletLvl = 1;
 
+        npcPlayer.Health = 100;
+        npcPlayer.Score = 0;
+        aiPlayer.Iterium = 0;
+        npcPlayer.Lives = 3;
+        npcPlayer.SpeedLvl = 1;
+        npcPlayer.ShieldLvl = 1;
+        npcPlayer.BulletLvl = 1;
     }
 
     private void OnApplicationQuit()
     {
-      //  SaveGame();
+      // SaveGame();
     }
 
     public void SceneMainMenu()
