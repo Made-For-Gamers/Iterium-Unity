@@ -12,7 +12,7 @@
             <ui:VisualElement name="resultsPanel" style="flex-grow: 1; background-image: none; width: 100%; height: 100%; -unity-text-align: upper-center; align-items: center; flex-direction: column; justify-content: center; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-wrap: wrap; padding-bottom: -44px;">
                 <ui:VisualElement name="winnerShip" style="width: 43%; height: 100%; align-items: center; background-image: url(&apos;project://database/Assets/RenderTextures/USASword.renderTexture?fileID=8400000&amp;guid=2707a264cfb639845a7c64d82b333aa4&amp;type=2#USASword&apos;); justify-content: center; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0.67);" />
                 <ui:VisualElement name="results">
-                    <ui:VisualElement name="resultsPanel" style="align-items: center; justify-content: center; flex-wrap: nowrap; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-grow: 1; width: 100%; height: 100%; flex-direction: column; padding-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0;">
+                    <ui:VisualElement name="resultsSubPanel" style="align-items: center; justify-content: center; flex-wrap: nowrap; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-grow: 1; width: 100%; height: 100%; flex-direction: column; padding-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0;">
                         <ui:VisualElement name="score" style="align-items: center; -unity-text-align: lower-center; justify-content: center; flex-direction: column; flex-grow: 1; width: 100%; height: 50%;">
                             <ui:Label text="SCORE :" display-tooltip-when-elided="true" name="scoreText" style="font-size: 60px; color: rgb(255, 19, 0); -unity-font-style: bold;" />
                             <ui:Label text="0" display-tooltip-when-elided="true" name="winnerPlayerScore" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 150px;" />
@@ -22,7 +22,7 @@
                                 <ui:Label text="0" display-tooltip-when-elided="true" name="winnerPlayerIterium" style="font-size: 80px; color: rgb(15, 243, 34); -unity-text-align: upper-center;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:VisualElement name="rematch" style="align-items: center; justify-content: flex-start; flex-direction: column; width: 100%; height: 50%;">
+                        <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: 100%; height: 50%;">
                             <ui:Button text="Rematch" display-tooltip-when-elided="true" name="rematch" class="button" />
                         </ui:VisualElement>
                     </ui:VisualElement>
