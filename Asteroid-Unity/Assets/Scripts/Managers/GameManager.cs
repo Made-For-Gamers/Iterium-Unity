@@ -28,6 +28,10 @@ public class GameManager : Singleton<GameManager>
         LoadGame();
         SelectAiPlayer();
         ResetGame();
+        player.Iterium = 1000;
+        player.SpeedLvl = 0;
+        player.ShieldLvl = 0;
+        player.BulletLvl = 0;
     }
 
     private void SelectAiPlayer()
@@ -86,7 +90,7 @@ public class GameManager : Singleton<GameManager>
 
     private void OnApplicationQuit()
     {
-        //SaveGame();
+      //  SaveGame();
     }
 
     public void SceneMainMenu()
