@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 147354634}
   - component: {fileID: 147354633}
   - component: {fileID: 147354635}
-  - component: {fileID: 147354636}
   - component: {fileID: 147354637}
   - component: {fileID: 147354642}
   - component: {fileID: 147354640}
@@ -193,21 +192,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: bfe1cb492f67ef144bade8694c68dcab, type: 3}
   buttonName: singlePlayer
-  sceneName: FactionSelection
---- !u!114 &147354636
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 147354632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: bfe1cb492f67ef144bade8694c68dcab, type: 3}
-  buttonName: multiPlayer
   sceneName: FactionSelection
 --- !u!114 &147354637
 MonoBehaviour:

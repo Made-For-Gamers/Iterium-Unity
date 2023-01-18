@@ -1,6 +1,4 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
-using UnityEngine.InputSystem.iOS;
 
 //Collecting of Iterium by players or AI
 
