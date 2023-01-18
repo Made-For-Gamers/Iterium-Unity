@@ -15,6 +15,6 @@ MonoBehaviour:
   charName: General James Lee Gravely
   description: 
   image: {fileID: 0}
-  country: 
+  country: United States
   flag: {fileID: 0}
   ship: {fileID: 11400000, guid: a8a1e506ef485154ca30b6e60d5c90e2, type: 2}

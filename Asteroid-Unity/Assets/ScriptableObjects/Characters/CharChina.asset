@@ -15,6 +15,6 @@ MonoBehaviour:
   charName: General Chen Yi
   description: 
   image: {fileID: 0}
-  country: 
+  country: China
   flag: {fileID: 0}
   ship: {fileID: 11400000, guid: cd4c06634a525a74eb26c8106cb4bdb7, type: 2}

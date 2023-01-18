@@ -96,6 +96,7 @@ public class GameManager : Singleton<GameManager>
 
     public void SceneUpgrade()
     {
+        print("load upgrade scene");
         switch (player.Character.Country)
         {
             case "China":

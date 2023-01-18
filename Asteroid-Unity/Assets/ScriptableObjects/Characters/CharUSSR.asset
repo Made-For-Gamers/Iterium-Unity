@@ -15,6 +15,6 @@ MonoBehaviour:
   charName: Army General Dimitri Chernyakhovsky
   description: 
   image: {fileID: 0}
-  country: 
+  country: Russia
   flag: {fileID: 0}
   ship: {fileID: 11400000, guid: 20feafd5063d60e46b1f1d66c19f5d40, type: 2}
