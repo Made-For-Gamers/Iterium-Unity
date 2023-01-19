@@ -27,6 +27,9 @@ EditorBuildSettings:
     path: Assets/Scenes/UserProfile1.unity
     guid: 876b19a494f0bd54d948a5864d53b9fa
   - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: eecbeafd8534a684e8a5ae6c488b7cd7
+  - enabled: 1
     path: Assets/Scenes/UpgradeChina.unity
     guid: 94803d010e6a088488369299b0788440
   - enabled: 1

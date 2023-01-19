@@ -24,8 +24,9 @@ public class GameManager : Singleton<GameManager>
     //Spawn points
     [HideInInspector] public Transform playerSpawner;
     [HideInInspector] public Transform aiSpawner;
-
     [HideInInspector] public SaveData saveData;
+    [HideInInspector] public GameObject aiTarget;
+
     private FileSaveHandler fileSaveHandler;
 
 
@@ -35,6 +36,19 @@ public class GameManager : Singleton<GameManager>
         LoadGame();
         SelectAiPlayer();
         ResetGame();
+    }
+
+    //Find either Player or NPC for AI to target
+    public void FindAiTarget(bool npc)
+    {
+        if (npc)
+        {
+            aiTarget = GameObject.Find("AI");
+        }
+        else
+        {
+            aiTarget = GameObject.Find("Player");
+        }
     }
 
     private void SelectAiPlayer()
@@ -153,7 +167,9 @@ public class GameManager : Singleton<GameManager>
         ship.transform.position = playerSpawner.position;
         ship.transform.rotation = playerSpawner.rotation;
         ship.transform.name = "Player";
-        ship.transform.tag = "Player";     
+        ship.transform.tag = "Player";
+        player.Health = 100;
+        aiTarget = ship;
     }
 
     IEnumerator SpawnAiOverTime(float time)
@@ -167,6 +183,12 @@ public class GameManager : Singleton<GameManager>
         aiShip.transform.rotation = aiSpawner.rotation;
         aiShip.transform.name = "AI";
         aiShip.transform.tag = "AI";
+        aiPlayer.Health = 100;
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 
 }

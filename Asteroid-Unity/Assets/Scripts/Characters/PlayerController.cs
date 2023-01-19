@@ -110,6 +110,10 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.GetComponent<MeshCollider>().enabled = false;
             GameManager.Instance.player.Lives--;
+            if (GameManager.Instance.player.Lives <= 0)
+            {
+                GameManager.Instance.GameOver();
+            }
             StartCoroutine(DestroyShip());
         }
     }

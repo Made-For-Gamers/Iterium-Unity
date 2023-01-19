@@ -23,12 +23,10 @@ public class AIController : MonoBehaviour
     private bool isShielding;
     private Rigidbody rigidBody;
     private int shots;
-    private bool attackNPC;
-    private GameObject fireTarget;
+    private bool attackNPC;   
 
     private void Start()
-    {
-        fireTarget = GameObject.Find("Player");
+    {      
         shield = transform.GetChild(0).gameObject;
         firePosition = transform.GetChild(1);
         rigidBody = GetComponent<Rigidbody>();
@@ -48,33 +46,34 @@ public class AIController : MonoBehaviour
 
     //Ship rotation targeting the player or NPC
     private void Rotate()
-    {
-        if (fireTarget.gameObject != null)
+    {       
+        if (GameManager.Instance.aiTarget.gameObject != null)
         {
-            transform.LookAt(fireTarget.transform);
+            transform.LookAt(GameManager.Instance.aiTarget.transform);
         }
+
     }
 
     //Firing
     private void Fire()
     {
-        if (fireTarget.gameObject != null)
+        if (GameManager.Instance.aiTarget.gameObject != null)
         {
             GameObject bullet = BulletPooling.bulletPoolAi.Get();
             bullet.transform.position = firePosition.position;
             if (attackNPC == false && shots == 0)
             {
-                if (GameObject.Find("NPC")) //If there is an NPC in the scene randomly decide to target it or not
+                if (GameManager.Instance.aiTarget.name == "NPC") //If there is an NPC in the scene randomly decide to target it or not
                 {
                     int rnd = Random.Range(1, 3);
                     if (rnd == 1)
                     {
-                        fireTarget = GameObject.Find("NPC"); //change target to NPC
+                        GameManager.Instance.FindAiTarget(true); //change target to NPC
                         attackNPC = true;
                     }
                 }
             }
-            bullet.transform.LookAt(fireTarget.transform);
+            bullet.transform.LookAt(GameManager.Instance.aiTarget.transform);
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
             shots++;
             if (shots >= descisionCycle)
@@ -83,7 +82,7 @@ public class AIController : MonoBehaviour
                 if (attackNPC) // re-target player when the decision cycle is reached
                 {
                     attackNPC = false;
-                    fireTarget = GameObject.Find("Player");
+                    GameManager.Instance.FindAiTarget(false);
                 }
             }
         }
@@ -93,7 +92,7 @@ public class AIController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        if (rigidBody.velocity.x <= 1)
+        if (rigidBody.velocity.x <= 1 && GameManager.Instance.aiTarget.gameObject != null)
         {
             rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * GameManager.Instance.aiPlayer.SpeedLvl) * Time.deltaTime), ForceMode.Force);
         }
@@ -142,6 +141,10 @@ public class AIController : MonoBehaviour
         {
             gameObject.GetComponent<MeshCollider>().enabled = false;
             GameManager.Instance.aiPlayer.Lives--;
+            if (GameManager.Instance.aiPlayer.Lives <= 0)
+            {
+                GameManager.Instance.GameOver();
+            }
             StartCoroutine(DestroyShip());
         }
     }
