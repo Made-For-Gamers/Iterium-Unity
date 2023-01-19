@@ -17,8 +17,6 @@ public class AIController : MonoBehaviour
     [SerializeField] private float fireInterval = 0.9f;
     [SerializeField] private int descisionCycle = 3; //number of bullets to fire at a target before deciding to changing targets
 
-    [HideInInspector] public Transform spawnPoint;
-
     private Transform firePosition;
     private GameObject shield;
     private float shieldCooldown;
@@ -166,6 +164,7 @@ public class AIController : MonoBehaviour
                 ExplosionPooling.explosionPool.Release(explosionObject);
             }
         }
+        GameManager.Instance.SpawnAi(GameManager.Instance.deathRespawnTime);
         Destroy(this.gameObject);
     }
 

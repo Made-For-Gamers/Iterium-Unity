@@ -8,6 +8,7 @@ public class PlayerSpawner : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.playerSpawner = gameObject.transform;
         GameManager.Instance.SpawnPlayer(spawnTime);
     }
 }

@@ -8,6 +8,7 @@ public class AISpawner : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.aiSpawner = gameObject.transform;
         GameManager.Instance.SpawnAi(spawnTime);
     }
 }

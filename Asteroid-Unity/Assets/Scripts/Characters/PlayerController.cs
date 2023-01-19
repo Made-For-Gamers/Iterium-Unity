@@ -11,12 +11,10 @@ using System.Collections;
 /// * Screen warping
 /// </summary>
 public class PlayerController : MonoBehaviour
-{
-    [HideInInspector] public Transform spawnPoint;
-
+{     
     private InputManager input;
     private Transform firePosition;
-    private GameObject shield;  
+    private GameObject shield;
     private float shieldCooldown;
     private bool isShielding;
     private Rigidbody rigidBody;
@@ -101,12 +99,12 @@ public class PlayerController : MonoBehaviour
         if (isShielding)
         {
             GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));
-           // print((int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl)));
+            // print((int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl)));
         }
         else
         {
             GameManager.Instance.player.Health -= (int)firePower;
-           // print((int)(firePower));
+            // print((int)(firePower));
         }
         if (GameManager.Instance.player.Health <= 0)
         {
@@ -134,6 +132,7 @@ public class PlayerController : MonoBehaviour
                 ExplosionPooling.explosionPool.Release(explosionObject);
             }
         }
+        GameManager.Instance.SpawnPlayer(GameManager.Instance.deathRespawnTime);
         Destroy(this.gameObject);
     }
 
@@ -148,7 +147,7 @@ public class PlayerController : MonoBehaviour
             movePos.x = -movePos.x;
         }
         if (viewPort.y > 1 || viewPort.y < 0)
-        { 
+        {
             movePos.z = -movePos.z;
         }
         transform.position = movePos;

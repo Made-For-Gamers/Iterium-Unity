@@ -15,14 +15,15 @@ public class GameManager : Singleton<GameManager>
     public SO_Player aiPlayer;
     public SO_Player npcPlayer;
     public SO_Factions factions;
+    public float deathRespawnTime = 4f;
 
     [Header("Iterium Crystals")]
     public SO_GameObjects iterium;
     public int iteriumChance = 20;
 
-    [Header("Spawn Points")]
-    public Transform playerSpawner;
-    public Transform aiSpawner;
+    //Spawn points
+    [HideInInspector] public Transform playerSpawner;
+    [HideInInspector] public Transform aiSpawner;
 
     [HideInInspector] public SaveData saveData;
     private FileSaveHandler fileSaveHandler;
@@ -152,8 +153,7 @@ public class GameManager : Singleton<GameManager>
         ship.transform.position = playerSpawner.position;
         ship.transform.rotation = playerSpawner.rotation;
         ship.transform.name = "Player";
-        ship.transform.tag = "Player";
-        ship.GetComponent<PlayerController>().spawnPoint = playerSpawner;
+        ship.transform.tag = "Player";     
     }
 
     IEnumerator SpawnAiOverTime(float time)
@@ -167,7 +167,6 @@ public class GameManager : Singleton<GameManager>
         aiShip.transform.rotation = aiSpawner.rotation;
         aiShip.transform.name = "AI";
         aiShip.transform.tag = "AI";
-        aiShip.GetComponent<AIController>().spawnPoint = transform;
     }
 
 }
