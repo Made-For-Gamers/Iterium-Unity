@@ -142,6 +142,7 @@ public class AIController : MonoBehaviour
         }
         if (GameManager.Instance.aiPlayer.Health <= 0)
         {
+            gameObject.GetComponent<MeshCollider>().enabled = false;
             GameManager.Instance.aiPlayer.Lives--;
             StartCoroutine(DestroyShip());
         }

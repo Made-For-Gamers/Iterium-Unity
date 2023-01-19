@@ -95,7 +95,7 @@ public class GameManager : Singleton<GameManager>
 
         npcPlayer.Health = 100;
         npcPlayer.Score = 0;
-        aiPlayer.Iterium = 0;
+        npcPlayer.Iterium = 0;
         npcPlayer.Lives = 3;
         npcPlayer.SpeedLvl = 1;
         npcPlayer.ShieldLvl = 1;

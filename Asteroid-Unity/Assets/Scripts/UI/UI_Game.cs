@@ -120,41 +120,41 @@ public class UI_Game : MonoBehaviour
         switch (GameManager.Instance.player.Lives)
         {
             case 1:
-                player1Ship1.SetEnabled(true);
-                player1Ship2.SetEnabled(false);
-                player1Ship3.SetEnabled(false);
+                player1Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship2.style.unityBackgroundImageTintColor = Color.black;
+                player1Ship3.style.unityBackgroundImageTintColor = Color.black;
                 break;
             case 2:
-                player1Ship1.SetEnabled(true);
-                player1Ship1.SetEnabled(true);
+                player1Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                 player1Ship3.style.unityBackgroundImageTintColor = Color.black;
                 break;
             case 3:
-                player1Ship1.SetEnabled(true);
-                player1Ship2.SetEnabled(true);
-                player1Ship3.SetEnabled(true);
+                player1Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship2.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship3.style.unityBackgroundImageTintColor = Color.white;
                 break;
         }
     }
 
     private void ChangeAiLives()
     {
-        switch (GameManager.Instance.player.Lives)
+        switch (GameManager.Instance.aiPlayer.Lives)
         {
             case 1:
-                player2Ship1.SetEnabled(true);
-                player2Ship2.SetEnabled(false);
-                player2Ship3.SetEnabled(false);
+                player2Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player2Ship2.style.unityBackgroundImageTintColor = Color.black;
+                player2Ship3.style.unityBackgroundImageTintColor = Color.black;
                 break;
             case 2:
-                player2Ship1.SetEnabled(true);
-                player2Ship1.SetEnabled(true);
-                player2Ship3.SetEnabled(false);
+                player2Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player2Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player2Ship3.style.unityBackgroundImageTintColor = Color.black;
                 break;
             case 3:
-                player2Ship1.SetEnabled(true);
-                player2Ship2.SetEnabled(true);
-                player2Ship3.SetEnabled(true);
+                player2Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player2Ship2.style.unityBackgroundImageTintColor = Color.white;
+                player2Ship3.style.unityBackgroundImageTintColor = Color.white;
                 break;
         }
     }
