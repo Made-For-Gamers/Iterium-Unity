@@ -18,6 +18,7 @@ public class Iterium : MonoBehaviour
                 GameManager.Instance.player.Score += score;
                 GameManager.Instance.player.Xp += xp;
                 GameManager.Instance.player.Iterium++;
+                GameManager.Instance.player.IteriumCollected++;
 
                 //Remove object
                 Destroy(gameObject);
@@ -28,7 +29,7 @@ public class Iterium : MonoBehaviour
                 GameManager.Instance.aiPlayer.Score += score;
                 GameManager.Instance.aiPlayer.Xp += xp;
                 GameManager.Instance.aiPlayer.Iterium++;
-
+                GameManager.Instance.aiPlayer.IteriumCollected++;
                 //Remove object
                 Destroy(gameObject);
                 break;

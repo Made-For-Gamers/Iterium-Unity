@@ -68,18 +68,18 @@ public class UI_Game : MonoBehaviour
         //Set UI values on start
         ChangeScore();
         ChangeHealth(); 
-        ChangeIterium();
+        ChangeIteriumCollected();
 
         //Player update event listeners
         GameManager.Instance.player.onChange_Health.AddListener(ChangeHealth);
         GameManager.Instance.player.onChange_Score.AddListener(ChangeScore);
-        GameManager.Instance.player.onChange_Iterium.AddListener(ChangeIterium);
+        GameManager.Instance.player.onChange_IteriumCollected.AddListener(ChangeIteriumCollected);
         GameManager.Instance.player.onChange_Lives.AddListener(ChangePlayerLives);
 
         //AI Player update event listeners
         GameManager.Instance.aiPlayer.onChange_Health.AddListener(ChangeAiHealth);
         GameManager.Instance.aiPlayer.onChange_Score.AddListener(ChangeAiScore);
-        GameManager.Instance.aiPlayer.onChange_Iterium.AddListener(ChangeAiIterium);
+        GameManager.Instance.aiPlayer.onChange_IteriumCollected.AddListener(ChangeAiIteriumCollected);
         GameManager.Instance.aiPlayer.onChange_Lives.AddListener(ChangeAiLives);
     } 
     
@@ -94,9 +94,9 @@ public class UI_Game : MonoBehaviour
         playerBarHealth.value = GameManager.Instance.player.Health;
     }  
 
-    private void ChangeIterium()
+    private void ChangeIteriumCollected()
     {
-        playerTextIterium.text = GameManager.Instance.player.Iterium.ToString();
+        playerTextIterium.text = GameManager.Instance.player.IteriumCollected.ToString();
     }
 
     //AI UI updates
@@ -110,9 +110,9 @@ public class UI_Game : MonoBehaviour
         aiBarHealth.value = GameManager.Instance.aiPlayer.Health;
     }
    
-    private void ChangeAiIterium()
+    private void ChangeAiIteriumCollected()
     {
-        aiTextIterium.text = GameManager.Instance.aiPlayer.Iterium.ToString();
+        aiTextIterium.text = GameManager.Instance.aiPlayer.IteriumCollected.ToString();
     }
 
     private void ChangePlayerLives()

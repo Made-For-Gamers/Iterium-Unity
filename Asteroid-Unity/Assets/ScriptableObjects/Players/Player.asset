@@ -15,13 +15,14 @@ MonoBehaviour:
   charName: Player 1
   description: 
   xp: 1610
-  score: 0
+  score: 100
   character: {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
   health: 100
   bulletLvl: 2
   shieldLvl: 2
   speedLvl: 2
   iterium: 880
+  iteriumCollected: 10
   lives: 0
   onChange_Health:
     m_PersistentCalls:
@@ -30,5 +31,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Iterium:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Lives:
     m_PersistentCalls:
       m_Calls: []

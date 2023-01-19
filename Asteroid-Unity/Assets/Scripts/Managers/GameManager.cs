@@ -101,6 +101,7 @@ public class GameManager : Singleton<GameManager>
         player.Health = 100;
         player.Score = 0;
         player.Iterium = 1000;
+        player.IteriumCollected = 0;
         player.SpeedLvl = 1;
         player.ShieldLvl = 1;
         player.BulletLvl = 1;
@@ -109,6 +110,7 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
         aiPlayer.Iterium = 0;
+        aiPlayer.IteriumCollected = 0;
         aiPlayer.Lives = 3;
         aiPlayer.SpeedLvl = 1;
         aiPlayer.ShieldLvl = 1;

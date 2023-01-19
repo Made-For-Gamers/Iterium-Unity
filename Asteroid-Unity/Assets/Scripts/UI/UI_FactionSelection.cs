@@ -19,7 +19,7 @@ public class UI_FactionSelection : MonoBehaviour
 #endif
 
     //UI Toolkit button names
-    [Header("UI button")]
+    [Header("Faction UI buttons")]
     [SerializeField] private string chinaFaction;
     [SerializeField] private string usaFaction;
     [SerializeField] private string ussrFaction;

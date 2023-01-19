@@ -23,7 +23,7 @@ public class AIController : MonoBehaviour
     private bool isShielding;
     private Rigidbody rigidBody;
     private int shots;
-    private bool attackNPC;   
+    private bool attackNPC;
 
     private void Start()
     {      

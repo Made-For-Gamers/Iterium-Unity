@@ -315,8 +315,11 @@ MonoBehaviour:
   aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
   npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
-  crystals: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
+  deathRespawnTime: 4
+  iterium: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
   iteriumChance: 20
+  playerSpawner: {fileID: 0}
+  aiSpawner: {fileID: 0}
   saveData:
     score: 0
     xp: 0
@@ -325,6 +328,7 @@ MonoBehaviour:
     speedLvl: 0
     iterium: 0
     character: {fileID: 0}
+  aiTarget: {fileID: 0}
 --- !u!1 &1182923276
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,12 +23,14 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int shieldLvl;
     [SerializeField] private int speedLvl;
     [SerializeField] private int iterium;
+    [SerializeField] private int iteriumCollected;
     [SerializeField] private int lives;
 
     //Events
     public UnityEvent onChange_Health;
     public UnityEvent onChange_Score;
     public UnityEvent onChange_Iterium;
+    public UnityEvent onChange_IteriumCollected;
     public UnityEvent onChange_Lives;
 
     public string CharName { get => charName; set => charName = value; }
@@ -116,6 +118,16 @@ public class SO_Player : ScriptableObject
         {
             lives = value;
             onChange_Lives.Invoke();
+        }
+    }
+
+    public int IteriumCollected
+    {
+        get => iteriumCollected;
+        set
+        {
+            iteriumCollected = value;
+            onChange_IteriumCollected.Invoke();
         }
     }
 }
