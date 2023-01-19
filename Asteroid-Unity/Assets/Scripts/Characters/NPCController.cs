@@ -1,5 +1,11 @@
 using UnityEngine;
 
+/// <summary>
+/// NPC ship script that handles...
+/// * Firing (rate, target)
+/// * De-spawn when leaving the screen
+/// </summary>
+
 public class NPCController : MonoBehaviour
 {   
     [Header("Bullet")]

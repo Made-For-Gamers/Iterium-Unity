@@ -2,10 +2,13 @@ using UnityEngine;
 using System.Collections;
 
 /// <summary>
-/// AI ship script that handles...
+/// AI player ship script that handles...
 /// * Movement
 /// * Firing
 /// * Shield
+/// * Health decrease calculation (ship hit)
+/// * Ship destroy
+/// * Screen warping
 /// </summary>
 public class AIController : MonoBehaviour
 {
@@ -139,7 +142,7 @@ public class AIController : MonoBehaviour
         }
         if (GameManager.Instance.aiPlayer.Health <= 0)
         {
-
+            GameManager.Instance.aiPlayer.Lives--;
             StartCoroutine(DestroyShip());
         }
     }

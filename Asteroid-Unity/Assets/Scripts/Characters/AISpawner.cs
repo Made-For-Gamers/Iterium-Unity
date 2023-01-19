@@ -1,8 +1,14 @@
 using UnityEngine;
 
+/// <summary>
+/// Spawn AI player ship prefab
+/// Set position and rotation
+/// Set name and tag
+/// Set the spawnpoint in the AI player controller for re-spawns (death/resets)
+/// </summary>
+
 public class AISpawner : MonoBehaviour
 {  
-
     private void Start()
     {
         GameObject ship = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.ShipPrefab);

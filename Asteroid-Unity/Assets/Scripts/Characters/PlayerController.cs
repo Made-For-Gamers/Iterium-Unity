@@ -6,6 +6,9 @@ using System.Collections;
 /// * Movement
 /// * Firing
 /// * Shield
+/// * Health decrease calculation (ship hit)
+/// * Ship destroy
+/// * Screen warping
 /// </summary>
 public class PlayerController : MonoBehaviour
 {
@@ -107,7 +110,7 @@ public class PlayerController : MonoBehaviour
         }
         if (GameManager.Instance.player.Health <= 0)
         {
-
+            GameManager.Instance.player.Lives--;
             StartCoroutine(DestroyShip());
         }
     }

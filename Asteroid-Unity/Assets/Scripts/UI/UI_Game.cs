@@ -7,35 +7,60 @@ using UnityEngine;
 /// </summary>
 public class UI_Game : MonoBehaviour
 {
-    [Header("UI Toolkit Fields")]
-    [SerializeField] private string playerScore;
-    [SerializeField] private string playerHealth;
-    [SerializeField] private string playerIterium;
-    [SerializeField] private string aiScore;
-    [SerializeField] private string aiHealth;
-    [SerializeField] private string aiIterium;
+    [Header("Player UI Elements")]
+    [SerializeField] private string playerScore = "scorePlayer1";
+    [SerializeField] private string playerHealth = "healthPlayer1";
+    [SerializeField] private string playerIterium = "iteriumPlayer1";
+
+    [Header("AI Player UI Elements")]
+    [SerializeField] private string aiScore = "scorePlayer2";
+    [SerializeField] private string aiHealth = "healthPlayer2";
+    [SerializeField] private string aiIterium = "iteriumPlayer2";
+
+    [Header("Ship Lives UI Elements")]
+    [SerializeField] private string ship1Player1 = "ship1Player1";
+    [SerializeField] private string ship2Player1 = "ship2Player1";
+    [SerializeField] private string ship3Player1 = "ship3Player1";
+    [SerializeField] private string ship1Player2 = "ship1Player2";
+    [SerializeField] private string ship2Player2 = "ship2Player2";
+    [SerializeField] private string ship3Player2 = "ship3Player2";
 
 
+    //Player UI controls
     private TextElement playerTextScore;
     private ProgressBar playerBarHealth;
     private TextElement playerTextIterium;
+    private VisualElement player1Ship1;
+    private VisualElement player1Ship2;
+    private VisualElement player1Ship3;
+
+    //AI Player UI controls
     private TextElement aiTextScore;
     private ProgressBar aiBarHealth;
     private TextElement aiTextIterium;
+    private VisualElement player2Ship1;
+    private VisualElement player2Ship2;
+    private VisualElement player2Ship3;
 
     private void OnEnable()
     {
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
 
-        //Player UI fields
+        //Init player UI controls
         playerTextScore = uiRoot.Q<TextElement>(playerScore);
         playerBarHealth = uiRoot.Q<ProgressBar>(playerHealth);
         playerTextIterium = uiRoot.Q<TextElement>(playerIterium);
+        player1Ship1 = uiRoot.Q<VisualElement>(ship1Player1);
+        player1Ship2 = uiRoot.Q<VisualElement>(ship2Player1);
+        player1Ship3 = uiRoot.Q<VisualElement>(ship3Player1);
 
-        //AI UI fields
+        //Init AI UI controls
         aiTextScore = uiRoot.Q<TextElement>(aiScore);
         aiBarHealth = uiRoot.Q<ProgressBar>(aiHealth);
         aiTextIterium = uiRoot.Q<TextElement>(aiIterium);
+        player2Ship1 = uiRoot.Q<VisualElement>(ship1Player2);
+        player2Ship2 = uiRoot.Q<VisualElement>(ship2Player2);
+        player2Ship3 = uiRoot.Q<VisualElement>(ship3Player2);
     }
 
     private void Start()
@@ -45,13 +70,17 @@ public class UI_Game : MonoBehaviour
         ChangeHealth(); 
         ChangeIterium();
 
-        //UI update event listeners
+        //Player update event listeners
         GameManager.Instance.player.onChange_Health.AddListener(ChangeHealth);
         GameManager.Instance.player.onChange_Score.AddListener(ChangeScore);
         GameManager.Instance.player.onChange_Iterium.AddListener(ChangeIterium);
+        GameManager.Instance.player.onChange_Lives.AddListener(ChangePlayerLives);
+
+        //AI Player update event listeners
         GameManager.Instance.aiPlayer.onChange_Health.AddListener(ChangeAiHealth);
         GameManager.Instance.aiPlayer.onChange_Score.AddListener(ChangeAiScore);
         GameManager.Instance.aiPlayer.onChange_Iterium.AddListener(ChangeAiIterium);
+        GameManager.Instance.aiPlayer.onChange_Lives.AddListener(ChangeAiLives);
     } 
     
     //Player UI updates
@@ -84,5 +113,49 @@ public class UI_Game : MonoBehaviour
     private void ChangeAiIterium()
     {
         aiTextIterium.text = GameManager.Instance.aiPlayer.Iterium.ToString();
+    }
+
+    private void ChangePlayerLives()
+    {
+        switch (GameManager.Instance.player.Lives)
+        {
+            case 1:
+                player1Ship1.SetEnabled(true);
+                player1Ship2.SetEnabled(false);
+                player1Ship3.SetEnabled(false);
+                break;
+            case 2:
+                player1Ship1.SetEnabled(true);
+                player1Ship1.SetEnabled(true);
+                player1Ship3.style.unityBackgroundImageTintColor = Color.black;
+                break;
+            case 3:
+                player1Ship1.SetEnabled(true);
+                player1Ship2.SetEnabled(true);
+                player1Ship3.SetEnabled(true);
+                break;
+        }
+    }
+
+    private void ChangeAiLives()
+    {
+        switch (GameManager.Instance.player.Lives)
+        {
+            case 1:
+                player2Ship1.SetEnabled(true);
+                player2Ship2.SetEnabled(false);
+                player2Ship3.SetEnabled(false);
+                break;
+            case 2:
+                player2Ship1.SetEnabled(true);
+                player2Ship1.SetEnabled(true);
+                player2Ship3.SetEnabled(false);
+                break;
+            case 3:
+                player2Ship1.SetEnabled(true);
+                player2Ship2.SetEnabled(true);
+                player2Ship3.SetEnabled(true);
+                break;
+        }
     }
 }
