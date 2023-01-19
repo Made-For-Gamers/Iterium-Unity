@@ -121,13 +121,13 @@ public class UI_Game : MonoBehaviour
         {
             case 1:
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
-                player1Ship2.style.unityBackgroundImageTintColor = Color.black;
-                player1Ship3.style.unityBackgroundImageTintColor = Color.black;
+                player1Ship2.style.unityBackgroundImageTintColor = Color.red;
+                player1Ship3.style.unityBackgroundImageTintColor = Color.red;
                 break;
             case 2:
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
-                player1Ship3.style.unityBackgroundImageTintColor = Color.black;
+                player1Ship3.style.unityBackgroundImageTintColor = Color.red;
                 break;
             case 3:
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
@@ -143,13 +143,13 @@ public class UI_Game : MonoBehaviour
         {
             case 1:
                 player2Ship1.style.unityBackgroundImageTintColor = Color.white;
-                player2Ship2.style.unityBackgroundImageTintColor = Color.black;
-                player2Ship3.style.unityBackgroundImageTintColor = Color.black;
+                player2Ship2.style.unityBackgroundImageTintColor = Color.red;
+                player2Ship3.style.unityBackgroundImageTintColor = Color.red;
                 break;
             case 2:
                 player2Ship1.style.unityBackgroundImageTintColor = Color.white;
                 player2Ship1.style.unityBackgroundImageTintColor = Color.white;
-                player2Ship3.style.unityBackgroundImageTintColor = Color.black;
+                player2Ship3.style.unityBackgroundImageTintColor = Color.red;
                 break;
             case 3:
                 player2Ship1.style.unityBackgroundImageTintColor = Color.white;

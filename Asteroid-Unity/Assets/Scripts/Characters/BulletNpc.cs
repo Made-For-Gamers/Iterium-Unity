@@ -33,7 +33,7 @@ public class BulletNpc : MonoBehaviour
                     int chance = Random.Range(1, GameManager.Instance.iteriumChance);
                     if (chance == 1)
                     {
-                        Instantiate(GameManager.Instance.crystals.GetRandomGameObject(), collision.gameObject.transform.position, Random.rotation);
+                        Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), collision.gameObject.transform.position, Random.rotation);
                     }
                 }
 

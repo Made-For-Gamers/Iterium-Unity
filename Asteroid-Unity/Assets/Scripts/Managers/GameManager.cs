@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,8 +16,13 @@ public class GameManager : Singleton<GameManager>
     public SO_Player npcPlayer;
     public SO_Factions factions;
 
-    public SO_GameObjects crystals;
+    [Header("Iterium Crystals")]
+    public SO_GameObjects iterium;
     public int iteriumChance = 20;
+
+    [Header("Spawn Points")]
+    public Transform playerSpawner;
+    public Transform aiSpawner;
 
     [HideInInspector] public SaveData saveData;
     private FileSaveHandler fileSaveHandler;
@@ -104,7 +110,7 @@ public class GameManager : Singleton<GameManager>
 
     private void OnApplicationQuit()
     {
-      // SaveGame();
+        // SaveGame();
     }
 
     public void SceneMainMenu()
@@ -127,6 +133,41 @@ public class GameManager : Singleton<GameManager>
                 SceneManager.LoadScene("UpgradeUSSR");
                 break;
         }
+    }
+
+    public void SpawnPlayer(float time)
+    {
+        StartCoroutine(SpawnPlayerOverTime(time));
+    }
+
+    public void SpawnAi(float time)
+    {
+        StartCoroutine(SpawnAiOverTime(time));
+    }
+
+    IEnumerator SpawnPlayerOverTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject ship = Instantiate(GameManager.Instance.player.Character.Ship.ShipPrefab);
+        ship.transform.position = playerSpawner.position;
+        ship.transform.rotation = playerSpawner.rotation;
+        ship.transform.name = "Player";
+        ship.transform.tag = "Player";
+        ship.GetComponent<PlayerController>().spawnPoint = playerSpawner;
+    }
+
+    IEnumerator SpawnAiOverTime(float time)
+    {
+        yield return new WaitForSeconds(time);
+        GameObject aiShip = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.ShipPrefab);
+        Destroy(aiShip.GetComponent<PlayerController>());
+        Destroy(aiShip.GetComponent<InputManager>());
+        aiShip.AddComponent<AIController>();
+        aiShip.transform.position = aiSpawner.position;
+        aiShip.transform.rotation = aiSpawner.rotation;
+        aiShip.transform.name = "AI";
+        aiShip.transform.tag = "AI";
+        aiShip.GetComponent<AIController>().spawnPoint = transform;
     }
 
 }
