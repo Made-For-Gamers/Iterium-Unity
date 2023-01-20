@@ -7,6 +7,19 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : Singleton<GameManager>
 {
+    [Header("Game scene")]
+#if UNITY_EDITOR
+    public UnityEditor.SceneAsset destinationScene;
+    private void OnValidate()
+    {
+        if (destinationScene != null)
+        {
+            gameScene = destinationScene.name;
+        }
+    }
+#endif
+    [HideInInspector] public string gameScene;
+
     [Header("Save Game")]
     [SerializeField] private string fileName;
 
@@ -96,8 +109,10 @@ public class GameManager : Singleton<GameManager>
         saveData = new SaveData();
     }
 
+    //Reset data to new game state
     public void ResetGame()
     {
+        //Player data
         player.Health = 100;
         player.Score = 0;
         player.Iterium = 1000;
@@ -107,6 +122,7 @@ public class GameManager : Singleton<GameManager>
         player.BulletLvl = 1;
         player.Lives = 3;
 
+        //AI data
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
         aiPlayer.Iterium = 0;
@@ -115,14 +131,24 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.SpeedLvl = 1;
         aiPlayer.ShieldLvl = 1;
         aiPlayer.BulletLvl = 1;
+    }
 
-        npcPlayer.Health = 100;
-        npcPlayer.Score = 0;
-        npcPlayer.Iterium = 0;
-        npcPlayer.Lives = 3;
-        npcPlayer.SpeedLvl = 1;
-        npcPlayer.ShieldLvl = 1;
-        npcPlayer.BulletLvl = 1;
+    //Reset data for a new arena battle
+    public void NewArena()
+    {
+        //Player data
+        player.Health = 100;
+        player.Score = 0;
+        player.IteriumCollected = 0;
+        player.Lives = 3;
+
+        //AI data
+        aiPlayer.Health = 100;
+        aiPlayer.Score = 0;
+        aiPlayer.IteriumCollected = 0;
+        aiPlayer.Lives = 3;
+
+        SceneManager.LoadScene(gameScene);
     }
 
     private void OnApplicationQuit()

@@ -1,6 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Rotate an object
+/// * Axis selection
+/// * Random speed
+/// * Random direction
+/// </summary>
 
 public class Rotate : MonoBehaviour
 {
