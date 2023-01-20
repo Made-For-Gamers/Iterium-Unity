@@ -82,7 +82,7 @@ public class FileSaveHandler
             }
             if (Application.platform == RuntimePlatform.WebGLPlayer)
             {
-                syncSave();             
+                syncSave();
             }
             Debug.Log("Successfully Saved File");
         }

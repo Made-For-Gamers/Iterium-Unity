@@ -38,6 +38,7 @@ public class GameManager : Singleton<GameManager>
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
         LoadGame();
         SelectAiPlayer();
+        //ResetGame();
     }
 
     //Find either Player or NPC for AI to target
@@ -62,6 +63,13 @@ public class GameManager : Singleton<GameManager>
     public void SaveGame()
     {
         print("Saving game data");
+        saveData.leaderboard = leaderboard.Leaderboard;
+        saveData.profileName = player.ProfileName;
+        saveData.character = player.Character;
+        saveData.iterium = player.Iterium;
+        saveData.bulletLvl = player.BulletLvl;
+        saveData.speedLvl = player.SpeedLvl;
+        saveData.shieldLvl = player.ShieldLvl;
         fileSaveHandler.Save(saveData);
     }
 
@@ -82,6 +90,7 @@ public class GameManager : Singleton<GameManager>
         player.SpeedLvl = saveData.speedLvl;
         player.Iterium = saveData.iterium;
         player.ProfileName = saveData.profileName;
+        leaderboard.Leaderboard = saveData.leaderboard;
         if (saveData.character != null)
         {
             player.Character = saveData.character;
@@ -129,13 +138,13 @@ public class GameManager : Singleton<GameManager>
         player.Health = 100;
         player.Score = 0;
         player.IteriumCollected = 0;
-        player.Lives = 3;
+        player.Lives = 1;
 
         //AI data
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
         aiPlayer.IteriumCollected = 0;
-        aiPlayer.Lives = 3;
+        aiPlayer.Lives = 1;
     }
 
     private void OnApplicationQuit()

@@ -39,7 +39,6 @@ public class SO_Player : ScriptableObject
         set
         {
             profileName = value;
-            GameManager.Instance.saveData.profileName = value;
         }
     }
     public string Description { get => description; set => description = value; }
@@ -49,7 +48,6 @@ public class SO_Player : ScriptableObject
         set
         {
             xp = value;
-           
         }
     }
     public int Score
@@ -67,7 +65,6 @@ public class SO_Player : ScriptableObject
         set
         {
             character = value;
-            GameManager.Instance.saveData.character = value;
         }
     }
     public int Health
@@ -85,7 +82,6 @@ public class SO_Player : ScriptableObject
         set
         {
             bulletLvl = value;
-            GameManager.Instance.saveData.bulletLvl = value;
         }
     }
     public int ShieldLvl
@@ -94,7 +90,6 @@ public class SO_Player : ScriptableObject
         set
         {
             shieldLvl = value;
-            GameManager.Instance.saveData.shieldLvl = value;
         }
     }
     public int Iterium
@@ -103,7 +98,6 @@ public class SO_Player : ScriptableObject
         set
         {
             iterium = value;
-            GameManager.Instance.saveData.iterium = value;
             onChange_Iterium.Invoke();
         }
     }
@@ -114,7 +108,6 @@ public class SO_Player : ScriptableObject
         set
         {
             speedLvl = value;
-            GameManager.Instance.saveData.speedLvl = value;
         }
     }
 

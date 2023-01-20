@@ -91,6 +91,7 @@ public class UI_Upgrade : MonoBehaviour
     {
         ChangeUpgradeLabels();
         ChangeIterium();
+        ChangeUpgradeSliders();
         GameManager.Instance.player.onChange_Iterium.AddListener(ChangeIterium);
     }
 
@@ -161,5 +162,12 @@ public class UI_Upgrade : MonoBehaviour
         shieldLabelLevel2.text = shieldLevel2.ToString();
         firepowerLabelLevel1.text = firepowerLevel1.ToString();
         firepowerLabelLevel2.text = firepowerLevel2.ToString();
+    }
+
+    void ChangeUpgradeSliders()
+    {
+        shield.value = GameManager.Instance.player.ShieldLvl-1;
+        thrust.value = GameManager.Instance.player.SpeedLvl-1;
+        firepower.value = GameManager.Instance.player.BulletLvl-1;
     }
 }

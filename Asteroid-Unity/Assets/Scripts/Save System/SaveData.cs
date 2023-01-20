@@ -1,4 +1,4 @@
-using UnityEngine;
+using System.Collections.Generic;
 
 /// <summary>
 /// Class of all save data that need to be saved or loaded in the game
@@ -15,6 +15,5 @@ public class SaveData
     public int speedLvl;
     public int iterium;
     public SO_Character character;
-    public SO_Leaderboard leaderboard;
-        
+    public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
 }
