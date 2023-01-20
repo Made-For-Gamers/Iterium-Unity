@@ -8,5 +8,5 @@ public class LeaderboardItem
 {
     public int score;
     public string playerName;
-    public DateTime date;
+    public string date;
 }

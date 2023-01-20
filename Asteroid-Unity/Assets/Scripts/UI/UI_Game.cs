@@ -66,6 +66,7 @@ public class UI_Game : MonoBehaviour
     private void Start()
     {
         //Set UI values on start
+        GameManager.Instance.NewArena();
         ChangeScore();
         ChangeHealth(); 
         ChangeIteriumCollected();

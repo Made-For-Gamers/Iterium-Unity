@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 using UnityEngine;
-using System.Runtime.CompilerServices;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Game Over UI
@@ -10,6 +10,19 @@ using System.Runtime.CompilerServices;
 /// </summary>
 public class UI_GameOver : MonoBehaviour
 {
+    [Header("Game scene")]
+#if UNITY_EDITOR
+    public UnityEditor.SceneAsset destinationScene;
+    private void OnValidate()
+    {
+        if (destinationScene != null)
+        {
+            gameScene = destinationScene.name;
+        }
+    }
+#endif
+    [HideInInspector] public string gameScene;
+
     [Header("UI Elements")]
     [SerializeField] private string playerScore = "playerScore";
     [SerializeField] private string playerIterium = "playerIterium";
@@ -32,6 +45,7 @@ public class UI_GameOver : MonoBehaviour
         score.text = arenaScore.ToString();
         iterium.text = GameManager.Instance.player.IteriumCollected.ToString();
         GameManager.Instance.AddLeaderboardItem();
+        GameManager.Instance.SaveGame();
         rematch.clicked += Rematch;
         switch (arenaScore)
         {
@@ -52,7 +66,7 @@ public class UI_GameOver : MonoBehaviour
 
     private void Rematch()
     {
-        GameManager.Instance.NewArena();
+        SceneManager.LoadScene(gameScene);
     }
 }
 

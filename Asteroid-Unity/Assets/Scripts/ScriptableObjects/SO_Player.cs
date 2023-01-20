@@ -12,7 +12,7 @@ using UnityEngine.Events;
 // BulletLvl indicates which of the 3 bullets levels is fired from the SO_Bullet. (bullet level)
 public class SO_Player : ScriptableObject
 {
-    [SerializeField] private string charName;
+    [SerializeField] private string profileName;
     [TextArea(5, 5)]
     [SerializeField] private string description;
     [SerializeField] private int xp;
@@ -33,7 +33,15 @@ public class SO_Player : ScriptableObject
     public UnityEvent onChange_IteriumCollected;
     public UnityEvent onChange_Lives;
 
-    public string CharName { get => charName; set => charName = value; }
+    public string ProfileName
+    {
+        get => profileName;
+        set
+        {
+            profileName = value;
+            GameManager.Instance.saveData.profileName = value;
+        }
+    }
     public string Description { get => description; set => description = value; }
     public int Xp
     {
@@ -41,7 +49,7 @@ public class SO_Player : ScriptableObject
         set
         {
             xp = value;
-            GameManager.Instance.saveData.xp = value;
+           
         }
     }
     public int Score
@@ -50,7 +58,6 @@ public class SO_Player : ScriptableObject
         set
         {
             score = value;
-            GameManager.Instance.saveData.score = value;
             onChange_Score.Invoke();
         }
     }

@@ -7,25 +7,14 @@ using UnityEngine;
 [System.Serializable]
 
 public class SaveData
-{
-    public int score;
+{   
+    public string profileName;
     public int xp;
     public int shieldLvl;
     public int bulletLvl;
     public int speedLvl;
     public int iterium;
     public SO_Character character;
-
-    //Constructor can be called to reset fields to defaults
-    public SaveData()
-    {
-        //Reset game data to defaults
-        score = 0;
-        xp = 0;
-        shieldLvl = 0;
-        bulletLvl = 0;
-        speedLvl = 0;
-        iterium = 0;
-        character = null;
-    }
+    public SO_Leaderboard leaderboard;
+        
 }

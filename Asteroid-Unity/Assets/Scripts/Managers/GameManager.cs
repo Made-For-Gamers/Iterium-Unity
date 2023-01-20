@@ -7,19 +7,6 @@ using UnityEngine.SceneManagement;
 /// </summary>
 public class GameManager : Singleton<GameManager>
 {
-    [Header("Game scene")]
-#if UNITY_EDITOR
-    public UnityEditor.SceneAsset destinationScene;
-    private void OnValidate()
-    {
-        if (destinationScene != null)
-        {
-            gameScene = destinationScene.name;
-        }
-    }
-#endif
-    [HideInInspector] public string gameScene;
-
     [Header("Save Game")]
     [SerializeField] private string fileName;
 
@@ -51,7 +38,6 @@ public class GameManager : Singleton<GameManager>
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
         LoadGame();
         SelectAiPlayer();
-        ResetGame();
     }
 
     //Find either Player or NPC for AI to target
@@ -90,12 +76,12 @@ public class GameManager : Singleton<GameManager>
         }
 
         //Update player data with game load values
-        player.Score = saveData.score;
         player.Xp = saveData.xp;
         player.ShieldLvl = saveData.shieldLvl;
         player.BulletLvl = saveData.bulletLvl;
         player.SpeedLvl = saveData.speedLvl;
         player.Iterium = saveData.iterium;
+        player.ProfileName = saveData.profileName;
         if (saveData.character != null)
         {
             player.Character = saveData.character;
@@ -150,13 +136,11 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.Score = 0;
         aiPlayer.IteriumCollected = 0;
         aiPlayer.Lives = 3;
-
-        SceneManager.LoadScene(gameScene);
     }
 
     private void OnApplicationQuit()
     {
-        // SaveGame();
+        SaveGame();
     }
 
     public void SceneMainMenu()
@@ -226,8 +210,8 @@ public class GameManager : Singleton<GameManager>
     { 
         LeaderboardItem item = new LeaderboardItem();
         item.score = player.Score;
-        item.date = System.DateTime.Now.Date;
-        item.playerName = player.CharName;
+        item.date = System.DateTime.Now.Date.ToShortDateString();
+        item.playerName = player.ProfileName;
         leaderboard.Leaderboard.Add(item);
     }
 
