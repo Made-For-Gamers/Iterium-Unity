@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// ScriptableObject of the NPC properties
+/// </summary>
+
 [CreateAssetMenu(fileName = "NPC", menuName = "Add SO/Objects/NPC")]
 
 public class SO_NPC : ScriptableObject

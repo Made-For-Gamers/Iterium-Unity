@@ -31,6 +31,7 @@ public class UI_GameOver : MonoBehaviour
         arenaScore = GameManager.Instance.player.Score;
         score.text = arenaScore.ToString();
         iterium.text = GameManager.Instance.player.IteriumCollected.ToString();
+        GameManager.Instance.AddLeaderboardItem();
         rematch.clicked += Rematch;
         switch (arenaScore)
         {

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  charName: Player 1
+  charName: Pax
   description: 
   xp: 1610
   score: 100
@@ -31,6 +31,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Iterium:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_IteriumCollected:
     m_PersistentCalls:
       m_Calls: []
   onChange_Lives:

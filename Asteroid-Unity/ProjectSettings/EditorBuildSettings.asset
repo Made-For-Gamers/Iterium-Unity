@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/FactionSelection.unity
     guid: bfe1cb492f67ef144bade8694c68dcab
   - enabled: 1
-    path: Assets/Scenes/HighScore.unity
+    path: Assets/Scenes/Leaderboard.unity
     guid: 217616ecb973ab644bf7c0d62a0b00fb
   - enabled: 1
     path: Assets/Scenes/Settings.unity

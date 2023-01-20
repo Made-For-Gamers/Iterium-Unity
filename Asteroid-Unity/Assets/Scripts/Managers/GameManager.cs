@@ -23,6 +23,9 @@ public class GameManager : Singleton<GameManager>
     [Header("Save Game")]
     [SerializeField] private string fileName;
 
+    [Header("Leaderboard ScriptableObject")]
+    public SO_Leaderboard leaderboard;
+
     [Header("Characters")]
     public SO_Player player;
     public SO_Player aiPlayer;
@@ -217,6 +220,15 @@ public class GameManager : Singleton<GameManager>
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
+    }
+
+    public void AddLeaderboardItem()
+    { 
+        LeaderboardItem item = new LeaderboardItem();
+        item.score = player.Score;
+        item.date = System.DateTime.Now.Date;
+        item.playerName = player.CharName;
+        leaderboard.Leaderboard.Add(item);
     }
 
 }
