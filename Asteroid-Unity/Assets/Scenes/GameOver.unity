@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 1297923306}
   m_IndirectSpecularColor: {r: 0.17784482, g: 0.22266702, b: 0.30481288, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -201,6 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f856ce311dd0d44b80ea36ad5e12da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destinationScene: {fileID: 102900000, guid: bea7fe1aaca2039468ae91d7d55af094, type: 3}
+  gameScene: Pax Dev 3D
   playerScore: playerScore
   playerIterium: playerIterium
   playerMessage: message

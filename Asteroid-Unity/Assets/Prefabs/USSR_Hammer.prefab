@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 4404b5363efd6bc4591e34d8a0f5957a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.1
+      value: 0.07
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 4404b5363efd6bc4591e34d8a0f5957a,
         type: 3}
@@ -194,10 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b5ea09d460106741997d3ae45d1510b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 1275363712953260093}
-  firePosition: {fileID: 8208081413025333748}
-  shield: {fileID: 7663685952231477094}
-  spawnPoint: {fileID: 0}
 --- !u!4 &5199458798182027165 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4404b5363efd6bc4591e34d8a0f5957a,
@@ -278,9 +274,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3b33e52cf43e8e45919483ce0ff0b98, type: 3}
---- !u!1 &7663685952231477094 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1069487272437362878, guid: c3b33e52cf43e8e45919483ce0ff0b98,
-    type: 3}
-  m_PrefabInstance: {fileID: 7245575773581918168}
-  m_PrefabAsset: {fileID: 0}

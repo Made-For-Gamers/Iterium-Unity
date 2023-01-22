@@ -1149,7 +1149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: Iterium.save
-  leaderboard: {fileID: 0}
+  leaderboard: {fileID: 11400000, guid: 232bbbcca86e5534186e7649f0658b2a, type: 2}
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
   aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
   npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
