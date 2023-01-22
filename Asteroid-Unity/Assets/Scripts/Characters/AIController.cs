@@ -92,7 +92,7 @@ public class AIController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        if (rigidBody.velocity.x <= 1 && GameManager.Instance.aiTarget.gameObject != null)
+        if (rigidBody.velocity.x <= 1)
         {
             rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * GameManager.Instance.aiPlayer.SpeedLvl) * Time.deltaTime), ForceMode.Force);
         }

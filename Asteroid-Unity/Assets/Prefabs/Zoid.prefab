@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0485b5df54d868e4495b675346388bd9,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0485b5df54d868e4495b675346388bd9,
         type: 3}
@@ -137,6 +137,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4b3a93cc993f834ba214338a6918f6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 0}
-  players: {fileID: 11400000, guid: 43b805e9a1f7e194eae91b5c9d624a53, type: 2}
-  npcs: {fileID: 11400000, guid: 19c5083fa9023124b9d32b4e02e80c06, type: 2}
+  fireStart: 3
+  fireInterval: 0.8

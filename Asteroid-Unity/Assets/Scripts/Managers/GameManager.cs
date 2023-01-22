@@ -37,7 +37,6 @@ public class GameManager : Singleton<GameManager>
     {
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
         LoadGame();
-        SelectAiPlayer();
         //ResetGame();
     }
 
@@ -138,13 +137,13 @@ public class GameManager : Singleton<GameManager>
         player.Health = 100;
         player.Score = 0;
         player.IteriumCollected = 0;
-        player.Lives = 1;
+        player.Lives = 3;
 
         //AI data
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
         aiPlayer.IteriumCollected = 0;
-        aiPlayer.Lives = 1;
+        aiPlayer.Lives = 3;
     }
 
     private void OnApplicationQuit()
@@ -187,6 +186,7 @@ public class GameManager : Singleton<GameManager>
     IEnumerator SpawnPlayerOverTime(float time)
     {
         yield return new WaitForSeconds(time);
+        SelectAiPlayer();
         GameObject ship = Instantiate(GameManager.Instance.player.Character.Ship.ShipPrefab);
         ship.transform.position = playerSpawner.position;
         ship.transform.rotation = playerSpawner.rotation;
