@@ -30,7 +30,7 @@ public class AIController : MonoBehaviour
         shield = transform.GetChild(0).gameObject;
         firePosition = transform.GetChild(1);
         rigidBody = GetComponent<Rigidbody>();
-        InvokeRepeating("Fire", fireStart, fireInterval);
+       // InvokeRepeating("Fire", fireStart, fireInterval);
     }
 
     private void Update()
@@ -41,7 +41,7 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Thrust();
+       // Thrust();
     }
 
     //Ship rotation targeting the player or NPC
