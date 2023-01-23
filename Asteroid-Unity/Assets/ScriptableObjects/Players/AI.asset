@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: AI
   m_EditorClassIdentifier: 
-  charName: Player 1
+  profileName: 
   description: 
-  xp: 900
-  score: 14000
-  character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
-  health: 79
-  bulletLvl: 0
-  shieldLvl: 0
-  speedLvl: 0
+  xp: 2075
+  score: 8000
+  character: {fileID: 11400000, guid: fb9486489f068b14cb18ed72264d1663, type: 2}
+  health: 44
+  bulletLvl: 1
+  shieldLvl: 1
+  speedLvl: 1
   iterium: 0
-  lives: 0
+  iteriumCollected: 0
+  lives: 3
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []
@@ -30,5 +31,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Iterium:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_IteriumCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Lives:
     m_PersistentCalls:
       m_Calls: []

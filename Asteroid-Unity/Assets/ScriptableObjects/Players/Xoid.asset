@@ -12,12 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: Xoid
   m_EditorClassIdentifier: 
-  charName: Xoid
+  profileName: 
   description: 
   xp: 0
   score: 0
   character: {fileID: 11400000, guid: abf9b3b698f041c4eb70d61f567ae4f3, type: 2}
   health: 100
-  bulletLvl: 0
-  shieldLvl: 0
+  bulletLvl: 1
+  shieldLvl: 1
+  speedLvl: 1
   iterium: 0
+  iteriumCollected: 0
+  lives: 0
+  onChange_Health:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Score:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Iterium:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_IteriumCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Lives:
+    m_PersistentCalls:
+      m_Calls: []
