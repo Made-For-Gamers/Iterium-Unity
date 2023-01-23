@@ -15,7 +15,7 @@ public class UI_Leaderboard : MonoBehaviour
     private void OnEnable()
     {
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
-        foreach (LeaderboardItem item in GameManager.Instance.leaderboard.Leaderboard)
+        foreach (LeaderboardItem item in GameManager.Instance.leaderboard)
         {
             var rowTemplate = scoreRow.Instantiate();
             rowTemplate.Q<Label>(rank).text = "1";

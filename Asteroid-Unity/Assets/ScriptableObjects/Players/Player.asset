@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   profileName: Player 1
   description: 
-  xp: 505
-  score: 6900
+  xp: 0
+  score: 550
   character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
-  health: 100
+  health: -10
   bulletLvl: 1
-  shieldLvl: 1
-  speedLvl: 1
-  iterium: 978
+  shieldLvl: 2
+  speedLvl: 2
+  iterium: 958
   iteriumCollected: 0
-  lives: 3
+  lives: 0
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []

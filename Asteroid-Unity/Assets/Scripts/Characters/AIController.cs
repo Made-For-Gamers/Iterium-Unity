@@ -26,11 +26,11 @@ public class AIController : MonoBehaviour
     private bool attackNPC;
 
     private void Start()
-    {      
+    {
         shield = transform.GetChild(0).gameObject;
         firePosition = transform.GetChild(1);
         rigidBody = GetComponent<Rigidbody>();
-       // InvokeRepeating("Fire", fireStart, fireInterval);
+        InvokeRepeating("Fire", fireStart, fireInterval);
     }
 
     private void Update()
@@ -41,12 +41,12 @@ public class AIController : MonoBehaviour
 
     private void FixedUpdate()
     {
-       // Thrust();
+        Thrust();
     }
 
     //Ship rotation targeting the player or NPC
     private void Rotate()
-    {       
+    {
         if (GameManager.Instance.aiTarget.gameObject != null)
         {
             transform.LookAt(GameManager.Instance.aiTarget.transform);
@@ -91,10 +91,10 @@ public class AIController : MonoBehaviour
 
     //Ship Thrust
     private void Thrust()
-    {       
+    {
         if (rigidBody.velocity.x <= 1 && GameManager.Instance.aiTarget.gameObject != null)
         {
-            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl+1)) * Time.deltaTime), ForceMode.Force);
+            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
         }
     }
 

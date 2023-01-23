@@ -1,8 +1,4 @@
-using System;
-
-/// <summary>
-/// Highscore item class for the leaderboard
-/// </summary>
+[System.Serializable]
 
 public class LeaderboardItem
 {

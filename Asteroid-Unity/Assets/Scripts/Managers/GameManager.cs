@@ -1,6 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// Singleton manager to manage static data and methods
@@ -8,11 +10,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     [Header("Save Game")]
-    [SerializeField] private string fileName;
-
-    [Header("Leaderboard ScriptableObject")]
-    public SO_Leaderboard leaderboard;
-
+    [SerializeField] private string saveFile;
+    [SerializeField] private string saveFileLeaderboard;
+       
     [Header("Characters")]
     public SO_Player player;
     public SO_Player aiPlayer;
@@ -27,7 +27,8 @@ public class GameManager : Singleton<GameManager>
     //Spawn points
     [HideInInspector] public Transform playerSpawner;
     [HideInInspector] public Transform aiSpawner;
-    [HideInInspector] public SaveData saveData;
+    [HideInInspector] public SaveData saveData = new SaveData();
+    [HideInInspector] public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
     [HideInInspector] public GameObject aiTarget;
 
     private FileSaveHandler fileSaveHandler;
@@ -35,7 +36,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath, fileName);
+        this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath);
         LoadGame();
         //ResetGame();
     }
@@ -62,34 +63,32 @@ public class GameManager : Singleton<GameManager>
     public void SaveGame()
     {
         print("Saving game data");
-        saveData.leaderboard = leaderboard.Leaderboard;
         saveData.profileName = player.ProfileName;
         saveData.character = player.Character;
         saveData.iterium = player.Iterium;
         saveData.bulletLvl = player.BulletLvl;
         saveData.speedLvl = player.SpeedLvl;
         saveData.shieldLvl = player.ShieldLvl;
-        fileSaveHandler.Save(saveData);
+        fileSaveHandler.Save(saveData, saveFile);
     }
 
     public void LoadGame()
     {
         print("Loading game data");
-        saveData = fileSaveHandler.Load();
+        saveData = fileSaveHandler.Load(saveFile);
 
-        if (saveData == null)
-        {
-            NewGame();
-        }
+        //if (saveData == null)
+        //{
+        //    NewGame();
+        //}
 
-        //Update player data with game load values
         player.Xp = saveData.xp;
         player.ShieldLvl = saveData.shieldLvl;
         player.BulletLvl = saveData.bulletLvl;
         player.SpeedLvl = saveData.speedLvl;
         player.Iterium = saveData.iterium;
         player.ProfileName = saveData.profileName;
-        leaderboard.Leaderboard = saveData.leaderboard;
+       
         if (saveData.character != null)
         {
             player.Character = saveData.character;
@@ -98,12 +97,14 @@ public class GameManager : Singleton<GameManager>
         {
             player.Character = factions.Factions[2];
         }
+
+        print("Loading leaderboard data");
+        leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
     }
 
     public void NewGame()
     {
         print("Loading game defaults");
-        saveData = new SaveData();
     }
 
     //Reset data to new game state
@@ -221,7 +222,9 @@ public class GameManager : Singleton<GameManager>
         item.score = player.Score;
         item.date = System.DateTime.Now.Date.ToShortDateString();
         item.playerName = player.ProfileName;
-        leaderboard.Leaderboard.Add(item);
+        leaderboard.Add(item);
+        print("Saving leaderboard data");
+        fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
     }
 
 }
