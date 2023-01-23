@@ -220,6 +220,7 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("GameOver");
     }
 
+    //Add a new row to the leaderboard
     public void AddLeaderboardItem()
     { 
         LeaderboardItem item = new LeaderboardItem();
@@ -228,11 +229,13 @@ public class GameManager : Singleton<GameManager>
         item.playerName = player.ProfileName;
         leaderboard.Add(item);
         SortLeaderboard();
+
+        //Max leaderboard size
         if (leaderboard.Count > leaderboardSize)
         {
             leaderboard.Remove(leaderboard[leaderboard.Count-1]);
-            print("Removing last row from leaderboard");
         }
+
         print("Saving leaderboard data");
         fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
     }
