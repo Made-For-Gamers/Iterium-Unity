@@ -45,12 +45,11 @@ public class UI_GameOver : MonoBehaviour
         score.text = arenaScore.ToString();
         iterium.text = GameManager.Instance.player.IteriumCollected.ToString();
         GameManager.Instance.player.Iterium += GameManager.Instance.player.IteriumCollected;
-        GameManager.Instance.SortLeaderboard();
-        print(GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score);
+        GameManager.Instance.SortLeaderboard();       
         if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count-1].score <= arenaScore)
-        {
-            GameManager.Instance.AddLeaderboardItem();
+        { 
             message.text = "Congratulations a new high score!";
+            GameManager.Instance.AddLeaderboardItem();
         }
         else
         {

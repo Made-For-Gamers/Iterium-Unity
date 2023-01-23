@@ -13,7 +13,9 @@ public class GameManager : Singleton<GameManager>
     [Header("Save Game")]
     [SerializeField] private string saveFile;
     [SerializeField] private string saveFileLeaderboard;
-       
+    [SerializeField] private int leaderboardSize = 50;
+
+
     [Header("Characters")]
     public SO_Player player;
     public SO_Player aiPlayer;
@@ -101,6 +103,7 @@ public class GameManager : Singleton<GameManager>
 
         print("Loading leaderboard data");
         leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
+        SortLeaderboard();
     }
 
     public void NewGame()
@@ -224,6 +227,12 @@ public class GameManager : Singleton<GameManager>
         item.date = System.DateTime.Now.Date.ToShortDateString();
         item.playerName = player.ProfileName;
         leaderboard.Add(item);
+        SortLeaderboard();
+        if (leaderboard.Count > leaderboardSize)
+        {
+            leaderboard.Remove(leaderboard[leaderboard.Count-1]);
+            print("Removing last row from leaderboard");
+        }
         print("Saving leaderboard data");
         fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
     }
