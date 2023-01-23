@@ -15,6 +15,7 @@ public class UI_Leaderboard : MonoBehaviour
     private void OnEnable()
     {
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
+        GameManager.Instance.SortLeaderboard();
         foreach (LeaderboardItem item in GameManager.Instance.leaderboard)
         {
             var rowTemplate = scoreRow.Instantiate();

@@ -44,24 +44,34 @@ public class UI_GameOver : MonoBehaviour
         arenaScore = GameManager.Instance.player.Score;
         score.text = arenaScore.ToString();
         iterium.text = GameManager.Instance.player.IteriumCollected.ToString();
-        GameManager.Instance.AddLeaderboardItem();
+        GameManager.Instance.player.Iterium += GameManager.Instance.player.IteriumCollected;
+        GameManager.Instance.SortLeaderboard();
+        print(GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score);
+        if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count-1].score <= arenaScore)
+        {
+            GameManager.Instance.AddLeaderboardItem();
+            message.text = "Congratulations a new high score!";
+        }
+        else
+        {
+            switch (arenaScore)
+            {
+                case >= 200000:
+                    message.text = "Super score!, an arcade pro.";
+                    break;
+                case >= 100000:
+                    message.text = "Gosh brilliant score!, impressed";
+                    break;
+                case >= 50000:
+                    message.text = "Well done!, a good score.";
+                    break;
+                case < 50000:
+                    message.text = "Descent score, good game.";
+                    break;
+            }
+        }      
         GameManager.Instance.SaveGame();
         rematch.clicked += Rematch;
-        switch (arenaScore)
-        {
-            case >= 200000:
-                message.text = "Super score!, an arcade pro.";
-                break;
-            case >= 100000:
-                message.text = "Gosh brilliant score!, impressed";
-                break;
-            case >= 50000:
-                message.text = "Well done!, a good score.";
-                break;
-            case < 50000:
-                message.text = "Descent score, good game.";
-                break;
-        }
     }
 
     private void Rematch()

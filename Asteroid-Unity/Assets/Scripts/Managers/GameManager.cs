@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
@@ -225,6 +226,11 @@ public class GameManager : Singleton<GameManager>
         leaderboard.Add(item);
         print("Saving leaderboard data");
         fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
+    }
+
+    public void SortLeaderboard()
+    {
+        leaderboard = leaderboard.OrderByDescending(x => x.score).ToList();
     }
 
 }
