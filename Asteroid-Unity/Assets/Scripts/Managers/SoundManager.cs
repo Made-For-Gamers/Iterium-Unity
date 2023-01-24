@@ -10,6 +10,9 @@ public class SoundManager : Singleton<SoundManager>
     [Header("Sound Effects")]
     [SerializeField] private SO_SFX asteroidExplosion;
 
+    [Header("Music")]
+    [SerializeField] private SO_SFX music;
+
     [Header("Settings")]
     [SerializeField] private int audioNumber = 10;
 
@@ -20,31 +23,57 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private AudioMixerGroup mixerSfx;
 
     private AudioSource[] audiosourceSfx;
+    private AudioSource audiosourceMusic;
 
-    private void Start()
+    private new void Awake()
     {
+        //Init SFX Audiosource
         audiosourceSfx = new AudioSource[audioNumber];
         for (int i = 0; i < audioNumber; i++)
         {
             audiosourceSfx[i] = gameObject.AddComponent<AudioSource>();
             audiosourceSfx[i].outputAudioMixerGroup = mixerSfx;
-            print(i);
         }
+
+        //Init Music Audiosource
+        audiosourceMusic = gameObject.AddComponent<AudioSource>();
+        audiosourceMusic.outputAudioMixerGroup = mixerMusic;
     }
 
     public void PlayAsteroidExplosion()
     {
-        AudioSource audio = GetAudioSource();
+        AudioSource audio = GetAudioSourceSfx();
         audio.clip = asteroidExplosion.SelectRandomSound();
         audio.Play();
     }
 
-    private AudioSource GetAudioSource()
-    {       
+    public void PlayMusic(int index, bool loop,bool stop, float delay = 0)
+    {
+        if (stop)
+        {
+            audiosourceMusic.Stop();
+        }
+        if (!audiosourceMusic.isPlaying)
+        {
+            audiosourceMusic.clip = music.clips[index];
+            if (loop)
+            {
+                audiosourceMusic.loop = true;
+            }
+            audiosourceMusic.PlayDelayed(delay);
+        }
+        else
+        {
+            print("A song is already playing.");
+        }
+    }
+
+    private AudioSource GetAudioSourceSfx()
+    {
         for (int i = 0; i < audioNumber; i++)
         {
             if (!audiosourceSfx[i].isPlaying)
-            { 
+            {
                 return audiosourceSfx[i];
             }
         }

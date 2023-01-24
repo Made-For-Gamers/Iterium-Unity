@@ -82,7 +82,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   asteroidExplosion: {fileID: 11400000, guid: df2874a12df477142baf06bea7686f13, type: 2}
+  music: {fileID: 11400000, guid: bae91d4af4039f54e929638b15af498a, type: 2}
   audioNumber: 10
+  musicNumber: 1
   mixerMaster: {fileID: 24300002, guid: d79b3a73c105760479ef4bab8ba17768, type: 2}
   mixerMusic: {fileID: -7456260393111729204, guid: d79b3a73c105760479ef4bab8ba17768,
     type: 2}
