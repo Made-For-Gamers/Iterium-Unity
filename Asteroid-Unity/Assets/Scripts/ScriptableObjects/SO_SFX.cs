@@ -7,6 +7,7 @@ using Random = UnityEngine.Random;
 
 public class SO_SFX : ScriptableObject
 {
+    [Header("Music may be played by index, careful re-ordering")]
     public List<AudioClip> clips = new List<AudioClip>();
 
     public AudioClip SelectRandomSound()

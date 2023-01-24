@@ -66,6 +66,7 @@ public class Bullet : MonoBehaviour
                 GameManager.Instance.player.Score += 2500;
                 GameManager.Instance.player.Xp += 100;
                 BulletExplosion(collision);
+                SoundManager.Instance.PlayShipExplosion();
                 Destroy(collision.gameObject);
                 break;
         }

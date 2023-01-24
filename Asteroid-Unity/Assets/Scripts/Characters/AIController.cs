@@ -156,6 +156,7 @@ public class AIController : MonoBehaviour
         {
             //Spawn new explosion
             GameObject explosionObject = ExplosionPooling.explosionPool.Get();
+            SoundManager.Instance.PlayShipExplosion();
             explosionObject.transform.position = transform.position;
             explosionObject.transform.rotation = transform.rotation;
             explosionObject.transform.localScale = new Vector3(i, i, i);

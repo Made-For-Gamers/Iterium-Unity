@@ -67,6 +67,7 @@ public class BulletAI : MonoBehaviour
                 GameManager.Instance.aiPlayer.Score += 2500;
                 GameManager.Instance.aiPlayer.Xp += 100;
                 BulletExplosion(collision);
+                SoundManager.Instance.PlayShipExplosion();
                 Destroy(collision.gameObject);
                 break;
             //Bullet hits another bullet
