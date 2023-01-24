@@ -83,3 +83,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidExplosion: {fileID: 11400000, guid: df2874a12df477142baf06bea7686f13, type: 2}
   audioNumber: 10
+  mixerMaster: {fileID: 24300002, guid: d79b3a73c105760479ef4bab8ba17768, type: 2}
+  mixerMusic: {fileID: -7456260393111729204, guid: d79b3a73c105760479ef4bab8ba17768,
+    type: 2}
+  mixerUi: {fileID: -3433735044253712950, guid: d79b3a73c105760479ef4bab8ba17768,
+    type: 2}
+  mixerSfx: {fileID: -3628298216629300424, guid: d79b3a73c105760479ef4bab8ba17768,
+    type: 2}

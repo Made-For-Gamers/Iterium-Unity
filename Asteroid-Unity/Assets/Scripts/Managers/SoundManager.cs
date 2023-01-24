@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Singleton manager to manage sound/music specific data
@@ -12,15 +13,21 @@ public class SoundManager : Singleton<SoundManager>
     [Header("Settings")]
     [SerializeField] private int audioNumber = 10;
 
-    private AudioSource[] audiosource;
+    [Header("Audio Mixer Channels")]
+    [SerializeField] private AudioMixerGroup mixerMaster;
+    [SerializeField] private AudioMixerGroup mixerMusic;
+    [SerializeField] private AudioMixerGroup mixerUi;
+    [SerializeField] private AudioMixerGroup mixerSfx;
 
+    private AudioSource[] audiosourceSfx;
 
     private void Start()
     {
-        audiosource = new AudioSource[audioNumber];
+        audiosourceSfx = new AudioSource[audioNumber];
         for (int i = 0; i < audioNumber; i++)
         {
-            audiosource[i] = gameObject.AddComponent<AudioSource>();
+            audiosourceSfx[i] = gameObject.AddComponent<AudioSource>();
+            audiosourceSfx[i].outputAudioMixerGroup = mixerSfx;
             print(i);
         }
     }
@@ -36,9 +43,9 @@ public class SoundManager : Singleton<SoundManager>
     {       
         for (int i = 0; i < audioNumber; i++)
         {
-            if (!audiosource[i].isPlaying)
+            if (!audiosourceSfx[i].isPlaying)
             { 
-                return audiosource[i];
+                return audiosourceSfx[i];
             }
         }
         return null;
