@@ -7,6 +7,8 @@
 public class SaveData
 {   
     public string profileName;
+    public string bio;
+    public string email;
     public int xp;
     public int shieldLvl;
     public int bulletLvl;
