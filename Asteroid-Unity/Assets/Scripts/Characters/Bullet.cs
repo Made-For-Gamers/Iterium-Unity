@@ -34,6 +34,8 @@ public class Bullet : MonoBehaviour
                         spawnedAsteroid.GetComponent<Rigidbody>().mass = collision.transform.GetComponent<Rigidbody>().mass / rnd;
                     }
 
+                    SoundManager.Instance.PlayAsteroidExplosion();
+
                     //Random spawn of a crystal
                     int chance = Random.Range(1, GameManager.Instance.iteriumChance);
                     if (chance == 1)

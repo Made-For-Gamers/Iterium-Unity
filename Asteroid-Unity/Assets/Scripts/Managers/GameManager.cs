@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
-/// Singleton manager to manage static data and methods
+/// Singleton manager to manage main game specific data
 /// </summary>
+
 public class GameManager : Singleton<GameManager>
 {
     [Header("Save Game")]
     [SerializeField] private string saveFile;
     [SerializeField] private string saveFileLeaderboard;
     [SerializeField] private int leaderboardSize = 50;
-
 
     [Header("Characters")]
     public SO_Player player;
@@ -35,7 +34,6 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public GameObject aiTarget;
 
     private FileSaveHandler fileSaveHandler;
-
 
     private void Start()
     {

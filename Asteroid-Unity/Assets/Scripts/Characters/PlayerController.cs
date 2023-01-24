@@ -91,7 +91,6 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(GameManager.Instance.player.Character.Ship.ShieldTime);
         shield.SetActive(false);
-
     }
 
     public void BulletHit(float firePower)
@@ -99,12 +98,10 @@ public class PlayerController : MonoBehaviour
         if (isShielding)
         {
             GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));
-            // print((int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl)));
         }
         else
         {
             GameManager.Instance.player.Health -= (int)firePower;
-            // print((int)(firePower));
         }
         if (GameManager.Instance.player.Health <= 0)
         {

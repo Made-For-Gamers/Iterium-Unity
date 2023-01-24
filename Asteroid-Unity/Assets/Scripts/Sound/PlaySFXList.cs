@@ -11,7 +11,8 @@ public class PlaySFXList : MonoBehaviour
     [SerializeField] private SO_SFX clips;
 
     [Space(10)]
-    [Header("Settings")]
+    [Header("Settings")] 
+    [SerializeField] private AudioSource audioSource;
     [SerializeField] private bool playOnStart;
     [SerializeField] private bool loop;
     [SerializeField] private float delayTime;
@@ -20,12 +21,10 @@ public class PlaySFXList : MonoBehaviour
     [SerializeField] private bool randomClip;
     [Header("OR")]
     [SerializeField] private int clipIndex = 0;
-
-    private AudioSource audioSource;
+  
 
     private void Start()
     {
-        audioSource = gameObject.AddComponent<AudioSource>();
         if (playOnStart)
         {
             PlayClip(delayTime);
