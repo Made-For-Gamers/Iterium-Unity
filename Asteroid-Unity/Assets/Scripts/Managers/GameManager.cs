@@ -65,14 +65,19 @@ public class GameManager : Singleton<GameManager>
 
     public void SaveGame()
     {
-        print("Saving game data");
+        //Update data to be saved
         saveData.profileName = player.ProfileName;
-        saveData.character = player.Character;
+        saveData.bio = player.Bio;
+        saveData.email = player.Email;
+        saveData.xp = player.Xp;
         saveData.iterium = player.Iterium;
         saveData.bulletLvl = player.BulletLvl;
         saveData.speedLvl = player.SpeedLvl;
         saveData.shieldLvl = player.ShieldLvl;
+
+        print("Saving game data");
         fileSaveHandler.Save(saveData, saveFile);
+        saveData.character = player.Character;
     }
 
     public void LoadGame()
@@ -80,18 +85,16 @@ public class GameManager : Singleton<GameManager>
         print("Loading game data");
         saveData = fileSaveHandler.Load(saveFile);
 
-        //if (saveData == null)
-        //{
-        //    NewGame();
-        //}
-
+        //Update data from load
+        player.ProfileName = saveData.profileName;
+        player.Bio = saveData.bio;
+        player.Email = saveData.email;
         player.Xp = saveData.xp;
-        player.ShieldLvl = saveData.shieldLvl;
+        player.Iterium = saveData.iterium;
         player.BulletLvl = saveData.bulletLvl;
         player.SpeedLvl = saveData.speedLvl;
-        player.Iterium = saveData.iterium;
-        player.ProfileName = saveData.profileName;
-       
+        player.ShieldLvl = saveData.shieldLvl;
+
         if (saveData.character != null)
         {
             player.Character = saveData.character;
@@ -101,6 +104,7 @@ public class GameManager : Singleton<GameManager>
             player.Character = factions.Factions[2];
         }
 
+        //Update leaderboard from load
         print("Loading leaderboard data");
         leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
         SortLeaderboard();
@@ -111,7 +115,7 @@ public class GameManager : Singleton<GameManager>
         print("Loading game defaults");
     }
 
-    //Reset data to new game state
+    //Reset data to a new game state
     public void ResetGame()
     {
         //Player data
@@ -222,7 +226,7 @@ public class GameManager : Singleton<GameManager>
 
     //Add a new row to the leaderboard
     public void AddLeaderboardItem()
-    { 
+    {
         LeaderboardItem item = new LeaderboardItem();
         item.score = player.Score;
         item.date = System.DateTime.Now.Date.ToShortDateString();
@@ -233,7 +237,7 @@ public class GameManager : Singleton<GameManager>
         //Max leaderboard size
         if (leaderboard.Count > leaderboardSize)
         {
-            leaderboard.Remove(leaderboard[leaderboard.Count-1]);
+            leaderboard.Remove(leaderboard[leaderboard.Count - 1]);
         }
 
         print("Saving leaderboard data");

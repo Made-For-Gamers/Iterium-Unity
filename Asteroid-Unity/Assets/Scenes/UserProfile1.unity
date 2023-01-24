@@ -198,12 +198,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 147354632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0815fac8ab5b5764693f7139b4649272, type: 3}
+  m_Script: {fileID: 11500000, guid: dfd2187b8ddcb7040bf2c04f4675f6b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: bfe1cb492f67ef144bade8694c68dcab, type: 3}
-  buttonName: selectFaction
-  sceneName: FactionSelection
+  destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
+  sceneName: MainMenu
+  playerName: playerName
+  bio: bio
+  email: email
+  save: save
 --- !u!1 &149709993
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,8 @@ public class SO_Player : ScriptableObject
 {
     [SerializeField] private string profileName;
     [TextArea(5, 5)]
-    [SerializeField] private string description;
+    [SerializeField] private string bio;
+    [SerializeField] private string email;
     [SerializeField] private int xp;
     [SerializeField] private int score;
     [SerializeField] private SO_Character character;
@@ -41,7 +42,8 @@ public class SO_Player : ScriptableObject
             profileName = value;
         }
     }
-    public string Description { get => description; set => description = value; }
+    public string Bio { get => bio; set => bio = value; }
+    public string Email { get => email; set => email = value; }
     public int Xp
     {
         get => xp;
