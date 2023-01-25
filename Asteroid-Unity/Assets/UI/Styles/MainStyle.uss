@@ -16,7 +16,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     visibility: visible;
-    background-color: rgba(0, 91, 77, 0.26);
+    background-color: rgba(0, 91, 77, 0.1);
     font-size: 30px;
     color: rgb(0, 255, 233);
     scale: 1 1;
