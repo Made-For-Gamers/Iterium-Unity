@@ -50,9 +50,11 @@ public class UI_GameOver : MonoBehaviour
         { 
             message.text = "Congratulations a new high score!";
             GameManager.Instance.AddLeaderboardItem();
+            SoundManager.Instance.PlayMusic(2, false, true);
         }
         else
         {
+            SoundManager.Instance.PlayMusic(1, false, true);
             switch (arenaScore)
             {
                 case >= 200000:

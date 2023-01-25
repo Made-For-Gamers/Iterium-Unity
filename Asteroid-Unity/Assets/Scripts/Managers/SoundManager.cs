@@ -76,6 +76,10 @@ public class SoundManager : Singleton<SoundManager>
             {
                 audiosourceMusic.loop = true;
             }
+            else
+            {
+                audiosourceMusic.loop = false;
+            }
             audiosourceMusic.PlayDelayed(delay);
         }
         else
