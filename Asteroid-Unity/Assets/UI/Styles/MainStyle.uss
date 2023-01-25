@@ -3,10 +3,10 @@
     height: 70px;
     align-items: center;
     justify-content: center;
-    border-left-width: 5px;
-    border-right-width: 5px;
-    border-top-width: 5px;
-    border-bottom-width: 5px;
+    border-left-width: 2px;
+    border-right-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
     border-left-color: rgb(15, 243, 34);
     border-right-color: rgb(15, 243, 34);
     border-top-color: rgb(15, 243, 34);
@@ -16,7 +16,7 @@
     margin-top: 15px;
     margin-bottom: 15px;
     visibility: visible;
-    background-color: rgba(34, 34, 34, 0.85);
+    background-color: rgba(0, 91, 77, 0.26);
     font-size: 30px;
     color: rgb(0, 255, 233);
     scale: 1 1;
@@ -387,7 +387,7 @@
 }
 
 .unity-text-field__input {
-    -unity-background-image-tint-color: rgba(0, 0, 0, 255);
+    -unity-background-image-tint-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
