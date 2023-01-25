@@ -112,7 +112,7 @@ public class AIController : MonoBehaviour
             if (!isThrusting && rigidBody.velocity.z >= 0.2f)
             {
                 rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f - (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
-                if (rigidBody.velocity.z <= 0)
+                if (rigidBody.velocity.z < 0)
                 {
                     rigidBody.velocity = Vector3.zero;
                 }
