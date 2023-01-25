@@ -18,4 +18,4 @@ MonoBehaviour:
   speed: 13
   firePower: 50
   bullet:
-  - {fileID: 4031060044659540045, guid: 286080af90cefa346adebf2fcfb1f313, type: 3}
+  - {fileID: 6861271970120696174, guid: 85476dcce1442b64591737814ac95f2e, type: 3}
