@@ -1,5 +1,4 @@
 using JetBrains.Annotations;
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -19,6 +18,7 @@ public class InputManager : MonoBehaviour
     public Vector2 thrustInput; //Ship thrust
     public bool isfire; //Player firing
     public bool isShield; //Player shielding
+    public bool isWarping; //Player warp jump (re-spawn)
 
     private void OnEnable()
     {
@@ -33,6 +33,7 @@ public class InputManager : MonoBehaviour
         input.Player.Thrust.canceled += Thrust;
         input.Player.Fire.started += Fire;
         input.Player.Shield.started += Shield;
+        input.Player.Warp.started += Warp;
     }
 
     //Clean up of input events
@@ -44,6 +45,7 @@ public class InputManager : MonoBehaviour
         input.Player.Thrust.canceled -= Thrust;
         input.Player.Fire.started -= Fire;
         input.Player.Shield.started -= Shield;
+        input.Player.Warp.started -= Warp;
     }
 
     //Ship rotation input
@@ -68,6 +70,11 @@ public class InputManager : MonoBehaviour
     private void Shield(InputAction.CallbackContext obj)
     {
        isShield = true;
+    }
+
+    private void Warp(InputAction.CallbackContext obj)
+    {
+        isWarping = true;
     }
 
 }

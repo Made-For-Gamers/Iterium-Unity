@@ -10,6 +10,7 @@ public class SoundManager : Singleton<SoundManager>
     [Header("Sound Effects")]
     [SerializeField] private SO_SFX asteroidExplosion;
     [SerializeField] private SO_SFX shipExplosion;
+    [SerializeField] private SO_SFX itemPickup;
 
     [Header("Music")]
     [SerializeField] private SO_SFX music;
@@ -52,6 +53,13 @@ public class SoundManager : Singleton<SoundManager>
     {
         AudioSource audio = GetAudioSourceSfx();
         audio.clip = shipExplosion.SelectRandomSound();
+        audio.Play();
+    }
+
+    public void PlayItemPickup()
+    {
+        AudioSource audio = GetAudioSourceSfx();
+        audio.clip = itemPickup.SelectRandomSound();
         audio.Play();
     }
 

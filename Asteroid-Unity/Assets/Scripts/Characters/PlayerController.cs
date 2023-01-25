@@ -35,6 +35,7 @@ public class PlayerController : MonoBehaviour
         Rotate();
         Fire();
         Shield();
+        Warp();
     }
 
     private void FixedUpdate()
@@ -100,6 +101,16 @@ public class PlayerController : MonoBehaviour
         {
             input.isShield = false;
             isShielding = false;
+        }
+    }
+
+    private void Warp()
+    {
+        if (input.isWarping)
+        { 
+            transform.position = GameManager.Instance.playerSpawner.position;
+            rigidBody.velocity = Vector3.zero;
+            input.isWarping = false;
         }
     }
 

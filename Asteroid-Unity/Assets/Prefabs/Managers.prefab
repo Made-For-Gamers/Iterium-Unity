@@ -50,6 +50,7 @@ MonoBehaviour:
   leaderboardSize: 50
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
   aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
+  aiPermadeath: 0
   npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
   deathRespawnTime: 4
@@ -83,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asteroidExplosion: {fileID: 11400000, guid: df2874a12df477142baf06bea7686f13, type: 2}
   shipExplosion: {fileID: 11400000, guid: 8f0ac79bf2c87664182c1464b378ad61, type: 2}
+  itemPickup: {fileID: 11400000, guid: 096d6536bbdc6a14481b69840e0bde1d, type: 2}
   music: {fileID: 11400000, guid: bae91d4af4039f54e929638b15af498a, type: 2}
   audioNumber: 10
   mixerMaster: {fileID: 24300002, guid: d79b3a73c105760479ef4bab8ba17768, type: 2}

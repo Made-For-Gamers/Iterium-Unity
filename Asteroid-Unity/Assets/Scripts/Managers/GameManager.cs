@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Characters")]
     public SO_Player player;
     public SO_Player aiPlayer;
+    public bool aiPermadeath;
     public SO_Player npcPlayer;
     public SO_Factions factions;
     public float deathRespawnTime = 4f;

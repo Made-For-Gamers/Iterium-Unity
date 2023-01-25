@@ -162,7 +162,10 @@ public class AIController : MonoBehaviour
         if (GameManager.Instance.aiPlayer.Health <= 0)
         {
             gameObject.GetComponent<MeshCollider>().enabled = false;
-            GameManager.Instance.aiPlayer.Lives--;
+            if (GameManager.Instance.aiPermadeath)
+            {
+                GameManager.Instance.aiPlayer.Lives--;
+            }
             if (GameManager.Instance.aiPlayer.Lives <= 0)
             {
                 GameManager.Instance.GameOver();

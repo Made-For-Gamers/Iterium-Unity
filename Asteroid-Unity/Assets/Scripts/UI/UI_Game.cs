@@ -61,6 +61,13 @@ public class UI_Game : MonoBehaviour
         player2Ship1 = uiRoot.Q<VisualElement>(ship1Player2);
         player2Ship2 = uiRoot.Q<VisualElement>(ship2Player2);
         player2Ship3 = uiRoot.Q<VisualElement>(ship3Player2);
+
+        if (!GameManager.Instance.aiPermadeath)
+        {
+            player2Ship1.style.unityBackgroundImageTintColor = Color.black;
+            player2Ship2.style.unityBackgroundImageTintColor = Color.black;
+            player2Ship3.style.unityBackgroundImageTintColor = Color.black;
+        }
     }
 
     private void Start()
