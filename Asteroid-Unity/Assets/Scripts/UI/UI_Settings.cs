@@ -4,8 +4,7 @@ using UnityEngine.UIElements;
 public class UI_Settings : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private string toggle1Name;
-   
+    [SerializeField] private string toggle1Name;   
 
     private void OnEnable()
     {

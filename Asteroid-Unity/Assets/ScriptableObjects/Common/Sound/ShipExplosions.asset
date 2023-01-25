@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: ShipExplosions
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 78fe839e9138e994a8f9699583370e09, type: 3}
+  - {fileID: 8300000, guid: 42baffd3e766dcf41998d7a569bf45f3, type: 3}

@@ -11,19 +11,22 @@ using System.Collections;
 /// * Screen warping
 /// </summary>
 public class PlayerController : MonoBehaviour
-{     
+{
     private InputManager input;
     private Transform firePosition;
     private GameObject shield;
     private float shieldCooldown;
     private bool isShielding;
+    private GameObject thrusters;
+    private bool isThrusting;
     private Rigidbody rigidBody;
 
     void Start()
     {
         input = GetComponent<InputManager>();
         shield = transform.GetChild(0).gameObject;
-        firePosition = transform.GetChild(1);
+        thrusters = transform.GetChild(1).gameObject;
+        firePosition = transform.GetChild(2);
         rigidBody = GetComponent<Rigidbody>();
     }
 
@@ -61,7 +64,21 @@ public class PlayerController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Character.Ship.Thrust * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
+        if (input.thrustInput.y > 0.1f)
+        {
+            if (!isThrusting)
+            {
+                //StartCoroutine(Thrusters());
+                isThrusting = true;
+                thrusters.SetActive(true);
+            }
+            rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Character.Ship.Thrust * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
+        }
+        else
+        {
+            isThrusting = false;
+            thrusters.SetActive(false);
+        }
     }
 
     //Shield
