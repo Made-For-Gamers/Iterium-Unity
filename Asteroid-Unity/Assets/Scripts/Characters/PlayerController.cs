@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
     private InputManager input;
     private Transform firePosition;
     private GameObject shield;
-    private GameObject thrusters;
-    private bool isThrusting;
     private float shieldCooldown;
     private bool isShielding;
+    private GameObject thrusters;
+    private bool isThrusting;
     private Rigidbody rigidBody;
 
     void Start()

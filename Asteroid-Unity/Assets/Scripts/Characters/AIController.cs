@@ -21,6 +21,8 @@ public class AIController : MonoBehaviour
     private GameObject shield;
     private float shieldCooldown;
     private bool isShielding;
+    private GameObject thrusters;
+    private bool isThrusting;
     private Rigidbody rigidBody;
     private int shots;
     private bool attackNPC;
@@ -28,7 +30,8 @@ public class AIController : MonoBehaviour
     private void Start()
     {
         shield = transform.GetChild(0).gameObject;
-        firePosition = transform.GetChild(1);
+        thrusters = transform.GetChild(1).gameObject;
+        firePosition = transform.GetChild(2);
         rigidBody = GetComponent<Rigidbody>();
         InvokeRepeating("Fire", fireStart, fireInterval);
     }
@@ -92,9 +95,28 @@ public class AIController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        if (rigidBody.velocity.x <= 1 && GameManager.Instance.aiTarget.gameObject != null)
+        if (rigidBody.velocity.z <= 0.1f && GameManager.Instance.aiTarget.gameObject != null)
         {
+            if (!isThrusting)
+            {
+                //StartCoroutine(Thrusters());
+                isThrusting = true;
+                thrusters.SetActive(true);
+            }
             rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
+        }
+        else
+        {
+            isThrusting = false;
+            thrusters.SetActive(false);
+            if (!isThrusting && rigidBody.velocity.z >= 0.2f)
+            {
+                rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f - (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
+                if (rigidBody.velocity.z <= 0)
+                {
+                    rigidBody.velocity = Vector3.zero;
+                }
+            }
         }
     }
 
