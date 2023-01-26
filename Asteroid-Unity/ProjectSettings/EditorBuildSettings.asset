@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 4363cc7a5db963a4599d72695c49046f
   - enabled: 1
-    path: Assets/Scenes/Pax Dev.unity
-    guid: ccc4f809a78172148b4a30d713c0985e
-  - enabled: 1
     path: Assets/Scenes/FactionSelection.unity
     guid: bfe1cb492f67ef144bade8694c68dcab
   - enabled: 1
@@ -39,7 +36,7 @@ EditorBuildSettings:
     path: Assets/Scenes/UpgradeUSSR.unity
     guid: 7d502605fa70b4d49aea5d982b868420
   - enabled: 1
-    path: Assets/Scenes/Pax Dev 3D.unity
+    path: Assets/Scenes/Play.unity
     guid: bea7fe1aaca2039468ae91d7d55af094
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: b532813bb24a57e4097f766577cbe5e1,

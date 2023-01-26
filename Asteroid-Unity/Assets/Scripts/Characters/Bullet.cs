@@ -40,7 +40,8 @@ public class Bullet : MonoBehaviour
                     int chance = Random.Range(1, GameManager.Instance.iteriumChance);
                     if (chance == 1)
                     {
-                        Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), collision.gameObject.transform.position, Random.rotation);
+                        Vector3 pos = new Vector3(collision.gameObject.transform.position.x, 0, collision.gameObject.transform.position.z);
+                        Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), pos , Random.rotation);
                     }
                 }
 

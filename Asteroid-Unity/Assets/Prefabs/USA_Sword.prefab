@@ -127,11 +127,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship_thruster_USA
       objectReference: {fileID: 0}
-    - target: {fileID: 6478459640056962701, guid: fb18d1a44f953c748972ca3586073b36,
-        type: 3}
-      propertyPath: m_Layer
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
         type: 3}
       propertyPath: m_RootOrder
@@ -139,23 +134,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3.3158
-      objectReference: {fileID: 0}
-    - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
-        type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6
+      value: -1.01
       objectReference: {fileID: 0}
     - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
         type: 3}
@@ -202,11 +182,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6478459640056962738, guid: fb18d1a44f953c748972ca3586073b36,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: e601cdeb3990e1e40810bdb88d385884, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb18d1a44f953c748972ca3586073b36, type: 3}
 --- !u!1001 &8704034510600036607
