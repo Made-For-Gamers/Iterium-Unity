@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Ship_Thrusters_USA
-  m_Shader: {fileID: -6465566751694194690, guid: 06b22b82bcede4c42ad1f68d0d8162d3,
+  m_Shader: {fileID: -6465566751694194690, guid: 85ea635c74f5e8d46a840564344028f7,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -43,7 +43,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Color1: {r: 1024, g: 182.16199, b: 0, a: 1}
+    - _Color1: {r: 0, g: 1.2694949, b: 2.7954397, a: 1}
     - _Color2: {r: 4.5412054, g: 0.11887973, b: 0.2139835, a: 1}
     - _Dissolve_Spd: {r: -5, g: 0, b: 0, a: 0}
     - _Main_Texture_Spd: {r: 0, g: 0, b: 0, a: 0}
