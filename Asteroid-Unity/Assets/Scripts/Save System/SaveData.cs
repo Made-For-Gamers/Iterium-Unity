@@ -1,3 +1,4 @@
+using UnityEngine;
 /// <summary>
 /// Class of all save data that need to be saved or loaded in the game
 /// </summary>
@@ -10,6 +11,7 @@ public class SaveData
     public string bio;
     public string email;
     public int xp;
+    private int level;
     public int shieldLvl;
     public int bulletLvl;
     public int speedLvl;

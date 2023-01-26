@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1672704780}
   - component: {fileID: 1672704779}
   - component: {fileID: 1672704778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,6 +194,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: USA_Bullet3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6bd26d0624cdac6448a608b8a2339ac0,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6bd26d0624cdac6448a608b8a2339ac0,
         type: 3}

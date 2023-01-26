@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1198757683646573907}
   - component: {fileID: 1198757683646573916}
   - component: {fileID: 2688649807815879604}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet_Explosion
   m_TagString: Explosion
   m_Icon: {fileID: 0}
@@ -4897,7 +4897,7 @@ GameObject:
   - component: {fileID: 1198757683664116556}
   - component: {fileID: 1198757683664116546}
   - component: {fileID: 1198757683664116547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet_Explosion (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9768,7 +9768,7 @@ GameObject:
   - component: {fileID: 1198757684426958625}
   - component: {fileID: 1198757684426958631}
   - component: {fileID: 1198757684426958624}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bullet_Smoke
   m_TagString: Untagged
   m_Icon: {fileID: 0}

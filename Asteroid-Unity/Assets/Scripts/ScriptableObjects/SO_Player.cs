@@ -12,24 +12,27 @@ using UnityEngine.Events;
 // BulletLvl indicates which of the 3 bullets levels is fired from the SO_Bullet. (bullet level)
 public class SO_Player : ScriptableObject
 {
-    [SerializeField] private string profileName;
+    [SerializeField] private string profileName = "Player 1";
     [TextArea(5, 5)]
     [SerializeField] private string bio;
     [SerializeField] private string email;
     [SerializeField] private int xp;
+    [SerializeField] private int level = 1;
     [SerializeField] private int score;
     [SerializeField] private SO_Character character;
     [SerializeField] private int health;
-    [SerializeField] private int bulletLvl;
-    [SerializeField] private int shieldLvl;
-    [SerializeField] private int speedLvl;
+    [SerializeField] private int bulletLvl = 1;
+    [SerializeField] private int shieldLvl = 1;
+    [SerializeField] private int speedLvl = 1;
     [SerializeField] private int iterium;
     [SerializeField] private int iteriumCollected;
-    [SerializeField] private int lives;
+    [SerializeField] private int lives = 3;
 
     //Events
     public UnityEvent onChange_Health;
     public UnityEvent onChange_Score;
+    public UnityEvent onChange_XP;
+    public UnityEvent onChange_Level;
     public UnityEvent onChange_Iterium;
     public UnityEvent onChange_IteriumCollected;
     public UnityEvent onChange_Lives;
@@ -50,8 +53,19 @@ public class SO_Player : ScriptableObject
         set
         {
             xp = value;
+            onChange_XP.Invoke();
         }
     }
+    public int Level
+    {
+        get => level;
+        set
+        {
+            level = value;
+            onChange_Level.Invoke();
+        }
+    }
+
     public int Score
     {
         get => score;

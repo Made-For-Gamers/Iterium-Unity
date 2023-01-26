@@ -95,7 +95,7 @@ public class AIController : MonoBehaviour
     //Ship Thrust
     private void Thrust()
     {
-        if (rigidBody.velocity.z <= 0.1f && GameManager.Instance.aiTarget.gameObject != null)
+        if (rigidBody.velocity.z >= 0f && GameManager.Instance.aiTarget.gameObject != null)
         {
             if (!isThrusting)
             {
@@ -109,14 +109,6 @@ public class AIController : MonoBehaviour
         {
             isThrusting = false;
             thrusters.SetActive(false);
-            if (!isThrusting && rigidBody.velocity.z >= 0.2f)
-            {
-                rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f - (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
-                if (rigidBody.velocity.z < 0)
-                {
-                    rigidBody.velocity = Vector3.zero;
-                }
-            }
         }
     }
 
@@ -161,7 +153,7 @@ public class AIController : MonoBehaviour
         }
         if (GameManager.Instance.aiPlayer.Health <= 0)
         {
-            gameObject.GetComponent<MeshCollider>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             if (GameManager.Instance.aiPermadeath)
             {
                 GameManager.Instance.aiPlayer.Lives--;

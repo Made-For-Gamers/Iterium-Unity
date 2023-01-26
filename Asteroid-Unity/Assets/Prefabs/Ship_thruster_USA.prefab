@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6478459640056962738}
   - component: {fileID: 8717982496866461519}
   - component: {fileID: 8515349224334025075}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ship_thruster_USA
   m_TagString: Untagged
   m_Icon: {fileID: 0}

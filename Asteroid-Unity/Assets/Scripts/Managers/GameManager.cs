@@ -15,13 +15,15 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private string saveFileLeaderboard;
     [SerializeField] private int leaderboardSize = 50;
 
-    [Header("Characters")]
+    [Header("Character Settings")]
     public SO_Player player;
     public SO_Player aiPlayer;
     public bool aiPermadeath;
     public SO_Player npcPlayer;
     public SO_Factions factions;
     public float deathRespawnTime = 4f;
+    public int xpLevelSteps = 1000;
+    public int maxLevel = 50;
 
     [Header("Iterium Crystals")]
     public SO_GameObjects iterium;
@@ -120,7 +122,9 @@ public class GameManager : Singleton<GameManager>
         //Player data
         player.Health = 100;
         player.Score = 0;
-        player.Iterium = 1000;
+        player.Xp = 0;
+        player.Level = 0;
+        player.Iterium = 0;
         player.IteriumCollected = 0;
         player.SpeedLvl = 1;
         player.ShieldLvl = 1;
@@ -130,12 +134,17 @@ public class GameManager : Singleton<GameManager>
         //AI data
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
+        player.Xp = 0;
+        player.Level = 0;
         aiPlayer.Iterium = 0;
         aiPlayer.IteriumCollected = 0;
         aiPlayer.Lives = 3;
         aiPlayer.SpeedLvl = 1;
         aiPlayer.ShieldLvl = 1;
         aiPlayer.BulletLvl = 1;
+        aiPlayer.Lives = 3;
+
+        SaveGame();
     }
 
     //Reset data for a new arena battle
@@ -194,7 +203,6 @@ public class GameManager : Singleton<GameManager>
     IEnumerator SpawnPlayerOverTime(float time)
     {
         yield return new WaitForSeconds(time);
-        SelectAiPlayer();
         GameObject ship = Instantiate(GameManager.Instance.player.Character.Ship.ShipPrefab);
         ship.transform.position = playerSpawner.position;
         ship.transform.rotation = playerSpawner.rotation;
@@ -207,6 +215,7 @@ public class GameManager : Singleton<GameManager>
     IEnumerator SpawnAiOverTime(float time)
     {
         yield return new WaitForSeconds(time);
+        SelectAiPlayer();
         GameObject aiShip = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.ShipPrefab);
         Destroy(aiShip.GetComponent<PlayerController>());
         Destroy(aiShip.GetComponent<InputManager>());
@@ -248,4 +257,19 @@ public class GameManager : Singleton<GameManager>
         leaderboard = leaderboard.OrderByDescending(x => x.score).ToList();
     }
 
+    public void CalculateXP()
+    {
+        if (player.Xp > xpLevelSteps * (player.Level + 1))
+        {
+            if (player.Level < maxLevel)
+            {
+                player.Level++;
+            }
+        }
+    }
+
+    public void CalculateIterium()
+    {
+        player.Iterium += player.IteriumCollected;
+    }
 }

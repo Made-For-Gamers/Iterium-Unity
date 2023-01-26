@@ -56,7 +56,7 @@ public class SoundManager : Singleton<SoundManager>
         audio.Play();
     }
 
-    public void PlayItemPickup()
+    public void PlayEffect()
     {
         AudioSource audio = GetAudioSourceSfx();
         audio.clip = effects.SelectRandomSound();

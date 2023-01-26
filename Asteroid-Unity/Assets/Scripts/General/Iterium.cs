@@ -18,7 +18,7 @@ public class Iterium : MonoBehaviour
                 GameManager.Instance.player.Score += score;
                 GameManager.Instance.player.Xp += xp;
                 GameManager.Instance.player.IteriumCollected++;
-                SoundManager.Instance.PlayItemPickup();
+                SoundManager.Instance.PlayEffect();
                 //Remove object
                 Destroy(gameObject);
                 break;

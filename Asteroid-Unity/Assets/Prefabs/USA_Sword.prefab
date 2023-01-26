@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 180218147745910868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirePosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,6 +105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1069487272437362878, guid: c3b33e52cf43e8e45919483ce0ff0b98,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069487272437362878, guid: c3b33e52cf43e8e45919483ce0ff0b98,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -121,6 +126,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ship_thruster_USA
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478459640056962701, guid: fb18d1a44f953c748972ca3586073b36,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
         type: 3}
@@ -308,6 +318,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: eadb40fedbd592141945be1c44db646e,
         type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eadb40fedbd592141945be1c44db646e,
+        type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -335,8 +350,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
---- !u!64 &8539860608274614437
-MeshCollider:
+--- !u!65 &1218783842849398461
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -345,10 +360,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4048700082522681289, guid: eadb40fedbd592141945be1c44db646e, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 10.0523405, y: 3.2987068, z: 10.427734}
+  m_Center: {x: 0.0000023841858, y: -0.25220162, z: 0.17881203}
 --- !u!114 &886977962807956760
 MonoBehaviour:
   m_ObjectHideFlags: 0

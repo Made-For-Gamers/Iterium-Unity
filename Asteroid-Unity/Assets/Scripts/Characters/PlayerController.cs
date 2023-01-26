@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
         }
         if (GameManager.Instance.player.Health <= 0)
         {
-            gameObject.GetComponent<MeshCollider>().enabled = false;
+            gameObject.GetComponent<BoxCollider>().enabled = false;
             GameManager.Instance.player.Lives--;
             if (GameManager.Instance.player.Lives <= 0)
             {

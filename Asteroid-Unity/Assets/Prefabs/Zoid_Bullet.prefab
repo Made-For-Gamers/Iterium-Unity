@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8730528012423107776}
   - component: {fileID: -3306467878123074076}
   - component: {fileID: 2599373588866675197}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Zoid_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 /// Game Over UI
 /// * Shows score and iterium collected
 /// *Indicates if a high score is achieved
+/// *Calculate XP/Leveling
 /// *Display specific message depending on game performance
 /// </summary>
 public class UI_GameOver : MonoBehaviour
 {
-    [Header("Game scene")]
+    [Header("Game Play Scene")]
 #if UNITY_EDITOR
     public UnityEditor.SceneAsset destinationScene;
     private void OnValidate()
@@ -41,19 +42,30 @@ public class UI_GameOver : MonoBehaviour
         TextElement message = uiRoot.Q<TextElement>(playerMessage);
         Button rematch = uiRoot.Q<Button>(rematchButton);
 
+        //Score
         arenaScore = GameManager.Instance.player.Score;
         score.text = arenaScore.ToString();
+
+        //Iterium
         iterium.text = GameManager.Instance.player.IteriumCollected.ToString();
-        GameManager.Instance.player.Iterium += GameManager.Instance.player.IteriumCollected;
-        GameManager.Instance.SortLeaderboard();       
-        if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count-1].score <= arenaScore)
-        { 
+        GameManager.Instance.CalculateIterium();
+
+        //XP
+        GameManager.Instance.CalculateXP();
+
+        //Leaderboard
+        GameManager.Instance.SortLeaderboard();
+        if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
+        {
+            //High Score greeting
             message.text = "Congratulations a new high score!";
             GameManager.Instance.AddLeaderboardItem();
+
             SoundManager.Instance.PlayMusic(2, false, true);
         }
         else
         {
+            //Normal greeting
             SoundManager.Instance.PlayMusic(1, false, true);
             switch (arenaScore)
             {
@@ -70,9 +82,11 @@ public class UI_GameOver : MonoBehaviour
                     message.text = "Descent score, good game.";
                     break;
             }
-        }      
+        }
+
+        //Save Game
         GameManager.Instance.SaveGame();
-        rematch.clicked += Rematch;
+
     }
 
     private void Rematch()
