@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8717982496866461519}
   - component: {fileID: 8515349224334025075}
   m_Layer: 0
-  m_Name: Ship_thruster
+  m_Name: Ship_thruster_CHINA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

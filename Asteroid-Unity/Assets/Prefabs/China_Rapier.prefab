@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 7598289644130291829}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &5944109111047860633
+--- !u!1001 &717252043508557052
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -41,12 +41,7 @@ PrefabInstance:
     - target: {fileID: 6478459640056962701, guid: e34634b3b7f27ba4aa08ef91ae18c442,
         type: 3}
       propertyPath: m_Name
-      value: Ship_thruster
-      objectReference: {fileID: 0}
-    - target: {fileID: 6478459640056962701, guid: e34634b3b7f27ba4aa08ef91ae18c442,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      value: Ship_thruster_CHINA
       objectReference: {fileID: 0}
     - target: {fileID: 6478459640056962736, guid: e34634b3b7f27ba4aa08ef91ae18c442,
         type: 3}
@@ -350,6 +345,7 @@ MonoBehaviour:
   thrustInput: {x: 0, y: 0}
   isfire: 0
   isShield: 0
+  isWarping: 0
 --- !u!114 &728453159
 MonoBehaviour:
   m_ObjectHideFlags: 0
