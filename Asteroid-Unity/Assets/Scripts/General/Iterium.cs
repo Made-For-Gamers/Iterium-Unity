@@ -7,6 +7,7 @@ public class Iterium : MonoBehaviour
     [Header("Collection Reward")]
     [SerializeField] private int score = 250;
     [SerializeField] private int xp = 25;
+    [SerializeField] private int sfxIndex;
 
     private void OnTriggerEnter(Collider collision)
     {
@@ -18,7 +19,7 @@ public class Iterium : MonoBehaviour
                 GameManager.Instance.player.Score += score;
                 GameManager.Instance.player.Xp += xp;
                 GameManager.Instance.player.IteriumCollected++;
-                SoundManager.Instance.PlayEffect();
+                SoundManager.Instance.PlayEffect(sfxIndex);
                 //Remove object
                 Destroy(gameObject);
                 break;

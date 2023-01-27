@@ -8,7 +8,10 @@ using UnityEngine;
 /// * Bullet de-spawning
 /// </summary>
 public class Bullet : MonoBehaviour
-{  
+{
+    [Header("Bullet Hit SFX")]
+    [SerializeField] private int sfxIndex = 1;
+
     //Take action when bullet hits a specific object
     private void OnTriggerEnter(Collider collision)
     {
@@ -16,7 +19,7 @@ public class Bullet : MonoBehaviour
         {
             //Bullet hits an asteroid
             case "Asteroid":
-             
+
                 GameManager.Instance.player.Score += 50;
                 GameManager.Instance.player.Xp += 10;
 
@@ -41,7 +44,7 @@ public class Bullet : MonoBehaviour
                     if (chance == 1)
                     {
                         Vector3 pos = new Vector3(collision.gameObject.transform.position.x, 0, collision.gameObject.transform.position.z);
-                        Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), pos , Random.rotation);
+                        Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), pos, Random.rotation);
                     }
                 }
 
@@ -71,11 +74,12 @@ public class Bullet : MonoBehaviour
                 Destroy(collision.gameObject);
                 break;
         }
-    } 
+    }
 
     //Remove bullet after a collision
     private void BulletExplosion(Collider obj)
     {
+        SoundManager.Instance.PlayEffect(sfxIndex);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;
@@ -94,5 +98,5 @@ public class Bullet : MonoBehaviour
         }
     }
 
-  
+
 }

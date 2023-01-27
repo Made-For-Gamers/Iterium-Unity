@@ -10,6 +10,9 @@ using UnityEngine;
 
 public class BulletAI : MonoBehaviour
 {
+    [Header("Bullet Hit SFX")]
+    [SerializeField] private int sfxIndex = 1;
+
     //Take action when bullet hits a specific object
     private void OnTriggerEnter(Collider collision)
     {
@@ -41,7 +44,8 @@ public class BulletAI : MonoBehaviour
                     int chance = Random.Range(1, GameManager.Instance.iteriumChance);
                     if (chance == 1)
                     {
-                        Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), collision.gameObject.transform.position, Random.rotation);
+                        Vector3 pos = new Vector3(collision.gameObject.transform.position.x, 0, collision.gameObject.transform.position.z);
+                        Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), pos, Random.rotation);
                     }
                 }
 
@@ -80,7 +84,8 @@ public class BulletAI : MonoBehaviour
 
     //Remove bullet after a collision
     private void BulletExplosion(Collider obj)
-    {      
+    {
+        SoundManager.Instance.PlayEffect(sfxIndex);
         GameObject explosionObject = ExplosionPooling.explosionPool.Get();
         explosionObject.transform.position = obj.transform.position;
         explosionObject.transform.rotation = obj.transform.rotation;

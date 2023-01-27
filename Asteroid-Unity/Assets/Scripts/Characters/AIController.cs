@@ -14,8 +14,8 @@ public class AIController : MonoBehaviour
 {
     [Header("Bullet")]
     [SerializeField] private float fireStart = 2f;
-    [SerializeField] private float fireInterval = 0.9f;
-    [SerializeField] private int descisionCycle = 3; //number of bullets to fire at a target before deciding to changing targets
+    [SerializeField] private float fireInterval = 0.6f;
+    [SerializeField] private int descisionCycle = 3; //Bullets to fire at a target before deciding on changing target
 
     private Transform firePosition;
     private GameObject shield;
@@ -47,7 +47,7 @@ public class AIController : MonoBehaviour
         Thrust();
     }
 
-    //Ship rotation targeting the player or NPC
+    //AI Ship targeting, either the player or NPC
     private void Rotate()
     {
         if (GameManager.Instance.aiTarget.gameObject != null)
@@ -57,7 +57,7 @@ public class AIController : MonoBehaviour
 
     }
 
-    //Firing
+    //Ship Firing
     private void Fire()
     {
         if (GameManager.Instance.aiTarget.gameObject != null)
@@ -82,7 +82,7 @@ public class AIController : MonoBehaviour
             if (shots >= descisionCycle)
             {
                 shots = 0;
-                if (attackNPC) // re-target player when the decision cycle is reached
+                if (attackNPC) // re-target player at end of the decision cycle
                 {
                     attackNPC = false;
                     GameManager.Instance.FindAiTarget(false);
@@ -99,7 +99,6 @@ public class AIController : MonoBehaviour
         {
             if (!isThrusting)
             {
-                //StartCoroutine(Thrusters());
                 isThrusting = true;
                 thrusters.SetActive(true);
             }
@@ -112,10 +111,10 @@ public class AIController : MonoBehaviour
         }
     }
 
-    //Shield
+    //Ship Shield
     private void Shield()
     {
-        if (!isShielding) //Deploy Shield
+        if (!isShielding)
         {
             shield.SetActive(true);
             isShielding = true;
@@ -123,7 +122,7 @@ public class AIController : MonoBehaviour
             shieldCooldown = GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown;
         }
 
-        if (shieldCooldown > 0) //Shield cooldown 
+        if (shieldCooldown > 0) 
         {
             shieldCooldown -= 1 * Time.deltaTime;
         }
@@ -138,9 +137,9 @@ public class AIController : MonoBehaviour
     {
         yield return new WaitForSeconds(GameManager.Instance.aiPlayer.Character.Ship.ShieldTime);
         shield.SetActive(false);
-
     }
 
+    //Calculate the damage when the ship is struck. Taking account of shield strength and striking bullets power.
     public void BulletHit(float firePower)
     {
         if (isShielding)
@@ -166,6 +165,7 @@ public class AIController : MonoBehaviour
         }
     }
 
+    //Destroy this ship
     IEnumerator DestroyShip()
     {
 
