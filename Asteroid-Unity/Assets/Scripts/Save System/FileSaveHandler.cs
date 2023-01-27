@@ -15,11 +15,11 @@ public class FileSaveHandler
     private string dirPath;
     string fullPath;
 
-    //WegGL plugin - force browser IndexDB sync on a save
+    //Browser plugin - force browser IndexDB to sync immediatly on a save
     [DllImport("__Internal")]
     private static extern void syncSave();
 
-    //WegGL plugin - browser alert popup for errors etc
+    //Browser plugin - browser alert popup for errors/info-box etc
     [DllImport("__Internal")]
     private static extern void alert(string message);
 
@@ -34,8 +34,8 @@ public class FileSaveHandler
     public SaveData Load(string fileName)
     {
         fullPath = Path.Combine(dirPath, fileName);
+        SaveData loadData = new SaveData();
 
-        SaveData loadData = null;
         if (File.Exists(fullPath))
         {
             try
@@ -62,6 +62,12 @@ public class FileSaveHandler
                     Debug.LogError("Error loading save file: " + fullPath + "\n" + ex);
                 }
             }
+        }
+        else
+        {
+            GameManager.Instance.ResetGame();
+            loadData = GameManager.Instance.saveData;
+            
         }
         return loadData;
     }
@@ -104,7 +110,7 @@ public class FileSaveHandler
         }
     }
 
-    //Load the leaderboard List<> from file using the JsonHelp wrapper class
+    //Load the leaderboard List<> from file using the JsonHelper wrapper class
     public List<T> LoadLeaderboard<T>(string fileName)
     {
         fullPath = Path.Combine(dirPath, fileName);
@@ -133,7 +139,12 @@ public class FileSaveHandler
                     Debug.LogError("Error loading save file: " + fullPath + "\n" + ex);
                 }
             }
-        }      
+        }
+        else
+        {
+            GameManager.Instance.SaveLeaderboard();
+        }
+
         if (string.IsNullOrEmpty(dataToLoad) || dataToLoad == "{}")
         {
             return new List<T>();
@@ -146,7 +157,7 @@ public class FileSaveHandler
         }
     }
 
-    //Save the leaderboard List<> to a file using the JsonHelp wrapper class
+    //Save the leaderboard List<> to a file using the JsonHelper wrapper class
     public void SaveLeaderboard<T>(List<T> saveData, string fileName)
     {
         fullPath = Path.Combine(dirPath, fileName);

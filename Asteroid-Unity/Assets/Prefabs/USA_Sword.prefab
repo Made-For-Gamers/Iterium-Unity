@@ -127,6 +127,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship_thruster_USA
       objectReference: {fileID: 0}
+    - target: {fileID: 6478459640056962701, guid: fb18d1a44f953c748972ca3586073b36,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6478459640056962736, guid: fb18d1a44f953c748972ca3586073b36,
         type: 3}
       propertyPath: m_RootOrder

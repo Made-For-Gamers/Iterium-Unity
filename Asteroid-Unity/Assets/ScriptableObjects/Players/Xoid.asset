@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: Xoid
   m_EditorClassIdentifier: 
-  profileName: 
-  description: 
+  profileName: Xoid NPC
+  bio: 
+  email: 
   xp: 0
+  level: 1
   score: 0
   character: {fileID: 11400000, guid: abf9b3b698f041c4eb70d61f567ae4f3, type: 2}
   health: 100
@@ -28,6 +30,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Score:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_XP:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Level:
     m_PersistentCalls:
       m_Calls: []
   onChange_Iterium:

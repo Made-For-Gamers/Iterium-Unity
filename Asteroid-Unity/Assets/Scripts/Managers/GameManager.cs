@@ -71,6 +71,7 @@ public class GameManager : Singleton<GameManager>
         saveData.bio = player.Bio;
         saveData.email = player.Email;
         saveData.xp = player.Xp;
+        saveData.level = player.Level;
         saveData.iterium = player.Iterium;
         saveData.bulletLvl = player.BulletLvl;
         saveData.speedLvl = player.SpeedLvl;
@@ -91,6 +92,7 @@ public class GameManager : Singleton<GameManager>
         player.Bio = saveData.bio;
         player.Email = saveData.email;
         player.Xp = saveData.xp;
+        player.Level = saveData.level;
         player.Iterium = saveData.iterium;
         player.BulletLvl = saveData.bulletLvl;
         player.SpeedLvl = saveData.speedLvl;
@@ -120,10 +122,11 @@ public class GameManager : Singleton<GameManager>
     public void ResetGame()
     {
         //Player data
+        player.ProfileName = "Player 1";
         player.Health = 100;
         player.Score = 0;
         player.Xp = 0;
-        player.Level = 0;
+        player.Level = 1;
         player.Iterium = 0;
         player.IteriumCollected = 0;
         player.SpeedLvl = 1;
@@ -132,10 +135,11 @@ public class GameManager : Singleton<GameManager>
         player.Lives = 3;
 
         //AI data
+        aiPlayer.ProfileName = "AI Player";
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
-        player.Xp = 0;
-        player.Level = 0;
+        aiPlayer.Xp = 0;
+        aiPlayer.Level = 1;
         aiPlayer.Iterium = 0;
         aiPlayer.IteriumCollected = 0;
         aiPlayer.Lives = 3;
@@ -232,6 +236,12 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("GameOver");
     }
 
+    public void SaveLeaderboard()
+    {
+        print("Saving leaderboard data");
+        fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
+    }
+
     //Add a new row to the leaderboard
     public void AddLeaderboardItem()
     {
@@ -247,9 +257,7 @@ public class GameManager : Singleton<GameManager>
         {
             leaderboard.Remove(leaderboard[leaderboard.Count - 1]);
         }
-
-        print("Saving leaderboard data");
-        fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
+        SaveLeaderboard();
     }
 
     public void SortLeaderboard()
