@@ -15,26 +15,33 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private string saveFileLeaderboard;
     [SerializeField] private int leaderboardSize = 50;
 
-    [Header("Character Settings")]
+    [Header("Player Settings")]
     public SO_Player player;
-    public SO_Player aiPlayer;
-    public bool aiPermadeath;
-    public SO_Player npcPlayer;
     public SO_Factions factions;
     public float deathRespawnTime = 4f;
     public int xpLevelSteps = 1000;
     public int maxLevel = 50;
 
+    [Header("AI Settings")]
+    public SO_Player aiPlayer;
+    public bool aiPermadeath;
+    [HideInInspector] public GameObject aiTarget;
+
+    [Header("NPC Settings")]
+    public SO_Player npcPlayer;
+
     [Header("Iterium Crystals")]
     public SO_GameObjects iterium;
     public int iteriumChance = 20;
 
+    [Space(10)]
+    //Save data objects
+    public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
+    [HideInInspector] public SaveData saveData = new SaveData();
+
     //Spawn points
     [HideInInspector] public Transform playerSpawner;
     [HideInInspector] public Transform aiSpawner;
-    [HideInInspector] public SaveData saveData = new SaveData();
-    [HideInInspector] public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
-    [HideInInspector] public GameObject aiTarget;
 
     private FileSaveHandler fileSaveHandler;
 
@@ -107,10 +114,7 @@ public class GameManager : Singleton<GameManager>
             player.Character = factions.Factions[2];
         }
 
-        //Update leaderboard from load
-        print("Loading leaderboard data");
-        leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
-        SortLeaderboard();
+        LoadLeaderboard();
     }
 
     public void NewGame()
@@ -236,10 +240,18 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene("GameOver");
     }
 
+    //Save leaderboard to file
     public void SaveLeaderboard()
     {
         print("Saving leaderboard data");
         fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
+    }
+
+    //Load leaderboard from file
+    public void LoadLeaderboard()
+    {
+        print("Loading leaderboard data");
+        leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
     }
 
     //Add a new row to the leaderboard
@@ -251,11 +263,24 @@ public class GameManager : Singleton<GameManager>
         item.playerName = player.ProfileName;
         leaderboard.Add(item);
         SortLeaderboard();
-
         //Max leaderboard size
         if (leaderboard.Count > leaderboardSize)
         {
             leaderboard.Remove(leaderboard[leaderboard.Count - 1]);
+        }
+        SaveLeaderboard();
+    }
+
+    public void InitLeaderboard()
+    {
+        print("Init New Leaderboard");
+        for (int i = 0; i < 10; i++)
+        {
+            LeaderboardItem item = new LeaderboardItem();
+            item.score = (i + 1) * 10000;
+            item.date = System.DateTime.Now.Date.ToShortDateString();
+            item.playerName = "Imperial Xoid";
+            leaderboard.Add(item);
         }
         SaveLeaderboard();
     }

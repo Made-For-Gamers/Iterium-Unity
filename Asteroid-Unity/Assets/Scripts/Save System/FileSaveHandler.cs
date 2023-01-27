@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// File system handler to write/read save data to/from a file, additional handler can be created for cloud saves etc
@@ -67,7 +68,7 @@ public class FileSaveHandler
         {
             GameManager.Instance.ResetGame();
             loadData = GameManager.Instance.saveData;
-            
+
         }
         return loadData;
     }
@@ -116,6 +117,10 @@ public class FileSaveHandler
         fullPath = Path.Combine(dirPath, fileName);
         List<T> newList;
         string dataToLoad = null;
+        if (!File.Exists(fullPath))
+        {
+            GameManager.Instance.InitLeaderboard();
+        }
         if (File.Exists(fullPath))
         {
             try
@@ -140,10 +145,6 @@ public class FileSaveHandler
                 }
             }
         }
-        else
-        {
-            GameManager.Instance.SaveLeaderboard();
-        }
 
         if (string.IsNullOrEmpty(dataToLoad) || dataToLoad == "{}")
         {
@@ -151,7 +152,7 @@ public class FileSaveHandler
         }
         else
         {
-            Debug.Log("Successfully Loaded File"); 
+            Debug.Log("Successfully Loaded File");
             newList = JsonHelper.FromJson<T>(dataToLoad).ToList();
             return newList;
         }
