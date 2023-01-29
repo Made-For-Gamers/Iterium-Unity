@@ -6,16 +6,15 @@ using UnityEngine;
 /// Spawn interval time
 /// </summary>
 public class NPCSpawner : MonoBehaviour
-{   
+{
     [Header("Spawning")]
     [SerializeField] int spawnInterval = 45;
 
     [Header("Movement")]
     [SerializeField] int minSpeed;
     [SerializeField] int maxSpeed;
-    [SerializeField] Transform target;
     private int speed;
-    
+
 
     private void Start()
     {
@@ -27,8 +26,20 @@ public class NPCSpawner : MonoBehaviour
         int rnd = Random.Range(1, 5);
         GameObject ship = Instantiate(GameManager.Instance.npcPlayer.Character.Ship.ShipPrefab);
         ship.transform.position = GetComponentsInChildren<Transform>()[rnd].position;
-        ship.transform.LookAt(target);
+        if (GameManager.Instance.targetPlayer.gameObject)
+        {
+            ship.transform.LookAt(GameManager.Instance.targetPlayer.transform);
+        }
+        else if (GameManager.Instance.targetAi.gameObject)
+        {
+            ship.transform.LookAt(GameManager.Instance.targetAi.transform);
+        }
+        else
+        {
+            ship.transform.Rotate(Vector3.zero);
+        }
         speed = Random.Range(minSpeed, maxSpeed);
         ship.GetComponent<Rigidbody>().velocity = ship.transform.forward * speed;
+        GameManager.Instance.targetNpc = ship;
     }
 }

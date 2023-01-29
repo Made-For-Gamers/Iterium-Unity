@@ -17,6 +17,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Player Settings")]
     public SO_Player player;
+    [HideInInspector] public GameObject targetPlayer;
     public SO_Factions factions;
     public float deathRespawnTime = 4f;
     public int xpLevelSteps = 1000;
@@ -25,10 +26,11 @@ public class GameManager : Singleton<GameManager>
     [Header("AI Settings")]
     public SO_Player aiPlayer;
     public bool aiPermadeath;
-    [HideInInspector] public GameObject aiTarget;
+    [HideInInspector] public GameObject targetAi;
 
     [Header("NPC Settings")]
     public SO_Player npcPlayer;
+    [HideInInspector] public GameObject targetNpc;
 
     [Header("Iterium Crystals")]
     public SO_GameObjects iterium;
@@ -50,19 +52,6 @@ public class GameManager : Singleton<GameManager>
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath);
         LoadGame();
         //ResetGame();
-    }
-
-    //Find either Player or NPC for AI to target
-    public void FindAiTarget(bool npc)
-    {
-        if (npc)
-        {
-            aiTarget = GameObject.Find("AI");
-        }
-        else
-        {
-            aiTarget = GameObject.Find("Player");
-        }
     }
 
     private void SelectAiPlayer()
@@ -211,27 +200,26 @@ public class GameManager : Singleton<GameManager>
     IEnumerator SpawnPlayerOverTime(float time)
     {
         yield return new WaitForSeconds(time);
-        GameObject ship = Instantiate(GameManager.Instance.player.Character.Ship.ShipPrefab);
-        ship.transform.position = playerSpawner.position;
-        ship.transform.rotation = playerSpawner.rotation;
-        ship.transform.name = "Player";
-        ship.transform.tag = "Player";
+        targetPlayer = Instantiate(Instance.player.Character.Ship.ShipPrefab);
+        targetPlayer.transform.position = playerSpawner.position;
+        targetPlayer.transform.rotation = playerSpawner.rotation;
+        targetPlayer.transform.name = "Player";
+        targetPlayer.transform.tag = "Player";
         player.Health = 100;
-        aiTarget = ship;
     }
 
     IEnumerator SpawnAiOverTime(float time)
     {
         yield return new WaitForSeconds(time);
         SelectAiPlayer();
-        GameObject aiShip = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.ShipPrefab);
-        Destroy(aiShip.GetComponent<PlayerController>());
-        Destroy(aiShip.GetComponent<InputManager>());
-        aiShip.AddComponent<AIController>();
-        aiShip.transform.position = aiSpawner.position;
-        aiShip.transform.rotation = aiSpawner.rotation;
-        aiShip.transform.name = "AI";
-        aiShip.transform.tag = "AI";
+        targetAi = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.ShipPrefab);
+        Destroy(targetAi.GetComponent<PlayerController>());
+        Destroy(targetAi.GetComponent<InputManager>());
+        targetAi.AddComponent<AIController>();
+        targetAi.transform.position = aiSpawner.position;
+        targetAi.transform.rotation = aiSpawner.rotation;
+        targetAi.transform.name = "AI";
+        targetAi.transform.tag = "AI";
         aiPlayer.Health = 100;
     }
 
