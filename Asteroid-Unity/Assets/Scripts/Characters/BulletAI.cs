@@ -19,6 +19,7 @@ public class BulletAI : BulletBase
             case "Asteroid":
                 GameManager.Instance.aiPlayer.Score += 50;
                 GameManager.Instance.aiPlayer.Xp += 10;
+                BulletExplosion(collision);
                 AsteroidHit(collision);
                 break;
 
@@ -28,6 +29,7 @@ public class BulletAI : BulletBase
                 playerhit.BulletHit(GameManager.Instance.aiPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.aiPlayer.BulletLvl);
                 GameManager.Instance.aiPlayer.Score += 500;
                 GameManager.Instance.aiPlayer.Xp += 25;
+                BulletExplosion(collision);
                 break;
 
             //Bullet hits NPC
@@ -35,6 +37,7 @@ public class BulletAI : BulletBase
                 GameManager.Instance.aiPlayer.Score += 2500;
                 GameManager.Instance.aiPlayer.Xp += 100;
                 SoundManager.Instance.PlayShipExplosion();
+                BulletExplosion(collision);
                 Destroy(collision.gameObject);
                 break;
             //Bullet hits another bullet
@@ -47,9 +50,9 @@ public class BulletAI : BulletBase
                 {
                     BulletPooling.bulletPoolPlayer.Release(collision.gameObject);
                 }
+                BulletExplosion(collision);
                 break;
-        }   
-        BulletExplosion(collision);
+        } 
     }   
 
     protected override void ReleaseBullet()

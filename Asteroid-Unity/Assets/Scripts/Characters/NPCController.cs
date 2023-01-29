@@ -42,7 +42,7 @@ public class NPCController : MonoBehaviour
             //Attack player
             bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
         }
-        else
+        else if (GameManager.Instance.targetAi.gameObject)
         {
             //Attack AI
             bullet.transform.LookAt(GameManager.Instance.targetAi.transform);

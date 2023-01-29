@@ -15,6 +15,7 @@ public class BulletNpc : BulletBase
         {
             //Bullet hits an asteroid
             case "Asteroid":
+                BulletExplosion(collision);
                 AsteroidHit(collision);
                 break;
 
@@ -22,12 +23,14 @@ public class BulletNpc : BulletBase
             case "Player":
                 var playerHit = collision.transform.GetComponent<PlayerController>();
                 playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvl);
+                BulletExplosion(collision);
                 break;
 
             //Bullet hits AI player
             case "AI":
                 var aiIhit = collision.transform.GetComponent<AIController>();
                 aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvl);
+                BulletExplosion(collision);
                 break;
 
             //Bullet hits another bullet
@@ -40,12 +43,9 @@ public class BulletNpc : BulletBase
                 {
                     BulletPooling.bulletPoolPlayer.Release(collision.gameObject);
                 }
+                BulletExplosion(collision);
                 break;
         }
-        //if (collision.gameObject != this.gameObject)
-        //{
-        //    BulletExplosion(collision);
-        //}
     }
 
     protected override void ReleaseBullet()
