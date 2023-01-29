@@ -26,7 +26,7 @@ public class BulletAI : BulletBase
             //Bullet hits another player
             case "Player":
                 var playerhit = collision.transform.GetComponent<PlayerController>();
-                playerhit.BulletHit(GameManager.Instance.aiPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.aiPlayer.BulletLvl);
+                playerhit.BulletHit(GameManager.Instance.aiPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.aiPlayer.BulletLvlUs);
                 GameManager.Instance.aiPlayer.Score += 500;
                 GameManager.Instance.aiPlayer.Xp += 25;
                 BulletExplosion(collision);

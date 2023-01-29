@@ -4,12 +4,8 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Asteroid", menuName = "Add SO/Objects/Player")]
 
 // Player data
-// Data is changed here during runtime and the game reads player data from here
-// Save game data is also duplicated from here and you can therefore have a async save process when a cloud save handeler is used
-// The default ScriptablObject values are updated after a save game load during startup;
-// SO_Character is the currently selected faction character
-// SO_Character contains a reference to the faction specific ship
-// BulletLvl indicates which of the 3 bullets levels is fired from the SO_Bullet. (bullet level)
+// The default ScriptablObject values are updated after a game load during startup;
+
 public class SO_Player : ScriptableObject
 {
     [SerializeField] private string profileName = "Player 1";
@@ -21,12 +17,18 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int score;
     [SerializeField] private SO_Character character;
     [SerializeField] private int health;
-    [SerializeField] private int bulletLvl = 1;
-    [SerializeField] private int shieldLvl = 1;
-    [SerializeField] private int speedLvl = 1;
     [SerializeField] private int iterium;
     [SerializeField] private int iteriumCollected;
-    [SerializeField] private int lives = 3;
+    [SerializeField] private int lives = 3; 
+    [SerializeField] private int bulletLvlUs = 1;
+    [SerializeField] private int shieldLvlUs = 1;
+    [SerializeField] private int speedLvlUs = 1;
+    [SerializeField] private int bulletLvlUssr = 1;
+    [SerializeField] private int shieldLvlUssr = 1;
+    [SerializeField] private int speedLvlUssr = 1;
+    [SerializeField] private int bulletLvlChn = 1;
+    [SerializeField] private int shieldLvlChn = 1;
+    [SerializeField] private int speedLvlChn = 1;
 
     //Events
     public UnityEvent onChange_Health;
@@ -92,22 +94,7 @@ public class SO_Player : ScriptableObject
             onChange_Health.Invoke();
         }
     }
-    public int BulletLvl
-    {
-        get => bulletLvl;
-        set
-        {
-            bulletLvl = value;
-        }
-    }
-    public int ShieldLvl
-    {
-        get => shieldLvl;
-        set
-        {
-            shieldLvl = value;
-        }
-    }
+  
     public int Iterium
     {
         get => iterium;
@@ -115,15 +102,6 @@ public class SO_Player : ScriptableObject
         {
             iterium = value;
             onChange_Iterium.Invoke();
-        }
-    }
-
-    public int SpeedLvl
-    {
-        get => speedLvl;
-        set
-        {
-            speedLvl = value;
         }
     }
 
@@ -146,4 +124,14 @@ public class SO_Player : ScriptableObject
             onChange_IteriumCollected.Invoke();
         }
     }
+
+    public int BulletLvlUs { get => bulletLvlUs; set => bulletLvlUs = value; }
+    public int ShieldLvlUs { get => shieldLvlUs; set => shieldLvlUs = value; }
+    public int SpeedLvlUs { get => speedLvlUs; set => speedLvlUs = value; }
+    public int BulletLvlUssr { get => bulletLvlUssr; set => bulletLvlUssr = value; }
+    public int ShieldLvlUssr { get => shieldLvlUssr; set => shieldLvlUssr = value; }
+    public int SpeedLvlUssr { get => speedLvlUssr; set => speedLvlUssr = value; }
+    public int BulletLvlChn { get => bulletLvlChn; set => bulletLvlChn = value; }
+    public int ShieldLvlChn { get => shieldLvlChn; set => shieldLvlChn = value; }
+    public int SpeedLvlChn { get => speedLvlChn; set => speedLvlChn = value; }
 }

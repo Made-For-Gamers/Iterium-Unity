@@ -12,9 +12,15 @@ public class SaveData
     public string email;
     public int xp;
     public int level;
-    public int shieldLvl;
-    public int bulletLvl;
-    public int speedLvl;
+    public int shieldLvlUs;
+    public int bulletLvlUs;
+    public int speedLvlUs;
+    public int shieldLvlUssr;
+    public int bulletLvlUssr;
+    public int speedLvlUssr;
+    public int shieldLvlChn;
+    public int bulletLvlChn;
+    public int speedLvlChn;
     public int iterium;
     public SO_Character character;
 }

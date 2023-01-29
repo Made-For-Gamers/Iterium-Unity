@@ -38,21 +38,33 @@ public class UI_FactionSelection : MonoBehaviour
         buttonUssr.clicked += ButtonUssr_clicked;
     }
 
+    //Select faction China and set ship upgrades
     private void ButtonChina_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[1];
+        GameManager.Instance.bulletLvl = GameManager.Instance.player.BulletLvlChn;
+        GameManager.Instance.speedLvl = GameManager.Instance.player.SpeedLvlChn;
+        GameManager.Instance.shieldLvl = GameManager.Instance.player.ShieldLvlChn;
         LoadScene();
     }
 
+    //Select faction US and set ship upgrades
     private void ButtonUsa_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[2];
+        GameManager.Instance.bulletLvl = GameManager.Instance.player.BulletLvlUs;
+        GameManager.Instance.speedLvl = GameManager.Instance.player.SpeedLvlUs;
+        GameManager.Instance.shieldLvl = GameManager.Instance.player.ShieldLvlUs;
         LoadScene();
     }
 
+    //Select faction USSR and set ship upgrades
     private void ButtonUssr_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[3];
+        GameManager.Instance.bulletLvl = GameManager.Instance.player.BulletLvlUssr;
+        GameManager.Instance.speedLvl = GameManager.Instance.player.SpeedLvlUssr;
+        GameManager.Instance.shieldLvl = GameManager.Instance.player.ShieldLvlUssr;
         LoadScene();
     }
 

@@ -12,12 +12,12 @@ public class BulletPooling : MonoBehaviour
     [SerializeField] private int maxCapacity = 30;
 
     [Header("AI Bullet Pooling")]
-    [SerializeField] private int capacityAi = 15;
-    [SerializeField] private int maxCapacityAi = 20;
+    [SerializeField] private int capacityAi = 10;
+    [SerializeField] private int maxCapacityAi = 15;
 
     [Header("NPC Bullet Pooling")]
-    [SerializeField] private int capacityNpc = 10;
-    [SerializeField] private int maxCapacityNpc = 15;
+    [SerializeField] private int capacityNpc = 6;
+    [SerializeField] private int maxCapacityNpc = 10;
      
     public static ObjectPool<GameObject> bulletPoolPlayer;
     public static ObjectPool<GameObject> bulletPoolAi;
@@ -39,7 +39,7 @@ public class BulletPooling : MonoBehaviour
     private GameObject PoolNew_Player() //Player 1 bullet
     {
         //Instantiate new player bullet
-        return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.player.BulletLvl-1]);
+        return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.bulletLvl-1]);
       
     }
     private GameObject PoolNew_Ai() //AI bullet

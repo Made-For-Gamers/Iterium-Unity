@@ -6,7 +6,8 @@ using UnityEngine;
 /// * Crystal spawning 
 /// * Bullet explosion
 /// </summary>
-public class BulletBase : MonoBehaviour
+
+public abstract class BulletBase : MonoBehaviour
 {
     [Header("Bullet Hit SFX")]
     [SerializeField] protected int sfxIndex = 1;

@@ -20,12 +20,18 @@ MonoBehaviour:
   score: 0
   character: {fileID: 11400000, guid: abf9b3b698f041c4eb70d61f567ae4f3, type: 2}
   health: 100
-  bulletLvl: 1
-  shieldLvl: 1
-  speedLvl: 1
   iterium: 0
   iteriumCollected: 0
-  lives: 0
+  lives: 3
+  bulletLvlUs: 1
+  shieldLvlUs: 1
+  speedLvlUs: 1
+  bulletLvlUssr: 1
+  shieldLvlUssr: 1
+  speedLvlUssr: 1
+  bulletLvlChn: 1
+  shieldLvlChn: 1
+  speedLvlChn: 1
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []

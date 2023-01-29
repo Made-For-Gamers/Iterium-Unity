@@ -10,6 +10,9 @@ using System.Collections;
 /// * Ship destroy
 /// * Screen warping
 /// </summary>
+
+[RequireComponent(typeof(InputManager))]
+
 public class PlayerController : MonoBehaviour
 {
     private InputManager input;
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
     //Ship rotation
     private void Rotate()
     {
-        transform.Rotate(0, input.rotateInput.x * (GameManager.Instance.player.Character.Ship.TurnSpeed * GameManager.Instance.player.SpeedLvl) * Time.deltaTime, 0);
+        transform.Rotate(0, input.rotateInput.x * (GameManager.Instance.player.Character.Ship.TurnSpeed * GameManager.Instance.speedLvl) * Time.deltaTime, 0);
     }
 
     //Firing
@@ -73,7 +76,7 @@ public class PlayerController : MonoBehaviour
                 isThrusting = true;
                 thrusters.SetActive(true);
             }
-            rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Character.Ship.Thrust * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
+            rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Character.Ship.Thrust * GameManager.Instance.speedLvl) * Time.deltaTime), ForceMode.Force);
         }
         else
         {
@@ -109,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if (input.isWarping)
         { 
             transform.position = GameManager.Instance.playerSpawner.position;
-            rigidBody.velocity = Vector3.zero;
+            //rigidBody.velocity = Vector3.zero;
             input.isWarping = false;
         }
     }
@@ -125,7 +128,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isShielding)
         {
-            GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));
+            GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.shieldLvl));
         }
         else
         {

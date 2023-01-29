@@ -127,7 +127,7 @@ public class AIController : MonoBehaviour
                 isThrusting = true;
                 thrusters.SetActive(true);
             }
-            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
+            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvlUs + 1)) * Time.deltaTime), ForceMode.Force);
         }
         else
         {
@@ -169,7 +169,7 @@ public class AIController : MonoBehaviour
     {
         if (isShielding)
         {
-            GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Character.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvl));
+            GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Character.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvlUs));
         }
         else
         {

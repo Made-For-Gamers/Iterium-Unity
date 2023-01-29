@@ -22,14 +22,14 @@ public class BulletNpc : BulletBase
             //Bullet hits player
             case "Player":
                 var playerHit = collision.transform.GetComponent<PlayerController>();
-                playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvl);
+                playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvlUs);
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits AI player
             case "AI":
                 var aiIhit = collision.transform.GetComponent<AIController>();
-                aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvl);
+                aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvlUs);
                 BulletExplosion(collision);
                 break;
 

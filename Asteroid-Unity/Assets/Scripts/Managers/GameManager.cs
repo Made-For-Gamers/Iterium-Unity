@@ -22,6 +22,9 @@ public class GameManager : Singleton<GameManager>
     public float deathRespawnTime = 4f;
     public int xpLevelSteps = 1000;
     public int maxLevel = 50;
+    [HideInInspector] public int bulletLvl;
+    [HideInInspector] public int speedLvl;
+    [HideInInspector] public int shieldLvl;
 
     [Header("AI Settings")]
     public SO_Player aiPlayer;
@@ -69,9 +72,15 @@ public class GameManager : Singleton<GameManager>
         saveData.xp = player.Xp;
         saveData.level = player.Level;
         saveData.iterium = player.Iterium;
-        saveData.bulletLvl = player.BulletLvl;
-        saveData.speedLvl = player.SpeedLvl;
-        saveData.shieldLvl = player.ShieldLvl;
+        saveData.bulletLvlUs = player.BulletLvlUs;
+        saveData.speedLvlUs = player.SpeedLvlUs;
+        saveData.shieldLvlUs = player.ShieldLvlUs;
+        saveData.bulletLvlUssr = player.BulletLvlUssr;
+        saveData.speedLvlUssr = player.SpeedLvlUssr;
+        saveData.shieldLvlUssr = player.ShieldLvlUssr;
+        saveData.bulletLvlChn = player.BulletLvlChn;
+        saveData.speedLvlChn = player.SpeedLvlChn;
+        saveData.shieldLvlChn = player.ShieldLvlChn;
 
         print("Saving game data");
         fileSaveHandler.Save(saveData, saveFile);
@@ -90,9 +99,15 @@ public class GameManager : Singleton<GameManager>
         player.Xp = saveData.xp;
         player.Level = saveData.level;
         player.Iterium = saveData.iterium;
-        player.BulletLvl = saveData.bulletLvl;
-        player.SpeedLvl = saveData.speedLvl;
-        player.ShieldLvl = saveData.shieldLvl;
+        player.BulletLvlUs = saveData.bulletLvlUs;
+        player.SpeedLvlUs = saveData.speedLvlUs;
+        player.ShieldLvlUs = saveData.shieldLvlUs;
+        player.BulletLvlUssr = saveData.bulletLvlUssr;
+        player.SpeedLvlUssr = saveData.speedLvlUssr;
+        player.ShieldLvlUssr = saveData.shieldLvlUssr;
+        player.BulletLvlChn = saveData.bulletLvlChn;
+        player.SpeedLvlChn = saveData.speedLvlChn;
+        player.ShieldLvlChn = saveData.shieldLvlChn;
 
         if (saveData.character != null)
         {
@@ -122,9 +137,15 @@ public class GameManager : Singleton<GameManager>
         player.Level = 1;
         player.Iterium = 0;
         player.IteriumCollected = 0;
-        player.SpeedLvl = 1;
-        player.ShieldLvl = 1;
-        player.BulletLvl = 1;
+        player.SpeedLvlUs = 1;
+        player.ShieldLvlUs = 1;
+        player.BulletLvlUs = 1;
+        player.SpeedLvlUssr = 1;
+        player.ShieldLvlUssr = 1;
+        player.BulletLvlUssr = 1;
+        player.SpeedLvlChn = 1;
+        player.ShieldLvlChn = 1;
+        player.BulletLvlChn = 1;
         player.Lives = 3;
 
         //AI data
@@ -136,9 +157,15 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.Iterium = 0;
         aiPlayer.IteriumCollected = 0;
         aiPlayer.Lives = 3;
-        aiPlayer.SpeedLvl = 1;
-        aiPlayer.ShieldLvl = 1;
-        aiPlayer.BulletLvl = 1;
+        aiPlayer.SpeedLvlUs = 1;
+        aiPlayer.ShieldLvlUs = 1;
+        aiPlayer.BulletLvlUs = 1;
+        aiPlayer.SpeedLvlUssr = 1;
+        aiPlayer.ShieldLvlUssr = 1;
+        aiPlayer.BulletLvlUssr = 1;
+        aiPlayer.SpeedLvlChn = 1;
+        aiPlayer.ShieldLvlChn = 1;
+        aiPlayer.BulletLvlChn = 1;
         aiPlayer.Lives = 3;
 
         SaveGame();
