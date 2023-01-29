@@ -16,7 +16,7 @@ public class AIController : MonoBehaviour
     [Header("Bullet")]
     [SerializeField] private float fireStart = 2f;
     [SerializeField] private float fireInterval = 0.6f;
-    [SerializeField] private int descisionCycle = 3; //Number of bullets to fire in a descition cycle (targeting)
+    [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a descition cycle (targeting)
 
     private Transform firePosition;
     private GameObject shield;
@@ -102,7 +102,7 @@ public class AIController : MonoBehaviour
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
             shots++;
 
-            if (shots >= descisionCycle)
+            if (shots >= decisionCycle)
             {
                 //reset descition cycle
                 shots = 0;
