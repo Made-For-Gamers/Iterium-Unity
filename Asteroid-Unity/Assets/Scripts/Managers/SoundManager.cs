@@ -7,7 +7,7 @@ using UnityEngine.Audio;
 
 public class SoundManager : Singleton<SoundManager>
 {
-    [Header("Sound Effects")]
+    [Header("Sound Effects")] //ScriptableObject SFX List
     [SerializeField] private SO_SFX asteroidExplosion;
     [SerializeField] private SO_SFX shipExplosion;
     [SerializeField] private SO_SFX effects;
@@ -16,7 +16,7 @@ public class SoundManager : Singleton<SoundManager>
     [SerializeField] private SO_SFX music;
 
     [Header("Settings")]
-    [SerializeField] private int audioNumber = 10;
+    [SerializeField] private int audioSourceNumber = 10; //number of re-usable AudioSources that will be created
 
     [Header("Audio Mixer Channels")]
     [SerializeField] private AudioMixerGroup mixerMaster;
@@ -29,9 +29,9 @@ public class SoundManager : Singleton<SoundManager>
 
     private new void Awake()
     {
-        //Init SFX Audiosource
-        audiosourceSfx = new AudioSource[audioNumber];
-        for (int i = 0; i < audioNumber; i++)
+        //Init SFX AudioSources
+        audiosourceSfx = new AudioSource[audioSourceNumber];
+        for (int i = 0; i < audioSourceNumber; i++)
         {
             audiosourceSfx[i] = gameObject.AddComponent<AudioSource>();
             audiosourceSfx[i].outputAudioMixerGroup = mixerSfx;
@@ -42,6 +42,7 @@ public class SoundManager : Singleton<SoundManager>
         audiosourceMusic.outputAudioMixerGroup = mixerMusic;
     }
 
+    //Asteroid explosions from SO_SFX asset
     public void PlayAsteroidExplosion()
     {
         AudioSource audio = GetAudioSourceSfx();
@@ -49,6 +50,7 @@ public class SoundManager : Singleton<SoundManager>
         audio.Play();
     }
 
+    //Ship explosions from SO_SFX asset
     public void PlayShipExplosion()
     {
         AudioSource audio = GetAudioSourceSfx();
@@ -56,13 +58,21 @@ public class SoundManager : Singleton<SoundManager>
         audio.Play();
     }
 
-    public void PlayEffect()
+    //Play sound effect by index from SO_SFX asset
+    public void PlayEffect(int index)
     {
         AudioSource audio = GetAudioSourceSfx();
-        audio.clip = effects.SelectRandomSound();
+        audio.clip = effects.clips[index];
         audio.Play();
     }
 
+    /// <summary>
+    /// Play music from a SO_SFX asset
+    /// </summary>
+    /// <param name="index">Song item index from the list</param>
+    /// <param name="loop">Play the sonf in a loop</param>
+    /// <param name="stop">Stop any existing songs from playing</param>
+    /// <param name="delay">Play start delay in seconds</param>
     public void PlayMusic(int index, bool loop,bool stop, float delay = 0)
     {
         if (stop)
@@ -88,9 +98,10 @@ public class SoundManager : Singleton<SoundManager>
         }
     }
 
+    //Return an unused audio source
     private AudioSource GetAudioSourceSfx()
     {
-        for (int i = 0; i < audioNumber; i++)
+        for (int i = 0; i < audioSourceNumber; i++)
         {
             if (!audiosourceSfx[i].isPlaying)
             {

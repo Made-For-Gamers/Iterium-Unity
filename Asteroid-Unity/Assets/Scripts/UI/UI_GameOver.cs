@@ -41,7 +41,10 @@ public class UI_GameOver : MonoBehaviour
         TextElement iterium = uiRoot.Q<TextElement>(playerIterium);
         TextElement message = uiRoot.Q<TextElement>(playerMessage);
         Button rematch = uiRoot.Q<Button>(rematchButton);
+        
+        //Events
         rematch.clicked += Rematch;
+
         //Score
         arenaScore = GameManager.Instance.player.Score;
         score.text = arenaScore.ToString();
@@ -86,11 +89,11 @@ public class UI_GameOver : MonoBehaviour
 
         //Save Game
         GameManager.Instance.SaveGame();
-
     }
 
     private void Rematch()
     {
+        GameManager.Instance.NewArena();
         SceneManager.LoadScene(gameScene);
     }
 }

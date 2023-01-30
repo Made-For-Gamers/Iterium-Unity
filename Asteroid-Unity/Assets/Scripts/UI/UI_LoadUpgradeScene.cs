@@ -1,6 +1,5 @@
 using UnityEngine.UIElements;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UI_LoadUpgradeScene : MonoBehaviour
 {

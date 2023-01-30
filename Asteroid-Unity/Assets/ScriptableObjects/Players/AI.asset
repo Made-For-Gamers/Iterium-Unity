@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: AI
   m_EditorClassIdentifier: 
-  profileName: 
-  description: 
-  xp: 2075
-  score: 8000
+  profileName: AI Player
+  bio: Death to all human players!
+  email: 
+  xp: 0
+  level: 1
+  score: 0
   character: {fileID: 11400000, guid: fb9486489f068b14cb18ed72264d1663, type: 2}
-  health: 44
+  health: 100
   bulletLvl: 1
   shieldLvl: 1
   speedLvl: 1
@@ -28,6 +30,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Score:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_XP:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Level:
     m_PersistentCalls:
       m_Calls: []
   onChange_Iterium:

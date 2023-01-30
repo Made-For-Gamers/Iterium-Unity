@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayMusic : MonoBehaviour
 {
-    [Header("Play GameManager music by index")]
+    [Header("Play music by index")]
     [SerializeField] private int trackIndex;
     [SerializeField] private bool loop;
     [SerializeField] private bool StopCurrent;

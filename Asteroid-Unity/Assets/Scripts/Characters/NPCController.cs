@@ -23,29 +23,29 @@ public class NPCController : MonoBehaviour
     {
         GameObject bullet = BulletPooling.bulletPoolNpc.Get();
         bullet.transform.position = transform.position;
-        if (GameManager.Instance.player != null && GameManager.Instance.aiPlayer != null)
+        if (GameManager.Instance.targetPlayer.gameObject && GameManager.Instance.targetAi.gameObject)
         {
             //Radomly attack player or AI
             target = Random.Range(1, 3);
             switch (target)
             {
                 case 1:
-                    bullet.transform.LookAt(GameObject.Find("Player").transform);
+                    bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
                     break;
                 case 2:
-                    bullet.transform.LookAt(GameObject.Find("AI").transform);
+                    bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
                     break;
             }
         }
-        else if (GameManager.Instance.player != null)
+        else if (GameManager.Instance.targetPlayer.gameObject)
         {
             //Attack player
-            bullet.transform.LookAt(GameObject.Find("Player").transform);
+            bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
         }
-        else
+        else if (GameManager.Instance.targetAi.gameObject)
         {
             //Attack AI
-            bullet.transform.LookAt(GameObject.Find("AI").transform);
+            bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
         }
 
         bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Character.Ship.Bullet.Speed;

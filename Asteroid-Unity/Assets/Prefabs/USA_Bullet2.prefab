@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e7759f1f6f87247bfb8f3e6efbf68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxIndex: 1
 --- !u!4 &2942029061092696689 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6d7a2f88083dcd64bab39d2b53c5abb2,

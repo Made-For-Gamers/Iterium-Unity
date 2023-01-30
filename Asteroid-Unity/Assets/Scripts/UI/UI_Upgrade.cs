@@ -4,12 +4,12 @@ using UnityEngine;
 public class UI_Upgrade : MonoBehaviour
 {
     [Header("UI Upgrade Sliders")]
-    [SerializeField] private string thrustSlider = "thrustSlider";
+    [SerializeField] private string speedSlider = "thrustSlider";
     [SerializeField] private string shieldSlider = "shieldSlider";
     [SerializeField] private string firepowerSlider = "firepowerSlider";
 
     [Header("UI Upgrade Buttons")]
-    [SerializeField] private string thrustButton = "thrustUpgrade";
+    [SerializeField] private string speedButton = "thrustUpgrade";
     [SerializeField] private string shieldButton = "shieldUpgrade";
     [SerializeField] private string firepowerButton = "firepowerUpgrade";
 
@@ -17,10 +17,10 @@ public class UI_Upgrade : MonoBehaviour
     [SerializeField] private string iteriumLabel = "iteriumAmount";
 
     [Header("Thrust Iterium Requirement")]
-    [SerializeField] private int thrustLevel1 = 10;
-    [SerializeField] private string thrustLevel1Label = "thrustLevel1";
-    [SerializeField] private int thrustLevel2 = 30;
-    [SerializeField] private string thrustLevel2Label = "thrustLevel2";
+    [SerializeField] private int speedLevel1 = 10;
+    [SerializeField] private string speedLevel1Label = "thrustLevel1";
+    [SerializeField] private int speedLevel2 = 30;
+    [SerializeField] private string speedLevel2Label = "thrustLevel2";
 
     [Header("Shield Iterium Requirement")]
     [SerializeField] private int shieldLevel1 = 10;
@@ -48,7 +48,7 @@ public class UI_Upgrade : MonoBehaviour
 
     //UI firepower controls
     private Slider firepower;
-    private Button firepowreUpgrade;
+    private Button firepowerUpgrade;
     private Label firepowerLabelLevel1;
     private Label firepowerLabelLevel2;
 
@@ -63,10 +63,10 @@ public class UI_Upgrade : MonoBehaviour
 
 
         //UI thrust elements
-        thrust = uiRoot.Q<Slider>(thrustSlider);
-        thrustUpgrade = uiRoot.Q<Button>(thrustButton);
-        thrustLabelLevel1 = uiRoot.Q<Label>(thrustLevel1Label);
-        thrustLabelLevel2 = uiRoot.Q<Label>(thrustLevel2Label);
+        thrust = uiRoot.Q<Slider>(speedSlider);
+        thrustUpgrade = uiRoot.Q<Button>(speedButton);
+        thrustLabelLevel1 = uiRoot.Q<Label>(speedLevel1Label);
+        thrustLabelLevel2 = uiRoot.Q<Label>(speedLevel2Label);
         thrust.SetEnabled(false);
         thrustUpgrade.clicked += UpgradeThrust;
 
@@ -80,11 +80,11 @@ public class UI_Upgrade : MonoBehaviour
 
         //UI firepower elements
         firepower = uiRoot.Q<Slider>(firepowerSlider);
-        firepowreUpgrade = uiRoot.Q<Button>(firepowerButton);
+        firepowerUpgrade = uiRoot.Q<Button>(firepowerButton);
         firepowerLabelLevel1 = uiRoot.Q<Label>(firepowerLevel1Label);
         firepowerLabelLevel2 = uiRoot.Q<Label>(firepowerLevel2Label);
         firepower.SetEnabled(false);
-        firepowreUpgrade.clicked += UpgradeFirepower;
+        firepowerUpgrade.clicked += UpgradeFirepower;
     }
 
     private void Start()
@@ -92,22 +92,24 @@ public class UI_Upgrade : MonoBehaviour
         ChangeUpgradeLabels();
         ChangeIterium();
         ChangeUpgradeSliders();
+
+        //UI Events
         GameManager.Instance.player.onChange_Iterium.AddListener(ChangeIterium);
     }
 
     void UpgradeThrust()
     {
-        if (GameManager.Instance.player.SpeedLvl == 1 && GameManager.Instance.player.Iterium >= thrustLevel1)
+        if (GameManager.Instance.player.SpeedLvl == 1 && GameManager.Instance.player.Iterium >= speedLevel1)
         {
-            //Upgrade speed to lvl 1
-            GameManager.Instance.player.Iterium -= thrustLevel1;
+            //Upgrade speed to lvl 2
+            GameManager.Instance.player.Iterium -= speedLevel1;
             GameManager.Instance.player.SpeedLvl = 2;
             thrust.value = 1;
         }
-        else if (GameManager.Instance.player.SpeedLvl == 2 && GameManager.Instance.player.Iterium >= thrustLevel2)
+        else if (GameManager.Instance.player.SpeedLvl == 2 && GameManager.Instance.player.Iterium >= speedLevel2)
         {
-            //Upgrade speed to lvl 2
-            GameManager.Instance.player.Iterium -= thrustLevel2;
+            //Upgrade speed to lvl 3
+            GameManager.Instance.player.Iterium -= speedLevel2;
             GameManager.Instance.player.SpeedLvl = 3;
             thrust.value = 2;
         }
@@ -117,14 +119,14 @@ public class UI_Upgrade : MonoBehaviour
     {
         if (GameManager.Instance.player.ShieldLvl == 1 && GameManager.Instance.player.Iterium >= shieldLevel1)
         {
-            //Upgrade shield to lvl 1
+            //Upgrade shield to lvl 2
             GameManager.Instance.player.Iterium -= shieldLevel1;
             GameManager.Instance.player.ShieldLvl = 2;
             shield.value = 1;
         }
         else if (GameManager.Instance.player.ShieldLvl == 2 && GameManager.Instance.player.Iterium >= shieldLevel2)
         {
-            //Upgrade shield to lvl 1
+            //Upgrade shield to lvl 3
             GameManager.Instance.player.Iterium -= shieldLevel2;
             GameManager.Instance.player.ShieldLvl = 3;
             shield.value = 2;
@@ -135,14 +137,14 @@ public class UI_Upgrade : MonoBehaviour
     {
         if (GameManager.Instance.player.BulletLvl == 1 && GameManager.Instance.player.Iterium >= firepowerLevel1)
         {
-            //Upgrade bullet to lvl 1
+            //Upgrade bullet to lvl 2
             GameManager.Instance.player.Iterium -= firepowerLevel1;
             GameManager.Instance.player.BulletLvl = 2;
             firepower.value = 1;
         }
         else if (GameManager.Instance.player.BulletLvl == 2 && GameManager.Instance.player.Iterium >= firepowerLevel2)
         {
-            //Upgrade bullet to lvl 2
+            //Upgrade bullet to lvl 3
             GameManager.Instance.player.Iterium -= firepowerLevel2;
             GameManager.Instance.player.BulletLvl = 3;
             firepower.value = 2;
@@ -156,8 +158,8 @@ public class UI_Upgrade : MonoBehaviour
 
     void ChangeUpgradeLabels()
     {
-        thrustLabelLevel1.text = thrustLevel1.ToString();
-        thrustLabelLevel2.text = thrustLevel2.ToString();
+        thrustLabelLevel1.text = speedLevel1.ToString();
+        thrustLabelLevel2.text = speedLevel2.ToString();
         shieldLabelLevel1.text = shieldLevel1.ToString();
         shieldLabelLevel2.text = shieldLevel2.ToString();
         firepowerLabelLevel1.text = firepowerLevel1.ToString();
@@ -166,8 +168,8 @@ public class UI_Upgrade : MonoBehaviour
 
     void ChangeUpgradeSliders()
     {
-        shield.value = GameManager.Instance.player.ShieldLvl-1;
-        thrust.value = GameManager.Instance.player.SpeedLvl-1;
-        firepower.value = GameManager.Instance.player.BulletLvl-1;
+        shield.value = GameManager.Instance.player.ShieldLvl - 1;
+        thrust.value = GameManager.Instance.player.SpeedLvl - 1;
+        firepower.value = GameManager.Instance.player.BulletLvl - 1;
     }
 }

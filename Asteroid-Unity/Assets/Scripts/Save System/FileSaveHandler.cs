@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// File system handler to write/read save data to/from a file, additional handler can be created for cloud saves etc
@@ -15,11 +16,11 @@ public class FileSaveHandler
     private string dirPath;
     string fullPath;
 
-    //WegGL plugin - force browser IndexDB sync on a save
+    //Browser plugin - force browser IndexDB to sync immediatly on a save
     [DllImport("__Internal")]
     private static extern void syncSave();
 
-    //WegGL plugin - browser alert popup for errors etc
+    //Browser plugin - browser alert popup for errors/info-box etc
     [DllImport("__Internal")]
     private static extern void alert(string message);
 
@@ -34,8 +35,8 @@ public class FileSaveHandler
     public SaveData Load(string fileName)
     {
         fullPath = Path.Combine(dirPath, fileName);
+        SaveData loadData = new SaveData();
 
-        SaveData loadData = null;
         if (File.Exists(fullPath))
         {
             try
@@ -62,6 +63,12 @@ public class FileSaveHandler
                     Debug.LogError("Error loading save file: " + fullPath + "\n" + ex);
                 }
             }
+        }
+        else
+        {
+            GameManager.Instance.ResetGame();
+            loadData = GameManager.Instance.saveData;
+
         }
         return loadData;
     }
@@ -104,12 +111,16 @@ public class FileSaveHandler
         }
     }
 
-    //Load the leaderboard List<> from file using the JsonHelp wrapper class
+    //Load the leaderboard List<> from file using the JsonHelper wrapper class
     public List<T> LoadLeaderboard<T>(string fileName)
     {
         fullPath = Path.Combine(dirPath, fileName);
         List<T> newList;
         string dataToLoad = null;
+        if (!File.Exists(fullPath))
+        {
+            GameManager.Instance.InitLeaderboard();
+        }
         if (File.Exists(fullPath))
         {
             try
@@ -133,20 +144,21 @@ public class FileSaveHandler
                     Debug.LogError("Error loading save file: " + fullPath + "\n" + ex);
                 }
             }
-        }      
+        }
+
         if (string.IsNullOrEmpty(dataToLoad) || dataToLoad == "{}")
         {
             return new List<T>();
         }
         else
         {
-            Debug.Log("Successfully Loaded File"); 
+            Debug.Log("Successfully Loaded File");
             newList = JsonHelper.FromJson<T>(dataToLoad).ToList();
             return newList;
         }
     }
 
-    //Save the leaderboard List<> to a file using the JsonHelp wrapper class
+    //Save the leaderboard List<> to a file using the JsonHelper wrapper class
     public void SaveLeaderboard<T>(List<T> saveData, string fileName)
     {
         fullPath = Path.Combine(dirPath, fileName);

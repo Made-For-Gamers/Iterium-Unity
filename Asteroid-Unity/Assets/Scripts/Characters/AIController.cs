@@ -10,12 +10,13 @@ using System.Collections;
 /// * Ship destroy
 /// * Screen warping
 /// </summary>
+
 public class AIController : MonoBehaviour
 {
     [Header("Bullet")]
     [SerializeField] private float fireStart = 2f;
-    [SerializeField] private float fireInterval = 0.9f;
-    [SerializeField] private int descisionCycle = 3; //number of bullets to fire at a target before deciding to changing targets
+    [SerializeField] private float fireInterval = 0.6f;
+    [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a descition cycle (targeting)
 
     private Transform firePosition;
     private GameObject shield;
@@ -47,63 +48,86 @@ public class AIController : MonoBehaviour
         Thrust();
     }
 
-    //Ship rotation targeting the player or NPC
+    //AI Ship targeting, either the player or NPC
     private void Rotate()
     {
-        if (GameManager.Instance.aiTarget.gameObject != null)
+        if (attackNPC && GameManager.Instance.targetNpc.gameObject)
         {
-            transform.LookAt(GameManager.Instance.aiTarget.transform);
+            transform.LookAt(GameManager.Instance.targetNpc.transform);
         }
-
+        else
+        {
+            if (GameManager.Instance.targetPlayer.gameObject)
+            {
+                transform.LookAt(GameManager.Instance.targetPlayer.transform);
+            }
+        }
     }
 
-    //Firing
+    //Ship Firing
     private void Fire()
     {
-        if (GameManager.Instance.aiTarget.gameObject != null)
+        if (!GameManager.Instance.targetNpc.gameObject)
+        {
+            attackNPC = false;
+        }
+        if (GameManager.Instance.targetPlayer.gameObject || GameManager.Instance.targetNpc.gameObject)
         {
             GameObject bullet = BulletPooling.bulletPoolAi.Get();
             bullet.transform.position = firePosition.position;
-            if (attackNPC == false && shots == 0)
+
+            //New descition cyle - Attack NPC or not?
+            if (attackNPC == false && shots == 0 && GameManager.Instance.targetNpc.gameObject)
             {
-                if (GameManager.Instance.aiTarget.name == "NPC") //If there is an NPC in the scene randomly decide to target it or not
+                int rnd = Random.Range(1, 3);
+                if (rnd == 1)
                 {
-                    int rnd = Random.Range(1, 3);
-                    if (rnd == 1)
-                    {
-                        GameManager.Instance.FindAiTarget(true); //change target to NPC
-                        attackNPC = true;
-                    }
+                    attackNPC = true;
                 }
             }
-            bullet.transform.LookAt(GameManager.Instance.aiTarget.transform);
+
+            if (attackNPC) //Point bullet at NPC
+            {
+                bullet.transform.LookAt(GameManager.Instance.targetNpc.transform);
+            }
+            else if (GameManager.Instance.targetPlayer.gameObject) //Point bullet at Player
+            {
+                bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
+            }
+            else
+            {
+                bullet.transform.Rotate(Vector3.zero);
+            }
+
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
             shots++;
-            if (shots >= descisionCycle)
+
+            if (shots >= decisionCycle)
             {
+                //reset descition cycle
                 shots = 0;
-                if (attackNPC) // re-target player when the decision cycle is reached
+                if (attackNPC)
                 {
                     attackNPC = false;
-                    GameManager.Instance.FindAiTarget(false);
                 }
             }
         }
+
+
     }
 
 
     //Ship Thrust
     private void Thrust()
     {
-        if (rigidBody.velocity.z >= 0f && GameManager.Instance.aiTarget.gameObject != null)
+        if (rigidBody.velocity.z >= 0f && GameManager.Instance.targetAi.gameObject)
         {
             if (!isThrusting)
             {
-                //StartCoroutine(Thrusters());
                 isThrusting = true;
                 thrusters.SetActive(true);
             }
-            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
+            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvlUs + 1)) * Time.deltaTime), ForceMode.Force);
         }
         else
         {
@@ -112,10 +136,10 @@ public class AIController : MonoBehaviour
         }
     }
 
-    //Shield
+    //Ship Shield
     private void Shield()
     {
-        if (!isShielding) //Deploy Shield
+        if (!isShielding)
         {
             shield.SetActive(true);
             isShielding = true;
@@ -123,7 +147,7 @@ public class AIController : MonoBehaviour
             shieldCooldown = GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown;
         }
 
-        if (shieldCooldown > 0) //Shield cooldown 
+        if (shieldCooldown > 0)
         {
             shieldCooldown -= 1 * Time.deltaTime;
         }
@@ -138,14 +162,14 @@ public class AIController : MonoBehaviour
     {
         yield return new WaitForSeconds(GameManager.Instance.aiPlayer.Character.Ship.ShieldTime);
         shield.SetActive(false);
-
     }
 
+    //Calculate the damage when the ship is struck. Taking account of shield strength and striking bullets power.
     public void BulletHit(float firePower)
     {
         if (isShielding)
         {
-            GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Character.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvl));
+            GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Character.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvlUs));
         }
         else
         {
@@ -166,6 +190,7 @@ public class AIController : MonoBehaviour
         }
     }
 
+    //Destroy this ship
     IEnumerator DestroyShip()
     {
 

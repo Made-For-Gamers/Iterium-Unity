@@ -270,6 +270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 250
   xp: 25
+  effectIndex: 1
 --- !u!4 &7969504048205425031 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 322965c6cacf50d4d9cda5e7465385d0,

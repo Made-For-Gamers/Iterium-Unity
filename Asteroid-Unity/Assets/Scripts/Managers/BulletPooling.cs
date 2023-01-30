@@ -12,12 +12,12 @@ public class BulletPooling : MonoBehaviour
     [SerializeField] private int maxCapacity = 30;
 
     [Header("AI Bullet Pooling")]
-    [SerializeField] private int capacityAi = 15;
-    [SerializeField] private int maxCapacityAi = 20;
+    [SerializeField] private int capacityAi = 10;
+    [SerializeField] private int maxCapacityAi = 15;
 
     [Header("NPC Bullet Pooling")]
-    [SerializeField] private int capacityNpc = 10;
-    [SerializeField] private int maxCapacityNpc = 15;
+    [SerializeField] private int capacityNpc = 6;
+    [SerializeField] private int maxCapacityNpc = 10;
      
     public static ObjectPool<GameObject> bulletPoolPlayer;
     public static ObjectPool<GameObject> bulletPoolAi;

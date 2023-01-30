@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 //Faction selection using UI Toolkit
 public class UI_FactionSelection : MonoBehaviour
 {
-    [Header("Target scene")]
+    [Header("Play Scene")]
 #if UNITY_EDITOR
     public UnityEditor.SceneAsset targetScene;
     private void OnValidate()
@@ -38,27 +38,35 @@ public class UI_FactionSelection : MonoBehaviour
         buttonUssr.clicked += ButtonUssr_clicked;
     }
 
+    //Select faction China and set ship upgrades
     private void ButtonChina_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[1];
+        GameManager.Instance.UpgradeLevelSync();
+
         LoadScene();
     }
 
+    //Select faction US and set ship upgrades
     private void ButtonUsa_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[2];
+        GameManager.Instance.UpgradeLevelSync();
         LoadScene();
     }
 
+    //Select faction USSR and set ship upgrades
     private void ButtonUssr_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[3];
+        GameManager.Instance.UpgradeLevelSync();
         LoadScene();
     }
 
     private void LoadScene()
     {
         GameManager.Instance.SaveGame();
+        GameManager.Instance.NewArena();
         SceneManager.LoadScene(sceneName);
     }
 }

@@ -1277,9 +1277,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   capacity: 25
   maxCapacity: 30
-  capacityAi: 15
-  maxCapacityAi: 20
-  capacityNpc: 5
+  capacityAi: 10
+  maxCapacityAi: 15
+  capacityNpc: 6
   maxCapacityNpc: 10
 --- !u!1 &1444972401
 GameObject:

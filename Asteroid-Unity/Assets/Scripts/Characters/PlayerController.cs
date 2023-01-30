@@ -10,6 +10,9 @@ using System.Collections;
 /// * Ship destroy
 /// * Screen warping
 /// </summary>
+
+[RequireComponent(typeof(InputManager))]
+
 public class PlayerController : MonoBehaviour
 {
     private InputManager input;
@@ -109,7 +112,7 @@ public class PlayerController : MonoBehaviour
         if (input.isWarping)
         { 
             transform.position = GameManager.Instance.playerSpawner.position;
-            rigidBody.velocity = Vector3.zero;
+            //rigidBody.velocity = Vector3.zero;
             input.isWarping = false;
         }
     }

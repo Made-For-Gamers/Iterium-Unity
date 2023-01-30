@@ -12,23 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  profileName: Player Name 1
-  bio: A little bio about the gamer
-  email: player@gamer.com
-  xp: 0
-  score: 16300
+  profileName: Player 1
+  bio: 
+  email: 
+  xp: 24600
+  level: 5
+  score: 100
   character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
-  health: 70
-  bulletLvl: 1
-  shieldLvl: 1
-  speedLvl: 1
-  iterium: 966
+  health: 100
+  iterium: 0
   iteriumCollected: 0
   lives: 3
+  bulletLvl: 3
+  shieldLvl: 3
+  speedLvl: 3
+  bulletLvlUs: 3
+  shieldLvlUs: 1
+  speedLvlUs: 1
+  bulletLvlUssr: 1
+  shieldLvlUssr: 1
+  speedLvlUssr: 1
+  bulletLvlChn: 1
+  shieldLvlChn: 1
+  speedLvlChn: 1
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []
   onChange_Score:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_XP:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_Level:
     m_PersistentCalls:
       m_Calls: []
   onChange_Iterium:
@@ -38,5 +54,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Lives:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_bulletLvl:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_shieldLvl:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_speedLvl:
     m_PersistentCalls:
       m_Calls: []
