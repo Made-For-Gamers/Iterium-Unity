@@ -1,22 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-4906329577327561511
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
-  m_Name: ChromaticAberration
-  m_EditorClassIdentifier: 
-  active: 1
-  intensity:
-    m_OverrideState: 1
-    m_Value: 0.135
---- !u!114 &-4577963875621156863
+--- !u!114 &-2752748857881178940
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -33,14 +17,14 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: {r: 0, g: 0, b: 0, a: 1}
   center:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.395
+    m_Value: 0.642
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.254
+    m_Value: 0.16
   rounded:
     m_OverrideState: 0
     m_Value: 0
@@ -54,13 +38,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: PaxDev Volume 1
+  m_Name: FactionVolume
   m_EditorClassIdentifier: 
   components:
-  - {fileID: 8899071707432707873}
-  - {fileID: -4577963875621156863}
-  - {fileID: -4906329577327561511}
---- !u!114 &8899071707432707873
+  - {fileID: 1676858106817499674}
+  - {fileID: 2146908583488687208}
+  - {fileID: -2752748857881178940}
+--- !u!114 &1676858106817499674
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -74,14 +58,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   threshold:
-    m_OverrideState: 0
-    m_Value: 26.08
+    m_OverrideState: 1
+    m_Value: 0.18
   intensity:
     m_OverrideState: 1
-    m_Value: 0.02
+    m_Value: 3.06
   scatter:
-    m_OverrideState: 0
-    m_Value: 0.7
+    m_OverrideState: 1
+    m_Value: 0.078
   clamp:
     m_OverrideState: 0
     m_Value: 65472
@@ -99,5 +83,21 @@ MonoBehaviour:
     m_Value: {fileID: 0}
     dimension: 1
   dirtIntensity:
+    m_OverrideState: 0
+    m_Value: 0
+--- !u!114 &2146908583488687208
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  intensity:
     m_OverrideState: 0
     m_Value: 0

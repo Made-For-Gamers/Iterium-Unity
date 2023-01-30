@@ -4,7 +4,7 @@
         <ui:VisualElement name="menuPanel" style="align-items: center; justify-content: center; width: 100%; height: auto; border-left-width: 1px; border-right-width: 1px; border-top-width: 1px; border-bottom-width: 1px; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); position: relative; top: auto; background-color: rgba(0, 0, 0, 0); -unity-text-outline-color: rgba(0, 0, 0, 0); flex-grow: 1;">
             <ui:Button display-tooltip-when-elided="true" name="mainMenu" class="menu-button" style="border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; background-image: url(&apos;project://database/Assets/Images/outline-home.png?fileID=2800000&amp;guid=61cc39b4a70ed0040a7770057df150d1&amp;type=3#outline-home&apos;);" />
             <ui:VisualElement name="header">
-                <ui:Label text="Settings" display-tooltip-when-elided="true" name="settings" class="header" />
+                <ui:Label text="SETTINGS" display-tooltip-when-elided="true" name="settings" class="header" />
             </ui:VisualElement>
             <ui:VisualElement name="selectionPanel" style="width: 100%; height: 100%; flex-direction: row; justify-content: space-between;">
                 <ui:VisualElement name="image" style="width: 20%;">
