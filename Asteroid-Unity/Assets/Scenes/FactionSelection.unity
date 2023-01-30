@@ -201,11 +201,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67074f1b1809394b81d37ee026173f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: {fileID: 102900000, guid: bea7fe1aaca2039468ae91d7d55af094, type: 3}
+  targetScene: {fileID: 102900000, guid: cda3c1e8ea60606458faf28f6fc59f8e, type: 3}
   chinaFaction: chinaFaction
   usaFaction: usaFaction
   ussrFaction: ussrFaction
-  sceneName: Play
+  sceneName: Pax Dev 3D Test
 --- !u!1 &363224429 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1905784828285053549, guid: 4573ccc1d6fd47e4695ae8516c169a71,

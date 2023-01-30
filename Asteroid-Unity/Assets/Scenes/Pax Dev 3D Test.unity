@@ -1767,7 +1767,7 @@ GameObject:
   - component: {fileID: 1517460703}
   - component: {fileID: 1517460702}
   - component: {fileID: 1517460701}
-  m_Layer: 0
+  m_Layer: 24
   m_Name: Camera5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
