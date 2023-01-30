@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11697c1fef89084e85ad513036405d3, type: 3}
-  m_Name: Rocket
+  m_Name: Photon Shell Chn
   m_EditorClassIdentifier: 
-  bulletName: Rocket
+  bulletName: Photon Shell
   description: 
   image: {fileID: 0}
-  speed: 12.5
-  firePower: 15
+  speed: 15
+  firePower: 10
   bullet:
-  - {fileID: 3803158083815380232, guid: 68bebe3bf1e85dc41a55456b754a1f12, type: 3}
-  - {fileID: 2567051218182355147, guid: 7e87f85841b3b024aba6c11bbed9fb87, type: 3}
-  - {fileID: 3082461456648297911, guid: 0f5621cadadfdb34aafba8350c62fd31, type: 3}
+  - {fileID: 9217440467355884499, guid: f62dcc1250c4c91448f8db4a48991434, type: 3}
+  - {fileID: 5512311507296295378, guid: c32316df7d65caf4e8681816cfabef34, type: 3}
+  - {fileID: 8359654101769721173, guid: affa98ddce2b953499c56b9bee4f9951, type: 3}

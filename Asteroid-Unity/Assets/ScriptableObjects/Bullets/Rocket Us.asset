@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11697c1fef89084e85ad513036405d3, type: 3}
-  m_Name: Plasma Ball
+  m_Name: Rocket Us
   m_EditorClassIdentifier: 
-  bulletName: Plasma Ball
+  bulletName: Rocket
   description: 
   image: {fileID: 0}
   speed: 10
-  firePower: 12.5
+  firePower: 20
   bullet:
-  - {fileID: 4031060044659540045, guid: 2ee5fe5ea8792584db3f2220965253b6, type: 3}
-  - {fileID: 7921919184455686225, guid: 3f4f1829aeb05ae4184606ba9dc70129, type: 3}
-  - {fileID: 5096628439975147631, guid: ef812b58a16146c4f9ee101f4e41f858, type: 3}
+  - {fileID: 3803158083815380232, guid: 68bebe3bf1e85dc41a55456b754a1f12, type: 3}
+  - {fileID: 2567051218182355147, guid: 7e87f85841b3b024aba6c11bbed9fb87, type: 3}
+  - {fileID: 3082461456648297911, guid: 0f5621cadadfdb34aafba8350c62fd31, type: 3}

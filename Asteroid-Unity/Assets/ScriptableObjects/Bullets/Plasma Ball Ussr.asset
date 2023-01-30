@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e11697c1fef89084e85ad513036405d3, type: 3}
-  m_Name: Photon Shell
+  m_Name: Plasma Ball Ussr
   m_EditorClassIdentifier: 
-  bulletName: Photon Shell
+  bulletName: Plasma Ball
   description: 
   image: {fileID: 0}
-  speed: 15
-  firePower: 10
+  speed: 12.5
+  firePower: 15
   bullet:
-  - {fileID: 9217440467355884499, guid: f62dcc1250c4c91448f8db4a48991434, type: 3}
-  - {fileID: 5512311507296295378, guid: c32316df7d65caf4e8681816cfabef34, type: 3}
-  - {fileID: 8359654101769721173, guid: affa98ddce2b953499c56b9bee4f9951, type: 3}
+  - {fileID: 4031060044659540045, guid: 2ee5fe5ea8792584db3f2220965253b6, type: 3}
+  - {fileID: 7921919184455686225, guid: 3f4f1829aeb05ae4184606ba9dc70129, type: 3}
+  - {fileID: 5096628439975147631, guid: ef812b58a16146c4f9ee101f4e41f858, type: 3}
