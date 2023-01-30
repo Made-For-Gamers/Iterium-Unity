@@ -1755,7 +1755,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Zoid
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2704880447922554581, guid: 4573ccc1d6fd47e4695ae8516c169a71, type: 3}
+    - {fileID: 5116134466382706654, guid: 4573ccc1d6fd47e4695ae8516c169a71, type: 3}
+    - {fileID: 614894068538627836, guid: 4573ccc1d6fd47e4695ae8516c169a71, type: 3}
+    - {fileID: -1288667122812581546, guid: 4573ccc1d6fd47e4695ae8516c169a71, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4573ccc1d6fd47e4695ae8516c169a71, type: 3}
 --- !u!1001 &1954091335
 PrefabInstance:
