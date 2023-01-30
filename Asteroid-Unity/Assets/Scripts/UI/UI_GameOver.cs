@@ -93,6 +93,7 @@ public class UI_GameOver : MonoBehaviour
 
     private void Rematch()
     {
+        GameManager.Instance.NewArena();
         SceneManager.LoadScene(gameScene);
     }
 }

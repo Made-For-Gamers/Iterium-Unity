@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef446240436fd92488493614ee60a2a3, type: 3}
   m_Name: CharChina
   m_EditorClassIdentifier: 
+  id: chn
   charName: General Chen Yi
   description: 
   image: {fileID: 0}

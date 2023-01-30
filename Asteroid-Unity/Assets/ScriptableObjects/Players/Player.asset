@@ -15,15 +15,18 @@ MonoBehaviour:
   profileName: Player 1
   bio: 
   email: 
-  xp: 24125
+  xp: 24600
   level: 5
   score: 100
-  character: {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
+  character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
   health: 100
-  iterium: 160
+  iterium: 0
   iteriumCollected: 0
   lives: 3
-  bulletLvlUs: 1
+  bulletLvl: 3
+  shieldLvl: 3
+  speedLvl: 3
+  bulletLvlUs: 3
   shieldLvlUs: 1
   speedLvlUs: 1
   bulletLvlUssr: 1
@@ -51,5 +54,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Lives:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_bulletLvl:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_shieldLvl:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_speedLvl:
     m_PersistentCalls:
       m_Calls: []

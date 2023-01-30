@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 //Faction selection using UI Toolkit
 public class UI_FactionSelection : MonoBehaviour
 {
-    [Header("Target scene")]
+    [Header("Play Scene")]
 #if UNITY_EDITOR
     public UnityEditor.SceneAsset targetScene;
     private void OnValidate()
@@ -42,9 +42,8 @@ public class UI_FactionSelection : MonoBehaviour
     private void ButtonChina_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[1];
-        GameManager.Instance.bulletLvl = GameManager.Instance.player.BulletLvlChn;
-        GameManager.Instance.speedLvl = GameManager.Instance.player.SpeedLvlChn;
-        GameManager.Instance.shieldLvl = GameManager.Instance.player.ShieldLvlChn;
+        GameManager.Instance.UpgradeLevelSync();
+
         LoadScene();
     }
 
@@ -52,9 +51,7 @@ public class UI_FactionSelection : MonoBehaviour
     private void ButtonUsa_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[2];
-        GameManager.Instance.bulletLvl = GameManager.Instance.player.BulletLvlUs;
-        GameManager.Instance.speedLvl = GameManager.Instance.player.SpeedLvlUs;
-        GameManager.Instance.shieldLvl = GameManager.Instance.player.ShieldLvlUs;
+        GameManager.Instance.UpgradeLevelSync();
         LoadScene();
     }
 
@@ -62,15 +59,14 @@ public class UI_FactionSelection : MonoBehaviour
     private void ButtonUssr_clicked()
     {
         GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[3];
-        GameManager.Instance.bulletLvl = GameManager.Instance.player.BulletLvlUssr;
-        GameManager.Instance.speedLvl = GameManager.Instance.player.SpeedLvlUssr;
-        GameManager.Instance.shieldLvl = GameManager.Instance.player.ShieldLvlUssr;
+        GameManager.Instance.UpgradeLevelSync();
         LoadScene();
     }
 
     private void LoadScene()
     {
         GameManager.Instance.SaveGame();
+        GameManager.Instance.NewArena();
         SceneManager.LoadScene(sceneName);
     }
 }

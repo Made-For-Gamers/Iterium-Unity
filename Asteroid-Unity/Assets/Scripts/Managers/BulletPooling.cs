@@ -39,7 +39,7 @@ public class BulletPooling : MonoBehaviour
     private GameObject PoolNew_Player() //Player 1 bullet
     {
         //Instantiate new player bullet
-        return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.bulletLvl-1]);
+        return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.player.BulletLvl-1]);
       
     }
     private GameObject PoolNew_Ai() //AI bullet

@@ -45,33 +45,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1f0ebac4725ef140978f443f20e9f9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destinationSceneChn: {fileID: 102900000, guid: 94803d010e6a088488369299b0788440,
+    type: 3}
+  destinationSceneUs: {fileID: 102900000, guid: d113222d9413cde4daf808a79cb831d5,
+    type: 3}
+  destinationSceneUssr: {fileID: 102900000, guid: 7d502605fa70b4d49aea5d982b868420,
+    type: 3}
+  upgradeChnScene: UpgradeChina
+  upgradeUsScene: UpgradeUSA
+  UpgradeUssrScene: UpgradeUSSR
   saveFile: Iterium.save
   saveFileLeaderboard: Leaderboard.save
   leaderboardSize: 50
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
-  aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
-  aiPermadeath: 0
-  npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
+  targetPlayer: {fileID: 0}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
   deathRespawnTime: 5
   xpLevelSteps: 1000
   maxLevel: 50
+  aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
+  aiPermadeath: 0
+  targetAi: {fileID: 0}
+  npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
+  targetNpc: {fileID: 0}
   iterium: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
   iteriumChance: 20
-  playerSpawner: {fileID: 0}
-  aiSpawner: {fileID: 0}
+  leaderboard: []
   saveData:
     profileName: 
     bio: 
     email: 
     xp: 0
-    shieldLvl: 0
-    bulletLvl: 0
-    speedLvl: 0
+    level: 0
+    shieldLvlUs: 0
+    bulletLvlUs: 0
+    speedLvlUs: 0
+    shieldLvlUssr: 0
+    bulletLvlUssr: 0
+    speedLvlUssr: 0
+    shieldLvlChn: 0
+    bulletLvlChn: 0
+    speedLvlChn: 0
     iterium: 0
     character: {fileID: 0}
-  leaderboard: []
-  aiTarget: {fileID: 0}
+  playerSpawner: {fileID: 0}
+  aiSpawner: {fileID: 0}
 --- !u!114 &3129659794114194612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,7 +106,7 @@ MonoBehaviour:
   shipExplosion: {fileID: 11400000, guid: 8f0ac79bf2c87664182c1464b378ad61, type: 2}
   effects: {fileID: 11400000, guid: 096d6536bbdc6a14481b69840e0bde1d, type: 2}
   music: {fileID: 11400000, guid: bae91d4af4039f54e929638b15af498a, type: 2}
-  audioSourceNumber: 12
+  audioSourceNumber: 20
   mixerMaster: {fileID: 24300002, guid: d79b3a73c105760479ef4bab8ba17768, type: 2}
   mixerMusic: {fileID: -7456260393111729204, guid: d79b3a73c105760479ef4bab8ba17768,
     type: 2}

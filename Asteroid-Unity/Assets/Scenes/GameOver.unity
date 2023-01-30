@@ -201,8 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1f856ce311dd0d44b80ea36ad5e12da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: bea7fe1aaca2039468ae91d7d55af094, type: 3}
-  gameScene: Pax Dev 3D
+  destinationScene: {fileID: 102900000, guid: cda3c1e8ea60606458faf28f6fc59f8e, type: 3}
+  gameScene: Pax Dev 3D Test
   playerScore: playerScore
   playerIterium: playerIterium
   playerMessage: message

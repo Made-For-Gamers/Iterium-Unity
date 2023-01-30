@@ -7,6 +7,7 @@ using UnityEngine;
 //Ship contains a reference to the SO_Bullet
 public class SO_Character : ScriptableObject
 {
+    [SerializeField] private string id;
     [SerializeField] private string charName;
     [TextArea(5, 5)]
     [SerializeField] private string description;
@@ -21,4 +22,5 @@ public class SO_Character : ScriptableObject
     public string Country { get => country; set => country = value; }
     public Sprite Flag { get => flag; set => flag = value; }
     public SO_Ship Ship { get => ship; set => ship = value; }
+    public string Id { get => id; }
 }

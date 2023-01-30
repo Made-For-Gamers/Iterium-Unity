@@ -10,6 +10,25 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    [Header("Faction Upgrade Scenes")]
+#if UNITY_EDITOR
+    public UnityEditor.SceneAsset destinationSceneChn;
+    public UnityEditor.SceneAsset destinationSceneUs;
+    public UnityEditor.SceneAsset destinationSceneUssr;
+    private void OnValidate()
+    {
+        if (destinationSceneChn != null)
+        {
+            upgradeChnScene = destinationSceneChn.name;
+            upgradeUsScene = destinationSceneUs.name;
+            UpgradeUssrScene = destinationSceneUssr.name;
+        }
+    }
+#endif
+    [HideInInspector] public string upgradeChnScene;
+    [HideInInspector] public string upgradeUsScene;
+    [HideInInspector] public string UpgradeUssrScene;
+
     [Header("Save Game")]
     [SerializeField] private string saveFile;
     [SerializeField] private string saveFileLeaderboard;
@@ -21,10 +40,7 @@ public class GameManager : Singleton<GameManager>
     public SO_Factions factions;
     public float deathRespawnTime = 4f;
     public int xpLevelSteps = 1000;
-    public int maxLevel = 50;
-    [HideInInspector] public int bulletLvl;
-    [HideInInspector] public int speedLvl;
-    [HideInInspector] public int shieldLvl;
+    public int maxLevel = 50;  
 
     [Header("AI Settings")]
     public SO_Player aiPlayer;
@@ -50,11 +66,17 @@ public class GameManager : Singleton<GameManager>
 
     private FileSaveHandler fileSaveHandler;
 
+
     private void Start()
     {
+        //Load Game Save
         this.fileSaveHandler = new FileSaveHandler(Application.persistentDataPath);
         LoadGame();
-        //ResetGame();
+
+        //Events
+        player.onChange_bulletLvl.AddListener(BulletLvlChanged);
+        player.onChange_shieldLvl.AddListener(ShieldLvlChanged);
+        player.onChange_speedLvl.AddListener(SpeedLvlChanged);
     }
 
     private void SelectAiPlayer()
@@ -119,6 +141,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         LoadLeaderboard();
+        UpgradeLevelSync();
     }
 
     public void NewGame()
@@ -137,6 +160,9 @@ public class GameManager : Singleton<GameManager>
         player.Level = 1;
         player.Iterium = 0;
         player.IteriumCollected = 0;
+        player.SpeedLvl = 1;
+        player.ShieldLvl = 1;
+        player.BulletLvl = 1;
         player.SpeedLvlUs = 1;
         player.ShieldLvlUs = 1;
         player.BulletLvlUs = 1;
@@ -157,6 +183,9 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.Iterium = 0;
         aiPlayer.IteriumCollected = 0;
         aiPlayer.Lives = 3;
+        aiPlayer.SpeedLvl = 1;
+        aiPlayer.ShieldLvl = 1;
+        aiPlayer.BulletLvl = 1;
         aiPlayer.SpeedLvlUs = 1;
         aiPlayer.ShieldLvlUs = 1;
         aiPlayer.BulletLvlUs = 1;
@@ -199,17 +228,16 @@ public class GameManager : Singleton<GameManager>
 
     public void SceneUpgrade()
     {
-        print("load upgrade scene");
-        switch (player.Character.Country)
+        switch (player.Character.Id)
         {
-            case "China":
-                SceneManager.LoadScene("UpgradeChina");
+            case "chn":
+                SceneManager.LoadScene(upgradeChnScene);
                 break;
-            case "United States":
-                SceneManager.LoadScene("UpgradeUSA");
+            case "us":
+                SceneManager.LoadScene(upgradeUsScene);
                 break;
-            case "Russia":
-                SceneManager.LoadScene("UpgradeUSSR");
+            case "ussr":
+                SceneManager.LoadScene(UpgradeUssrScene);
                 break;
         }
     }
@@ -319,5 +347,76 @@ public class GameManager : Singleton<GameManager>
     public void CalculateIterium()
     {
         player.Iterium += player.IteriumCollected;
+    }
+
+    private void BulletLvlChanged()
+    {
+        switch (GameManager.Instance.player.Character.Id)
+        {
+            case "chn":
+                player.BulletLvlChn = player.BulletLvl;
+                break;
+            case "us":
+                player.BulletLvlUs = player.BulletLvl;
+                break;
+            case "ussr":
+                player.BulletLvlUssr = player.BulletLvl;
+                break;
+        }
+    }
+
+    private void ShieldLvlChanged()
+    {
+        switch (GameManager.Instance.player.Character.Id)
+        {
+            case "chn":
+                player.ShieldLvlChn = player.ShieldLvl;
+                break;
+            case "us":
+                player.ShieldLvlUs = player.ShieldLvl;
+                break;
+            case "ussr":
+                player.ShieldLvlUssr = player.ShieldLvl;
+                break;
+        }
+
+    }
+
+    private void SpeedLvlChanged()
+    {
+        switch (GameManager.Instance.player.Character.Id)
+        {
+            case "chn":
+                player.SpeedLvlChn = player.SpeedLvl;
+                break;
+            case "us":
+                player.SpeedLvlUs = player.SpeedLvl;
+                break;
+            case "ussr":
+                player.SpeedLvlUssr = player.SpeedLvl;
+                break;
+        }
+    }
+
+    public void UpgradeLevelSync()
+    {
+        switch (GameManager.Instance.player.Character.Id)
+        {
+            case "chn":
+                player.BulletLvl = player.BulletLvlChn;
+                player.ShieldLvl = player.ShieldLvlChn;
+                player.SpeedLvl = player.SpeedLvlChn;
+                break;
+            case "us":
+                player.BulletLvl = player.BulletLvlUs;
+                player.ShieldLvl = player.ShieldLvlUs;
+                player.SpeedLvl = player.SpeedLvlUs;
+                break;
+            case "ussr":
+                player.BulletLvl = player.BulletLvlUssr;
+                player.ShieldLvl = player.ShieldLvlUssr;
+                player.SpeedLvl = player.SpeedLvlUssr;
+                break;
+        }
     }
 }

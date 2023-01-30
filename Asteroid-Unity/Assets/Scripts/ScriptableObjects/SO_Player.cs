@@ -19,7 +19,10 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int health;
     [SerializeField] private int iterium;
     [SerializeField] private int iteriumCollected;
-    [SerializeField] private int lives = 3; 
+    [SerializeField] private int lives = 3;
+    [SerializeField] private int bulletLvl = 1;
+    [SerializeField] private int shieldLvl = 1;
+    [SerializeField] private int speedLvl = 1;
     [SerializeField] private int bulletLvlUs = 1;
     [SerializeField] private int shieldLvlUs = 1;
     [SerializeField] private int speedLvlUs = 1;
@@ -38,6 +41,10 @@ public class SO_Player : ScriptableObject
     public UnityEvent onChange_Iterium;
     public UnityEvent onChange_IteriumCollected;
     public UnityEvent onChange_Lives;
+    public UnityEvent onChange_bulletLvl;
+    public UnityEvent onChange_shieldLvl;
+    public UnityEvent onChange_speedLvl;
+
 
     public string ProfileName
     {
@@ -94,7 +101,7 @@ public class SO_Player : ScriptableObject
             onChange_Health.Invoke();
         }
     }
-  
+
     public int Iterium
     {
         get => iterium;
@@ -125,6 +132,33 @@ public class SO_Player : ScriptableObject
         }
     }
 
+    public int BulletLvl
+    {
+        get => bulletLvl;
+        set
+        {
+            bulletLvl = value;
+            onChange_bulletLvl.Invoke();
+        }
+    }
+    public int ShieldLvl
+    {
+        get => shieldLvl;
+        set
+        {
+            shieldLvl = value;
+            onChange_shieldLvl.Invoke();
+        }
+    }
+    public int SpeedLvl
+    {
+        get => speedLvl;
+        set
+        {
+            speedLvl = value;
+            onChange_speedLvl.Invoke();
+        }
+    }
     public int BulletLvlUs { get => bulletLvlUs; set => bulletLvlUs = value; }
     public int ShieldLvlUs { get => shieldLvlUs; set => shieldLvlUs = value; }
     public int SpeedLvlUs { get => speedLvlUs; set => speedLvlUs = value; }
@@ -134,4 +168,5 @@ public class SO_Player : ScriptableObject
     public int BulletLvlChn { get => bulletLvlChn; set => bulletLvlChn = value; }
     public int ShieldLvlChn { get => shieldLvlChn; set => shieldLvlChn = value; }
     public int SpeedLvlChn { get => speedLvlChn; set => speedLvlChn = value; }
+
 }
