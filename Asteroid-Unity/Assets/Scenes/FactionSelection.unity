@@ -202,8 +202,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b67074f1b1809394b81d37ee026173f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: {fileID: 102900000, guid: f24876ded4400fd44b0777b191d5284a, type: 3}
-  sceneName: Pax Dev 3D Test 1
+  targetScene: {fileID: 102900000, guid: cda3c1e8ea60606458faf28f6fc59f8e, type: 3}
+  sceneName: Play
   chinaFaction: chinaFaction
   usaFaction: usaFaction
   ussrFaction: ussrFaction
