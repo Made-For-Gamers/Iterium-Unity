@@ -34,7 +34,7 @@ public class UI_FactionSelection : MonoBehaviour
     [SerializeField] private SO_Ship shipUssr;
 
 
-    //Planes with ShaderGraph Materials
+    //Slider planes (shader graph materials)
     [Header("Sliders Chn")]
     [SerializeField] private GameObject sliderChnFirepower;
     [SerializeField] private GameObject sliderChnSpeed;
@@ -53,7 +53,7 @@ public class UI_FactionSelection : MonoBehaviour
 
     private void OnEnable()
     {
-        //UI elements
+        //Init UI elements
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
         Button buttonChina = uiRoot.Q<Button>(chinaFaction);
         Button buttonUsa = uiRoot.Q<Button>(usaFaction);
