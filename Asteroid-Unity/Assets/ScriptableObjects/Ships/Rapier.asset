@@ -16,11 +16,11 @@ MonoBehaviour:
   description: 
   image: {fileID: 0}
   faction: {fileID: 0}
-  shieldPower: 1.2
+  shieldPower: 1.6
   shieldCooldown: 10
   shieldTime: 5
-  thrust: 500
-  turnSpeed: 100
+  thrust: 700
+  turnSpeed: 120
   bullet: {fileID: 11400000, guid: 3620db854b039c1499e25795903929e5, type: 2}
   shipPrefab: {fileID: 7077789994623568591, guid: 54fdbd79afd3bf24e8b0c74f2069fa3e,
     type: 3}

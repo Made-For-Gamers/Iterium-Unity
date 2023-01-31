@@ -8,16 +8,16 @@ using UnityEngine;
 public class UI_Game : MonoBehaviour
 {
     [Header("Player UI Elements")]
-    [SerializeField] private string playerScore = "scorePlayer1";
-    [SerializeField] private string playerHealth = "healthPlayer1";
+    [SerializeField] private string playerName = "player1";
+    [SerializeField] private string playerScore = "player1Score";
     [SerializeField] private string playerIterium = "iteriumPlayer1";
 
     [Header("AI Player UI Elements")]
-    [SerializeField] private string aiScore = "scorePlayer2";
-    [SerializeField] private string aiHealth = "healthPlayer2";
+    [SerializeField] private string aiName = "player2";
+    [SerializeField] private string aiScore = "player2Score";
     [SerializeField] private string aiIterium = "iteriumPlayer2";
 
-    [Header("Ship Lives UI Elements")]
+    [Header("Lives UI Elements")]
     [SerializeField] private string ship1Player1 = "ship1Player1";
     [SerializeField] private string ship2Player1 = "ship2Player1";
     [SerializeField] private string ship3Player1 = "ship3Player1";
@@ -25,42 +25,84 @@ public class UI_Game : MonoBehaviour
     [SerializeField] private string ship2Player2 = "ship2Player2";
     [SerializeField] private string ship3Player2 = "ship3Player2";
 
+    //Slider planes (shader graph materials)
+    [Header("Player Health Sliders")]
+    [SerializeField] private GameObject sliderPlayerHealth;
+    [SerializeField] private GameObject sliderAiHealth;
+
 
     //Player UI controls
+    private TextElement playerTextName;
     private TextElement playerTextScore;
-    private ProgressBar playerBarHealth;
     private TextElement playerTextIterium;
     private VisualElement player1Ship1;
     private VisualElement player1Ship2;
     private VisualElement player1Ship3;
 
-    //AI Player UI controls
+    //AI Player UI controls   
+    private TextElement aiTextName;
     private TextElement aiTextScore;
-    private ProgressBar aiBarHealth;
     private TextElement aiTextIterium;
     private VisualElement player2Ship1;
     private VisualElement player2Ship2;
     private VisualElement player2Ship3;
+    private Renderer rendererPlayer;
+    private Renderer rendererAi;
+    private Material matPlayerHealth;
+    private Material matAiHealth;
 
     private void OnEnable()
     {
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
 
         //Init player UI controls
+        playerTextName = uiRoot.Q<TextElement>(playerName);
         playerTextScore = uiRoot.Q<TextElement>(playerScore);
-        playerBarHealth = uiRoot.Q<ProgressBar>(playerHealth);
         playerTextIterium = uiRoot.Q<TextElement>(playerIterium);
         player1Ship1 = uiRoot.Q<VisualElement>(ship1Player1);
         player1Ship2 = uiRoot.Q<VisualElement>(ship2Player1);
         player1Ship3 = uiRoot.Q<VisualElement>(ship3Player1);
 
         //Init AI UI controls
+        aiTextName = uiRoot.Q<TextElement>(aiName);
         aiTextScore = uiRoot.Q<TextElement>(aiScore);
-        aiBarHealth = uiRoot.Q<ProgressBar>(aiHealth);
         aiTextIterium = uiRoot.Q<TextElement>(aiIterium);
         player2Ship1 = uiRoot.Q<VisualElement>(ship1Player2);
         player2Ship2 = uiRoot.Q<VisualElement>(ship2Player2);
         player2Ship3 = uiRoot.Q<VisualElement>(ship3Player2);
+
+
+    }
+
+    private void Start()
+    {
+        //Init Health Sliders
+        rendererPlayer = sliderPlayerHealth.GetComponent<Renderer>();
+        rendererAi = sliderAiHealth.GetComponent<Renderer>();
+        matPlayerHealth = rendererPlayer.material;
+        matAiHealth = rendererAi.material;
+
+        //Set UI values on start
+        GameManager.Instance.NewArena();
+        ChangeNames();
+        ChangeScore();
+        ChangeAiScore();
+        ChangeHealth();
+        ChangeAiHealth();
+        ChangeIterium();
+        ChangeAiIterium();
+
+        //Player update event listeners
+        GameManager.Instance.player.onChange_Health.AddListener(ChangeHealth);
+        GameManager.Instance.player.onChange_Score.AddListener(ChangeScore);
+        GameManager.Instance.player.onChange_IteriumCollected.AddListener(ChangeIterium);
+        GameManager.Instance.player.onChange_Lives.AddListener(ChangeLives);
+
+        //AI Player update event listeners
+        GameManager.Instance.aiPlayer.onChange_Health.AddListener(ChangeAiHealth);
+        GameManager.Instance.aiPlayer.onChange_Score.AddListener(ChangeAiScore);
+        GameManager.Instance.aiPlayer.onChange_IteriumCollected.AddListener(ChangeAiIterium);
+        GameManager.Instance.aiPlayer.onChange_Lives.AddListener(ChangeAiLives);
 
         if (!GameManager.Instance.aiPermadeath)
         {
@@ -70,27 +112,12 @@ public class UI_Game : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void ChangeNames()
     {
-        //Set UI values on start
-        GameManager.Instance.NewArena();
-        ChangeScore();
-        ChangeHealth(); 
-        ChangeIteriumCollected();
+        playerTextName.text = GameManager.Instance.player.ProfileName.ToString();
+        aiTextName.text = GameManager.Instance.aiPlayer.ProfileName.ToString();
+    }
 
-        //Player update event listeners
-        GameManager.Instance.player.onChange_Health.AddListener(ChangeHealth);
-        GameManager.Instance.player.onChange_Score.AddListener(ChangeScore);
-        GameManager.Instance.player.onChange_IteriumCollected.AddListener(ChangeIteriumCollected);
-        GameManager.Instance.player.onChange_Lives.AddListener(ChangePlayerLives);
-
-        //AI Player update event listeners
-        GameManager.Instance.aiPlayer.onChange_Health.AddListener(ChangeAiHealth);
-        GameManager.Instance.aiPlayer.onChange_Score.AddListener(ChangeAiScore);
-        GameManager.Instance.aiPlayer.onChange_IteriumCollected.AddListener(ChangeAiIteriumCollected);
-        GameManager.Instance.aiPlayer.onChange_Lives.AddListener(ChangeAiLives);
-    } 
-    
     //Player UI updates
     private void ChangeScore()
     {
@@ -99,10 +126,10 @@ public class UI_Game : MonoBehaviour
 
     private void ChangeHealth()
     {
-        playerBarHealth.value = GameManager.Instance.player.Health;
-    }  
+        matPlayerHealth.SetFloat("_RemovedSeg", 10 - (GameManager.Instance.player.Health / 10));
+    }
 
-    private void ChangeIteriumCollected()
+    private void ChangeIterium()
     {
         playerTextIterium.text = GameManager.Instance.player.IteriumCollected.ToString();
     }
@@ -115,15 +142,15 @@ public class UI_Game : MonoBehaviour
 
     private void ChangeAiHealth()
     {
-        aiBarHealth.value = GameManager.Instance.aiPlayer.Health;
+        matAiHealth.SetFloat("_RemovedSeg", 10 - (GameManager.Instance.aiPlayer.Health / 10));
     }
-   
-    private void ChangeAiIteriumCollected()
+
+    private void ChangeAiIterium()
     {
         aiTextIterium.text = GameManager.Instance.aiPlayer.IteriumCollected.ToString();
     }
 
-    private void ChangePlayerLives()
+    private void ChangeLives()
     {
         switch (GameManager.Instance.player.Lives)
         {

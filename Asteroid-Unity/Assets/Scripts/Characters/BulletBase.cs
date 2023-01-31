@@ -41,7 +41,7 @@ public abstract class BulletBase : MonoBehaviour
         }
 
         //Release asteroid to pool
-        if (gameObject.activeSelf)
+        if (collision.gameObject.activeSelf)
         {
             AsteroidPooling.asteroidPool.Release(collision.gameObject);
         }
