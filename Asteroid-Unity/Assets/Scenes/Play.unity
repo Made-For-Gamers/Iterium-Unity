@@ -635,7 +635,7 @@ MonoBehaviour:
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
+  m_VolumeTrigger: {fileID: 330585546}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 1
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 1435128980}
   m_Layer: 0
   m_Name: Base Camera
-  m_TagString: MainCamera
+  m_TagString: BaseCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1884,6 +1884,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
+        type: 3}
+      propertyPath: overlayCamera
+      value: 
+      objectReference: {fileID: 330585545}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd9b24739366e9b4c935a684a0761eab, type: 3}
 --- !u!4 &1832306437 stripped

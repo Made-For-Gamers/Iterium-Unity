@@ -40,7 +40,7 @@ public class GameManager : Singleton<GameManager>
     public SO_Factions factions;
     public float deathRespawnTime = 4f;
     public int xpLevelSteps = 1000;
-    public int maxLevel = 50;  
+    public int maxLevel = 50;
 
     [Header("AI Settings")]
     public SO_Player aiPlayer;
@@ -256,11 +256,19 @@ public class GameManager : Singleton<GameManager>
     {
         yield return new WaitForSeconds(time);
         targetPlayer = Instantiate(Instance.player.Character.Ship.ShipPrefab);
-        targetPlayer.transform.position = playerSpawner.position;
+        targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
         targetPlayer.transform.rotation = playerSpawner.rotation;
         targetPlayer.transform.name = "Player";
         targetPlayer.transform.tag = "Player";
         player.Health = 100;
+    }
+
+    public Vector3 RandomScreenPosition(Transform spawnPoint)
+    {
+        float x = Random.Range(-4f, 4f);
+        float z = Random.Range(-6f, 6f);
+        Vector3 position = new Vector3(spawnPoint.position.x + x, 0, spawnPoint.position.z + z);
+        return position;
     }
 
     IEnumerator SpawnAiOverTime(float time)
@@ -271,7 +279,7 @@ public class GameManager : Singleton<GameManager>
         Destroy(targetAi.GetComponent<PlayerController>());
         Destroy(targetAi.GetComponent<InputManager>());
         targetAi.AddComponent<AIController>();
-        targetAi.transform.position = aiSpawner.position;
+        targetAi.transform.position = RandomScreenPosition(aiSpawner);
         targetAi.transform.rotation = aiSpawner.rotation;
         targetAi.transform.name = "AI";
         targetAi.transform.tag = "AI";

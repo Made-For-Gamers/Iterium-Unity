@@ -9,6 +9,7 @@ TagManager:
   - NPC
   - AI
   - Bullet
+  - BaseCamera
   layers:
   - Default
   - TransparentFX
