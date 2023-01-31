@@ -15,17 +15,26 @@ MonoBehaviour:
   profileName: AI Player
   bio: Death to all human players!
   email: 
-  xp: 0
+  xp: 770
   level: 1
-  score: 0
+  score: 11100
   character: {fileID: 11400000, guid: fb9486489f068b14cb18ed72264d1663, type: 2}
-  health: 100
-  bulletLvl: 1
-  shieldLvl: 1
-  speedLvl: 1
-  iterium: 0
+  health: 25
+  iterium: 970
   iteriumCollected: 0
   lives: 3
+  bulletLvl: 2
+  shieldLvl: 2
+  speedLvl: 2
+  bulletLvlUs: 1
+  shieldLvlUs: 1
+  speedLvlUs: 2
+  bulletLvlUssr: 2
+  shieldLvlUssr: 2
+  speedLvlUssr: 1
+  bulletLvlChn: 1
+  shieldLvlChn: 1
+  speedLvlChn: 1
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []
@@ -45,5 +54,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Lives:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_bulletLvl:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_shieldLvl:
+    m_PersistentCalls:
+      m_Calls: []
+  onChange_speedLvl:
     m_PersistentCalls:
       m_Calls: []

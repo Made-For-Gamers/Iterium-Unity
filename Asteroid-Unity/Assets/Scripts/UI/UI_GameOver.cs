@@ -41,7 +41,7 @@ public class UI_GameOver : MonoBehaviour
         TextElement iterium = uiRoot.Q<TextElement>(playerIterium);
         TextElement message = uiRoot.Q<TextElement>(playerMessage);
         Button rematch = uiRoot.Q<Button>(rematchButton);
-        
+
         //Events
         rematch.clicked += Rematch;
 
@@ -56,14 +56,54 @@ public class UI_GameOver : MonoBehaviour
         //XP
         GameManager.Instance.CalculateXP();
 
-        //Leaderboard
+        //AI firepower upgrades
+        if (GameManager.Instance.aiPlayer.BulletLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.firepowerLevel1)
+        {
+            //Upgrade bullet to lvl 2
+            GameManager.Instance.aiPlayer.Iterium -= GameManager.Instance.firepowerLevel1;
+            GameManager.Instance.aiPlayer.BulletLvl = 2;
+        }
+        else if (GameManager.Instance.aiPlayer.BulletLvl == 2 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.firepowerLevel2)
+        {
+            //Upgrade bullet to lvl 3
+            GameManager.Instance.aiPlayer.Iterium -= GameManager.Instance.firepowerLevel2;
+            GameManager.Instance.aiPlayer.BulletLvl = 3;
+        }
+
+        //AI shield upgrades
+        if (GameManager.Instance.aiPlayer.ShieldLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.shieldLevel1)
+        {
+            //Upgrade shield to lvl 2
+            GameManager.Instance.aiPlayer.Iterium -= GameManager.Instance.shieldLevel1;
+            GameManager.Instance.aiPlayer.ShieldLvl = 2;
+        }
+        else if (GameManager.Instance.aiPlayer.ShieldLvl == 2 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.shieldLevel2)
+        {
+            //Upgrade shield to lvl 3
+            GameManager.Instance.aiPlayer.Iterium -= GameManager.Instance.shieldLevel2;
+            GameManager.Instance.aiPlayer.ShieldLvl = 3;
+        }
+
+        if (GameManager.Instance.aiPlayer.SpeedLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.speedLevel1)
+        {
+            //Upgrade speed to lvl 2
+            GameManager.Instance.aiPlayer.Iterium -= GameManager.Instance.speedLevel1;
+            GameManager.Instance.aiPlayer.SpeedLvl = 2;
+        }
+        else if (GameManager.Instance.aiPlayer.SpeedLvl == 2 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.speedLevel2)
+        {
+            //Upgrade speed to lvl 3
+            GameManager.Instance.aiPlayer.Iterium -= GameManager.Instance.speedLevel2;
+            GameManager.Instance.aiPlayer.SpeedLvl = 3;
+        }
+
+        //Player leaderboard challenge
         GameManager.Instance.SortLeaderboard();
         if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
         {
             //High Score greeting
             message.text = "Congratulations a new high score!";
-            GameManager.Instance.AddLeaderboardItem();
-
+            GameManager.Instance.AddLeaderboardItem(true);
             SoundManager.Instance.PlayMusic(2, false, true);
         }
         else
@@ -85,6 +125,13 @@ public class UI_GameOver : MonoBehaviour
                     message.text = "Descent score, good game.";
                     break;
             }
+        }
+
+        //AI leaderboard challenge
+        arenaScore = GameManager.Instance.aiPlayer.Score;
+        if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
+        {
+            GameManager.Instance.AddLeaderboardItem(false);
         }
 
         //Save Game

@@ -54,7 +54,8 @@ MonoBehaviour:
   upgradeChnScene: UpgradeChina
   upgradeUsScene: UpgradeUSA
   UpgradeUssrScene: UpgradeUSSR
-  saveFile: Iterium.save
+  saveFile: Player.save
+  saveFileAi: AI.save
   saveFileLeaderboard: Leaderboard.save
   leaderboardSize: 50
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
@@ -70,8 +71,31 @@ MonoBehaviour:
   targetNpc: {fileID: 0}
   iterium: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
   iteriumChance: 20
+  speedLevel1: 10
+  speedLevel2: 30
+  shieldLevel1: 10
+  shieldLevel2: 30
+  firepowerLevel1: 10
+  firepowerLevel2: 30
   leaderboard: []
   saveData:
+    profileName: 
+    bio: 
+    email: 
+    xp: 0
+    level: 0
+    shieldLvlUs: 0
+    bulletLvlUs: 0
+    speedLvlUs: 0
+    shieldLvlUssr: 0
+    bulletLvlUssr: 0
+    speedLvlUssr: 0
+    shieldLvlChn: 0
+    bulletLvlChn: 0
+    speedLvlChn: 0
+    iterium: 0
+    character: {fileID: 0}
+  saveDataAi:
     profileName: 
     bio: 
     email: 
