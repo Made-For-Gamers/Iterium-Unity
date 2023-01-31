@@ -9,13 +9,13 @@ using UnityEngine;
 
 public class Rotate : MonoBehaviour
 {
-    [SerializeField] float speed = 1f; //rotation speed
+    [SerializeField] float speed = 20f; //rotation speed
     [SerializeField] private float randomMaxSpeed; //upper value for random range
     [SerializeField] private bool reverseDirection;   // reverse roation toggle
-    [SerializeField] private bool randomDirection; //random spin direction
-    [SerializeField] private bool randomSpeed; //random spin speed
+    [SerializeField] private bool randomDirection = true; //random spin direction
+    [SerializeField] private bool randomSpeed = true; //random spin speed
     [SerializeField] private bool rotationX;   // toggle rotation on X axis
-    [SerializeField] private bool rotationY;   // toggle rotation on Y axis
+    [SerializeField] private bool rotationY = true;   // toggle rotation on Y axis
     [SerializeField] private bool rotationZ;   // toggle rotation on Z axis
     private float finalSpeed; //final calculated spin speed
 
