@@ -6,6 +6,9 @@
                 <ui:Label text="TUTORIAL" display-tooltip-when-elided="true" name="tutorial" class="header" />
             </ui:VisualElement>
             <ui:VisualElement name="selectionPanel" style="width: 100%; height: 100%; flex-direction: row; justify-content: space-between;">
+                <TabbedView name="menu" tabindex="5" style="width: 1154px; height: 220px;">
+                    <TabButton focusable="true" />
+                </TabbedView>
                 <ui:VisualElement name="content" style="background-image: none; width: 80%; padding-top: 100px; padding-bottom: 100px; padding-right: 250px; padding-left: 100px;">
                     <ui:VisualElement name="ship" style="width: 100%; height: 100%; padding-right: 0; padding-top: 0; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Images/USSR_Guns_V4.png?fileID=2800000&amp;guid=6a158cc29ba86e941b2b05cc328facce&amp;type=3#USSR_Guns_V4&apos;); padding-left: 0;" />
                 </ui:VisualElement>
