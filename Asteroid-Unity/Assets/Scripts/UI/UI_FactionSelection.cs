@@ -33,7 +33,6 @@ public class UI_FactionSelection : MonoBehaviour
     [SerializeField] private SO_Ship shipUs;
     [SerializeField] private SO_Ship shipUssr;
 
-
     //Slider planes (shader graph materials)
     [Header("Sliders Chn")]
     [SerializeField] private GameObject sliderChnFirepower;
