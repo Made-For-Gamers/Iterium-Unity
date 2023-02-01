@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,6 +11,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
+    [DllImport("__Internal")]
+    private static extern void closeTab();
+
     [Header("Faction Upgrade Scenes")]
 #if UNITY_EDITOR
     public UnityEditor.SceneAsset destinationSceneChn;
@@ -25,6 +29,10 @@ public class GameManager : Singleton<GameManager>
         }
     }
 #endif
+
+
+
+
     [HideInInspector] public string upgradeChnScene;
     [HideInInspector] public string upgradeUsScene;
     [HideInInspector] public string UpgradeUssrScene;
@@ -257,9 +265,17 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.Lives = 3;
     }
 
-    private void OnApplicationQuit()
+    public void OnApplicationQuit()
     {
         SaveGame();
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            closeTab();
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 
     public void SceneMainMenu()
@@ -348,7 +364,7 @@ public class GameManager : Singleton<GameManager>
 
     //Add a new row to the leaderboard
     public void AddLeaderboardItem(bool isPlayer)
-    {      
+    {
         LeaderboardItem item = new LeaderboardItem();
         if (player)
         {

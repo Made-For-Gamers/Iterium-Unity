@@ -24,7 +24,7 @@
                 <ui:VisualElement name="settings" style="flex-grow: 0; padding-left: 60px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <ui:Button text="Settings" display-tooltip-when-elided="true" name="settings" class="button" style="align-items: center; justify-content: center; left: auto; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-direction: row; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;);" />
                 </ui:VisualElement>
-                <ui:VisualElement name="quit" style="padding-left: 90px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+                <ui:VisualElement name="quitPanel" style="padding-left: 90px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
                     <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit" class="button" style="align-items: center; justify-content: center; left: auto; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; flex-direction: row; -unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;);" />
                 </ui:VisualElement>
             </ui:VisualElement>

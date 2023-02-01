@@ -26,6 +26,7 @@ public class UI_Settings : MonoBehaviour
 
     private void OnEnable()
     {
+        //Init UI elements
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
         Slider musicSlider = uiRoot.Q<Slider>(sliderMusic);
         Slider soundSlider = uiRoot.Q<Slider>(sliderSound);
@@ -43,15 +44,16 @@ public class UI_Settings : MonoBehaviour
 
     private void Start()
     {
-        //Init music material
+        //Init music material (shader graph dial shader)
         renderer = musicPlane.GetComponent<Renderer>();
         matMusic = renderer.material;
 
-        //Init sound material
+        //Init sound material (shader graph dial shader)
         renderer = soundPlane.GetComponent<Renderer>();
         matSound = renderer.material;
     }
 
+    //Update music from slider
     private void MusicChanged(ChangeEvent<float> slider)
     {
         float volume = slider.newValue;
@@ -61,11 +63,12 @@ public class UI_Settings : MonoBehaviour
         {
             volume = -80f;
         }
-        audioMixer.SetFloat("Music", volume);
+        audioMixer.SetFloat("Music", volume); 
      
         print(-0 - volume);
     }
 
+    //Update sound effects from slider
     private void SoundChanged(ChangeEvent<float> slider)
     {
         float volume = slider.newValue;
