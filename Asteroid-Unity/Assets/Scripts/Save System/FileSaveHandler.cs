@@ -4,7 +4,6 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// File system handler to write/read save data to/from a file, additional handler can be created for cloud saves etc
@@ -12,7 +11,6 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class FileSaveHandler
 {
-
     private string dirPath;
     string fullPath;
 

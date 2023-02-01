@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,9 +10,6 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [DllImport("__Internal")]
-    private static extern void closeTab();
-
     [Header("Faction Upgrade Scenes")]
 #if UNITY_EDITOR
     public UnityEditor.SceneAsset destinationSceneChn;
@@ -29,9 +25,6 @@ public class GameManager : Singleton<GameManager>
         }
     }
 #endif
-
-
-
 
     [HideInInspector] public string upgradeChnScene;
     [HideInInspector] public string upgradeUsScene;
@@ -270,7 +263,7 @@ public class GameManager : Singleton<GameManager>
         SaveGame();
         if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            closeTab();
+            Application.ExternalEval("window.open('https://mfg.gg','_self')");
         }
         else
         {
