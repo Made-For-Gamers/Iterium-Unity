@@ -1,47 +1,52 @@
-using System;
 using UnityEngine;
-using UnityEngine.InputSystem.Controls;
 using UnityEngine.UIElements;
+
+/// <summary>
+/// Control the hide/show of UI element panels on the tutorial screen
+/// </summary>
 
 public class UI_Tutorial : MonoBehaviour
 {
-    [Header("UI Elements")]
+    [Header("Button Elements")]
     [SerializeField] private string story = "buttonStory";
     [SerializeField] private string controls = "controls";
     [SerializeField] private string gameplay = "gameplay";
     [SerializeField] private string scoring = "scoring";
     [SerializeField] private string upgrades = "upgrades";
 
+    [Header("Visual Elements")]
     [SerializeField] private string storyPanel = "storyPanel";
     [SerializeField] private string controlsPanel = "controlsPanel";
     [SerializeField] private string gameplayPanel = "gameplayPanel";
     [SerializeField] private string scoringPanel = "scoringPanel";
     [SerializeField] private string upgradesPanel = "upgradesPanel";
 
-    Button buttonStory;
-    Button buttonControls;
-    Button buttonGameplay;
-    Button buttonScoring;
-    Button buttonUpgrades;
+    //Buttons
+    private Button buttonStory;
+    private Button buttonControls;
+    private Button buttonGameplay;
+    private Button buttonScoring;
+    private Button buttonUpgrades;
 
-    VisualElement panelStory;
-    VisualElement panelControls;
-    VisualElement panelGameplay;
-    VisualElement panelScoring;
-    VisualElement panelUpgrades;
+    //Visual Elements
+    private VisualElement panelStory;
+    private VisualElement panelControls;
+    private VisualElement panelGameplay;
+    private VisualElement panelScoring;
+    private VisualElement panelUpgrades;
 
     private void OnEnable()
     {
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
         
-        //UI buttons
+        //Init buttons
         buttonStory = uiRoot.Q<Button>(story);
         buttonControls = uiRoot.Q<Button>(controls);
         buttonGameplay = uiRoot.Q<Button>(gameplay);
         buttonScoring = uiRoot.Q<Button>(scoring);
         buttonUpgrades = uiRoot.Q<Button>(upgrades);
 
-        //Visual elements
+        //Init visual elements
         panelStory = uiRoot.Q<VisualElement>(storyPanel);
         panelControls = uiRoot.Q<VisualElement>(controlsPanel);
         panelGameplay = uiRoot.Q<VisualElement>(gameplayPanel);
