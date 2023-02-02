@@ -407,6 +407,7 @@
 
 .unity-base-text-field__input {
     color: rgb(255, 19, 0);
+    cursor: initial;
 }
 
 .unity-base-field__input {
@@ -415,6 +416,7 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
+    cursor: initial;
 }
 
 .unity-text-field__input {
@@ -453,6 +455,6 @@
 }
 
 .controller-text {
-    color: rgba(255, 255, 255, 255);
+    color: rgb(255, 255, 255);
     font-size: 30px;
 }
