@@ -116,6 +116,7 @@ public class GameManager : Singleton<GameManager>
         saveData.bulletLvlChn = player.BulletLvlChn;
         saveData.speedLvlChn = player.SpeedLvlChn;
         saveData.shieldLvlChn = player.ShieldLvlChn;
+        saveData.character = player.Character;
 
         saveDataAi.xp = aiPlayer.Xp;
         saveDataAi.level = aiPlayer.Level;
@@ -130,17 +131,19 @@ public class GameManager : Singleton<GameManager>
         saveDataAi.speedLvlChn = aiPlayer.SpeedLvlChn;
         saveDataAi.shieldLvlChn = aiPlayer.ShieldLvlChn;
 
-        print("Saving game data");
         fileSaveHandler.Save(saveData, saveFile);
         fileSaveHandler.Save(saveData, saveFileAi);
-        saveData.character = player.Character;
+        print("Saved Game");
+        SaveLeaderboard();
+
     }
 
     public void LoadGame()
     {
-        print("Loading game data");
         saveData = fileSaveHandler.Load(saveFile);
         saveDataAi = fileSaveHandler.Load(saveFileAi);
+        print("Loaded Game");
+        LoadLeaderboard();
 
         //Update player data from load
         player.ProfileName = saveData.profileName;
@@ -182,13 +185,7 @@ public class GameManager : Singleton<GameManager>
             player.Character = factions.Factions[2];
         }
 
-        LoadLeaderboard();
         UpgradeLevelSync();
-    }
-
-    public void NewGame()
-    {
-        print("Loading game defaults");
     }
 
     //Reset data to a new game state
@@ -344,22 +341,27 @@ public class GameManager : Singleton<GameManager>
     //Save leaderboard to file
     public void SaveLeaderboard()
     {
-        print("Saving leaderboard data");
         fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
     }
 
     //Load leaderboard from file
     public void LoadLeaderboard()
     {
-        print("Loading leaderboard data");
         leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
+        
+        // If the loaded leaderboard is empty then create a new default board and save
+        if (leaderboard.Count == 0)
+        {
+            InitLeaderboard();
+            SaveLeaderboard();
+        }
     }
 
     //Add a new row to the leaderboard
     public void AddLeaderboardItem(bool isPlayer)
     {
         LeaderboardItem item = new LeaderboardItem();
-        if (player)
+        if (isPlayer)
         {
             item.score = player.Score;
             item.playerName = player.ProfileName;
@@ -378,12 +380,11 @@ public class GameManager : Singleton<GameManager>
         {
             leaderboard.Remove(leaderboard[leaderboard.Count - 1]);
         }
-        SaveLeaderboard();
     }
 
     public void InitLeaderboard()
     {
-        print("Init New Leaderboard");
+        print("Initialising a new leaderboard");
         for (int i = 0; i < 10; i++)
         {
             LeaderboardItem item = new LeaderboardItem();
@@ -392,7 +393,7 @@ public class GameManager : Singleton<GameManager>
             item.playerName = "Imperial Xoid";
             leaderboard.Add(item);
         }
-        SaveLeaderboard();
+        SortLeaderboard();
     }
 
     public void SortLeaderboard()
@@ -439,7 +440,6 @@ public class GameManager : Singleton<GameManager>
                 player.BulletLvlUssr = player.BulletLvl;
                 break;
         }
-        SaveGame();
     }
 
     //Keep player shield upgrade value in sync with current upgrade value
@@ -457,7 +457,6 @@ public class GameManager : Singleton<GameManager>
                 player.ShieldLvlUssr = player.ShieldLvl;
                 break;
         }
-        SaveGame();
     }
 
     //Keep player speed upgrade value in sync with current upgrade value
@@ -475,7 +474,6 @@ public class GameManager : Singleton<GameManager>
                 player.SpeedLvlUssr = player.SpeedLvl;
                 break;
         }
-        SaveGame();
     }
 
     //Keep AI bullet upgrade value in sync with current upgrade value
@@ -493,7 +491,6 @@ public class GameManager : Singleton<GameManager>
                 aiPlayer.BulletLvlUssr = aiPlayer.BulletLvl;
                 break;
         }
-        SaveGame();
     }
 
     //Keep AI shield upgrade value in sync with current upgrade value
@@ -511,7 +508,6 @@ public class GameManager : Singleton<GameManager>
                 aiPlayer.ShieldLvlUssr = aiPlayer.ShieldLvl;
                 break;
         }
-        SaveGame();
     }
 
     //Keep AI speed upgrade value in sync with current upgrade value
@@ -529,7 +525,6 @@ public class GameManager : Singleton<GameManager>
                 aiPlayer.SpeedLvlUssr = aiPlayer.SpeedLvl;
                 break;
         }
-        SaveGame();
     }
 
     //Sync saved upgrade level data with current upgrade variables

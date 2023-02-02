@@ -92,10 +92,6 @@ public class SoundManager : Singleton<SoundManager>
             }
             audiosourceMusic.PlayDelayed(delay);
         }
-        else
-        {
-            print("A song is already playing.");
-        }
     }
 
     //Return an unused audio source

@@ -98,7 +98,6 @@ public class UI_GameOver : MonoBehaviour
         }
 
         //Player leaderboard challenge
-        GameManager.Instance.SortLeaderboard();
         if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
         {
             //High Score greeting

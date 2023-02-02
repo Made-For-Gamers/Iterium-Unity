@@ -4,6 +4,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine.SocialPlatforms.Impl;
 
 /// <summary>
 /// File system handler to write/read save data to/from a file, additional handler can be created for cloud saves etc
@@ -26,10 +27,10 @@ public class FileSaveHandler
     {
         //Set the path for loading and saving
         this.dirPath = dirPath;
-        Debug.Log("Save Folder: " + this.dirPath);
+        Debug.Log("Save File Path: " + this.dirPath);
     }
 
-    //Load player data from a json file
+    //Load player or AI data from a json file
     public SaveData Load(string fileName)
     {
         fullPath = Path.Combine(dirPath, fileName);
@@ -48,7 +49,6 @@ public class FileSaveHandler
                     }
                 }
                 loadData = JsonUtility.FromJson<SaveData>(dataToLoad);
-                Debug.Log("Successfully Loaded File");
             }
             catch (Exception ex)
             {
@@ -64,9 +64,10 @@ public class FileSaveHandler
         }
         else
         {
+            //No save file so reset data to defaults and create new save file. Return the default data as the loaded data
             GameManager.Instance.ResetGame();
+            GameManager.Instance.SaveGame();
             loadData = GameManager.Instance.saveData;
-
         }
         return loadData;
     }
@@ -94,7 +95,6 @@ public class FileSaveHandler
             {
                 syncSave();
             }
-            Debug.Log("Successfully saved file");
         }
         catch (Exception ex)
         {
@@ -115,10 +115,6 @@ public class FileSaveHandler
         fullPath = Path.Combine(dirPath, fileName);
         List<T> newList;
         string dataToLoad = null;
-        if (!File.Exists(fullPath))
-        {
-            GameManager.Instance.InitLeaderboard();
-        }
         if (File.Exists(fullPath))
         {
             try
@@ -128,6 +124,7 @@ public class FileSaveHandler
                     using (StreamReader streamReader = new StreamReader(fileStream))
                     {
                         dataToLoad = streamReader.ReadToEnd();
+                        Debug.Log("Loaded Leaderboard");
                     }
                 }
             }
@@ -143,17 +140,15 @@ public class FileSaveHandler
                 }
             }
         }
-
-        if (string.IsNullOrEmpty(dataToLoad) || dataToLoad == "{}")
-        {
-            return new List<T>();
-        }
         else
         {
-            Debug.Log("Successfully Loaded File");
-            newList = JsonHelper.FromJson<T>(dataToLoad).ToList();
-            return newList;
+            //No file to load so return an empty List
+            return new List<T>();
         }
+
+        newList = JsonHelper.FromJson<T>(dataToLoad).ToList();
+        return newList;
+
     }
 
     //Save the leaderboard List<> to a file using the JsonHelper wrapper class
@@ -173,13 +168,13 @@ public class FileSaveHandler
                 using (StreamWriter streamWriter = new StreamWriter(fileStream))
                 {
                     streamWriter.Write(dataToSave);
+                    Debug.Log("Saved Leaderboard");
                 }
             }
             if (Application.platform == RuntimePlatform.WebGLPlayer)
             {
                 syncSave();
             }
-            Debug.Log("Successfully saved leaderboard file");
         }
         catch (Exception ex)
         {
