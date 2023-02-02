@@ -101,7 +101,7 @@ public class UI_GameOver : MonoBehaviour
         if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
         {
             //High Score greeting
-            message.text = "Congratulations " + GameManager.Instance.player.ProfileName + ", a new high score!";
+            message.text = "Congratulations " + GameManager.Instance.player.ProfileName + "!, a new high score.";
             GameManager.Instance.AddLeaderboardItem(true);
             SoundManager.Instance.PlayMusic(2, false, true);
         }
@@ -112,16 +112,16 @@ public class UI_GameOver : MonoBehaviour
             switch (arenaScore)
             {
                 case >= 200000:
-                    message.text = "Super score! " + GameManager.Instance.player.ProfileName + ", an arcade pro.";
+                    message.text = "Super score " + GameManager.Instance.player.ProfileName + "!, an arcade pro.";
                     break;
                 case >= 100000:
-                    message.text = "Gosh brilliant score! " + GameManager.Instance.player.ProfileName + ", impressed";
+                    message.text = "Gosh brilliant score " + GameManager.Instance.player.ProfileName + "!, impressed";
                     break;
                 case >= 50000:
-                    message.text = "Well done! " + GameManager.Instance.player.ProfileName + ", a good score.";
+                    message.text = "Well done " + GameManager.Instance.player.ProfileName + "!, a good score.";
                     break;
                 case < 50000:
-                    message.text = "Descent score " + GameManager.Instance.player.ProfileName + ", good game.";
+                    message.text = "Descent score " + GameManager.Instance.player.ProfileName + "!, good game.";
                     break;
             }
         }

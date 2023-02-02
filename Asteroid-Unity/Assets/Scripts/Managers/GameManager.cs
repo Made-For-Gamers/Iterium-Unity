@@ -41,7 +41,7 @@ public class GameManager : Singleton<GameManager>
     [HideInInspector] public GameObject targetPlayer;
     public SO_Factions factions;
     public float deathRespawnTime = 4f;
-    public int xpLevelSteps = 1000;
+    public int xpLevelSteps = 2000;
     public int maxLevel = 50;
 
     [Header("AI Settings")]
@@ -132,7 +132,7 @@ public class GameManager : Singleton<GameManager>
         saveDataAi.shieldLvlChn = aiPlayer.ShieldLvlChn;
 
         fileSaveHandler.Save(saveData, saveFile);
-        fileSaveHandler.Save(saveData, saveFileAi);
+        fileSaveHandler.Save(saveDataAi, saveFileAi);
         print("Saved Game");
         SaveLeaderboard();
 
@@ -176,6 +176,7 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.SpeedLvlChn = saveDataAi.speedLvlChn;
         aiPlayer.ShieldLvlChn = saveDataAi.shieldLvlChn;
 
+        //New game then set the default player ship
         if (saveData.character != null)
         {
             player.Character = saveData.character;
@@ -310,6 +311,7 @@ public class GameManager : Singleton<GameManager>
         player.Health = 100;
     }
 
+    //Get a random position near a spawn point for a ship to re-spawn
     public Vector3 RandomScreenPosition(Transform spawnPoint)
     {
         float x = Random.Range(-4f, 4f);
@@ -403,14 +405,14 @@ public class GameManager : Singleton<GameManager>
 
     public void CalculateXP()
     {
-        if (player.Xp > xpLevelSteps * (player.Level + 1))
+        if (player.Xp > xpLevelSteps * player.Level)
         {
             if (player.Level < maxLevel)
             {
                 player.Level++;
             }
         }
-        if (aiPlayer.Xp > xpLevelSteps * (aiPlayer.Level + 1))
+        if (aiPlayer.Xp > xpLevelSteps * aiPlayer.Level)
         {
             if (aiPlayer.Level < maxLevel)
             {
@@ -551,7 +553,7 @@ public class GameManager : Singleton<GameManager>
         }
 
         //Ai upgrade sync
-        switch (GameManager.Instance.player.Character.Id)
+        switch (GameManager.Instance.aiPlayer.Character.Id)
         {
             case "chn":
                 aiPlayer.BulletLvl = aiPlayer.BulletLvlChn;
