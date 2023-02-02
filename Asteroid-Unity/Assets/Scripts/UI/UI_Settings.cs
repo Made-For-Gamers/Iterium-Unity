@@ -63,9 +63,7 @@ public class UI_Settings : MonoBehaviour
         {
             volume = -80f;
         }
-        audioMixer.SetFloat("Music", volume); 
-     
-        print(-0 - volume);
+        audioMixer.SetFloat("Music", volume);
     }
 
     //Update sound effects from slider
