@@ -36,9 +36,18 @@ public class UI_Profile : MonoBehaviour
         Button saveButton = uiRoot.Q<Button>(save);
 
         //Update field data
-        nameTextfield.value = GameManager.Instance.player.ProfileName;
-        bioTextfield.value = GameManager.Instance.player.Bio;
-        emailTextfield.value = GameManager.Instance.player.Email;
+        if (!string.IsNullOrEmpty(GameManager.Instance.player.ProfileName))
+        {
+            nameTextfield.value = GameManager.Instance.player.ProfileName;
+        }
+        if (!string.IsNullOrEmpty(GameManager.Instance.player.Bio))
+        {
+            bioTextfield.value = GameManager.Instance.player.Bio;
+        }
+        if (!string.IsNullOrEmpty(GameManager.Instance.player.Email))
+        {
+            emailTextfield.value = GameManager.Instance.player.Email;
+        }
 
         //UI Events
         saveButton.clicked += SaveProfile;
