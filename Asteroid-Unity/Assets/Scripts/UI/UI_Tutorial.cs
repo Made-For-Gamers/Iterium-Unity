@@ -60,7 +60,10 @@ public class UI_Tutorial : MonoBehaviour
         buttonScoring.clicked += ScoringClicked;
         buttonUpgrades.clicked += UpgradesClicked;
 
+        //Default panel focus
         buttonStory.Focus();
+        HideAllPanels();
+        StoryClicked();
     }
 
     private void UpgradesClicked()

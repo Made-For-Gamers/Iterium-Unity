@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +11,11 @@ public class FPSCounter : MonoBehaviour
     private int fpsCalc = 0;
     private float period = 0;
     private int currentFps;  
-    TMPro.TextMeshProUGUI fpsText;
+    Text fpsText;
 
     private void Start()
     {
-        fpsText = GetComponent<TMPro.TextMeshProUGUI>();
+        fpsText = GetComponent<Text>();
         period = Time.realtimeSinceStartup + fpsMeasurePeriod;
     }
 
