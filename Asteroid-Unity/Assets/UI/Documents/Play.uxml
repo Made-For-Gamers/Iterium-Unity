@@ -42,4 +42,8 @@
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
+    <ui:VisualElement name="pause" style="height: 60%; align-items: center;">
+        <ui:Label text="Continue" display-tooltip-when-elided="true" name="continue" class="button" style="-unity-text-align: middle-center;" />
+        <ui:Label text="Exit Game" display-tooltip-when-elided="true" name="exitGame" class="button" style="-unity-text-align: middle-center;" />
+    </ui:VisualElement>
 </ui:UXML>
