@@ -30,6 +30,8 @@ public class UI_GameOver : MonoBehaviour
     [SerializeField] private string playerMessage = "message";
     [SerializeField] private string rematchButton = "rematch";
 
+    private Button rematch;
+
     private int arenaScore;
 
     private void OnEnable()
@@ -40,7 +42,7 @@ public class UI_GameOver : MonoBehaviour
         TextElement score = uiRoot.Q<TextElement>(playerScore);
         TextElement iterium = uiRoot.Q<TextElement>(playerIterium);
         TextElement message = uiRoot.Q<TextElement>(playerMessage);
-        Button rematch = uiRoot.Q<Button>(rematchButton);
+        rematch = uiRoot.Q<Button>(rematchButton);
 
         //Events
         rematch.clicked += Rematch;
@@ -141,6 +143,12 @@ public class UI_GameOver : MonoBehaviour
 
         //Save Game
         GameManager.Instance.SaveGame();
+    }
+
+    private void OnDisable()
+    {
+        //Clean-up events
+        rematch.clicked -= Rematch;
     }
 
     private void Rematch()

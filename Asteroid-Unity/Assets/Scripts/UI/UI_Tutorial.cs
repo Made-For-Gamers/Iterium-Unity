@@ -66,6 +66,16 @@ public class UI_Tutorial : MonoBehaviour
         StoryClicked();
     }
 
+    private void OnDisable()
+    {
+        //Clean-up events
+        buttonStory.clicked -= StoryClicked;
+        buttonControls.clicked -= ControlsClicked;
+        buttonGameplay.clicked -= GameplayClicked;
+        buttonScoring.clicked -= ScoringClicked;
+        buttonUpgrades.clicked -= UpgradesClicked;
+    }
+
     private void UpgradesClicked()
     {
         HideAllPanels();

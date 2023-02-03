@@ -49,19 +49,30 @@ public class UI_FactionSelection : MonoBehaviour
     [SerializeField] private GameObject sliderUssrSpeed;
     [SerializeField] private GameObject sliderUssrShield;
 
+    private Button buttonChina;
+    private Button buttonUsa;
+    private Button buttonUssr;
 
     private void OnEnable()
     {
         //Init UI elements
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
-        Button buttonChina = uiRoot.Q<Button>(chinaFaction);
-        Button buttonUsa = uiRoot.Q<Button>(usaFaction);
-        Button buttonUssr = uiRoot.Q<Button>(ussrFaction);
+        buttonChina = uiRoot.Q<Button>(chinaFaction);
+        buttonUsa = uiRoot.Q<Button>(usaFaction);
+        buttonUssr = uiRoot.Q<Button>(ussrFaction);
 
         //Events
         buttonChina.clicked += ButtonChina_clicked;
         buttonUsa.clicked += ButtonUsa_clicked;
         buttonUssr.clicked += ButtonUssr_clicked;
+    }
+
+    private void OnDisable()
+    {
+        //Clean-up events
+        buttonChina.clicked -= ButtonChina_clicked;
+        buttonUsa.clicked -= ButtonUsa_clicked;
+        buttonUssr.clicked -= ButtonUssr_clicked;
     }
 
     private void Start()

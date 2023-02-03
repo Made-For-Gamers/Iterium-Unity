@@ -62,7 +62,6 @@ public class UI_Upgrade : MonoBehaviour
         thrustLabelLevel1 = uiRoot.Q<Label>(speedLevel1Label);
         thrustLabelLevel2 = uiRoot.Q<Label>(speedLevel2Label);
         thrust.SetEnabled(false);
-        thrustUpgrade.clicked += UpgradeThrust;
 
         //UI shield elements
         shield = uiRoot.Q<Slider>(shieldSlider);
@@ -70,7 +69,6 @@ public class UI_Upgrade : MonoBehaviour
         shieldLabelLevel1 = uiRoot.Q<Label>(shieldLevel1Label);
         shieldLabelLevel2 = uiRoot.Q<Label>(shieldLevel2Label);
         shield.SetEnabled(false);
-        shieldUpgrade.clicked += UpgradeShield;
 
         //UI firepower elements
         firepower = uiRoot.Q<Slider>(firepowerSlider);
@@ -78,7 +76,19 @@ public class UI_Upgrade : MonoBehaviour
         firepowerLabelLevel1 = uiRoot.Q<Label>(firepowerLevel1Label);
         firepowerLabelLevel2 = uiRoot.Q<Label>(firepowerLevel2Label);
         firepower.SetEnabled(false);
+
+        //Events
+        thrustUpgrade.clicked += UpgradeThrust;
+        shieldUpgrade.clicked += UpgradeShield;
         firepowerUpgrade.clicked += UpgradeFirepower;
+    }
+
+    private void OnDisable()
+    {
+        //Clean-up events
+        thrustUpgrade.clicked -= UpgradeThrust;
+        shieldUpgrade.clicked -= UpgradeShield;
+        firepowerUpgrade.clicked -= UpgradeFirepower;
     }
 
     private void Start()

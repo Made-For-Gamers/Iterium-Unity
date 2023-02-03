@@ -111,6 +111,11 @@ public class UI_Game : MonoBehaviour
         input.Player.Pause.started += Pause;
     }
 
+    private void OnDisable()
+    {
+        input.Player.Pause.started -= Pause;
+    }
+
     private void Start()
     {
         //Init Health Sliders
@@ -170,6 +175,7 @@ public class UI_Game : MonoBehaviour
 
     private void ExitGame()
     {
+        PauseGame();
         SceneManager.LoadScene(sceneName);
     }
 
