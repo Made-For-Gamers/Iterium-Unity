@@ -42,9 +42,9 @@
             </ui:VisualElement>
         </ui:VisualElement>
         <ui:VisualElement name="Lower" style="height: 100%; align-items: center; flex-grow: 1; width: 100%; justify-content: center; display: flex;">
-            <ui:VisualElement name="pause" style="width: 400px; align-items: center; justify-content: center; height: 250px; background-color: rgba(0, 0, 0, 0.76); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; display: none;">
-                <ui:Button text="Exit Game" display-tooltip-when-elided="true" name="exitGame" class="button" />
+            <ui:VisualElement name="pause" style="width: 400px; align-items: center; justify-content: center; height: 250px; background-color: rgba(0, 0, 0, 0.76); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; display: flex; margin-top: -272px;">
                 <ui:Button text="Continue" display-tooltip-when-elided="true" name="continueGame" class="button" style="display: flex;" />
+                <ui:Button text="Exit Game" display-tooltip-when-elided="true" name="exitGame" class="button" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
