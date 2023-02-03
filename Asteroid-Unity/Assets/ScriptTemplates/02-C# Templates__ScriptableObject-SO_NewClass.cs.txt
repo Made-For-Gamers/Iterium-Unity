@@ -1,0 +1,16 @@
+using UnityEngine;
+using UnityEngine.Events;
+
+[CreateAssetMenu(fileName = "", menuName = "Add SO/")]
+
+//
+public class #SCRIPTNAME# : ScriptableObject
+{
+ [Header("")]
+ [SerializeField] private string _name;
+ [TextArea(5, 5)]
+ [SerializeField] private string description;
+
+ //Events
+ public UnityEvent onChange_;
+}
