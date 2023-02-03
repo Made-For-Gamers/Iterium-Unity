@@ -118,10 +118,16 @@ public class UI_GameOver : MonoBehaviour
                     message.text = "Gosh brilliant score " + GameManager.Instance.player.ProfileName + "!, impressed";
                     break;
                 case >= 50000:
-                    message.text = "Well done " + GameManager.Instance.player.ProfileName + "!, a good score.";
+                    message.text = "Well done " + GameManager.Instance.player.ProfileName + "!, a very good score.";
                     break;
-                case < 50000:
-                    message.text = "Descent score " + GameManager.Instance.player.ProfileName + "!, good game.";
+                case >= 25000:
+                    message.text = "Descent score " + GameManager.Instance.player.ProfileName + "!, well played.";
+                    break;
+                case >= 6000:
+                    message.text = "Nice score " + GameManager.Instance.player.ProfileName + "!, keep it up.";
+                    break;
+                case < 6000:
+                    message.text = "Average score " + GameManager.Instance.player.ProfileName + "!, more practise.";
                     break;
             }
         }

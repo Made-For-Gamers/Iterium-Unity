@@ -1,5 +1,7 @@
 using UnityEngine.UIElements;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Game scene UI data (UI Toolkit)
@@ -7,6 +9,19 @@ using UnityEngine;
 /// </summary>
 public class UI_Game : MonoBehaviour
 {
+    [Header("Drag scene to load")]
+#if UNITY_EDITOR
+    public UnityEditor.SceneAsset destinationScene;
+    private void OnValidate()
+    {
+        if (destinationScene != null)
+        {
+            sceneName = destinationScene.name;
+        }
+    }
+#endif
+    [HideInInspector] public string sceneName;
+
     [Header("Player UI Elements")]
     [SerializeField] private string playerName = "player1";
     [SerializeField] private string playerScore = "player1Score";
@@ -30,6 +45,11 @@ public class UI_Game : MonoBehaviour
     [SerializeField] private GameObject sliderPlayerHealth;
     [SerializeField] private GameObject sliderAiHealth;
 
+    [Header("Pause Element")]
+    [SerializeField] private string pause = "pause";
+    [SerializeField] private string exitGame = "exitGame";
+    [SerializeField] private string continueGame = "continueGame";
+
 
     //Player UI controls
     private TextElement playerTextName;
@@ -51,11 +71,16 @@ public class UI_Game : MonoBehaviour
     private Material matPlayerHealth;
     private Material matAiHealth;
 
+    private VisualElement pausePanel;
+    private Button exitButton;
+    private Button continueButton;
+    private InputSystem input;
+
     private void OnEnable()
     {
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
 
-        //Init player UI controls
+        //Init player UI
         playerTextName = uiRoot.Q<TextElement>(playerName);
         playerTextScore = uiRoot.Q<TextElement>(playerScore);
         playerTextIterium = uiRoot.Q<TextElement>(playerIterium);
@@ -63,7 +88,7 @@ public class UI_Game : MonoBehaviour
         player1Ship2 = uiRoot.Q<VisualElement>(ship2Player1);
         player1Ship3 = uiRoot.Q<VisualElement>(ship3Player1);
 
-        //Init AI UI controls
+        //Init AI UI
         aiTextName = uiRoot.Q<TextElement>(aiName);
         aiTextScore = uiRoot.Q<TextElement>(aiScore);
         aiTextIterium = uiRoot.Q<TextElement>(aiIterium);
@@ -71,7 +96,19 @@ public class UI_Game : MonoBehaviour
         player2Ship2 = uiRoot.Q<VisualElement>(ship2Player2);
         player2Ship3 = uiRoot.Q<VisualElement>(ship3Player2);
 
+        //Init Pause UI
+        pausePanel = uiRoot.Q<VisualElement>(pause);
+        exitButton = uiRoot.Q<Button>(exitGame);
+        continueButton = uiRoot.Q<Button>(continueGame);
 
+        //Events
+        exitButton.clicked += ExitGame;
+        continueButton.clicked += ExitPause;
+
+        //Init Input System
+        input = new InputSystem();
+        input.Player.Enable();
+        input.Player.Pause.started += Pause;
     }
 
     private void Start()
@@ -110,6 +147,35 @@ public class UI_Game : MonoBehaviour
             player2Ship2.style.unityBackgroundImageTintColor = Color.black;
             player2Ship3.style.unityBackgroundImageTintColor = Color.black;
         }
+    }
+
+    private void Pause(InputAction.CallbackContext obj)
+    {
+        PauseGame();
+    }
+
+    private void PauseGame()
+    {
+        if (Time.timeScale == 0)
+        {
+            Time.timeScale = 1;
+            pausePanel.style.display = DisplayStyle.None;
+        }
+        else
+        {
+            pausePanel.style.display = DisplayStyle.Flex;
+            Time.timeScale = 0;
+        }
+    }
+
+    private void ExitGame()
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
+    private void ExitPause()
+    {
+        PauseGame();
     }
 
     private void ChangeNames()

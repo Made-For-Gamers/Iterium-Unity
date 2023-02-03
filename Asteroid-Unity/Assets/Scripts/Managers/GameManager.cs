@@ -63,7 +63,6 @@ public class GameManager : Singleton<GameManager>
     public int firepowerLevel1 = 10;
     public int firepowerLevel2 = 30;
 
-
     [Space(10)]
     //Save data objects
     public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
@@ -335,6 +334,7 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.Health = 100;
     }
 
+   
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
@@ -350,7 +350,7 @@ public class GameManager : Singleton<GameManager>
     public void LoadLeaderboard()
     {
         leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
-        
+
         // If the loaded leaderboard is empty then create a new default board and save
         if (leaderboard.Count == 0)
         {

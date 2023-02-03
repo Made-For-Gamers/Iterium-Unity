@@ -71,6 +71,15 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""a67ee1d0-d106-4185-9269-f981a6454d91"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -348,6 +357,17 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                     ""action"": ""Warp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4215a7c9-de00-4bfa-819a-15267e6a999d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -361,6 +381,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         m_Player_Shield = m_Player.FindAction("Shield", throwIfNotFound: true);
         m_Player_Thrust = m_Player.FindAction("Thrust", throwIfNotFound: true);
         m_Player_Warp = m_Player.FindAction("Warp", throwIfNotFound: true);
+        m_Player_Pause = m_Player.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -425,6 +446,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Shield;
     private readonly InputAction m_Player_Thrust;
     private readonly InputAction m_Player_Warp;
+    private readonly InputAction m_Player_Pause;
     public struct PlayerActions
     {
         private @InputSystem m_Wrapper;
@@ -434,6 +456,7 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         public InputAction @Shield => m_Wrapper.m_Player_Shield;
         public InputAction @Thrust => m_Wrapper.m_Player_Thrust;
         public InputAction @Warp => m_Wrapper.m_Player_Warp;
+        public InputAction @Pause => m_Wrapper.m_Player_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -458,6 +481,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @Warp.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWarp;
                 @Warp.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWarp;
                 @Warp.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnWarp;
+                @Pause.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -477,6 +503,9 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
                 @Warp.started += instance.OnWarp;
                 @Warp.performed += instance.OnWarp;
                 @Warp.canceled += instance.OnWarp;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -488,5 +517,6 @@ public partial class @InputSystem : IInputActionCollection2, IDisposable
         void OnShield(InputAction.CallbackContext context);
         void OnThrust(InputAction.CallbackContext context);
         void OnWarp(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

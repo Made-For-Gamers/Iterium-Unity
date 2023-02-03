@@ -62,7 +62,7 @@ MonoBehaviour:
   targetPlayer: {fileID: 0}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
   deathRespawnTime: 5
-  xpLevelSteps: 5000
+  xpLevelSteps: 20000
   maxLevel: 20
   aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
   aiPermadeath: 0

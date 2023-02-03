@@ -219,16 +219,19 @@ public class AIController : MonoBehaviour
     private void OnBecameInvisible()
     {
         //Wrap ship to opposite side of the screen when exiting
-        Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);
-        Vector3 movePos = transform.position;
-        if (viewPort.x > 1 || viewPort.x < 0)
+        if (this.gameObject.activeSelf)
         {
-            movePos.x = -movePos.x;
+            Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);
+            Vector3 movePos = transform.position;
+            if (viewPort.x > 1 || viewPort.x < 0)
+            {
+                movePos.x = -movePos.x;
+            }
+            if (viewPort.y > 1 || viewPort.y < 0)
+            {
+                movePos.z = -movePos.z;
+            }
+            transform.position = movePos;
         }
-        if (viewPort.y > 1 || viewPort.y < 0)
-        {
-            movePos.z = -movePos.z;
-        }
-        transform.position = movePos;
     }
 }

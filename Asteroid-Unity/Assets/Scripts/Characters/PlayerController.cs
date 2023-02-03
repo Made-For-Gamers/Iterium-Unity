@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.Events;
 
 /// <summary>
 /// Player ship script that handles...
@@ -24,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool isThrusting;
     private Rigidbody rigidBody;
 
+   
     void Start()
     {
         input = GetComponent<InputManager>();
@@ -172,16 +174,19 @@ public class PlayerController : MonoBehaviour
     private void OnBecameInvisible()
     {
         //Wrap ship to opposite side of the screen when exiting
-        Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);
-        Vector3 movePos = transform.position;
-        if (viewPort.x > 1 || viewPort.x < 0)
+        if (this.gameObject.activeSelf)
         {
-            movePos.x = -movePos.x;
+            Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);
+            Vector3 movePos = transform.position;
+            if (viewPort.x > 1 || viewPort.x < 0)
+            {
+                movePos.x = -movePos.x;
+            }
+            if (viewPort.y > 1 || viewPort.y < 0)
+            {
+                movePos.z = -movePos.z;
+            }
+            transform.position = movePos;
         }
-        if (viewPort.y > 1 || viewPort.y < 0)
-        {
-            movePos.z = -movePos.z;
-        }
-        transform.position = movePos;
     }
 }

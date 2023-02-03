@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Styles/MainStyle.uss?fileID=7433441132597879392&amp;guid=623600fb91639d5459e218780f48bef2&amp;type=3#MainStyle" />
-    <ui:VisualElement name="background" style="flex-grow: 1; align-items: flex-start; justify-content: space-between; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; width: auto; height: auto; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); -unity-font: none; flex-direction: row;">
+    <ui:VisualElement name="background" style="flex-grow: 1; align-items: flex-start; justify-content: space-between; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; width: auto; height: auto; background-image: none; -unity-background-image-tint-color: rgb(255, 255, 255); -unity-font: none; flex-direction: column;">
         <ui:VisualElement name="header" style="align-items: flex-start; flex-direction: row; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; width: 100%; justify-content: space-between; flex-wrap: nowrap; padding-left: 20px; padding-right: 0; padding-top: 20px; padding-bottom: 20px;">
             <ui:VisualElement name="menuPlayer1" style="align-items: center; width: 500px; height: 180px; flex-direction: row;">
                 <ui:VisualElement name="leftPanel" style="width: 150px; background-image: url(&apos;project://database/Assets/RenderTextures/HealthPlayer1.renderTexture?fileID=8400000&amp;guid=ee9d0435a5f6b3c4b9a6063494cbb19b&amp;type=2#HealthPlayer1&apos;); -unity-background-image-tint-color: rgba(255, 0, 0, 0.49); background-color: rgba(0, 0, 0, 0); -unity-slice-left: 0; -unity-slice-top: 0; -unity-slice-right: 0; -unity-slice-bottom: 0; border-top-left-radius: 75px; border-bottom-left-radius: 75px; border-top-right-radius: 75px; border-bottom-right-radius: 75px; padding-right: 0; padding-left: 0; padding-top: 0; padding-bottom: 0;">
@@ -41,9 +41,11 @@
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>
-    </ui:VisualElement>
-    <ui:VisualElement name="pause" style="height: 60%; align-items: center;">
-        <ui:Label text="Continue" display-tooltip-when-elided="true" name="continue" class="button" style="-unity-text-align: middle-center;" />
-        <ui:Label text="Exit Game" display-tooltip-when-elided="true" name="exitGame" class="button" style="-unity-text-align: middle-center;" />
+        <ui:VisualElement name="Lower" style="height: 100%; align-items: center; flex-grow: 1; width: 100%; justify-content: center; display: flex;">
+            <ui:VisualElement name="pause" style="width: 400px; align-items: center; justify-content: center; height: 250px; background-color: rgba(0, 0, 0, 0.76); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-top-left-radius: 25px; border-bottom-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; display: none;">
+                <ui:Button text="Exit Game" display-tooltip-when-elided="true" name="exitGame" class="button" />
+                <ui:Button text="Continue" display-tooltip-when-elided="true" name="continueGame" class="button" style="display: flex;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

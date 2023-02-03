@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,7 +11,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     private InputSystem input;
-    
+
     //The following values are read from the PlayerController script
     public Vector2 rotateInput; //Ship rotation
     public Vector2 thrustInput; //Ship thrust
@@ -69,12 +68,11 @@ public class InputManager : MonoBehaviour
     //Ship shield input
     private void Shield(InputAction.CallbackContext obj)
     {
-       isShield = true;
+        isShield = true;
     }
 
     private void Warp(InputAction.CallbackContext obj)
     {
         isWarping = true;
     }
-
 }
