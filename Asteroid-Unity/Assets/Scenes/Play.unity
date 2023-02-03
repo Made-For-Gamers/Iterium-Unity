@@ -389,8 +389,8 @@ MonoBehaviour:
   ship1Player2: ship1Player2
   ship2Player2: ship2Player2
   ship3Player2: ship3Player2
-  sliderPlayerHealth: {fileID: 0}
-  sliderAiHealth: {fileID: 0}
+  sliderPlayerHealth: {fileID: 1049515782}
+  sliderAiHealth: {fileID: 1562023346}
   pause: pause
   exitGame: exitGame
   continueGame: continueGame
