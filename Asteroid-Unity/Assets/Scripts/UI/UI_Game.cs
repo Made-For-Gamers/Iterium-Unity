@@ -24,12 +24,12 @@ public class UI_Game : MonoBehaviour
 
     [Header("Player UI Elements")]
     [SerializeField] private string playerName = "player1";
-    [SerializeField] private string playerScore = "player1Score";
+    [SerializeField] private string playerScore = "scorePlayer1";
     [SerializeField] private string playerIterium = "iteriumPlayer1";
 
     [Header("AI Player UI Elements")]
     [SerializeField] private string aiName = "player2";
-    [SerializeField] private string aiScore = "player2Score";
+    [SerializeField] private string aiScore = "scorePlayer2";
     [SerializeField] private string aiIterium = "iteriumPlayer2";
 
     [Header("Lives UI Elements")]

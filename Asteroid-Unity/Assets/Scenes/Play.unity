@@ -375,13 +375,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9da76faf3f1384aa445eab8923611c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
-  sceneName: MainMenu
+  destinationScene: {fileID: 0}
+  sceneName: 
   playerName: player1
-  playerScore: player1Score
+  playerScore: scorePlayer1
   playerIterium: iteriumPlayer1
   aiName: player2
-  aiScore: player2Score
+  aiScore: scorePlayer2
   aiIterium: iteriumPlayer2
   ship1Player1: ship1Player1
   ship2Player1: ship2Player1
