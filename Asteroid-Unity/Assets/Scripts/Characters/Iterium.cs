@@ -9,6 +9,7 @@ public class Iterium : MonoBehaviour
     [SerializeField] private int xp = 25;
     [SerializeField] private int sfxIndex;
 
+
     private void OnTriggerEnter(Collider collision)
     {
         switch (collision.gameObject.tag)
