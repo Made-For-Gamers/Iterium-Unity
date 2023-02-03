@@ -1,27 +1,46 @@
 html {
     box-sizing: border-box;
 }
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
+
 html, body {
     height: 100%;
 }
+
 canvas {
     display: block;
 }
+
 body {
     margin: 0;
 }
+
 #unity-container {
     width: 100%;
     height: 100%;
 }
+
 #unity-canvas {
     width: 100%;
     height: 100%;
     background: #181818
 }
+
+.loading-text {
+    font-family: Arial;
+    color: white;
+}
+
+.loading-heading {
+    font-family: Arial;
+    font-weight:600;
+    font-size: 60px;
+    color: lawngreen;
+}
+
 #loading-cover {
     position: absolute;
     top: 0;
@@ -32,37 +51,46 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 #unity-loading-bar {
     flex: 1 1 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: grey;
+    height: 40%;
 }
+
 #unity-logo {
     text-align: center;
 }
+
 #unity-logo img {
     max-width: 80%;
 }
+
 #unity-progress-bar-empty {
-    width: 80%;
-    height: 24px;
+    width: 60%;
+    height: 26px;
     margin: 10px 20px 20px 10px;
     text-align: left;
-    border: 1px solid white;
-    padding: 2px;
+    border: 2px solid black;
+    padding: 4px;
 }
+
 #unity-progress-bar-full {
     width: 0%;
     height: 100%;
-    background: black;
+    background-color: lawngreen;
 }
+
 .light #unity-progress-bar-empty {
-    border-color: black;
+    border-color: lawngreen;
 }
+
 .light #unity-progress-bar-full {
-    background: black;
+    background-color: red;
 }
 
 #unity-fullscreen-button {
@@ -81,6 +109,7 @@ body {
   width: 5em;
   height: 5em;
 }
+
 .spinner {
   margin: 10px;
   font-size: 10px;
