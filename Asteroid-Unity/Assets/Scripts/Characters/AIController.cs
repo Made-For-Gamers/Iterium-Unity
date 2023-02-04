@@ -35,12 +35,12 @@ public class AIController : MonoBehaviour
         firePosition = transform.GetChild(2);
         rigidBody = GetComponent<Rigidbody>();
         InvokeRepeating("Fire", fireStart, fireInterval);
+        InvokeRepeating("Shield", 0, GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown);
     }
 
     private void Update()
     {
         Rotate();
-        Shield();
     }
 
     private void FixedUpdate()
@@ -55,12 +55,9 @@ public class AIController : MonoBehaviour
         {
             transform.LookAt(GameManager.Instance.targetNpc.transform);
         }
-        else
+        else if (GameManager.Instance.targetPlayer.gameObject)
         {
-            if (GameManager.Instance.targetPlayer.gameObject)
-            {
-                transform.LookAt(GameManager.Instance.targetPlayer.transform);
-            }
+            transform.LookAt(GameManager.Instance.targetPlayer.transform);
         }
     }
 
@@ -112,56 +109,38 @@ public class AIController : MonoBehaviour
                 }
             }
         }
-
-
     }
-
 
     //Ship Thrust
     private void Thrust()
     {
-        if (rigidBody.velocity.z >= 0f && GameManager.Instance.targetAi.gameObject)
+        if (rigidBody.velocity.z > -1f)
         {
             if (!isThrusting)
             {
                 isThrusting = true;
                 thrusters.SetActive(true);
             }
-            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.1f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl + 1)) * Time.deltaTime), ForceMode.Force);
+            rigidBody.AddRelativeForce(new Vector3(0, 0, 0.2f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * (GameManager.Instance.aiPlayer.SpeedLvl)) * Time.deltaTime), ForceMode.Force);
         }
-        else
+        else if (isThrusting)
         {
             isThrusting = false;
             thrusters.SetActive(false);
         }
     }
 
-    //Ship Shield
+    //Shield
     private void Shield()
     {
-        if (!isShielding)
+        if (shield.activeSelf)
         {
-            shield.SetActive(true);
-            isShielding = true;
-            StartCoroutine(ShieldTime());
-            shieldCooldown = GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown;
-        }
-
-        if (shieldCooldown > 0)
-        {
-            shieldCooldown -= 1 * Time.deltaTime;
+            shield.SetActive(false);
         }
         else
         {
-            isShielding = false;
+            shield.SetActive(true);
         }
-    }
-
-    //Shield cooldown timer
-    private IEnumerator ShieldTime()
-    {
-        yield return new WaitForSeconds(GameManager.Instance.aiPlayer.Character.Ship.ShieldTime);
-        shield.SetActive(false);
     }
 
     //Calculate the damage when the ship is struck. Taking account of shield strength and striking bullets power.
@@ -193,7 +172,6 @@ public class AIController : MonoBehaviour
     //Destroy this ship
     IEnumerator DestroyShip()
     {
-
         for (int i = 0; i < 3; i++)
         {
             //Spawn new explosion
