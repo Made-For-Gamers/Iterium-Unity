@@ -18,7 +18,7 @@ public class Iterium : MonoBehaviour
             case "Player":
 
                 GameManager.Instance.player.Score += score;
-                GameManager.Instance.player.Xp += xp;
+                GameManager.Instance.player.XpCollected += xp;
                 GameManager.Instance.player.IteriumCollected++;
                 SoundManager.Instance.PlayEffect(sfxIndex);
                 //Remove object
@@ -28,7 +28,7 @@ public class Iterium : MonoBehaviour
             //Bullet hits AI player
             case "AI":
                 GameManager.Instance.aiPlayer.Score += score;
-                GameManager.Instance.aiPlayer.Xp += xp;
+                GameManager.Instance.aiPlayer.XpCollected += xp;
                 GameManager.Instance.aiPlayer.IteriumCollected++;
                 //Remove object
                 Destroy(gameObject);

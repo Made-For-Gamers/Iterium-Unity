@@ -18,7 +18,7 @@ public class Bullet : BulletBase
             //Bullet hits an asteroid
             case "Asteroid":
                 GameManager.Instance.player.Score += 50;
-                GameManager.Instance.player.Xp += 10;
+                GameManager.Instance.player.XpCollected += 10;
                 BulletExplosion(collision);
                 AsteroidHit(collision);
                 break;
@@ -28,14 +28,14 @@ public class Bullet : BulletBase
                 var aiIhit = collision.transform.GetComponent<AIController>();
                 aiIhit.BulletHit(GameManager.Instance.player.Character.Ship.Bullet.FirePower * GameManager.Instance.player.BulletLvl);
                 GameManager.Instance.player.Score += 500;
-                GameManager.Instance.player.Xp += 25;
+                GameManager.Instance.player.XpCollected += 25;
                 BulletExplosion(collision);
                 break;
 
             //Bullet hits NPC
             case "NPC":
                 GameManager.Instance.player.Score += 2500;
-                GameManager.Instance.player.Xp += 100;
+                GameManager.Instance.player.XpCollected += 100;
                 SoundManager.Instance.PlayShipExplosion();
                 BulletExplosion(collision);
                 Destroy(collision.gameObject);

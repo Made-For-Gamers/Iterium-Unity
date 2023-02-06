@@ -240,18 +240,20 @@ public class GameManager : Singleton<GameManager>
     }
 
     //Reset data for a new arena battle
-    public void NewArena()
+    public void ResetArena()
     {
         //Player data
         player.Health = 100;
         player.Score = 0;
         player.IteriumCollected = 0;
+        player.XpCollected = 0;
         player.Lives = 3;
 
         //AI data
         aiPlayer.Health = 100;
         aiPlayer.Score = 0;
         aiPlayer.IteriumCollected = 0;
+        aiPlayer.XpCollected = 0;
         aiPlayer.Lives = 3;
     }
 
@@ -333,7 +335,7 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.Health = 100;
     }
 
-   
+
     public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
@@ -413,8 +415,8 @@ public class GameManager : Singleton<GameManager>
         Vector3 pos = Camera.main.transform.position;
         float elapsedTime = 0;
         while (elapsedTime < time)
-        { 
-        elapsedTime += Time.deltaTime;
+        {
+            elapsedTime += Time.deltaTime;
             float x = Random.Range(-0.3f, 0.3f) * magnitude;
             float y = Random.Range(-0.3f, 0.3f) * magnitude;
             Camera.main.transform.position = new Vector3(x, pos.y, y);
@@ -425,6 +427,7 @@ public class GameManager : Singleton<GameManager>
 
     public void CalculateXP()
     {
+        player.Xp += player.XpCollected;
         if (player.Xp > xpLevelSteps * player.Level)
         {
             if (player.Level < maxLevel)
@@ -432,6 +435,7 @@ public class GameManager : Singleton<GameManager>
                 player.Level++;
             }
         }
+        aiPlayer.Xp += aiPlayer.XpCollected;
         if (aiPlayer.Xp > xpLevelSteps * aiPlayer.Level)
         {
             if (aiPlayer.Level < maxLevel)
@@ -445,6 +449,18 @@ public class GameManager : Singleton<GameManager>
     {
         player.Iterium += player.IteriumCollected;
         aiPlayer.Iterium += aiPlayer.IteriumCollected;
+    }
+
+    public int CalculatePlayerBonus()
+    {
+        int bonus;
+        bonus = (player.IteriumCollected * 100) * player.Level;
+        return bonus;
+    }
+
+    public void CalculateAiBonus()
+    {
+       aiPlayer.Score += (aiPlayer.IteriumCollected * 100) * aiPlayer.Level;
     }
 
     //Keep player bullet upgrade value in sync with current upgrade value

@@ -149,7 +149,7 @@ public class UI_FactionSelection : MonoBehaviour
     {
         GameManager.Instance.UpgradeLevelSync();
         GameManager.Instance.SaveGame();
-        GameManager.Instance.NewArena();
+        GameManager.Instance.ResetArena();
         SceneManager.LoadScene(sceneName);
     }
 }
