@@ -17,14 +17,33 @@
                         <ui:VisualElement name="textChina" style="background-image: url(&apos;project://database/Assets/Images/China_text_V3.png?fileID=21300000&amp;guid=78e05d1d3651f074d81bcd8ebdff6f99&amp;type=3#China_text_V3&apos;); width: 100%; height: 100%; -unity-text-align: lower-center; justify-content: flex-end; margin-top: 385px; margin-bottom: -385px; -unity-background-image-tint-color: rgb(0, 255, 233);" />
                     </ui:Button>
                 </ui:VisualElement>
-                <ui:VisualElement name="key" style="align-items: stretch; justify-content: space-between; flex-direction: row; height: auto; background-color: rgba(0, 0, 0, 0);">
-                    <ui:VisualElement name="keyText" style="justify-content: space-between; padding-top: 25px; padding-bottom: 25px; background-color: rgba(0, 0, 0, 0);">
-                        <ui:Label text="FIREPOWER" display-tooltip-when-elided="true" name="firepower" style="font-size: 22px; -unity-text-align: upper-center; color: rgb(255, 115, 61); background-color: rgba(0, 0, 0, 0);" />
-                        <ui:Label text="SPEED" display-tooltip-when-elided="true" name="speed" style="font-size: 22px; -unity-text-align: upper-center; color: rgb(15, 243, 34); background-color: rgba(0, 0, 0, 0);" />
-                        <ui:Label text="SHIELD" display-tooltip-when-elided="true" name="shield" style="font-size: 22px; -unity-text-align: upper-center; color: rgb(0, 255, 233); background-color: rgba(0, 0, 0, 0);" />
+                <ui:VisualElement name="infoPanel" style="flex-direction: row; width: 55%; justify-content: space-between;">
+                    <ui:VisualElement name="key" style="align-items: stretch; justify-content: flex-start; flex-direction: row; height: auto; background-color: rgba(0, 0, 0, 0); width: 50%; position: relative;">
+                        <ui:VisualElement name="keyText" style="justify-content: space-between; padding-top: 25px; padding-bottom: 25px; background-color: rgba(0, 0, 0, 0);">
+                            <ui:Label text="FIREPOWER" display-tooltip-when-elided="true" name="firepower" style="font-size: 22px; -unity-text-align: upper-center; color: rgb(255, 115, 61); background-color: rgba(0, 0, 0, 0);" />
+                            <ui:Label text="SPEED" display-tooltip-when-elided="true" name="speed" style="font-size: 22px; -unity-text-align: upper-center; color: rgb(15, 243, 34); background-color: rgba(0, 0, 0, 0);" />
+                            <ui:Label text="SHIELD" display-tooltip-when-elided="true" name="shield" style="font-size: 22px; -unity-text-align: upper-center; color: rgb(0, 255, 233); background-color: rgba(0, 0, 0, 0);" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="guagePanel" style="background-color: rgba(0, 0, 0, 0);">
+                            <ui:VisualElement name="guageKey" style="background-image: url(&apos;project://database/Assets/RenderTextures/Camera6_UI_RT.renderTexture?fileID=8400000&amp;guid=70c8adfec7db29c438534f8f28348b17&amp;type=2#Camera6_UI_RT&apos;); width: 250px; height: 250px; background-color: rgba(0, 0, 0, 0);" />
+                        </ui:VisualElement>
                     </ui:VisualElement>
-                    <ui:VisualElement name="guagePanel" style="background-color: rgba(0, 0, 0, 0);">
-                        <ui:VisualElement name="guageKey" style="background-image: url(&apos;project://database/Assets/RenderTextures/Camera6_UI_RT.renderTexture?fileID=8400000&amp;guid=70c8adfec7db29c438534f8f28348b17&amp;type=2#Camera6_UI_RT&apos;); width: 250px; height: 250px; background-color: rgba(0, 0, 0, 0);" />
+                    <ui:VisualElement name="playerStats" style="width: 600px; align-items: flex-start; flex-direction: column; position: absolute; left: 1037px;">
+                        <ui:VisualElement name="header">
+                            <ui:Label text="PLAYER" display-tooltip-when-elided="true" name="playerStatsText" style="font-size: 35px; color: rgb(0, 255, 233); -unity-font-style: bold; align-items: flex-start;" />
+                        </ui:VisualElement>
+                        <ui:VisualElement name="content" style="flex-direction: row; width: 100%;">
+                            <ui:VisualElement name="leftPanel" style="width: 30%; height: 100%;">
+                                <ui:Label text="TOTAL XP :" display-tooltip-when-elided="true" name="xpTotalText" style="font-size: 30px; color: rgb(0, 255, 233);" />
+                                <ui:Label text="LEVEL :" display-tooltip-when-elided="true" name="levelText" style="color: rgb(0, 255, 233); font-size: 30px;" />
+                                <ui:Label text="Label" display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=21300000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 125px; height: 75px; flex-direction: row; margin-left: -50px;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="rightPanel" style="height: 100%;">
+                                <ui:Label text="100000" display-tooltip-when-elided="false" name="playerXPTotal" enable-rich-text="false" style="font-size: 30px; color: rgb(0, 255, 233); -unity-font-style: bold;" />
+                                <ui:Label text="5" display-tooltip-when-elided="true" name="playerLevel" style="font-size: 30px; color: rgb(0, 255, 233); -unity-font-style: bold; -unity-text-align: middle-left;" />
+                                <ui:Label text="32" display-tooltip-when-elided="true" name="playerIteriumTotal" style="font-size: 30px; color: rgb(15, 243, 34); -unity-font-style: bold; -unity-text-align: middle-left; margin-top: 20px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
             </ui:VisualElement>
