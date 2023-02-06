@@ -255,6 +255,7 @@ public class GameManager : Singleton<GameManager>
         aiPlayer.IteriumCollected = 0;
         aiPlayer.XpCollected = 0;
         aiPlayer.Lives = 3;
+        SelectAiPlayer();
     }
 
     public void OnApplicationQuit()
