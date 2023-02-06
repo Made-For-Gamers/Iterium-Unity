@@ -15,15 +15,30 @@
                 <ui:VisualElement name="results">
                     <ui:VisualElement name="resultsSubPanel" style="align-items: center; justify-content: center; flex-wrap: nowrap; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-grow: 1; width: 100%; height: 100%; flex-direction: column; padding-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0;">
                         <ui:VisualElement name="score" style="align-items: center; -unity-text-align: lower-center; justify-content: center; flex-direction: column; flex-grow: 1; width: 100%; height: 50%;">
-                            <ui:Label text="SCORE :" display-tooltip-when-elided="true" name="scoreText" style="font-size: 60px; color: rgb(255, 19, 0); -unity-font-style: bold;" />
-                            <ui:Label text="0" display-tooltip-when-elided="true" name="playerScore" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 150px;" />
-                            <ui:VisualElement name="iterium" style="flex-direction: row; align-items: center; justify-content: flex-end;">
-                                <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 50%; height: 100%; align-items: center; flex-direction: row; -unity-text-align: lower-center; padding-left: 70px; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: -35px; margin-top: 0; margin-bottom: 0;" />
+                            <ui:VisualElement name="scorePanel">
+                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerScore" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 150px;" />
+                                <ui:Label text="SCORE :" display-tooltip-when-elided="true" name="scoreText" style="font-size: 60px; color: rgb(255, 19, 0); -unity-font-style: bold;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="xpPanel">
+                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerXP" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 100px;" />
+                                <ui:Label text="XP :" display-tooltip-when-elided="true" name="xpText" style="font-size: 60px; color: rgb(255, 19, 0); -unity-font-style: bold;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="levelPanel">
+                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerLevel" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 100px;" />
+                                <ui:Label text="LEVEL :" display-tooltip-when-elided="true" name="levelText" style="font-size: 60px; color: rgb(255, 19, 0); -unity-font-style: bold;" />
+                            </ui:VisualElement>
+                            <ui:VisualElement name="iteriumCollectedPanel" style="flex-direction: row; align-items: center; justify-content: flex-end;">
+                                <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 150px; height: 100px; align-items: center; flex-direction: row; -unity-text-align: lower-center; padding-left: 70px; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: -35px; margin-top: 0; margin-bottom: 0;" />
                                 <ui:Label text="Collected:" display-tooltip-when-elided="true" name="collectedText" style="font-size: 60px; color: rgb(255, 19, 0);" />
                                 <ui:Label text="0" display-tooltip-when-elided="true" name="playerIterium" style="font-size: 80px; color: rgb(15, 243, 34); -unity-text-align: upper-center;" />
                             </ui:VisualElement>
+                            <ui:VisualElement name="iteriumTotalPanel" style="flex-direction: row; align-items: center; justify-content: flex-end;">
+                                <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 150px; height: 100px; align-items: center; flex-direction: row; -unity-text-align: lower-center; padding-left: 70px; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: -35px; margin-top: 0; margin-bottom: 0;" />
+                                <ui:Label text="Total:" display-tooltip-when-elided="true" name="TotalText" style="font-size: 60px; color: rgb(255, 19, 0);" />
+                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerIteriumTotal" style="font-size: 80px; color: rgb(15, 243, 34); -unity-text-align: upper-center;" />
+                            </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: 100%; height: 50%;">
+                        <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: 100%; height: 10%;">
                             <ui:Button text="Rematch" display-tooltip-when-elided="true" name="rematch" class="button" />
                         </ui:VisualElement>
                     </ui:VisualElement>
