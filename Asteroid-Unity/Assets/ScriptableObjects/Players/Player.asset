@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  profileName: PaxRon
+  profileName: Player 1
   bio: 
   email: 
-  xp: 7540
-  level: 3
-  score: 31500
+  xp: 20370
+  xpCollected: 870
+  level: 2
+  score: 10100
   character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
-  health: -11
-  iterium: 8
+  health: -10
+  iterium: 23
   iteriumCollected: 3
   lives: 0
   bulletLvl: 1
@@ -39,12 +40,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onChange_Score:
-    m_PersistentCalls:
-      m_Calls: []
-  onChange_XP:
-    m_PersistentCalls:
-      m_Calls: []
-  onChange_Level:
     m_PersistentCalls:
       m_Calls: []
   onChange_Iterium:

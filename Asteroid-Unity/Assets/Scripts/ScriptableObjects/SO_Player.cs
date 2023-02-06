@@ -13,6 +13,7 @@ public class SO_Player : ScriptableObject
     [SerializeField] private string bio;
     [SerializeField] private string email;
     [SerializeField] private int xp;
+    [SerializeField] private int xpCollected;
     [SerializeField] private int level = 1;
     [SerializeField] private int score;
     [SerializeField] private SO_Character character;
@@ -36,8 +37,6 @@ public class SO_Player : ScriptableObject
     //Events
     public UnityEvent onChange_Health;
     public UnityEvent onChange_Score;
-    public UnityEvent onChange_XP;
-    public UnityEvent onChange_Level;
     public UnityEvent onChange_Iterium;
     public UnityEvent onChange_IteriumCollected;
     public UnityEvent onChange_Lives;
@@ -62,7 +61,14 @@ public class SO_Player : ScriptableObject
         set
         {
             xp = value;
-            onChange_XP.Invoke();
+        }
+    }
+    public int XpCollected
+    {
+        get => xpCollected;
+        set
+        {
+            xpCollected = value;
         }
     }
     public int Level
@@ -71,7 +77,6 @@ public class SO_Player : ScriptableObject
         set
         {
             level = value;
-            onChange_Level.Invoke();
         }
     }
 

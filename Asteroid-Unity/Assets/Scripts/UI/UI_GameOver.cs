@@ -26,22 +26,34 @@ public class UI_GameOver : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private string playerScore = "playerScore";
-    [SerializeField] private string playerIterium = "playerIterium";
+    [SerializeField] private string playerIteriumCollected = "playerIterium";
+    [SerializeField] private string playerIteriumTotal = "playerIteriumTotal";
     [SerializeField] private string playerMessage = "message";
     [SerializeField] private string rematchButton = "rematch";
+    [SerializeField] private string playerXpTotal = "playerXPTotal";
+    [SerializeField] private string playerXpEarned = "playerXPEarned";
+    [SerializeField] private string playerLevel = "playerLevel";
+    [SerializeField] private string playerBonus = "playerBonus";
+
 
     private Button rematch;
 
     private int arenaScore;
+    private int roundBonus;
 
     private void OnEnable()
     {
         VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
 
-        //Init player UI controls
+        //Init player UI elements
         TextElement score = uiRoot.Q<TextElement>(playerScore);
-        TextElement iterium = uiRoot.Q<TextElement>(playerIterium);
+        TextElement iteriumCollected = uiRoot.Q<TextElement>(playerIteriumCollected);
+        TextElement iteriumTotal = uiRoot.Q<TextElement>(playerIteriumTotal);
         TextElement message = uiRoot.Q<TextElement>(playerMessage);
+        TextElement xpTotal = uiRoot.Q<TextElement>(playerXpTotal);
+        TextElement xpEarned = uiRoot.Q<TextElement>(playerXpEarned);
+        TextElement level = uiRoot.Q<TextElement>(playerLevel);
+        TextElement bonus = uiRoot.Q<TextElement>(playerBonus);
         rematch = uiRoot.Q<Button>(rematchButton);
 
         //Events
@@ -51,12 +63,23 @@ public class UI_GameOver : MonoBehaviour
         arenaScore = GameManager.Instance.player.Score;
         score.text = arenaScore.ToString();
 
-        //Iterium
-        iterium.text = GameManager.Instance.player.IteriumCollected.ToString();
-        GameManager.Instance.CalculateIterium();
-
         //XP
         GameManager.Instance.CalculateXP();
+        xpEarned.text = GameManager.Instance.player.XpCollected.ToString();
+        xpTotal.text = GameManager.Instance.player.Xp.ToString();
+        
+        //Level
+        level.text = GameManager.Instance.player.Level.ToString();
+
+        //Iterium
+        GameManager.Instance.CalculateIterium();
+        iteriumCollected.text = GameManager.Instance.player.IteriumCollected.ToString();
+        iteriumTotal.text = GameManager.Instance.player.Iterium.ToString();
+
+        //Bonus
+        roundBonus = GameManager.Instance.CalculatePlayerBonus();
+        GameManager.Instance.CalculateAiBonus();
+        bonus.text = roundBonus.ToString();
 
         //AI firepower upgrades
         if (GameManager.Instance.aiPlayer.BulletLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.firepowerLevel1)
@@ -153,7 +176,7 @@ public class UI_GameOver : MonoBehaviour
 
     private void Rematch()
     {
-        GameManager.Instance.NewArena();
+        GameManager.Instance.ResetArena();
         SceneManager.LoadScene(gameScene);
     }
 }

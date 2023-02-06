@@ -125,7 +125,7 @@ public class UI_Game : MonoBehaviour
         matAiHealth = rendererAi.material;
 
         //Set UI values on start
-        GameManager.Instance.NewArena();
+        GameManager.Instance.ResetArena();
         ChangeNames();
         ChangeScore();
         ChangeAiScore();
@@ -181,6 +181,7 @@ public class UI_Game : MonoBehaviour
 
     private void ExitPause()
     {
+        GameManager.Instance.ResetArena();
         PauseGame();
     }
 
