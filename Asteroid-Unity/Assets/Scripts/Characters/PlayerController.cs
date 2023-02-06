@@ -150,9 +150,11 @@ public class PlayerController : MonoBehaviour
     IEnumerator DestroyShip()
     {
 
+        GameManager.Instance.CameraShake(0.4f, 0.3f);
         for (int i = 0; i < 3; i++)
         {
             //Spawn new explosion
+           
             GameObject explosionObject = ExplosionPooling.explosionPool.Get();
             SoundManager.Instance.PlayShipExplosion();
             explosionObject.transform.position = transform.position;

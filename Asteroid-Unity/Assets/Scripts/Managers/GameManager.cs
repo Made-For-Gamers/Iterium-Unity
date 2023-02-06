@@ -403,6 +403,27 @@ public class GameManager : Singleton<GameManager>
         leaderboard = leaderboard.OrderByDescending(x => x.score).ToList();
     }
 
+    public void CameraShake(float time, float magnitude)
+    {
+        StartCoroutine(Shake(time, magnitude));
+    }
+
+    //Shake camera when player dies
+    IEnumerator Shake(float time, float magnitude)
+    {
+        Vector3 pos = Camera.main.transform.position;
+        float elapsedTime = 0;
+        while (elapsedTime < time)
+        { 
+        elapsedTime += Time.deltaTime;
+            float x = Random.Range(-0.3f, 0.3f) * magnitude;
+            float y = Random.Range(-0.3f, 0.3f) * magnitude;
+            Camera.main.transform.position = new Vector3(x, pos.y, y);
+            yield return null;
+        }
+        Camera.main.transform.position = pos;
+    }
+
     public void CalculateXP()
     {
         if (player.Xp > xpLevelSteps * player.Level)
