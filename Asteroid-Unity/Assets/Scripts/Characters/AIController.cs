@@ -10,6 +10,8 @@ using System.Collections;
 /// * Ship destroy
 /// * Screen warping
 /// </summary>
+/// 
+
 
 public class AIController : MonoBehaviour
 {
@@ -181,7 +183,8 @@ public class AIController : MonoBehaviour
             explosionObject.transform.rotation = transform.rotation;
             explosionObject.transform.localScale = new Vector3(i, i, i);
             yield return new WaitForSeconds(0.15f);
-            //Prepare to return explosion to pool
+
+            //Return explosion to pool (reset scale)
             explosionObject.transform.localScale = new Vector3(1, 1, 1);
             if (gameObject.activeSelf)
             {

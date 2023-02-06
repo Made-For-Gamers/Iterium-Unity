@@ -322,7 +322,6 @@ public class GameManager : Singleton<GameManager>
     IEnumerator SpawnAiOverTime(float time)
     {
         yield return new WaitForSeconds(time);
-        SelectAiPlayer();
         targetAi = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.ShipPrefab);
         Destroy(targetAi.GetComponent<PlayerController>());
         Destroy(targetAi.GetComponent<InputManager>());
