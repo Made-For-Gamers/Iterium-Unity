@@ -1,5 +1,8 @@
 using UnityEngine;
 
+#ROOTNAMESPACEBEGIN#
+
+//
 public class #SCRIPTNAME#<T> : MonoBehaviour where T : Component
 {
    private static T _instance;
@@ -34,3 +37,5 @@ public class #SCRIPTNAME#<T> : MonoBehaviour where T : Component
         }
     }
 }
+
+#ROOTNAMESPACEEND#

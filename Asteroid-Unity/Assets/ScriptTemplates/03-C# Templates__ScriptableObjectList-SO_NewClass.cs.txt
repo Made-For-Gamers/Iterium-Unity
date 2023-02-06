@@ -1,11 +1,15 @@
 using UnityEngine;
 
+#ROOTNAMESPACEBEGIN#
+
 [CreateAssetMenu(fileName = "", menuName = "Add SO/List/")]
 
-//
-public class #SCRIPTNAME# : ScriptableObject
-{
-   [SerializeField] private List<> listName = new List<>();
+	//
+	public class #SCRIPTNAME# : ScriptableObject
+	{
+	   [SerializeField] private List<> listName = new List<>();
 
-   public List<> ListName { get => listName;}
-}
+	   public List<> ListName { get => listName;}
+	}
+
+#ROOTNAMESPACEEND#

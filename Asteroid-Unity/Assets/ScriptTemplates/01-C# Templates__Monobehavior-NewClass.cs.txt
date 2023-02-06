@@ -1,8 +1,14 @@
 using UnityEngine;
 
-//
-public class #SCRIPTNAME# : MonoBehaviour
-{
- [Header("")]
- [SerializeField] private string variable;
-}
+#ROOTNAMESPACEBEGIN#
+
+	//
+	public class #SCRIPTNAME# : MonoBehaviour
+	{
+		 [Header("")]
+		 [SerializeField] private string variable;
+	}
+
+#ROOTNAMESPACEEND#
+
+

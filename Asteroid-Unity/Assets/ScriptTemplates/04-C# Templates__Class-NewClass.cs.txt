@@ -1,7 +1,11 @@
 using UnityEngine;
 
-//
-public class #SCRIPTNAME#
-{
- private string variable;
-}
+#ROOTNAMESPACEBEGIN#
+
+	//
+	public class #SCRIPTNAME#
+	{
+		private string variable;
+	}
+
+#ROOTNAMESPACEEND#
