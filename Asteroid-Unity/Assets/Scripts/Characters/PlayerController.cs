@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (input.isWarping)
         { 
             transform.position = GameManager.Instance.RandomScreenPosition(GameManager.Instance.playerSpawner);
+            rigidBody.velocity = Vector3.zero;
             input.isWarping = false;
         }
     }
