@@ -1,15 +1,18 @@
 using UnityEngine;
 
-public class PlayMusic : MonoBehaviour
+namespace Iterium
 {
-    [Header("Play music by index")]
-    [SerializeField] private int trackIndex;
-    [SerializeField] private bool loop;
-    [SerializeField] private bool StopCurrent;
-    [SerializeField] private float delay;
-
-    private void Start()
+    public class PlayMusic : MonoBehaviour
     {
-        SoundManager.Instance.PlayMusic(trackIndex, loop,StopCurrent, delay);
+        [Header("Play music by index")]
+        [SerializeField] private int trackIndex;
+        [SerializeField] private bool loop;
+        [SerializeField] private bool StopCurrent;
+        [SerializeField] private float delay;
+
+        private void Start()
+        {
+            SoundManager.Instance.PlayMusic(trackIndex, loop, StopCurrent, delay);
+        }
     }
 }

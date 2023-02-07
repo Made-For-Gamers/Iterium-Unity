@@ -1,40 +1,44 @@
 using UnityEngine;
 using UnityEngine.Pool;
 
-/// <summary>
-/// Pool spawned/de=spawned explostion effects to improve performance
-/// </summary>
-public class ExplosionPooling : MonoBehaviour
+namespace Iterium
 {
-    [Header("Explosion Pooling")]
-    [SerializeField] private int capacity = 10;
-    [SerializeField] private int maxCapacity = 15;
-    [SerializeField] SO_GameObjects explosion;
-    public static ObjectPool<GameObject> explosionPool;
 
-    void Awake()
+    /// <summary>
+    /// Pool spawned/de=spawned explostion effects to improve performance
+    /// </summary>
+    public class ExplosionPooling : MonoBehaviour
     {
-        explosionPool = new ObjectPool<GameObject>(PoolNew, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
-    }
+        [Header("Explosion Pooling")]
+        [SerializeField] private int capacity = 10;
+        [SerializeField] private int maxCapacity = 15;
+        [SerializeField] SO_GameObjects explosion;
+        public static ObjectPool<GameObject> explosionPool;
 
-    private GameObject PoolNew()
-    {
-        //Instantiate a new asteroid
-        return Instantiate(explosion.GetRandomGameObject());
-    }
+        void Awake()
+        {
+            explosionPool = new ObjectPool<GameObject>(PoolNew, PoolGet, PoolReturn, PoolDestroy, false, capacity, maxCapacity);
+        }
 
-    private void PoolGet(GameObject obj)
-    {
-        obj.SetActive(true);
-    }
+        private GameObject PoolNew()
+        {
+            //Instantiate a new asteroid
+            return Instantiate(explosion.GetRandomGameObject());
+        }
 
-    private void PoolReturn(GameObject obj)
-    {
-        obj?.SetActive(false);
-    }
+        private void PoolGet(GameObject obj)
+        {
+            obj.SetActive(true);
+        }
 
-    private void PoolDestroy(GameObject obj)
-    {
-        Destroy(obj);
+        private void PoolReturn(GameObject obj)
+        {
+            obj?.SetActive(false);
+        }
+
+        private void PoolDestroy(GameObject obj)
+        {
+            Destroy(obj);
+        }
     }
 }

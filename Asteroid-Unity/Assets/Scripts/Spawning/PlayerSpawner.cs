@@ -1,14 +1,18 @@
 using UnityEngine;
 
-// Spawn player ship prefab
-
-public class PlayerSpawner : MonoBehaviour
+namespace Iterium
 {
-    float spawnTime = 2f;
 
-    private void Start()
+    // Spawn player ship prefab
+
+    public class PlayerSpawner : MonoBehaviour
     {
-        GameManager.Instance.playerSpawner = gameObject.transform;
-        GameManager.Instance.SpawnPlayer(spawnTime);
+        float spawnTime = 2f;
+
+        private void Start()
+        {
+            GameManager.Instance.playerSpawner = gameObject.transform;
+            GameManager.Instance.SpawnPlayer(spawnTime);
+        }
     }
 }

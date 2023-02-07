@@ -2,41 +2,44 @@ using UnityEngine.UIElements;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UI_Button : MonoBehaviour
+namespace Iterium
 {
-    [Header("Drag scene to load")]
+    public class UI_Button : MonoBehaviour
+    {
+        [Header("Drag scene to load")]
 #if UNITY_EDITOR
-    public UnityEditor.SceneAsset destinationScene;
-    private void OnValidate()
-    {
-        if (destinationScene != null)
+        public UnityEditor.SceneAsset destinationScene;
+        private void OnValidate()
         {
-            sceneName = destinationScene.name;
+            if (destinationScene != null)
+            {
+                sceneName = destinationScene.name;
+            }
         }
-    }
 #endif
-    [HideInInspector] public string sceneName;
+        [HideInInspector] public string sceneName;
 
-    [Header("UI button")]
-    [SerializeField] private string buttonName;
+        [Header("UI button")]
+        [SerializeField] private string buttonName;
 
-    private Button button;
+        private Button button;
 
-    private void OnEnable()
-    {
-        VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
-        button = uiRoot.Q<Button>(buttonName);
-        button.clicked += Button_clicked;
-    }
+        private void OnEnable()
+        {
+            VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
+            button = uiRoot.Q<Button>(buttonName);
+            button.clicked += Button_clicked;
+        }
 
-    private void OnDisable()
-    {
-        //Clean-up events
-        button.clicked -= Button_clicked;
-    }
+        private void OnDisable()
+        {
+            //Clean-up events
+            button.clicked -= Button_clicked;
+        }
 
-    private void Button_clicked()
-    {       
-        SceneManager.LoadScene(sceneName);
+        private void Button_clicked()
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class DeSpawnAsteroid : MonoBehaviour
+namespace Iterium
 {
-    //Remove asteroid after it leaves the screen
-    private void OnBecameInvisible()
+    public class DeSpawnAsteroid : MonoBehaviour
     {
-        if (gameObject.activeSelf)
+        //Remove asteroid after it leaves the screen
+        private void OnBecameInvisible()
         {
-            AsteroidPooling.asteroidPool.Release(this.gameObject);
+            if (gameObject.activeSelf)
+            {
+                AsteroidPooling.asteroidPool.Release(gameObject);
+            }
         }
     }
 }
