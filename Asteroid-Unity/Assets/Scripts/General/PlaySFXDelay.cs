@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Delay the play of an AdioSource sound
+
     public class PlaySFXDelay : MonoBehaviour
     {
         [Header("Settings")]

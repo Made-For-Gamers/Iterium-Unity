@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     /// <summary>
     /// AI bullet that handles...
     /// * Collision detection
@@ -13,12 +12,12 @@ namespace Iterium
 
     public class BulletAI : BulletBase
     {
-        //Take action when bullet hits a specific object
+        //AI bullet collision
         private void OnTriggerEnter(Collider collision)
         {
             switch (collision.gameObject.tag)
             {
-                //Bullet hits an asteroid
+                //Hit asteroid
                 case "Asteroid":
                     GameManager.Instance.aiPlayer.Score += 50;
                     GameManager.Instance.aiPlayer.XpCollected += 10;
@@ -26,7 +25,7 @@ namespace Iterium
                     AsteroidHit(collision);
                     break;
 
-                //Bullet hits another player
+                //Hit player
                 case "Player":
                     var playerhit = collision.transform.GetComponent<PlayerController>();
                     playerhit.BulletHit(GameManager.Instance.aiPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.aiPlayer.BulletLvlUs);
@@ -35,7 +34,7 @@ namespace Iterium
                     BulletExplosion(collision);
                     break;
 
-                //Bullet hits NPC
+                //Hit NPC
                 case "NPC":
                     GameManager.Instance.aiPlayer.Score += 2500;
                     GameManager.Instance.aiPlayer.XpCollected += 100;
@@ -43,7 +42,7 @@ namespace Iterium
                     BulletExplosion(collision);
                     Destroy(collision.gameObject);
                     break;
-                //Bullet hits another bullet
+                //Hit another bullet
                 case "Bullet":
                     if (collision.GetComponent<BulletNpc>())
                     {
@@ -58,6 +57,7 @@ namespace Iterium
             }
         }
 
+        //Release bullet to pool
         protected override void ReleaseBullet()
         {
             if (gameObject.activeSelf)

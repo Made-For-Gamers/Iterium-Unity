@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     /// <summary>
     /// Rotate an object
     /// * Axis selection
@@ -12,15 +11,15 @@ namespace Iterium
 
     public class Rotate : MonoBehaviour
     {
-        [SerializeField] float speed = 20f; //rotation speed
-        [SerializeField] private float randomMaxSpeed; //upper value for random range
-        [SerializeField] private bool reverseDirection;   // reverse roation toggle
-        [SerializeField] private bool randomDirection = true; //random spin direction
-        [SerializeField] private bool randomSpeed = true; //random spin speed
-        [SerializeField] private bool rotationX;   // toggle rotation on X axis
-        [SerializeField] private bool rotationY = true;   // toggle rotation on Y axis
-        [SerializeField] private bool rotationZ;   // toggle rotation on Z axis
-        private float finalSpeed; //final calculated spin speed
+        [SerializeField] float speed = 20f;
+        [SerializeField] private float randomMaxSpeed;
+        [SerializeField] private bool reverseDirection;
+        [SerializeField] private bool randomDirection = true;
+        [SerializeField] private bool randomSpeed = true;
+        [SerializeField] private bool rotationX;
+        [SerializeField] private bool rotationY = true;
+        [SerializeField] private bool rotationZ;
+        private float finalSpeed;
 
         private void Start()
         {
@@ -31,14 +30,14 @@ namespace Iterium
 
             if (reverseDirection)
             {
-                finalSpeed -= finalSpeed * 2; // reverse direction
+                finalSpeed -= finalSpeed * 2; 
             }
             else if (randomDirection)
             {
                 int rnd = Random.Range(1, 3);
                 if (rnd == 2)
                 {
-                    finalSpeed -= finalSpeed * 2; // reverse direction
+                    finalSpeed -= finalSpeed * 2;
                 }
             }
         }

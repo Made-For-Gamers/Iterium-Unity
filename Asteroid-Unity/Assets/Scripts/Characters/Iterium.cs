@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     //Collecting of Iterium by players or AI
 
     public class Iterium : MonoBehaviour
@@ -12,7 +11,7 @@ namespace Iterium
         [SerializeField] private int xp = 25;
         [SerializeField] private int sfxIndex;
 
-
+        //Iterium collision
         private void OnTriggerEnter(Collider collision)
         {
             switch (collision.gameObject.tag)
@@ -28,7 +27,7 @@ namespace Iterium
                     Destroy(gameObject);
                     break;
 
-                //Bullet hits AI player
+                //Collected by AI
                 case "AI":
                     GameManager.Instance.aiPlayer.Score += score;
                     GameManager.Instance.aiPlayer.XpCollected += xp;

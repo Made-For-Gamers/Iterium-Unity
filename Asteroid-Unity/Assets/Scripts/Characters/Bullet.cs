@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     /// <summary>
     /// Player bullet that handles...
     /// * Collision detection
@@ -13,12 +12,12 @@ namespace Iterium
 
     public class Bullet : BulletBase
     {
-        //Take action when bullet hits a specific object
+        //Player bullet collision
         private void OnTriggerEnter(Collider collision)
         {
             switch (collision.gameObject.tag)
             {
-                //Bullet hits an asteroid
+                //Hit asteroid
                 case "Asteroid":
                     GameManager.Instance.player.Score += 50;
                     GameManager.Instance.player.XpCollected += 10;
@@ -26,7 +25,7 @@ namespace Iterium
                     AsteroidHit(collision);
                     break;
 
-                //Bullet hits AI player
+                //Hit player
                 case "AI":
                     var aiIhit = collision.transform.GetComponent<AIController>();
                     aiIhit.BulletHit(GameManager.Instance.player.Character.Ship.Bullet.FirePower * GameManager.Instance.player.BulletLvl);
@@ -35,7 +34,7 @@ namespace Iterium
                     BulletExplosion(collision);
                     break;
 
-                //Bullet hits NPC
+                //Hit NPC
                 case "NPC":
                     GameManager.Instance.player.Score += 2500;
                     GameManager.Instance.player.XpCollected += 100;
@@ -46,6 +45,7 @@ namespace Iterium
             }
         }
 
+        //Release bullet to pool
         protected override void ReleaseBullet()
         {
             if (gameObject.activeSelf)

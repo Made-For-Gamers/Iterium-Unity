@@ -3,10 +3,7 @@ using UnityEngine.UI;
 
 namespace Iterium
 {
-
-    /// <summary>
-    /// Display the FPS to a Text field
-    /// </summary>
+    // Display the FPS to a Text field
 
     public class FPSCounter : MonoBehaviour
     {

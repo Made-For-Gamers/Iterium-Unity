@@ -26,7 +26,6 @@ namespace Iterium
         private bool isThrusting;
         private Rigidbody rigidBody;
 
-
         void Start()
         {
             input = GetComponent<InputManager>();
@@ -49,13 +48,13 @@ namespace Iterium
             Thrust();
         }
 
-        //Ship rotation
+        //Rotation
         private void Rotate()
         {
             transform.Rotate(0, input.rotateInput.x * (GameManager.Instance.player.Character.Ship.TurnSpeed * GameManager.Instance.player.SpeedLvl) * Time.deltaTime, 0);
         }
 
-        //Firing
+        //Fire
         private void Fire()
         {
             if (input.isfire)
@@ -68,19 +67,20 @@ namespace Iterium
             }
         }
 
-        //Ship Thrust
+        //Thrust
         private void Thrust()
         {
+            //Start thrusters
             if (input.thrustInput.y > 0.1f)
             {
                 if (!isThrusting)
                 {
-                    //StartCoroutine(Thrusters());
                     isThrusting = true;
                     thrusters.SetActive(true);
                 }
                 rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Character.Ship.Thrust * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
             }
+            //Stop thrusters
             else
             {
                 isThrusting = false;
@@ -91,7 +91,8 @@ namespace Iterium
         //Shield
         private void Shield()
         {
-            if (input.isShield & !isShielding) //Deploy Shield
+            //Deploy Shield
+            if (input.isShield & !isShielding)
             {
                 shield.SetActive(true);
                 isShielding = true;
@@ -99,7 +100,8 @@ namespace Iterium
                 shieldCooldown = GameManager.Instance.player.Character.Ship.ShieldCooldown;
             }
 
-            if (shieldCooldown > 0) //Cooldown countdown
+            //Cooldown
+            if (shieldCooldown > 0)
             {
                 shieldCooldown -= 1 * Time.deltaTime;
             }
@@ -120,15 +122,16 @@ namespace Iterium
             }
         }
 
-        //Shield cooldown timer
+        //Stop shield after a set time
         private IEnumerator ShieldTime()
         {
             yield return new WaitForSeconds(GameManager.Instance.player.Character.Ship.ShieldTime);
             shield.SetActive(false);
         }
 
+        //Calculate damage from a hit, uding bullet firepower offset by activated shield strength
         public void BulletHit(float firePower)
-        {
+        {            
             if (isShielding)
             {
                 GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));
@@ -137,6 +140,8 @@ namespace Iterium
             {
                 GameManager.Instance.player.Health -= (int)firePower;
             }
+
+            //Lose a life
             if (GameManager.Instance.player.Health <= 0)
             {
                 gameObject.GetComponent<BoxCollider>().enabled = false;
@@ -149,14 +154,14 @@ namespace Iterium
             }
         }
 
+        //Destroy ship
         IEnumerator DestroyShip()
         {
-
             GameManager.Instance.CameraShake(0.4f, 0.3f);
+
+            //Spawn explosions
             for (int i = 0; i < 3; i++)
             {
-                //Spawn new explosion
-
                 GameObject explosionObject = ExplosionPooling.explosionPool.Get();
                 SoundManager.Instance.PlayShipExplosion();
                 explosionObject.transform.position = transform.position;
@@ -170,14 +175,15 @@ namespace Iterium
                     ExplosionPooling.explosionPool.Release(explosionObject);
                 }
             }
+
+            //Re-spawn ship after a set time
             GameManager.Instance.SpawnPlayer(GameManager.Instance.deathRespawnTime);
             Destroy(gameObject);
         }
 
-        //Remove ship when it leaves the screen and re-spawn
+        //Wrap ship to opposite side of the screen when exiting
         private void OnBecameInvisible()
-        {
-            //Wrap ship to opposite side of the screen when exiting
+        {            
             if (gameObject.activeSelf)
             {
                 Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);

@@ -3,25 +3,22 @@ using System.Collections;
 
 namespace Iterium
 {
-
     /// <summary>
     /// AI player ship script that handles...
     /// * Movement
     /// * Firing
     /// * Shield
-    /// * Health decrease calculation (ship hit)
-    /// * Ship destroy
+    /// * Hit health calculation 
+    /// * Destroy
     /// * Screen warping
     /// </summary>
-    /// 
-
 
     public class AIController : MonoBehaviour
     {
-        [Header("Bullet")]
+        [Header("Bullet Settings")]
         [SerializeField] private float fireStart = 2f;
         [SerializeField] private float fireInterval = 0.6f;
-        [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a descition cycle (targeting)
+        [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a targeting descition round
 
         private Transform firePosition;
         private GameObject shield;
@@ -66,7 +63,7 @@ namespace Iterium
             }
         }
 
-        //Ship Firing
+        //Firing
         private void Fire()
         {
             if (!GameManager.Instance.targetNpc.gameObject)
@@ -78,7 +75,7 @@ namespace Iterium
                 GameObject bullet = BulletPooling.bulletPoolAi.Get();
                 bullet.transform.position = firePosition.position;
 
-                //New descition cyle - Attack NPC or not?
+                //New descition round - attack NPC or not?
                 if (attackNPC == false && shots == 0 && GameManager.Instance.targetNpc.gameObject)
                 {
                     int rnd = Random.Range(1, 3);
@@ -88,11 +85,11 @@ namespace Iterium
                     }
                 }
 
-                if (attackNPC) //Point bullet at NPC
+                if (attackNPC) //Point bullet towards NPC, else the player
                 {
                     bullet.transform.LookAt(GameManager.Instance.targetNpc.transform);
                 }
-                else if (GameManager.Instance.targetPlayer.gameObject) //Point bullet at Player
+                else if (GameManager.Instance.targetPlayer.gameObject) 
                 {
                     bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
                 }
@@ -106,7 +103,7 @@ namespace Iterium
 
                 if (shots >= decisionCycle)
                 {
-                    //reset descition cycle
+                    //reset descition round
                     shots = 0;
                     if (attackNPC)
                     {
@@ -116,7 +113,7 @@ namespace Iterium
             }
         }
 
-        //Ship Thrust
+        //Thrust
         private void Thrust()
         {
             if (rigidBody.velocity.z > -1f)
@@ -148,7 +145,7 @@ namespace Iterium
             }
         }
 
-        //Calculate the damage when the ship is struck. Taking account of shield strength and striking bullets power.
+        //Calculate damage when the ship is hit. Taking account of shield strength and striking bullets power
         public void BulletHit(float firePower)
         {
             if (isShielding)
@@ -199,10 +196,9 @@ namespace Iterium
         }
 
 
-        //Remove AI when it leaves the screen and re-spawn
+       //Wrap ship to opposite side of the screen when exiting
         private void OnBecameInvisible()
         {
-            //Wrap ship to opposite side of the screen when exiting
             if (gameObject.activeSelf)
             {
                 Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);

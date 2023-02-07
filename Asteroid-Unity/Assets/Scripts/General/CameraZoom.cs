@@ -3,10 +3,10 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     /// <summary>
     /// Zoom out the orthographic camera when starting an arena;
     /// </summary>
+
     public class CameraZoom : MonoBehaviour
     {
         [SerializeField] private float zoomLevel = 8f;

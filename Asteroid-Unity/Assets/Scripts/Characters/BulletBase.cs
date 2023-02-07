@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     /// <summary>
     /// Bullet base class that handles...
     /// * Asteroid splitting 
@@ -18,11 +17,12 @@ namespace Iterium
         //Split asteroid when hit
         protected void AsteroidHit(Collider collision)
         {
-            //Split asteroid if larger than a set size
+            //Split if larger than a quarter of its size
             Vector3 scale = collision.transform.localScale;
             if (scale.x > 0.25)
             {
-                int rnd = Random.Range(2, 5); //Split into random number of pieces
+                //Split into random number of pieces
+                int rnd = Random.Range(2, 5);
                 for (int i = 0; i < rnd; i++)
                 {
                     GameObject spawnedAsteroid = AsteroidPooling.asteroidPool.Get();
@@ -50,13 +50,13 @@ namespace Iterium
             }
         }
 
-        //Release bullet after it leaves the screen
+        //Release bullet after leaving the screen
         private void OnBecameInvisible()
         {
             ReleaseBullet();
         }
 
-        //Release bullet to pool
+        //Explosion
         protected void BulletExplosion(Collider obj)
         {
             SoundManager.Instance.PlayEffect(sfxIndex);
@@ -66,6 +66,7 @@ namespace Iterium
             ReleaseBullet();
         }
 
+        //Overriden by class children
         protected virtual void ReleaseBullet() { }
     }
 }

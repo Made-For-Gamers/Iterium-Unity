@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     /// <summary>
     /// NPC ship script that handles...
     /// * Firing (rate, target)
@@ -12,16 +11,17 @@ namespace Iterium
     public class NPCController : MonoBehaviour
     {
         [Header("Bullet")]
-        [SerializeField] private float fireStart = 3f;
-        [SerializeField] private float fireInterval = 0.8f;
+        [SerializeField] private float fireDelay = 2f;
+        [SerializeField] private float fireInterval = 0.5f;
 
         private int target;
 
         private void Start()
         {
-            InvokeRepeating("Fire", fireStart, fireInterval);
+            InvokeRepeating("Fire", fireDelay, fireInterval);
         }
 
+        //Fire
         private void Fire()
         {
             GameObject bullet = BulletPooling.bulletPoolNpc.Get();
@@ -40,27 +40,29 @@ namespace Iterium
                         break;
                 }
             }
+            //Attack player
             else if (GameManager.Instance.targetPlayer.gameObject)
             {
-                //Attack player
+
                 bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
             }
+            //Attack AI
             else if (GameManager.Instance.targetAi.gameObject)
             {
-                //Attack AI
+
                 bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
             }
 
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Character.Ship.Bullet.Speed;
 
-            //Increase NPC velocity if ship speed becomes too slow due to collision with asteroids
+            //Increase NPC velocity if ship speed becomes too slow
             if (transform.GetComponent<Rigidbody>().velocity.x <= 2f)
             {
                 transform.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-6, 7), 0, Random.Range(-6, 7));
             }
         }
 
-        //Remove NPC when leaving the screen
+        //Destroy NPC when leaving the screen
         private void OnBecameInvisible()
         {
             Destroy(gameObject);

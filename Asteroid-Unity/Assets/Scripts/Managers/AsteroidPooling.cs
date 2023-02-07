@@ -3,11 +3,11 @@ using UnityEngine.Pool;
 
 namespace Iterium
 {
+    // Pool asteroids to improve performance
+    
     public class AsteroidPooling : MonoBehaviour
     {
-        /// <summary>
-        /// Pool spawned/de=spawned asteroids to improve performance
-        /// </summary>
+
         [Header("Asteroid Pooling")]
         [SerializeField] private int capacity = 30;
         [SerializeField] private int maxCapacity = 50;
