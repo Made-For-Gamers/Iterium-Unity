@@ -1,25 +1,29 @@
 using System.Collections;
 using UnityEngine;
 
-/// <summary>
-/// Zoom out the orthographic camera when starting an arena;
-/// </summary>
-public class CameraZoom : MonoBehaviour
+namespace Iterium
 {
-    [SerializeField] private float zoomLevel = 8f;
-    [SerializeField] private float speed = 0.3f;
 
-    private void Start()
+    /// <summary>
+    /// Zoom out the orthographic camera when starting an arena;
+    /// </summary>
+    public class CameraZoom : MonoBehaviour
     {
-        StartCoroutine(ZoomCamera());
-    }
+        [SerializeField] private float zoomLevel = 8f;
+        [SerializeField] private float speed = 0.3f;
 
-    IEnumerator ZoomCamera()
-    {
-        for (float i = Camera.main.orthographicSize; i >= zoomLevel; i--)
+        private void Start()
         {
-            Camera.main.orthographicSize = i;
-            yield return new WaitForSeconds(speed);
+            StartCoroutine(ZoomCamera());
+        }
+
+        IEnumerator ZoomCamera()
+        {
+            for (float i = Camera.main.orthographicSize; i >= zoomLevel; i--)
+            {
+                Camera.main.orthographicSize = i;
+                yield return new WaitForSeconds(speed);
+            }
         }
     }
 }
