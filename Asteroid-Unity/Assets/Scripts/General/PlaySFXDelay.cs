@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class PlaySFXDelay : MonoBehaviour
+namespace Iterium
 {
-    [Header("Settings")]
-    [SerializeField] private float delay;
-    [SerializeField] private AudioSource audiosource;
-
-    private void Start()
+    public class PlaySFXDelay : MonoBehaviour
     {
-        audiosource.PlayDelayed(delay);
+        [Header("Settings")]
+        [SerializeField] private float delay;
+        [SerializeField] private AudioSource audiosource;
+
+        private void Start()
+        {
+            audiosource.PlayDelayed(delay);
+        }
     }
 }

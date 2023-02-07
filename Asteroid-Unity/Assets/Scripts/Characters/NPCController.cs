@@ -1,65 +1,69 @@
 using UnityEngine;
 
-/// <summary>
-/// NPC ship script that handles...
-/// * Firing (rate, target)
-/// * De-spawn when leaving the screen
-/// </summary>
-
-public class NPCController : MonoBehaviour
+namespace Iterium
 {
-    [Header("Bullet")]
-    [SerializeField] private float fireStart = 3f;
-    [SerializeField] private float fireInterval = 0.8f;
 
-    private int target;
+    /// <summary>
+    /// NPC ship script that handles...
+    /// * Firing (rate, target)
+    /// * De-spawn when leaving the screen
+    /// </summary>
 
-    private void Start()
+    public class NPCController : MonoBehaviour
     {
-        InvokeRepeating("Fire", fireStart, fireInterval);
-    }
+        [Header("Bullet")]
+        [SerializeField] private float fireStart = 3f;
+        [SerializeField] private float fireInterval = 0.8f;
 
-    private void Fire()
-    {
-        GameObject bullet = BulletPooling.bulletPoolNpc.Get();
-        bullet.transform.position = transform.position;
-        if (GameManager.Instance.targetPlayer.gameObject && GameManager.Instance.targetAi.gameObject)
+        private int target;
+
+        private void Start()
         {
-            //Radomly attack player or AI
-            target = Random.Range(1, 3);
-            switch (target)
+            InvokeRepeating("Fire", fireStart, fireInterval);
+        }
+
+        private void Fire()
+        {
+            GameObject bullet = BulletPooling.bulletPoolNpc.Get();
+            bullet.transform.position = transform.position;
+            if (GameManager.Instance.targetPlayer.gameObject && GameManager.Instance.targetAi.gameObject)
             {
-                case 1:
-                    bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
-                    break;
-                case 2:
-                    bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
-                    break;
+                //Radomly attack player or AI
+                target = Random.Range(1, 3);
+                switch (target)
+                {
+                    case 1:
+                        bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
+                        break;
+                    case 2:
+                        bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
+                        break;
+                }
+            }
+            else if (GameManager.Instance.targetPlayer.gameObject)
+            {
+                //Attack player
+                bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
+            }
+            else if (GameManager.Instance.targetAi.gameObject)
+            {
+                //Attack AI
+                bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
+            }
+
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Character.Ship.Bullet.Speed;
+
+            //Increase NPC velocity if ship speed becomes too slow due to collision with asteroids
+            if (transform.GetComponent<Rigidbody>().velocity.x <= 2f)
+            {
+                transform.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-6, 7), 0, Random.Range(-6, 7));
             }
         }
-        else if (GameManager.Instance.targetPlayer.gameObject)
-        {
-            //Attack player
-            bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
-        }
-        else if (GameManager.Instance.targetAi.gameObject)
-        {
-            //Attack AI
-            bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
-        }
 
-        bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Character.Ship.Bullet.Speed;
-
-        //Increase NPC velocity if ship speed becomes too slow due to collision with asteroids
-        if (transform.GetComponent<Rigidbody>().velocity.x <= 2f)
+        //Remove NPC when leaving the screen
+        private void OnBecameInvisible()
         {
-            transform.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-6, 7), 0, Random.Range(-6, 7));
+            Destroy(gameObject);
         }
-    }
-
-    //Remove NPC when leaving the screen
-    private void OnBecameInvisible()
-    {
-        Destroy(this.gameObject);
     }
 }

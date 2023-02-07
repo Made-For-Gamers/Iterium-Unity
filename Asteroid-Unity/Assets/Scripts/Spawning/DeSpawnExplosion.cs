@@ -1,23 +1,25 @@
 using System.Collections;
 using UnityEngine;
 
-public class DeSpawnExplosion : MonoBehaviour
+namespace Iterium
 {
-    //Remove explsion after effect is complete
-    [SerializeField] private float destroyTime = 0.5f;
-
-    void OnEnable()
+    public class DeSpawnExplosion : MonoBehaviour
     {
-        StartCoroutine(RemoveExplosions());
-    }
+        //Remove explsion after effect is complete
+        [SerializeField] private float destroyTime = 0.5f;
 
-    private IEnumerator RemoveExplosions()
-    {
-        yield return new WaitForSeconds(destroyTime);
-        if (gameObject.activeSelf)
+        void OnEnable()
         {
-            ExplosionPooling.explosionPool.Release(this.gameObject);
+            StartCoroutine(RemoveExplosions());
+        }
+
+        private IEnumerator RemoveExplosions()
+        {
+            yield return new WaitForSeconds(destroyTime);
+            if (gameObject.activeSelf)
+            {
+                ExplosionPooling.explosionPool.Release(gameObject);
+            }
         }
     }
 }
-

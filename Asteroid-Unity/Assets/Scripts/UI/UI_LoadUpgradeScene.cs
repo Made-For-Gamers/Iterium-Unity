@@ -1,29 +1,32 @@
 using UnityEngine.UIElements;
 using UnityEngine;
 
-public class UI_LoadUpgradeScene : MonoBehaviour
+namespace Iterium
 {
-    [Header("UI button")]
-    [SerializeField] private string upgradeButton = "upgrades";
-    Button button;
-
-    private void OnEnable()
+    public class UI_LoadUpgradeScene : MonoBehaviour
     {
-        VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
-        button = uiRoot.Q<Button>(upgradeButton);
+        [Header("UI button")]
+        [SerializeField] private string upgradeButton = "upgrades";
+        Button button;
 
-        //Events
-        button.clicked += Button_clicked;
-    }
+        private void OnEnable()
+        {
+            VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
+            button = uiRoot.Q<Button>(upgradeButton);
 
-    private void OnDisable()
-    {
-        //Clean-up events
-        button.clicked -= Button_clicked;
-    }
+            //Events
+            button.clicked += Button_clicked;
+        }
 
-    private void Button_clicked()
-    {
-        GameManager.Instance.SceneUpgrade();
+        private void OnDisable()
+        {
+            //Clean-up events
+            button.clicked -= Button_clicked;
+        }
+
+        private void Button_clicked()
+        {
+            GameManager.Instance.SceneUpgrade();
+        }
     }
 }

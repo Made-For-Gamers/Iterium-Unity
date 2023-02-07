@@ -1,12 +1,16 @@
 using UnityEngine;
 
-//Destroy a game object this is attached to over a set time.
-public class DestroyGameObject : MonoBehaviour
+namespace Iterium
 {
-    [SerializeField] private float destroyTime = 5f;
 
-    void Start()
+    //Destroy a game object this is attached to over a set time.
+    public class DestroyGameObject : MonoBehaviour
     {
-        Destroy(this.gameObject, destroyTime);
-    }   
+        [SerializeField] private float destroyTime = 5f;
+
+        void Start()
+        {
+            Destroy(gameObject, destroyTime);
+        }
+    }
 }

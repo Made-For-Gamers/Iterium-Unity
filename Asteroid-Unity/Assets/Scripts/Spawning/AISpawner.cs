@@ -1,14 +1,17 @@
 using UnityEngine;
 
-// Spawn AI ship prefab
-
-public class AISpawner : MonoBehaviour
+namespace Iterium
 {
-    float spawnTime = 2f;
 
-    private void Start()
+    // Spawn AI ship prefab
+    public class AISpawner : MonoBehaviour
     {
-        GameManager.Instance.aiSpawner = gameObject.transform;
-        GameManager.Instance.SpawnAi(spawnTime);
+        float spawnTime = 2f;
+
+        private void Start()
+        {
+            GameManager.Instance.aiSpawner = gameObject.transform;
+            GameManager.Instance.SpawnAi(spawnTime);
+        }
     }
 }
