@@ -419,7 +419,7 @@
 }
 
 .unity-base-text-field__input {
-    color: rgb(255, 19, 0);
+    color: rgb(146, 220, 236);
     cursor: initial;
 }
 
