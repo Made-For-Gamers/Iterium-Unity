@@ -63,7 +63,7 @@ public class UI_Game : MonoBehaviour
     private VisualElement player1Ship3;
     private VisualElement player1Ship4;
 
-    //AI Player UI controls   
+    //AI Player UI controls
     private TextElement aiTextName;
     private TextElement aiTextScore;
     private TextElement aiTextIterium;
@@ -203,20 +203,9 @@ public class UI_Game : MonoBehaviour
         playerTextScore.text = GameManager.Instance.player.Score.ToString();
         if (GameManager.Instance.player.Score >= 100000 && extraLife == false)
         {
-            switch (GameManager.Instance.player.Lives)
-            {
-                case 1:
-                    player1Ship2.style.unityBackgroundImageTintColor = Color.white;
-                    break;
-                case 2:
-                    player1Ship3.style.unityBackgroundImageTintColor = Color.white;
-                    break;
-                case 3:
-                    player1Ship4.style.unityBackgroundImageTintColor = Color.white;
-                    break;
-            }
             GameManager.Instance.player.Lives++;
             extraLife = true;
+            ChangeLives();
         }
     }
 
