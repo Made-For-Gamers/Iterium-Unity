@@ -22,10 +22,16 @@ public class UI_FactionSelection : MonoBehaviour
     [HideInInspector] public string sceneName;
 
     //UI element names
-    [Header("Faction UI buttons")]
-    [SerializeField] private string chinaFaction;
-    [SerializeField] private string usaFaction;
-    [SerializeField] private string ussrFaction;
+    [Header("Faction UI Elements")]
+    [SerializeField] private string chinaFaction = "chinaFaction";
+    [SerializeField] private string usaFaction = "usaFaction";
+    [SerializeField] private string ussrFaction = "ussrFaction";
+
+    [Header("Player UI Elements")]
+    [SerializeField] private string playerName = "playerStatsText";
+    [SerializeField] private string playerXpTotal = "playerXPTotal";
+    [SerializeField] private string playerLevel = "playerLevel";
+    [SerializeField] private string playerIteriumTotal = "playerIteriumTotal";
 
     //Ships
     [Header("Ships")]
@@ -49,6 +55,11 @@ public class UI_FactionSelection : MonoBehaviour
     [SerializeField] private GameObject sliderUssrSpeed;
     [SerializeField] private GameObject sliderUssrShield;
 
+    private Label name;
+    private Label xp;
+    private Label level;
+    private Label iterium;
+
     private Button buttonChina;
     private Button buttonUsa;
     private Button buttonUssr;
@@ -60,6 +71,10 @@ public class UI_FactionSelection : MonoBehaviour
         buttonChina = uiRoot.Q<Button>(chinaFaction);
         buttonUsa = uiRoot.Q<Button>(usaFaction);
         buttonUssr = uiRoot.Q<Button>(ussrFaction);
+        name = uiRoot.Q<Label>(playerName);
+        xp = uiRoot.Q<Label>(playerXpTotal);
+        level = uiRoot.Q<Label>(playerLevel);
+        iterium = uiRoot.Q<Label>(playerIteriumTotal);
 
         //Events
         buttonChina.clicked += ButtonChina_clicked;
@@ -77,6 +92,12 @@ public class UI_FactionSelection : MonoBehaviour
 
     private void Start()
     {
+        //Init player elements
+        name.text = GameManager.Instance.player.ProfileName;
+        xp.text = GameManager.Instance.player.Xp.ToString() + " / " + (GameManager.Instance.xpLevelSteps * GameManager.Instance.player.Level);
+        level.text = GameManager.Instance.player.Level.ToString();
+        iterium.text = GameManager.Instance.player.Iterium.ToString();
+
         //Init Chn firepower slider
         Renderer renderer = sliderChnFirepower.GetComponent<Renderer>();
         Material matFirepower = renderer.material;

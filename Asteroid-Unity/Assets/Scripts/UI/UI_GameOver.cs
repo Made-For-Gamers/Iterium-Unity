@@ -66,7 +66,7 @@ public class UI_GameOver : MonoBehaviour
         //XP
         GameManager.Instance.CalculateXP();
         xpEarned.text = GameManager.Instance.player.XpCollected.ToString();
-        xpTotal.text = GameManager.Instance.player.Xp.ToString();
+        xpTotal.text = GameManager.Instance.player.Xp.ToString() + " / " + (GameManager.Instance.xpLevelSteps * GameManager.Instance.player.Level);
         
         //Level
         level.text = GameManager.Instance.player.Level.ToString();

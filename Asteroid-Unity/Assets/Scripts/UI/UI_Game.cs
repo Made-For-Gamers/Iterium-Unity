@@ -2,6 +2,7 @@ using UnityEngine.UIElements;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Net.Http.Headers;
 
 /// <summary>
 /// Game scene UI data (UI Toolkit)
@@ -36,6 +37,7 @@ public class UI_Game : MonoBehaviour
     [SerializeField] private string ship1Player1 = "ship1Player1";
     [SerializeField] private string ship2Player1 = "ship2Player1";
     [SerializeField] private string ship3Player1 = "ship3Player1";
+    [SerializeField] private string ship4Player1 = "ship4Player1";
     [SerializeField] private string ship1Player2 = "ship1Player2";
     [SerializeField] private string ship2Player2 = "ship2Player2";
     [SerializeField] private string ship3Player2 = "ship3Player2";
@@ -50,6 +52,7 @@ public class UI_Game : MonoBehaviour
     [SerializeField] private string exitGame = "exitGame";
     [SerializeField] private string continueGame = "continueGame";
 
+    private bool extraLife;
 
     //Player UI controls
     private TextElement playerTextName;
@@ -58,8 +61,9 @@ public class UI_Game : MonoBehaviour
     private VisualElement player1Ship1;
     private VisualElement player1Ship2;
     private VisualElement player1Ship3;
+    private VisualElement player1Ship4;
 
-    //AI Player UI controls   
+    //AI Player UI controls
     private TextElement aiTextName;
     private TextElement aiTextScore;
     private TextElement aiTextIterium;
@@ -87,6 +91,8 @@ public class UI_Game : MonoBehaviour
         player1Ship1 = uiRoot.Q<VisualElement>(ship1Player1);
         player1Ship2 = uiRoot.Q<VisualElement>(ship2Player1);
         player1Ship3 = uiRoot.Q<VisualElement>(ship3Player1);
+        player1Ship4 = uiRoot.Q<VisualElement>(ship4Player1);
+        player1Ship4.style.unityBackgroundImageTintColor = Color.black;
 
         //Init AI UI
         aiTextName = uiRoot.Q<TextElement>(aiName);
@@ -195,6 +201,12 @@ public class UI_Game : MonoBehaviour
     private void ChangeScore()
     {
         playerTextScore.text = GameManager.Instance.player.Score.ToString();
+        if (GameManager.Instance.player.Score >= 100000 && extraLife == false)
+        {
+            GameManager.Instance.player.Lives++;
+            extraLife = true;
+            ChangeLives();
+        }
     }
 
     private void ChangeHealth()
@@ -231,16 +243,25 @@ public class UI_Game : MonoBehaviour
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                 player1Ship2.style.unityBackgroundImageTintColor = Color.red;
                 player1Ship3.style.unityBackgroundImageTintColor = Color.red;
+                player1Ship4.style.unityBackgroundImageTintColor = Color.red;
                 break;
             case 2:
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                 player1Ship3.style.unityBackgroundImageTintColor = Color.red;
+                player1Ship4.style.unityBackgroundImageTintColor = Color.red;
                 break;
             case 3:
                 player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                 player1Ship2.style.unityBackgroundImageTintColor = Color.white;
                 player1Ship3.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship4.style.unityBackgroundImageTintColor = Color.red;
+                break;
+            case 4:
+                player1Ship1.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship2.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship3.style.unityBackgroundImageTintColor = Color.white;
+                player1Ship4.style.unityBackgroundImageTintColor = Color.white;
                 break;
         }
     }

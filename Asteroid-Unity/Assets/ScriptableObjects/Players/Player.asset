@@ -16,14 +16,14 @@ MonoBehaviour:
   bio: 
   email: 
   xp: 20370
-  xpCollected: 870
+  xpCollected: 175
   level: 2
-  score: 10100
+  score: 100250
   character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
-  health: -10
+  health: -8
   iterium: 23
-  iteriumCollected: 3
-  lives: 0
+  iteriumCollected: 0
+  lives: 2
   bulletLvl: 1
   shieldLvl: 1
   speedLvl: 1
