@@ -62,7 +62,7 @@ namespace Iterium
                 GameObject bullet = BulletPooling.bulletPoolPlayer.Get();
                 bullet.transform.position = firePosition.position;
                 bullet.transform.rotation = firePosition.rotation;
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.player.Character.Ship.Bullet.Speed;
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.player.Character.Ship.Bullet.Speed * GameManager.Instance.player.BulletLvl);
                 input.isfire = false;
             }
         }

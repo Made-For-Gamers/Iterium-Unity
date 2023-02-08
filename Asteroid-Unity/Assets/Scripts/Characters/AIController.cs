@@ -98,7 +98,7 @@ namespace Iterium
                     bullet.transform.Rotate(Vector3.zero);
                 }
 
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed;
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed * GameManager.Instance.aiPlayer.BulletLvl);
                 shots++;
 
                 if (shots >= decisionCycle)
