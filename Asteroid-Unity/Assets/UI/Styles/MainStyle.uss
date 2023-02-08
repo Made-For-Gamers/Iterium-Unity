@@ -471,3 +471,15 @@
     color: rgb(255, 255, 255);
     font-size: 30px;
 }
+
+.unity-base-slider__dragger {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: url('project://database/Assets/Images/Favicon-1.png?fileID=21300000&guid=fffad4977ac67474fa2291475cbabaff&type=3#Favicon-1');
+    width: 50px;
+    height: 50px;
+}
+
+.unity-base-slider__tracker {
+    height: 15px;
+    background-color: rgb(133, 200, 159);
+}
