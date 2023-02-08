@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: bfe1cb492f67ef144bade8694c68dcab, type: 3}
-  buttonName: singlePlayer
   sceneName: FactionSelection
+  buttonName: singlePlayer
 --- !u!114 &147354637
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 4909646902458244b84f7f753250ab9d, type: 3}
-  buttonName: tutorial
   sceneName: Tutorial
+  buttonName: tutorial
 --- !u!114 &147354639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,8 +222,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 876b19a494f0bd54d948a5864d53b9fa, type: 3}
-  buttonName: playerProfile
   sceneName: UserProfile
+  buttonName: playerProfile
 --- !u!114 &147354640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,8 +237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 217616ecb973ab644bf7c0d62a0b00fb, type: 3}
-  buttonName: highScore
   sceneName: Leaderboard
+  buttonName: highScore
 --- !u!114 &147354642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,8 +252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 9a252c22469c1a946a0cc1f591ec7827, type: 3}
-  buttonName: settings
   sceneName: Settings
+  buttonName: settings
 --- !u!114 &147354643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -601,6 +601,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
+        type: 3}
+      propertyPath: leaderboardSize
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
         type: 3}

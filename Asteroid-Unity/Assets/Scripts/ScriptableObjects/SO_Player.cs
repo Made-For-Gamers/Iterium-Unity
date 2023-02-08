@@ -33,6 +33,8 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int bulletLvlChn = 1;
     [SerializeField] private int shieldLvlChn = 1;
     [SerializeField] private int speedLvlChn = 1;
+    [SerializeField] private float effectsVolume;
+    [SerializeField] private float musicVolume;
 
     //Events
     public UnityEvent onChange_Health;
@@ -173,5 +175,6 @@ public class SO_Player : ScriptableObject
     public int BulletLvlChn { get => bulletLvlChn; set => bulletLvlChn = value; }
     public int ShieldLvlChn { get => shieldLvlChn; set => shieldLvlChn = value; }
     public int SpeedLvlChn { get => speedLvlChn; set => speedLvlChn = value; }
-
+    public float EffectsVolume { get => effectsVolume; set => effectsVolume = value; }
+    public float MusicVolume { get => musicVolume; set => musicVolume = value; }
 }

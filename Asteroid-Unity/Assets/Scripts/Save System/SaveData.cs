@@ -24,4 +24,6 @@ public class SaveData
     public int speedLvlChn;
     public int iterium;
     public SO_Character character;
+    public float effectVolume;
+    public float musicVolume;
 }

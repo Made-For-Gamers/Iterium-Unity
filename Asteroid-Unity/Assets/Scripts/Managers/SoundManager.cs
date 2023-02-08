@@ -1,34 +1,63 @@
+using System;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 namespace Iterium
 {
 
     /// <summary>
-    /// Singleton manager to manage sound/music specific data
+    /// Singleton manager to manage sound/music
     /// </summary>
 
     public class SoundManager : Singleton<SoundManager>
     {
-        [Header("Sound Effects")] //ScriptableObject SFX List
+        [Header("Sound Effects")] //ScriptableObject sfx List
         [SerializeField] private SO_SFX asteroidExplosion;
         [SerializeField] private SO_SFX shipExplosion;
         [SerializeField] private SO_SFX effects;
 
         [Header("Music")]
-        [SerializeField] private SO_SFX music;
+        [SerializeField] private SO_SFX music; //ScriptableObject music List
 
         [Header("Settings")]
-        [SerializeField] private int audioSourceNumber = 10; //number of re-usable AudioSources that will be created
+        [SerializeField] private int audioSourceNumber = 10; //number of re-usable AudioSources
 
         [Header("Audio Mixer Channels")]
         [SerializeField] private AudioMixerGroup mixerMaster;
         [SerializeField] private AudioMixerGroup mixerMusic;
-        [SerializeField] private AudioMixerGroup mixerUi;
         [SerializeField] private AudioMixerGroup mixerSfx;
 
         private AudioSource[] audiosourceSfx;
         private AudioSource audiosourceMusic;
+        private DefaultInputActions uiInput;
+
+        private void OnEnable()
+        {
+            //Init Input System
+            uiInput = new DefaultInputActions();
+            uiInput.UI.Enable();
+
+            //Input Events
+            uiInput.UI.Click.performed += Click;
+        }
+
+        //Clean up of input events
+        private void OnDisable()
+        {
+            uiInput.UI.Click.started -= Click;
+        }
+
+        private void Click(InputAction.CallbackContext obj)
+        {
+            //UI button click sound
+            if (obj.ReadValue<float>() == 1)
+            {
+                SoundManager.Instance.PlayEffect(2);
+            }
+        }
 
         private new void Awake()
         {
@@ -43,6 +72,12 @@ namespace Iterium
             //Init Music Audiosource
             audiosourceMusic = gameObject.AddComponent<AudioSource>();
             audiosourceMusic.outputAudioMixerGroup = mixerMusic;
+        }
+
+        private void Start()
+        {
+            mixerSfx.audioMixer.SetFloat("Sound", GameManager.Instance.player.EffectsVolume);
+            mixerMusic.audioMixer.SetFloat("Music", GameManager.Instance.player.MusicVolume);
         }
 
         //Asteroid explosions from SO_SFX asset

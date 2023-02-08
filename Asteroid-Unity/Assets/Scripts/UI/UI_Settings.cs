@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 namespace Iterium
@@ -25,13 +26,15 @@ namespace Iterium
         private Material matSound;
         private VisualElement iconMusic;
         private VisualElement iconSound;
+        private Slider musicSlider;
+        private Slider soundSlider;
 
         private void OnEnable()
         {
             //Init UI elements
             VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
-            Slider musicSlider = uiRoot.Q<Slider>(sliderMusic);
-            Slider soundSlider = uiRoot.Q<Slider>(sliderSound);
+            musicSlider = uiRoot.Q<Slider>(sliderMusic);
+            soundSlider = uiRoot.Q<Slider>(sliderSound);
             iconMusic = uiRoot.Q<VisualElement>(musicIcon);
             iconSound = uiRoot.Q<VisualElement>(soundIcon);
             musicSlider.highValue = -0;
@@ -53,6 +56,18 @@ namespace Iterium
             //Init sound material (shader graph dial shader)
             matRenderer = soundPlane.GetComponent<Renderer>();
             matSound = matRenderer.material;
+
+            InitSliders();
+        }
+
+        private void InitSliders()
+        {
+            matMusic.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
+            iconMusic.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - GameManager.Instance.player.MusicVolume) * 3.33f);
+            musicSlider.value = GameManager.Instance.player.MusicVolume;
+            matSound.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
+            iconSound.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - GameManager.Instance.player.MusicVolume) * 3.33f);
+            soundSlider.value = GameManager.Instance.player.EffectsVolume;
         }
 
         //Update music from slider
@@ -66,6 +81,7 @@ namespace Iterium
                 volume = -80f;
             }
             audioMixer.SetFloat("Music", volume);
+            GameManager.Instance.player.MusicVolume = volume;
         }
 
         //Update sound effects from slider
@@ -79,6 +95,7 @@ namespace Iterium
                 volume = -80f;
             }
             audioMixer.SetFloat("Sound", volume);
+            GameManager.Instance.player.EffectsVolume = volume;
         }
     }
 }

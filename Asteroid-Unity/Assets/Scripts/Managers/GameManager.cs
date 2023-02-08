@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 namespace Iterium
 {
-
     /// <summary>
     /// Singleton manager to manage main game specific data
     /// </summary>
@@ -36,8 +35,8 @@ namespace Iterium
         [Header("Save Game")]
         [SerializeField] private string saveFile = "Player.save";
         [SerializeField] private string saveFileAi = "AI.save";
-        [SerializeField] private string saveFileLeaderboard;
-        [SerializeField] private int leaderboardSize = 50;
+        [SerializeField] private string saveFileLeaderboard = "Leaderboard.save";
+        [SerializeField] private int leaderboardSize = 25;
 
         [Header("Player Settings")]
         public SO_Player player;
@@ -119,6 +118,8 @@ namespace Iterium
             saveData.speedLvlChn = player.SpeedLvlChn;
             saveData.shieldLvlChn = player.ShieldLvlChn;
             saveData.character = player.Character;
+            saveData.effectVolume = player.EffectsVolume;
+            saveData.musicVolume = player.MusicVolume;
 
             saveDataAi.xp = aiPlayer.Xp;
             saveDataAi.level = aiPlayer.Level;
@@ -163,6 +164,8 @@ namespace Iterium
             player.BulletLvlChn = saveData.bulletLvlChn;
             player.SpeedLvlChn = saveData.speedLvlChn;
             player.ShieldLvlChn = saveData.shieldLvlChn;
+            player.EffectsVolume = saveData.effectVolume;
+            player.MusicVolume = saveData.musicVolume;
 
             //Update AI data from load
             aiPlayer.Xp = saveDataAi.xp;
