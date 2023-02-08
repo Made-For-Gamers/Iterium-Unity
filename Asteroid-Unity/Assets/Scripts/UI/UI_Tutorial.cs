@@ -16,6 +16,7 @@ namespace Iterium
         [SerializeField] private string gameplay = "gameplay";
         [SerializeField] private string scoring = "scoring";
         [SerializeField] private string upgrades = "upgrades";
+        [SerializeField] private string faction = "faction";
 
         [Header("Visual Elements")]
         [SerializeField] private string storyPanel = "storyPanel";
@@ -23,6 +24,7 @@ namespace Iterium
         [SerializeField] private string gameplayPanel = "gameplayPanel";
         [SerializeField] private string scoringPanel = "scoringPanel";
         [SerializeField] private string upgradesPanel = "upgradesPanel";
+        [SerializeField] private string factionPanel = "factionPanel";
 
         //Buttons
         private Button buttonStory;
@@ -30,6 +32,7 @@ namespace Iterium
         private Button buttonGameplay;
         private Button buttonScoring;
         private Button buttonUpgrades;
+        private Button buttonFaction;
 
         //Visual Elements
         private VisualElement panelStory;
@@ -37,6 +40,7 @@ namespace Iterium
         private VisualElement panelGameplay;
         private VisualElement panelScoring;
         private VisualElement panelUpgrades;
+        private VisualElement panelFaction;
 
         private void OnEnable()
         {
@@ -48,6 +52,7 @@ namespace Iterium
             buttonGameplay = uiRoot.Q<Button>(gameplay);
             buttonScoring = uiRoot.Q<Button>(scoring);
             buttonUpgrades = uiRoot.Q<Button>(upgrades);
+            buttonFaction = uiRoot.Q<Button>(faction);
 
             //Init visual elements
             panelStory = uiRoot.Q<VisualElement>(storyPanel);
@@ -55,6 +60,7 @@ namespace Iterium
             panelGameplay = uiRoot.Q<VisualElement>(gameplayPanel);
             panelScoring = uiRoot.Q<VisualElement>(scoringPanel);
             panelUpgrades = uiRoot.Q<VisualElement>(upgradesPanel);
+            panelFaction = uiRoot.Q<VisualElement>(factionPanel);
 
             //Button click events
             buttonStory.clicked += StoryClicked;
@@ -62,11 +68,12 @@ namespace Iterium
             buttonGameplay.clicked += GameplayClicked;
             buttonScoring.clicked += ScoringClicked;
             buttonUpgrades.clicked += UpgradesClicked;
+            buttonFaction.clicked += FactionClicked;
 
             //Default panel focus
             buttonStory.Focus();
             HideAllPanels();
-            panelControls.style.display = DisplayStyle.Flex;
+            panelStory.style.display = DisplayStyle.Flex;
         }
 
         private void OnDisable()
@@ -77,6 +84,7 @@ namespace Iterium
             buttonGameplay.clicked -= GameplayClicked;
             buttonScoring.clicked -= ScoringClicked;
             buttonUpgrades.clicked -= UpgradesClicked;
+            buttonFaction.clicked -= FactionClicked;
         }
 
         private void UpgradesClicked()
@@ -114,6 +122,13 @@ namespace Iterium
             panelStory.style.display = DisplayStyle.Flex;
         }
 
+        private void FactionClicked()
+        {
+            SoundManager.Instance.PlayEffect(2);
+            HideAllPanels();
+            panelFaction.style.display = DisplayStyle.Flex;
+        }
+
         private void HideAllPanels()
         {
             panelStory.style.display = DisplayStyle.None;
@@ -121,6 +136,7 @@ namespace Iterium
             panelGameplay.style.display = DisplayStyle.None;
             panelScoring.style.display = DisplayStyle.None;
             panelUpgrades.style.display = DisplayStyle.None;
+            panelFaction.style.display = DisplayStyle.None;
         }
     }
 }
