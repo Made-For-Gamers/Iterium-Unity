@@ -386,6 +386,7 @@ MonoBehaviour:
   ship1Player1: ship1Player1
   ship2Player1: ship2Player1
   ship3Player1: ship3Player1
+  ship4Player1: ship4Player1
   ship1Player2: ship1Player2
   ship2Player2: ship2Player2
   ship3Player2: ship3Player2
@@ -1496,7 +1497,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!1 &1435128974
@@ -1558,7 +1559,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
-  m_Antialiasing: 0
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -2142,7 +2143,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &454254026760098630 stripped
