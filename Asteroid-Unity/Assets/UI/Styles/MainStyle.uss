@@ -470,6 +470,7 @@
 .controller-text {
     color: rgb(255, 255, 255);
     font-size: 30px;
+    -unity-font-style: normal;
 }
 
 .unity-base-slider__dragger {
