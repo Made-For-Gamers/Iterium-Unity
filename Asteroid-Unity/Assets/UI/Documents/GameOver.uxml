@@ -13,7 +13,7 @@
                     <ui:VisualElement name="upgradesPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; margin-bottom: 0;">
                         <ui:Button text="UPGRADES" display-tooltip-when-elided="true" name="upgrades" class="button" style="padding-bottom: 0; margin-bottom: 0;" />
                     </ui:VisualElement>
-                    <ui:VisualElement style="width: 500px; height: 500px; background-image: url(&apos;project://database/Assets/RenderTextures/USASword.renderTexture?fileID=8400000&amp;guid=2707a264cfb639845a7c64d82b333aa4&amp;type=2#USASword&apos;);" />
+                    <ui:VisualElement name="ShipTexture" style="width: 500px; height: 500px; background-image: url(&apos;project://database/Assets/RenderTextures/USASword.renderTexture?fileID=8400000&amp;guid=2707a264cfb639845a7c64d82b333aa4&amp;type=2#USASword&apos;);" />
                     <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; padding-top: 15px;">
                         <ui:Button text="REMATCH" display-tooltip-when-elided="true" name="rematch" class="button" style="margin-bottom: 0;" />
                     </ui:VisualElement>

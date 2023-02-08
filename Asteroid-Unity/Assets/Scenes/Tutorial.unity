@@ -187,8 +187,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
-  buttonName: mainMenu
   sceneName: MainMenu
+  buttonName: mainMenu
 --- !u!114 &147354636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,11 +206,13 @@ MonoBehaviour:
   gameplay: gameplay
   scoring: scoring
   upgrades: upgrades
+  faction: faction
   storyPanel: storyPanel
   controlsPanel: controlsPanel
   gameplayPanel: gameplayPanel
   scoringPanel: scoringPanel
   upgradesPanel: upgradesPanel
+  factionPanel: factionPanel
 --- !u!1 &1182923276
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +224,7 @@ GameObject:
   - component: {fileID: 1182923279}
   - component: {fileID: 1182923278}
   - component: {fileID: 1182923277}
+  - component: {fileID: 1182923280}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -295,6 +298,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1182923280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182923276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &1229563963
 GameObject:
   m_ObjectHideFlags: 0
