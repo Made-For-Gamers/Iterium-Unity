@@ -99,14 +99,12 @@ namespace Iterium
 
         private void SelectAiPlayer()
         {
-            print("select player");
             int rnd = Random.Range(1, 4);
             aiPlayer.Character = factions.Factions[rnd];
             //Reset AI bullets pool if a different ship or different bullet level
             if (curretAiFaction != rnd && BulletPooling.bulletPoolAi != null)
             {
                 BulletPooling.bulletPoolAi.Clear();
-                print("cleared pool");
             }
             curretAiFaction = rnd;
         }
