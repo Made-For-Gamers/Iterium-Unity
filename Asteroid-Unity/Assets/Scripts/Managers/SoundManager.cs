@@ -32,32 +32,6 @@ namespace Iterium
 
         private AudioSource[] audiosourceSfx;
         private AudioSource audiosourceMusic;
-        private DefaultInputActions uiInput;
-
-        private void OnEnable()
-        {
-            //Init Input System
-            uiInput = new DefaultInputActions();
-            uiInput.UI.Enable();
-
-            //Input Events
-            uiInput.UI.Click.performed += Click;
-        }
-
-        //Clean up of input events
-        private void OnDisable()
-        {
-            uiInput.UI.Click.started -= Click;
-        }
-
-        private void Click(InputAction.CallbackContext obj)
-        {
-            //UI button click sound
-            if (obj.ReadValue<float>() == 1)
-            {
-               // SoundManager.Instance.PlayEffect(2);
-            }
-        }
 
         private new void Awake()
         {

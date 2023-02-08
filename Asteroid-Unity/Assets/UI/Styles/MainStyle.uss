@@ -346,7 +346,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     transition-property: -unity-background-image-tint-color;
-    -unity-background-image-tint-color: rgba(245, 255, 0, 255);
+    -unity-background-image-tint-color: rgb(245, 255, 0);
     transition-timing-function: ease-in;
     transition-duration: 0.3s;
 }
@@ -382,7 +382,7 @@
     padding-top: 10px;
     padding-bottom: 10px;
     transition-property: -unity-background-image-tint-color;
-    -unity-background-image-tint-color: rgba(245, 255, 0, 255);
+    -unity-background-image-tint-color: rgb(245, 255, 0);
 }
 
 .button:focus {
@@ -415,7 +415,7 @@
     -unity-font-definition: none;
     padding-top: 10px;
     padding-bottom: 10px;
-    -unity-background-image-tint-color: rgba(245, 255, 0, 255);
+    -unity-background-image-tint-color: rgb(245, 255, 0);
 }
 
 .unity-base-text-field__input {

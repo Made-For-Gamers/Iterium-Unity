@@ -39,6 +39,7 @@ namespace Iterium
 
         private void Button_clicked()
         {
+            SoundManager.Instance.PlayEffect(2);
             SceneManager.LoadScene(sceneName);
         }
     }

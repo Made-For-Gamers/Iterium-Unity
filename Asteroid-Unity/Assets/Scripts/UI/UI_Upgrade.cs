@@ -95,12 +95,12 @@ namespace Iterium
 
         private void Start()
         {
-            ChangeUpgradeLabels();
-            ChangeIterium();
-            ChangeUpgradeSliders();
+            InitUpgradeLabels();
+            InitIterium();
+            InitUpgradeSliders();
 
             //UI Events
-            GameManager.Instance.player.onChange_Iterium.AddListener(ChangeIterium);
+            GameManager.Instance.player.onChange_Iterium.AddListener(InitIterium);
         }
 
         void UpgradeThrust()
@@ -111,6 +111,8 @@ namespace Iterium
                 GameManager.Instance.player.Iterium -= GameManager.Instance.speedLevel1;
                 GameManager.Instance.player.SpeedLvl = 2;
                 thrust.value = 1;
+                GameManager.Instance.SaveGame();
+                SoundManager.Instance.PlayEffect(2);
             }
             else if (GameManager.Instance.player.SpeedLvl == 2 && GameManager.Instance.player.Iterium >= GameManager.Instance.speedLevel2)
             {
@@ -118,6 +120,12 @@ namespace Iterium
                 GameManager.Instance.player.Iterium -= GameManager.Instance.speedLevel2;
                 GameManager.Instance.player.SpeedLvl = 3;
                 thrust.value = 2;
+                GameManager.Instance.SaveGame();
+                SoundManager.Instance.PlayEffect(2);
+            }
+            else
+            {
+                SoundManager.Instance.PlayEffect(3);
             }
         }
 
@@ -129,6 +137,8 @@ namespace Iterium
                 GameManager.Instance.player.Iterium -= GameManager.Instance.shieldLevel1;
                 GameManager.Instance.player.ShieldLvl = 2;
                 shield.value = 1;
+                GameManager.Instance.SaveGame();
+                SoundManager.Instance.PlayEffect(2);
             }
             else if (GameManager.Instance.player.ShieldLvl == 2 && GameManager.Instance.player.Iterium >= GameManager.Instance.shieldLevel2)
             {
@@ -136,6 +146,12 @@ namespace Iterium
                 GameManager.Instance.player.Iterium -= GameManager.Instance.shieldLevel2;
                 GameManager.Instance.player.ShieldLvl = 3;
                 shield.value = 2;
+                GameManager.Instance.SaveGame();
+                SoundManager.Instance.PlayEffect(2);
+            }
+            else
+            {
+                SoundManager.Instance.PlayEffect(3);
             }
         }
 
@@ -147,6 +163,8 @@ namespace Iterium
                 GameManager.Instance.player.Iterium -= GameManager.Instance.firepowerLevel1;
                 GameManager.Instance.player.BulletLvl = 2;
                 firepower.value = 1;
+                GameManager.Instance.SaveGame();
+                SoundManager.Instance.PlayEffect(2);
             }
             else if (GameManager.Instance.player.BulletLvl == 2 && GameManager.Instance.player.Iterium >= GameManager.Instance.firepowerLevel2)
             {
@@ -154,15 +172,21 @@ namespace Iterium
                 GameManager.Instance.player.Iterium -= GameManager.Instance.firepowerLevel2;
                 GameManager.Instance.player.BulletLvl = 3;
                 firepower.value = 2;
+                GameManager.Instance.SaveGame();
+                SoundManager.Instance.PlayEffect(2);
+            }
+            else
+            {
+                SoundManager.Instance.PlayEffect(3);
             }
         }
 
-        void ChangeIterium()
+        void InitIterium()
         {
             iterium.text = GameManager.Instance.player.Iterium.ToString();
         }
 
-        void ChangeUpgradeLabels()
+        void InitUpgradeLabels()
         {
             thrustLabelLevel1.text = GameManager.Instance.speedLevel1.ToString();
             thrustLabelLevel2.text = GameManager.Instance.speedLevel2.ToString();
@@ -172,7 +196,7 @@ namespace Iterium
             firepowerLabelLevel2.text = GameManager.Instance.firepowerLevel2.ToString();
         }
 
-        void ChangeUpgradeSliders()
+        void InitUpgradeSliders()
         {
             shield.value = GameManager.Instance.player.ShieldLvl - 1;
             thrust.value = GameManager.Instance.player.SpeedLvl - 1;

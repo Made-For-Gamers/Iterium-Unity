@@ -95,7 +95,7 @@ namespace Iterium
             player1Ship2 = uiRoot.Q<VisualElement>(ship2Player1);
             player1Ship3 = uiRoot.Q<VisualElement>(ship3Player1);
             player1Ship4 = uiRoot.Q<VisualElement>(ship4Player1);
-            player1Ship4.style.unityBackgroundImageTintColor = Color.black;
+            player1Ship4.style.display = DisplayStyle.None;
 
             //Init AI UI
             aiTextName = uiRoot.Q<TextElement>(aiName);
@@ -155,6 +155,7 @@ namespace Iterium
             GameManager.Instance.aiPlayer.onChange_IteriumCollected.AddListener(ChangeAiIterium);
             GameManager.Instance.aiPlayer.onChange_Lives.AddListener(ChangeAiLives);
 
+            //Blank out AI ships
             if (!GameManager.Instance.aiPermadeath)
             {
                 player2Ship1.style.unityBackgroundImageTintColor = Color.black;
@@ -180,6 +181,7 @@ namespace Iterium
                 pausePanel.style.display = DisplayStyle.Flex;
                 Time.timeScale = 0;
             }
+            SoundManager.Instance.PlayEffect(2);
         }
 
         private void ExitGame()
@@ -208,7 +210,7 @@ namespace Iterium
             {
                 GameManager.Instance.player.Lives++;
                 extraLife = true;
-                ChangeLives();
+                //ChangeLives();
             }
         }
 
@@ -246,25 +248,25 @@ namespace Iterium
                     player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                     player1Ship2.style.unityBackgroundImageTintColor = Color.red;
                     player1Ship3.style.unityBackgroundImageTintColor = Color.red;
-                    player1Ship4.style.unityBackgroundImageTintColor = Color.red;
+                    player1Ship4.style.display = DisplayStyle.None;
                     break;
                 case 2:
                     player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                     player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                     player1Ship3.style.unityBackgroundImageTintColor = Color.red;
-                    player1Ship4.style.unityBackgroundImageTintColor = Color.red;
+                    player1Ship4.style.display = DisplayStyle.None;
                     break;
                 case 3:
                     player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                     player1Ship2.style.unityBackgroundImageTintColor = Color.white;
                     player1Ship3.style.unityBackgroundImageTintColor = Color.white;
-                    player1Ship4.style.unityBackgroundImageTintColor = Color.red;
+                    player1Ship4.style.display = DisplayStyle.None;
                     break;
                 case 4:
                     player1Ship1.style.unityBackgroundImageTintColor = Color.white;
                     player1Ship2.style.unityBackgroundImageTintColor = Color.white;
                     player1Ship3.style.unityBackgroundImageTintColor = Color.white;
-                    player1Ship4.style.unityBackgroundImageTintColor = Color.white;
+                    player1Ship4.style.display = DisplayStyle.Flex;
                     break;
             }
         }

@@ -38,9 +38,7 @@ namespace Iterium
         [SerializeField] private string playerLevel = "playerLevel";
         [SerializeField] private string playerBonus = "playerBonus";
 
-
         private Button rematch;
-
         private int arenaScore;
         private int roundBonus;
 
@@ -179,6 +177,7 @@ namespace Iterium
 
         private void Rematch()
         {
+            SoundManager.Instance.PlayEffect(2);
             GameManager.Instance.ResetArena();
             SceneManager.LoadScene(gameScene);
         }

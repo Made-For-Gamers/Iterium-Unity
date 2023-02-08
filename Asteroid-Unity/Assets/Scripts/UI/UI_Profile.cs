@@ -65,6 +65,7 @@ namespace Iterium
 
         private void SaveProfile()
         {
+            SoundManager.Instance.PlayEffect(2);
             GameManager.Instance.player.ProfileName = nameTextfield.value;
             GameManager.Instance.player.Bio = bioTextfield.value;
             GameManager.Instance.player.Email = emailTextfield.value;
