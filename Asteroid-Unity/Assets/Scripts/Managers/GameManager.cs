@@ -45,7 +45,9 @@ namespace Iterium
         public float deathRespawnTime = 4f;
         public int xpLevelSteps = 2000;
         public int maxLevel = 50;
-        public bool isPlaying;
+        public int freeShip = 100000;
+        [HideInInspector]public bool isPlaying;
+        private int curretAiFaction;
 
         [Header("AI Settings")]
         public SO_Player aiPlayer;
@@ -99,6 +101,12 @@ namespace Iterium
         {
             int rnd = Random.Range(1, 4);
             aiPlayer.Character = factions.Factions[rnd];
+            //Reset AI bullets pool if a different ship or different bullet level
+            if (curretAiFaction != rnd && BulletPooling.bulletPoolAi != null)
+            {
+                BulletPooling.bulletPoolAi.Clear();
+            }
+            curretAiFaction = rnd;
         }
 
         public void SaveGame()
@@ -263,7 +271,6 @@ namespace Iterium
             aiPlayer.IteriumCollected = 0;
             aiPlayer.XpCollected = 0;
             aiPlayer.Lives = 3;
-            SelectAiPlayer();
 
             isPlaying = true;
         }

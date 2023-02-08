@@ -1,9 +1,5 @@
-using System;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 namespace Iterium
 {

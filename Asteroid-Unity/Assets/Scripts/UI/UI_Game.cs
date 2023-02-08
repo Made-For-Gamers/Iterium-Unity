@@ -207,7 +207,7 @@ namespace Iterium
         private void ChangeScore()
         {
             playerTextScore.text = GameManager.Instance.player.Score.ToString();
-            if (GameManager.Instance.player.Score >= 100000 && extraLife == false)
+            if (GameManager.Instance.player.Score >= GameManager.Instance.freeShip && extraLife == false)
             {
                 GameManager.Instance.player.Lives++;
                 extraLife = true;

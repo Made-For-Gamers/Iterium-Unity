@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   profileName: PaxRon
-  bio: 
-  email: 
-  xp: 29735
+  bio: I am a arcade friek!
+  email: paxron@gmail.com
+  xp: 31110
   xpCollected: 0
   level: 2
   score: 0
-  character: {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
+  character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
   health: 100
-  iterium: 41
+  iterium: 43
   iteriumCollected: 0
   lives: 3
-  bulletLvl: 1
-  shieldLvl: 1
+  bulletLvl: 3
+  shieldLvl: 3
   speedLvl: 3
   bulletLvlUs: 3
   shieldLvlUs: 3
@@ -37,7 +37,7 @@ MonoBehaviour:
   shieldLvlChn: 1
   speedLvlChn: 3
   effectsVolume: 0
-  musicVolume: -15.2
+  musicVolume: -6.8
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []
