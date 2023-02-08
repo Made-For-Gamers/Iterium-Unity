@@ -45,6 +45,7 @@ namespace Iterium
         public float deathRespawnTime = 4f;
         public int xpLevelSteps = 2000;
         public int maxLevel = 50;
+        public bool isPlaying;
 
         [Header("AI Settings")]
         public SO_Player aiPlayer;
@@ -76,6 +77,7 @@ namespace Iterium
         [HideInInspector] public Transform aiSpawner;
 
         private FileSaveHandler fileSaveHandler;
+        
 
 
         private void Start()
@@ -262,6 +264,8 @@ namespace Iterium
             aiPlayer.XpCollected = 0;
             aiPlayer.Lives = 3;
             SelectAiPlayer();
+
+            isPlaying = true;
         }
 
         public void OnApplicationQuit()
@@ -312,12 +316,15 @@ namespace Iterium
         IEnumerator SpawnPlayerOverTime(float time)
         {
             yield return new WaitForSeconds(time);
-            targetPlayer = Instantiate(Instance.player.Character.Ship.ShipPrefab);
-            targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
-            targetPlayer.transform.rotation = playerSpawner.rotation;
-            targetPlayer.transform.name = "Player";
-            targetPlayer.transform.tag = "Player";
-            player.Health = 100;
+            if (isPlaying)
+            {
+                targetPlayer = Instantiate(Instance.player.Character.Ship.ShipPrefab);
+                targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
+                targetPlayer.transform.rotation = playerSpawner.rotation;
+                targetPlayer.transform.name = "Player";
+                targetPlayer.transform.tag = "Player";
+                player.Health = 100;
+            }
         }
 
         //Get a random position near a spawn point for a ship to re-spawn
@@ -332,15 +339,18 @@ namespace Iterium
         IEnumerator SpawnAiOverTime(float time)
         {
             yield return new WaitForSeconds(time);
-            targetAi = Instantiate(Instance.aiPlayer.Character.Ship.ShipPrefab);
-            Destroy(targetAi.GetComponent<PlayerController>());
-            Destroy(targetAi.GetComponent<InputManager>());
-            targetAi.AddComponent<AIController>();
-            targetAi.transform.position = RandomScreenPosition(aiSpawner);
-            targetAi.transform.rotation = aiSpawner.rotation;
-            targetAi.transform.name = "AI";
-            targetAi.transform.tag = "AI";
-            aiPlayer.Health = 100;
+            if (isPlaying)
+            {
+                targetAi = Instantiate(Instance.aiPlayer.Character.Ship.ShipPrefab);
+                Destroy(targetAi.GetComponent<PlayerController>());
+                Destroy(targetAi.GetComponent<InputManager>());
+                targetAi.AddComponent<AIController>();
+                targetAi.transform.position = RandomScreenPosition(aiSpawner);
+                targetAi.transform.rotation = aiSpawner.rotation;
+                targetAi.transform.name = "AI";
+                targetAi.transform.tag = "AI";
+                aiPlayer.Health = 100;
+            }
         }
 
 
