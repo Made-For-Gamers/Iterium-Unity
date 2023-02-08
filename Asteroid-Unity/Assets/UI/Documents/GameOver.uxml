@@ -10,17 +10,18 @@
                 <ui:Label text="message" display-tooltip-when-elided="true" name="message" style="font-size: 80px; color: rgb(0, 255, 233); -unity-font-style: bold; width: auto; height: auto; align-items: center; justify-content: flex-end; flex-grow: 1; flex-shrink: 1; -unity-text-align: middle-center;" />
             </ui:VisualElement>
             <ui:VisualElement name="resultsPanel" style="flex-grow: 1; background-image: none; width: 100%; height: 100%; -unity-text-align: upper-center; align-items: center; flex-direction: row; justify-content: space-between; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-wrap: wrap; padding-bottom: -44px;">
-                <ui:VisualElement name="leftPanel" style="width: 33%; height: 100%; align-items: center; justify-content: center; padding-bottom: 202px;">
-                    <ui:VisualElement name="upgradesPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; margin-bottom: 79px;">
-                        <ui:Button text="UPGRADES" display-tooltip-when-elided="true" name="upgrades" class="button" />
+                <ui:VisualElement name="leftPanel" style="width: 33%; height: 100%; align-items: center; justify-content: center; padding-bottom: 159px; background-image: none;">
+                    <ui:VisualElement name="upgradesPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; margin-bottom: 0;">
+                        <ui:Button text="UPGRADES" display-tooltip-when-elided="true" name="upgrades" class="button" style="padding-bottom: 0; margin-bottom: 0;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto;">
-                        <ui:Button text="REMATCH" display-tooltip-when-elided="true" name="rematch" class="button" />
+                    <ui:VisualElement style="width: 500px; height: 500px; background-image: url(&apos;project://database/Assets/RenderTextures/USASword.renderTexture?fileID=8400000&amp;guid=2707a264cfb639845a7c64d82b333aa4&amp;type=2#USASword&apos;);" />
+                    <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; padding-top: 15px;">
+                        <ui:Button text="REMATCH" display-tooltip-when-elided="true" name="rematch" class="button" style="margin-bottom: 0;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
                 <ui:VisualElement name="middlePanel" style="width: 33%; height: 100%;">
                     <ui:VisualElement name="resultsSubPanel" style="align-items: center; justify-content: center; flex-wrap: nowrap; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-grow: 1; width: 100%; height: 100%; flex-direction: column; padding-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0;">
-                        <ui:VisualElement name="score" style="align-items: center; -unity-text-align: lower-center; justify-content: center; flex-direction: column; flex-grow: 1; width: 100%; height: 100%; padding-bottom: 166px;">
+                        <ui:VisualElement name="score" style="align-items: center; -unity-text-align: lower-center; justify-content: center; flex-direction: column; flex-grow: 1; width: 100%; height: 100%; padding-bottom: 166px; background-image: none; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0.37);">
                             <ui:VisualElement name="scorePanel">
                                 <ui:Label text="SCORE :" display-tooltip-when-elided="true" name="scoreText" style="font-size: 80px; color: rgb(255, 19, 0); -unity-font-style: bold;" />
                                 <ui:Label text="0" display-tooltip-when-elided="true" name="playerScore" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 150px;" />

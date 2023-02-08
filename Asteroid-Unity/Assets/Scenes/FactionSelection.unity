@@ -342,8 +342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationScene: {fileID: 102900000, guid: 4363cc7a5db963a4599d72695c49046f, type: 3}
-  buttonName: mainMenu
   sceneName: MainMenu
+  buttonName: mainMenu
 --- !u!114 &147354636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +361,10 @@ MonoBehaviour:
   chinaFaction: chinaFaction
   usaFaction: usaFaction
   ussrFaction: ussrFaction
+  playerName: playerStatsText
+  playerXpTotal: playerXPTotal
+  playerLevel: playerLevel
+  playerIteriumTotal: playerIteriumTotal
   shipChn: {fileID: 11400000, guid: cd4c06634a525a74eb26c8106cb4bdb7, type: 2}
   shipUs: {fileID: 11400000, guid: a8a1e506ef485154ca30b6e60d5c90e2, type: 2}
   shipUssr: {fileID: 11400000, guid: 20feafd5063d60e46b1f1d66c19f5d40, type: 2}
@@ -2239,12 +2243,12 @@ PrefabInstance:
     - target: {fileID: 1241134878627606743, guid: 4573ccc1d6fd47e4695ae8516c169a71,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.98420906
       objectReference: {fileID: 0}
     - target: {fileID: 1241134878627606743, guid: 4573ccc1d6fd47e4695ae8516c169a71,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 1241134878627606743, guid: 4573ccc1d6fd47e4695ae8516c169a71,
         type: 3}
@@ -2254,7 +2258,7 @@ PrefabInstance:
     - target: {fileID: 1241134878627606743, guid: 4573ccc1d6fd47e4695ae8516c169a71,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.17701036
       objectReference: {fileID: 0}
     - target: {fileID: 1241134878627606743, guid: 4573ccc1d6fd47e4695ae8516c169a71,
         type: 3}
@@ -2269,7 +2273,7 @@ PrefabInstance:
     - target: {fileID: 1241134878627606743, guid: 4573ccc1d6fd47e4695ae8516c169a71,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: -20.391
       objectReference: {fileID: 0}
     - target: {fileID: 1905784828285053549, guid: 4573ccc1d6fd47e4695ae8516c169a71,
         type: 3}
