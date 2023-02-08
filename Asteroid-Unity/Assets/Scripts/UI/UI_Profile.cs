@@ -44,13 +44,25 @@ namespace Iterium
             {
                 nameTextfield.value = GameManager.Instance.player.ProfileName;
             }
+            else
+            {
+                nameTextfield.value = "Player 1";
+            }
             if (!string.IsNullOrEmpty(GameManager.Instance.player.Bio))
             {
                 bioTextfield.value = GameManager.Instance.player.Bio;
             }
+            else
+            {
+                bioTextfield.value = "Enter a short bio about yourself.";
+            }
             if (!string.IsNullOrEmpty(GameManager.Instance.player.Email))
             {
                 emailTextfield.value = GameManager.Instance.player.Email;
+            }
+            else
+            {
+                emailTextfield.value = "Enter email address";
             }
 
             //UI Events
