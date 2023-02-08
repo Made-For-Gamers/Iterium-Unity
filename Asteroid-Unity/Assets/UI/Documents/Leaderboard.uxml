@@ -18,7 +18,7 @@
                     <ui:Label text="Name" display-tooltip-when-elided="true" name="playerName" class="text-scoreHeading" style="border-top-left-radius: 0; border-bottom-left-radius: 0; border-top-right-radius: 0; border-bottom-right-radius: 0; -unity-text-align: middle-center; width: auto; -unity-background-scale-mode: stretch-to-fill;" />
                 </ui:VisualElement>
             </ui:VisualElement>
-            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="scrollView" touch-scroll-type="Elastic" focusable="true" vertical-scroller-visibility="AlwaysVisible" horizontal-scroller-visibility="Hidden" horizontal-page-size="400" mode="Vertical" style="width: 100%; height: 90%;" />
+            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="scrollViewHS" touch-scroll-type="Elastic" focusable="true" vertical-scroller-visibility="AlwaysVisible" horizontal-scroller-visibility="Hidden" horizontal-page-size="400" mode="Vertical" style="width: 100%; height: 90%;" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>
