@@ -55,7 +55,7 @@ namespace Iterium
             //UI button click sound
             if (obj.ReadValue<float>() == 1)
             {
-                SoundManager.Instance.PlayEffect(2);
+               // SoundManager.Instance.PlayEffect(2);
             }
         }
 
