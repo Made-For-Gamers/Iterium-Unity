@@ -180,6 +180,7 @@ namespace Iterium
                 pausePanel.style.display = DisplayStyle.Flex;
                 Time.timeScale = 0;
             }
+            SoundManager.Instance.PlayEffect(2);
         }
 
         private void ExitGame()

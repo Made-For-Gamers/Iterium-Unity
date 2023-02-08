@@ -171,6 +171,7 @@ namespace Iterium
         //Load play scene
         private void LoadScene()
         {
+            SoundManager.Instance.PlayEffect(2);
             GameManager.Instance.UpgradeLevelSync();
             GameManager.Instance.SaveGame();
             GameManager.Instance.ResetArena();

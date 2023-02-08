@@ -66,7 +66,7 @@ namespace Iterium
             //Default panel focus
             buttonStory.Focus();
             HideAllPanels();
-            StoryClicked();
+            panelControls.style.display = DisplayStyle.Flex;
         }
 
         private void OnDisable()
@@ -81,30 +81,35 @@ namespace Iterium
 
         private void UpgradesClicked()
         {
+            SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
             panelUpgrades.style.display = DisplayStyle.Flex;
         }
 
         private void ScoringClicked()
         {
+            SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
             panelScoring.style.display = DisplayStyle.Flex;
         }
 
         private void GameplayClicked()
         {
+            SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
             panelGameplay.style.display = DisplayStyle.Flex;
         }
 
         private void ControlsClicked()
         {
+            SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
             panelControls.style.display = DisplayStyle.Flex;
         }
 
         private void StoryClicked()
         {
+            SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
             panelStory.style.display = DisplayStyle.Flex;
         }

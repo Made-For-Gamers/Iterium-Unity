@@ -305,6 +305,7 @@ namespace Iterium
 
         public void SpawnAi(float time)
         {
+            SelectAiPlayer();
             StartCoroutine(SpawnAiOverTime(time));
         }
 
