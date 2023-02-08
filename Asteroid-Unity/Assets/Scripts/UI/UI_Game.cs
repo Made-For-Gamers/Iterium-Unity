@@ -187,6 +187,7 @@ namespace Iterium
         private void ExitGame()
         {
             PauseGame();
+            GameManager.Instance.isPlaying = false;
             SceneManager.LoadScene(sceneName);
         }
 
