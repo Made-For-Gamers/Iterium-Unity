@@ -110,7 +110,7 @@ namespace Iterium
                 //Upgrade speed to lvl 2
                 GameManager.Instance.player.Iterium -= GameManager.Instance.speedLevel1;
                 GameManager.Instance.player.SpeedLvl = 2;
-                thrust.value = 1; 
+                thrust.value = 1;
                 GameManager.Instance.SaveGame();
                 SoundManager.Instance.PlayEffect(2);
             }
@@ -123,7 +123,10 @@ namespace Iterium
                 GameManager.Instance.SaveGame();
                 SoundManager.Instance.PlayEffect(2);
             }
-           
+            else
+            {
+                SoundManager.Instance.PlayEffect(3);
+            }
         }
 
         void UpgradeShield()
@@ -145,6 +148,10 @@ namespace Iterium
                 shield.value = 2;
                 GameManager.Instance.SaveGame();
                 SoundManager.Instance.PlayEffect(2);
+            }
+            else
+            {
+                SoundManager.Instance.PlayEffect(3);
             }
         }
 
@@ -168,7 +175,10 @@ namespace Iterium
                 GameManager.Instance.SaveGame();
                 SoundManager.Instance.PlayEffect(2);
             }
-
+            else
+            {
+                SoundManager.Instance.PlayEffect(3);
+            }
         }
 
         void InitIterium()
