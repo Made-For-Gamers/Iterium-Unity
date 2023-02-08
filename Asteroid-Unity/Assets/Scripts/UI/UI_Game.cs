@@ -187,13 +187,13 @@ namespace Iterium
         private void ExitGame()
         {
             PauseGame();
+            GameManager.Instance.ResetArena();
             GameManager.Instance.isPlaying = false;
             SceneManager.LoadScene(sceneName);
         }
 
         private void ExitPause()
         {
-            GameManager.Instance.ResetArena();
             PauseGame();
         }
 
