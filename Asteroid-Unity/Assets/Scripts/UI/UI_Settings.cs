@@ -82,6 +82,7 @@ namespace Iterium
             }
             audioMixer.SetFloat("Music", volume);
             GameManager.Instance.player.MusicVolume = volume;
+            SoundManager.Instance.PlayEffect(2);
         }
 
         //Update sound effects from slider
@@ -96,6 +97,7 @@ namespace Iterium
             }
             audioMixer.SetFloat("Sound", volume);
             GameManager.Instance.player.EffectsVolume = volume;
+            SoundManager.Instance.PlayEffect(2);
         }
     }
 }

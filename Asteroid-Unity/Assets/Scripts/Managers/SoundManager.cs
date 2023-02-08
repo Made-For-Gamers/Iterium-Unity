@@ -58,24 +58,33 @@ namespace Iterium
         public void PlayAsteroidExplosion()
         {
             AudioSource audio = GetAudioSourceSfx();
-            audio.clip = asteroidExplosion.SelectRandomSound();
-            audio.Play();
+            if (!audio == false)
+            {
+                audio.clip = asteroidExplosion.SelectRandomSound();
+                audio.Play();
+            }
         }
 
         //Ship explosions from SO_SFX asset
         public void PlayShipExplosion()
         {
             AudioSource audio = GetAudioSourceSfx();
-            audio.clip = shipExplosion.SelectRandomSound();
-            audio.Play();
+            if (!audio == false)
+            {
+                audio.clip = shipExplosion.SelectRandomSound();
+                audio.Play();
+            }
         }
 
         //Play sound effect by index from SO_SFX asset
         public void PlayEffect(int index)
         {
             AudioSource audio = GetAudioSourceSfx();
-            audio.clip = effects.clips[index];
-            audio.Play();
+            if (!audio == false)
+            {
+                audio.clip = effects.clips[index];
+                audio.Play();
+            }
         }
 
         /// <summary>
