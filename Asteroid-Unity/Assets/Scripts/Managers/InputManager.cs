@@ -16,10 +16,10 @@ namespace Iterium
         private InputSystem input;
         
         public Vector2 rotateInput;
-        public Vector2 thrustInput; 
-        public bool isfire; 
-        public bool isShield; 
-        public bool isWarping; 
+        public Vector2 thrustInput;
+        public bool isfire;
+        public bool isShield;
+        public bool isWarping;
 
         private void OnEnable()
         {

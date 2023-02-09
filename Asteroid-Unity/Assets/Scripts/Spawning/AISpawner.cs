@@ -6,7 +6,7 @@ namespace Iterium
 
     public class AISpawner : MonoBehaviour
     {
-        float spawnTime = 2f;
+        float spawnTime = 5f;
 
         private void Start()
         {

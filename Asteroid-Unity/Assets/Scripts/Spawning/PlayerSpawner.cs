@@ -6,7 +6,7 @@ namespace Iterium
 
     public class PlayerSpawner : MonoBehaviour
     {
-        float spawnTime = 2f;
+        float spawnTime = 5f;
 
         private void Start()
         {
