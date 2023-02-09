@@ -2,7 +2,6 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     // Spawn player ship prefab
 
     public class PlayerSpawner : MonoBehaviour

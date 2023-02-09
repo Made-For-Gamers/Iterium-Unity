@@ -2,6 +2,8 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Spawn the players selected ship on the game over scene
+
     public class GameOverSpawner : MonoBehaviour
     {
         private void Start()

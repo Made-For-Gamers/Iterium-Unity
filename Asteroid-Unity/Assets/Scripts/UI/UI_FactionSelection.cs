@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 
 namespace Iterium
 {
-
     //Faction selection using UI Toolkit
     //Cameras projecting ships on 3 RenderTextures in the UI
     //Planes in front of each camera displaying 3 ShaderGraph circlular sliders
@@ -42,7 +41,7 @@ namespace Iterium
         [SerializeField] private SO_Ship shipUs;
         [SerializeField] private SO_Ship shipUssr;
 
-        //Slider planes (shader graph materials)
+        //Progress bars (planes with a shader graph material)
         [Header("Sliders Chn")]
         [SerializeField] private GameObject sliderChnFirepower;
         [SerializeField] private GameObject sliderChnSpeed;
@@ -58,11 +57,13 @@ namespace Iterium
         [SerializeField] private GameObject sliderUssrSpeed;
         [SerializeField] private GameObject sliderUssrShield;
 
+        //Player info labels
         private Label profileName;
         private Label xp;
         private Label level;
         private Label iterium;
 
+        //Faction Buttons
         private Button buttonChina;
         private Button buttonUsa;
         private Button buttonUssr;
@@ -95,6 +96,8 @@ namespace Iterium
 
         private void Start()
         {
+            //Init ship progress bar values, including any player upgrades
+
             //Init player elements
             profileName.text = GameManager.Instance.player.ProfileName;
             xp.text = GameManager.Instance.player.Xp.ToString() + " / " + GameManager.Instance.xpLevelSteps * GameManager.Instance.player.Level;
@@ -147,21 +150,21 @@ namespace Iterium
             matFirepower.SetFloat("_RemovedSeg", 100 - shipUssr.ShieldPower * 15 * GameManager.Instance.player.ShieldLvlUssr);
         }
 
-        //Select faction China and set ship upgrades
+        //Select faction China
         private void ButtonChina_clicked()
         {
             GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[1];
             LoadScene();
         }
 
-        //Select faction US and set ship upgrades
+        //Select faction US
         private void ButtonUsa_clicked()
         {
             GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[2];
             LoadScene();
         }
 
-        //Select faction USSR and set ship upgrades
+        //Select faction USSR
         private void ButtonUssr_clicked()
         {
             GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[3];

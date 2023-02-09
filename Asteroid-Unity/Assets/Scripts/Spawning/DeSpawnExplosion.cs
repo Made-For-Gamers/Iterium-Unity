@@ -3,9 +3,11 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Remove explosion after effect is complete
+
     public class DeSpawnExplosion : MonoBehaviour
     {
-        //Remove explsion after effect is complete
+        
         [SerializeField] private float destroyTime = 0.5f;
 
         void OnEnable()

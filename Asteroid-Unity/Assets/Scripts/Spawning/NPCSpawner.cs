@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace Iterium
 {
+    // Spawn NPC ship prefab, setting...
+    // Random position
+    // LookAt target
+    // Random speed
+    // Spawn interval time
 
-    /// <summary>
-    /// Spawn NPC ship prefab
-    /// Set random position, LookAt target, random speed
-    /// Spawn interval time
-    /// </summary>
     public class NPCSpawner : MonoBehaviour
     {
         [Header("Spawning")]
@@ -17,7 +17,6 @@ namespace Iterium
         [SerializeField] int minSpeed = 3;
         [SerializeField] int maxSpeed = 7;
         private int speed;
-
 
         private void Start()
         {
@@ -29,6 +28,8 @@ namespace Iterium
             int rnd = Random.Range(1, 5);
             GameObject ship = Instantiate(GameManager.Instance.npcPlayer.Character.Ship.ShipPrefab);
             ship.transform.position = GetComponentsInChildren<Transform>()[rnd].position;
+
+            //Target player first, or then AI, or then center of screen
             if (GameManager.Instance.targetPlayer.gameObject)
             {
                 ship.transform.LookAt(GameManager.Instance.targetPlayer.transform);
@@ -41,6 +42,7 @@ namespace Iterium
             {
                 ship.transform.Rotate(Vector3.zero);
             }
+
             speed = Random.Range(minSpeed, maxSpeed);
             ship.GetComponent<Rigidbody>().velocity = ship.transform.forward * speed;
             GameManager.Instance.targetNpc = ship;

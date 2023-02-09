@@ -1,8 +1,6 @@
 using UnityEngine;
 
-/// <summary>
-/// Class of all save data that need to be saved or loaded in the game
-/// </summary>
+// Class of all data that needs to be saved/loaded
 
 [System.Serializable]
 

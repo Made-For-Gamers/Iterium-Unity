@@ -3,10 +3,7 @@ using UnityEngine.UIElements;
 
 namespace Iterium
 {
-
-    /// <summary>
-    /// Control the hide/show of UI element panels on the tutorial screen
-    /// </summary>
+    // Tutorial screen UI
 
     public class UI_Tutorial : MonoBehaviour
     {
