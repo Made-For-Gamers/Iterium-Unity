@@ -2,9 +2,15 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Play music track via the SoundManager
+    //* Loop
+    //* Stop current sound
+    //* Delay
+    //* Play by index
+
     public class PlayMusic : MonoBehaviour
     {
-        [Header("Play music by index")]
+        [Header("Music by index")]
         [SerializeField] private int trackIndex;
         [SerializeField] private bool loop;
         [SerializeField] private bool StopCurrent;
