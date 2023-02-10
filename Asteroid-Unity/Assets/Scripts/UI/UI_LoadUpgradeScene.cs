@@ -3,6 +3,8 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Loads the selected faction ship upgrade scene
+
     public class UI_LoadUpgradeScene : MonoBehaviour
     {
         [Header("UI button")]

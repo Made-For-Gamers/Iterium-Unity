@@ -7,9 +7,7 @@ using System.Linq;
 
 namespace Iterium
 {
-    /// <summary>
-    /// File system handler to write/read save data to/from a file, additional handler can be created for cloud saves etc
-    /// </summary>
+    // Save file handler to write/read save data to/from a file
 
     public class FileSaveHandler
     {
@@ -24,6 +22,7 @@ namespace Iterium
         [DllImport("__Internal")]
         private static extern void alert(string message);
 
+        //Constructor sets the save path
         public FileSaveHandler(string dirPath)
         {
             //Set the path for loading and saving
@@ -31,7 +30,7 @@ namespace Iterium
             Debug.Log("Save File Path: " + this.dirPath);
         }
 
-        //Load player or AI data from a json file
+        //Load player and AI data from a json file
         public SaveData Load(string fileName)
         {
             fullPath = Path.Combine(dirPath, fileName);
@@ -65,7 +64,7 @@ namespace Iterium
             }
             else
             {
-                //No save file so reset data to defaults and create new save file. Return the default data as the loaded data
+                //If no save file exists, reset data to defaults and create new save file. Return the default data as the loaded data
                 GameManager.Instance.ResetGame();
                 GameManager.Instance.SaveGame();
                 loadData = GameManager.Instance.saveData;
@@ -73,7 +72,7 @@ namespace Iterium
             return loadData;
         }
 
-        //Save player game data to a json file
+        //Save player and AI game data to a json file
         public void Save(SaveData saveData, string fileName)
         {
             fullPath = Path.Combine(dirPath, fileName);
@@ -110,7 +109,7 @@ namespace Iterium
             }
         }
 
-        //Load the leaderboard List<> from file using the JsonHelper wrapper class
+        //Load the leaderboard List<> from file using the JsonHelper wrapper class        
         public List<T> LoadLeaderboard<T>(string fileName)
         {
             fullPath = Path.Combine(dirPath, fileName);
@@ -153,6 +152,7 @@ namespace Iterium
         }
 
         //Save the leaderboard List<> to a file using the JsonHelper wrapper class
+        //Unity JsonUtility cannot serialize a List<> as a top node so its wrapped under an "Items":[] node
         public void SaveLeaderboard<T>(List<T> saveData, string fileName)
         {
             fullPath = Path.Combine(dirPath, fileName);
@@ -191,7 +191,7 @@ namespace Iterium
         }
     }
 
-    //Wrapper class to wrap Lists<> so that they can be serialised by JsonUtility
+    //Wrapper class to wrap Lists<> under a "Items":[] node so that it can be serialised by JsonUtility
     public static class JsonHelper
     {
         public static T[] FromJson<T>(string json)

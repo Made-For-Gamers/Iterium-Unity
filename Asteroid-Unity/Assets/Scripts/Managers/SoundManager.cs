@@ -3,23 +3,23 @@ using UnityEngine.Audio;
 
 namespace Iterium
 {
-
-    /// <summary>
-    /// Singleton manager to manage sound/music
-    /// </summary>
+    // Sound/Music singleton manager
 
     public class SoundManager : Singleton<SoundManager>
     {
-        [Header("Sound Effects")] //ScriptableObject sfx List
+        //ScriptableObject sfx List
+        [Header("Sound Effects")]
         [SerializeField] private SO_SFX asteroidExplosion;
         [SerializeField] private SO_SFX shipExplosion;
         [SerializeField] private SO_SFX effects;
 
+        //ScriptableObject music List
         [Header("Music")]
-        [SerializeField] private SO_SFX music; //ScriptableObject music List
+        [SerializeField] private SO_SFX music;
 
-        [Header("Settings")]
-        [SerializeField] private int audioSourceNumber = 10; //number of re-usable AudioSources
+        //number of re-usable AudioSources
+        [Header("AudioSources")]
+        [SerializeField] private int audioSourceNumber = 10;
 
         [Header("Audio Mixer Channels")]
         [SerializeField] private AudioMixerGroup mixerMaster;
@@ -46,11 +46,12 @@ namespace Iterium
 
         private void Start()
         {
+            //Set saved volumes at start
             mixerSfx.audioMixer.SetFloat("Sound", GameManager.Instance.player.EffectsVolume);
             mixerMusic.audioMixer.SetFloat("Music", GameManager.Instance.player.MusicVolume);
         }
 
-        //Asteroid explosions from SO_SFX asset
+        //Play asteroid explosions (SO_SFX asset)
         public void PlayAsteroidExplosion()
         {
             AudioSource audio = GetAudioSourceSfx();
@@ -61,7 +62,7 @@ namespace Iterium
             }
         }
 
-        //Ship explosions from SO_SFX asset
+        //Play ship explosions (SO_SFX asset)
         public void PlayShipExplosion()
         {
             AudioSource audio = GetAudioSourceSfx();
@@ -72,7 +73,7 @@ namespace Iterium
             }
         }
 
-        //Play sound effect by index from SO_SFX asset
+        //Play sound effect by index (SO_SFX asset)
         public void PlayEffect(int index)
         {
             AudioSource audio = GetAudioSourceSfx();

@@ -3,12 +3,14 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Populate the leaderboard
+
     public class UI_Leaderboard : MonoBehaviour
     {
-        [Header("Leaderboard Item - UI Document")]
+        [Header("Leaderboard Item UI Document")]
         [SerializeField] private VisualTreeAsset scoreRow;
 
-        [Header("Leaderboard item - UI Elements")]
+        [Header("Leaderboard item fields")]
         [SerializeField] private string rank = "rank";
         [SerializeField] private string score = "score";
         [SerializeField] private string date = "date";
@@ -20,6 +22,8 @@ namespace Iterium
         {
             VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
             GameManager.Instance.SortLeaderboard();
+
+            //Populate leaderboard SrollView with rows
             foreach (LeaderboardItem item in GameManager.Instance.leaderboard)
             {
                 var rowTemplate = scoreRow.Instantiate();

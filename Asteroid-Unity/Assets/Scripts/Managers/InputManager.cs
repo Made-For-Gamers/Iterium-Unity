@@ -3,7 +3,6 @@ using UnityEngine.InputSystem;
 
 namespace Iterium
 {
-
     /// <summary>
     /// Input System for Keyboard/Mouse/Controller (see "Settings/Input System" folder)
     /// Handles device input for the following functions...
@@ -11,16 +10,16 @@ namespace Iterium
     /// * Firing
     /// * Shields
     /// </summary>
+ 
     public class InputManager : MonoBehaviour
     {
         private InputSystem input;
-
-        //The following values are read from the PlayerController script
-        public Vector2 rotateInput; //Ship rotation
-        public Vector2 thrustInput; //Ship thrust
-        public bool isfire; //Player firing
-        public bool isShield; //Player shielding
-        public bool isWarping; //Player warp jump (re-spawn)
+        
+        public Vector2 rotateInput;
+        public Vector2 thrustInput;
+        public bool isfire;
+        public bool isShield;
+        public bool isWarping;
 
         private void OnEnable()
         {

@@ -2,12 +2,11 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     // Spawn player ship prefab
 
     public class PlayerSpawner : MonoBehaviour
     {
-        float spawnTime = 2f;
+        float spawnTime = 5f;
 
         private void Start()
         {

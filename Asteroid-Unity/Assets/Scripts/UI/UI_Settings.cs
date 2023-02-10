@@ -1,10 +1,12 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 namespace Iterium
 {
+    //Game Settings UI
+    //Effects/music volume progress bars are cameras projecting on RenderTextures in the UI, capturing planes with shader graph materials
+
     public class UI_Settings : MonoBehaviour
     {
         [Header("UI Elements")]
@@ -49,11 +51,11 @@ namespace Iterium
 
         private void Start()
         {
-            //Init music material (shader graph dial shader)
+            //Init music material (shader graph progress bar)
             matRenderer = musicPlane.GetComponent<Renderer>();
             matMusic = matRenderer.material;
 
-            //Init sound material (shader graph dial shader)
+            //Init sound material (shader graph progress bar)
             matRenderer = soundPlane.GetComponent<Renderer>();
             matSound = matRenderer.material;
 

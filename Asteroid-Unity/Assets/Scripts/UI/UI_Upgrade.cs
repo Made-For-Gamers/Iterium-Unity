@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Upgrade screen ui
+    //Cameras project progress bars (planes with shader graph materials) on UI Render
+
     public class UI_Upgrade : MonoBehaviour
     {
         [Header("UI Upgrade Sliders")]
@@ -57,7 +60,6 @@ namespace Iterium
             VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
             iterium = uiRoot.Q<Label>(iteriumLabel);
 
-
             //UI thrust elements
             thrust = uiRoot.Q<Slider>(speedSlider);
             thrustUpgrade = uiRoot.Q<Button>(speedButton);
@@ -103,6 +105,7 @@ namespace Iterium
             GameManager.Instance.player.onChange_Iterium.AddListener(InitIterium);
         }
 
+        //Thrust upgrade
         void UpgradeThrust()
         {
             if (GameManager.Instance.player.SpeedLvl == 1 && GameManager.Instance.player.Iterium >= GameManager.Instance.speedLevel1)
@@ -129,6 +132,7 @@ namespace Iterium
             }
         }
 
+        //Shield upgrade
         void UpgradeShield()
         {
             if (GameManager.Instance.player.ShieldLvl == 1 && GameManager.Instance.player.Iterium >= GameManager.Instance.shieldLevel1)
@@ -155,6 +159,7 @@ namespace Iterium
             }
         }
 
+        //Firepower upgrade
         void UpgradeFirepower()
         {
             if (GameManager.Instance.player.BulletLvl == 1 && GameManager.Instance.player.Iterium >= GameManager.Instance.firepowerLevel1)
@@ -181,6 +186,7 @@ namespace Iterium
             }
         }
 
+        //total iterium
         void InitIterium()
         {
             iterium.text = GameManager.Instance.player.Iterium.ToString();

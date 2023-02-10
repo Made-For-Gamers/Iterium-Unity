@@ -1,9 +1,10 @@
 using UnityEngine.UIElements;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Iterium
 {
+    //Quit application button
+
     public class UI_QuitGame : MonoBehaviour
     {
         [Header("UI button")]

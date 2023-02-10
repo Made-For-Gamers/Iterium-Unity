@@ -3,10 +3,8 @@ using UnityEngine.Pool;
 
 namespace Iterium
 {
+    // Spawning of random asteroids at set intervals, random rotation and speed, targets an object for direction
 
-    /// <summary>
-    /// Spawning of random asteroids at set intervals, random rotation and speed, targets an object for direction
-    /// </summary>
     public class AsteroidSpawner : MonoBehaviour
     {
         [Header("Asteroid Spawning")]
@@ -14,7 +12,7 @@ namespace Iterium
         [SerializeField] private float speedMin;
         [SerializeField] private float speedMax;
         [SerializeField] private bool spawnOnceOnly;
-        [SerializeField] private GameObject target; //asteroids move towards target
+        [SerializeField] private GameObject target; //asteroids move towards this scene target
 
         private float speed;
 
@@ -30,11 +28,12 @@ namespace Iterium
             }
         }
 
+        //Spawn asteroid
         private GameObject SpawnAsteroid()
         {
-            //Instantiate asteroid
             GameObject spawnedAsteroid = AsteroidPooling.asteroidPool.Get();
 
+            //Position, scale and speed
             spawnedAsteroid.transform.position = transform.position;
             spawnedAsteroid.transform.localScale = Vector3.one;
             speed = Random.Range(speedMin, speedMax + 1);
@@ -43,7 +42,7 @@ namespace Iterium
             spawnedAsteroid.transform.LookAt(target.transform);
             spawnedAsteroid.GetComponent<Rigidbody>().velocity = spawnedAsteroid.transform.forward * speed;
 
-            //Random rotation after Look and direction is set
+            //Random rotation
             spawnedAsteroid.transform.rotation = Random.rotation;
             return spawnedAsteroid;
         }

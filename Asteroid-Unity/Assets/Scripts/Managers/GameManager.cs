@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 namespace Iterium
 {
-    /// <summary>
-    /// Singleton manager to manage main game specific data
-    /// </summary>
+    // Singleton manager to manage main game data
 
     public class GameManager : Singleton<GameManager>
     {
+        #region Variables
+
         [Header("Faction Upgrade Scenes")]
 #if UNITY_EDITOR
         public UnityEditor.SceneAsset destinationSceneChn;
@@ -32,21 +32,23 @@ namespace Iterium
         [HideInInspector] public string upgradeUsScene;
         [HideInInspector] public string UpgradeUssrScene;
 
-        [Header("Save Game")]
+        [Header("Save Game Settings")]
         [SerializeField] private string saveFile = "Player.save";
         [SerializeField] private string saveFileAi = "AI.save";
         [SerializeField] private string saveFileLeaderboard = "Leaderboard.save";
         [SerializeField] private int leaderboardSize = 25;
+        private FileSaveHandler fileSaveHandler;
 
         [Header("Player Settings")]
         public SO_Player player;
-        [HideInInspector] public GameObject targetPlayer;
+
         public SO_Factions factions;
         public float deathRespawnTime = 4f;
         public int xpLevelSteps = 2000;
         public int maxLevel = 50;
         public int freeShip = 100000;
-        [HideInInspector]public bool isPlaying;
+        [HideInInspector] public bool isPlaying;
+        [HideInInspector] public GameObject targetPlayer;
         private int curretAiFaction;
 
         [Header("AI Settings")]
@@ -58,7 +60,7 @@ namespace Iterium
         public SO_Player npcPlayer;
         [HideInInspector] public GameObject targetNpc;
 
-        [Header("Iterium Requirements")]
+        [Header("Iterium Settings")]
         public SO_GameObjects iterium;
         public int iteriumChance = 20;
         public int speedLevel1 = 10;
@@ -78,9 +80,9 @@ namespace Iterium
         [HideInInspector] public Transform playerSpawner;
         [HideInInspector] public Transform aiSpawner;
 
-        private FileSaveHandler fileSaveHandler;
-        
+        #endregion
 
+        #region General Methods
 
         private void Start()
         {
@@ -97,11 +99,13 @@ namespace Iterium
             aiPlayer.onChange_speedLvl.AddListener(SpeedLvlChangedAi);
         }
 
+        //Select a new random AI faction
         private void SelectAiPlayer()
         {
             int rnd = Random.Range(1, 4);
             aiPlayer.Character = factions.Factions[rnd];
-            //Reset AI bullets pool if a different ship or different bullet level
+
+            //Reset AI bullet pool if a different ship is spawned
             if (curretAiFaction != rnd && BulletPooling.bulletPoolAi != null)
             {
                 BulletPooling.bulletPoolAi.Clear();
@@ -109,102 +113,7 @@ namespace Iterium
             curretAiFaction = rnd;
         }
 
-        public void SaveGame()
-        {
-            //Update data to be saved
-            saveData.profileName = player.ProfileName;
-            saveData.bio = player.Bio;
-            saveData.email = player.Email;
-            saveData.xp = player.Xp;
-            saveData.level = player.Level;
-            saveData.iterium = player.Iterium;
-            saveData.bulletLvlUs = player.BulletLvlUs;
-            saveData.speedLvlUs = player.SpeedLvlUs;
-            saveData.shieldLvlUs = player.ShieldLvlUs;
-            saveData.bulletLvlUssr = player.BulletLvlUssr;
-            saveData.speedLvlUssr = player.SpeedLvlUssr;
-            saveData.shieldLvlUssr = player.ShieldLvlUssr;
-            saveData.bulletLvlChn = player.BulletLvlChn;
-            saveData.speedLvlChn = player.SpeedLvlChn;
-            saveData.shieldLvlChn = player.ShieldLvlChn;
-            saveData.character = player.Character;
-            saveData.effectVolume = player.EffectsVolume;
-            saveData.musicVolume = player.MusicVolume;
-
-            saveDataAi.xp = aiPlayer.Xp;
-            saveDataAi.level = aiPlayer.Level;
-            saveDataAi.iterium = aiPlayer.Iterium;
-            saveDataAi.bulletLvlUs = aiPlayer.BulletLvlUs;
-            saveDataAi.speedLvlUs = aiPlayer.SpeedLvlUs;
-            saveDataAi.shieldLvlUs = aiPlayer.ShieldLvlUs;
-            saveDataAi.bulletLvlUssr = aiPlayer.BulletLvlUssr;
-            saveDataAi.speedLvlUssr = aiPlayer.SpeedLvlUssr;
-            saveDataAi.shieldLvlUssr = aiPlayer.ShieldLvlUssr;
-            saveDataAi.bulletLvlChn = aiPlayer.BulletLvlChn;
-            saveDataAi.speedLvlChn = aiPlayer.SpeedLvlChn;
-            saveDataAi.shieldLvlChn = aiPlayer.ShieldLvlChn;
-
-            fileSaveHandler.Save(saveData, saveFile);
-            fileSaveHandler.Save(saveDataAi, saveFileAi);
-            print("Saved Game");
-            SaveLeaderboard();
-
-        }
-
-        public void LoadGame()
-        {
-            saveData = fileSaveHandler.Load(saveFile);
-            saveDataAi = fileSaveHandler.Load(saveFileAi);
-            print("Loaded Game");
-            LoadLeaderboard();
-
-            //Update player data from load
-            player.ProfileName = saveData.profileName;
-            player.Bio = saveData.bio;
-            player.Email = saveData.email;
-            player.Xp = saveData.xp;
-            player.Level = saveData.level;
-            player.Iterium = saveData.iterium;
-            player.BulletLvlUs = saveData.bulletLvlUs;
-            player.SpeedLvlUs = saveData.speedLvlUs;
-            player.ShieldLvlUs = saveData.shieldLvlUs;
-            player.BulletLvlUssr = saveData.bulletLvlUssr;
-            player.SpeedLvlUssr = saveData.speedLvlUssr;
-            player.ShieldLvlUssr = saveData.shieldLvlUssr;
-            player.BulletLvlChn = saveData.bulletLvlChn;
-            player.SpeedLvlChn = saveData.speedLvlChn;
-            player.ShieldLvlChn = saveData.shieldLvlChn;
-            player.EffectsVolume = saveData.effectVolume;
-            player.MusicVolume = saveData.musicVolume;
-
-            //Update AI data from load
-            aiPlayer.Xp = saveDataAi.xp;
-            aiPlayer.Level = saveDataAi.level;
-            aiPlayer.Iterium = saveDataAi.iterium;
-            aiPlayer.BulletLvlUs = saveDataAi.bulletLvlUs;
-            aiPlayer.SpeedLvlUs = saveDataAi.speedLvlUs;
-            aiPlayer.ShieldLvlUs = saveDataAi.shieldLvlUs;
-            aiPlayer.BulletLvlUssr = saveDataAi.bulletLvlUssr;
-            aiPlayer.SpeedLvlUssr = saveDataAi.speedLvlUssr;
-            aiPlayer.ShieldLvlUssr = saveDataAi.shieldLvlUssr;
-            aiPlayer.BulletLvlChn = saveDataAi.bulletLvlChn;
-            aiPlayer.SpeedLvlChn = saveDataAi.speedLvlChn;
-            aiPlayer.ShieldLvlChn = saveDataAi.shieldLvlChn;
-
-            //New game then set the default player ship
-            if (saveData.character != null)
-            {
-                player.Character = saveData.character;
-            }
-            else
-            {
-                player.Character = factions.Factions[2];
-            }
-
-            UpgradeLevelSync();
-        }
-
-        //Reset data to a new game state
+        //Reset data to a complete new game state
         public void ResetGame()
         {
             //Player data
@@ -258,14 +167,14 @@ namespace Iterium
         //Reset data for a new arena battle
         public void ResetArena()
         {
-            //Player data
+            //Player
             player.Health = 100;
             player.Score = 0;
             player.IteriumCollected = 0;
             player.XpCollected = 0;
             player.Lives = 3;
 
-            //AI data
+            //AI
             aiPlayer.Health = 100;
             aiPlayer.Score = 0;
             aiPlayer.IteriumCollected = 0;
@@ -275,51 +184,13 @@ namespace Iterium
             isPlaying = true;
         }
 
-        public void OnApplicationQuit()
-        {
-            SaveGame();
-            if (Application.platform == RuntimePlatform.WebGLPlayer)
-            {
-                Application.ExternalEval("window.open('https://mfg.gg','_self')");
-            }
-            else
-            {
-                Application.Quit();
-            }
-        }
+        #region Spawning
 
-        public void SceneMainMenu()
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-
-        public void SceneUpgrade()
-        {
-            switch (player.Character.Id)
-            {
-                case "chn":
-                    SceneManager.LoadScene(upgradeChnScene);
-                    break;
-                case "us":
-                    SceneManager.LoadScene(upgradeUsScene);
-                    break;
-                case "ussr":
-                    SceneManager.LoadScene(UpgradeUssrScene);
-                    break;
-            }
-        }
-
+        //Spawn player
         public void SpawnPlayer(float time)
         {
             StartCoroutine(SpawnPlayerOverTime(time));
         }
-
-        public void SpawnAi(float time)
-        {
-            SelectAiPlayer();
-            StartCoroutine(SpawnAiOverTime(time));
-        }
-
         IEnumerator SpawnPlayerOverTime(float time)
         {
             yield return new WaitForSeconds(time);
@@ -334,13 +205,11 @@ namespace Iterium
             }
         }
 
-        //Get a random position near a spawn point for a ship to re-spawn
-        public Vector3 RandomScreenPosition(Transform spawnPoint)
+        //Spawn AI
+        public void SpawnAi(float time)
         {
-            float x = Random.Range(-4f, 4f);
-            float z = Random.Range(-6f, 6f);
-            Vector3 position = new Vector3(spawnPoint.position.x + x, 0, spawnPoint.position.z + z);
-            return position;
+            SelectAiPlayer();
+            StartCoroutine(SpawnAiOverTime(time));
         }
 
         IEnumerator SpawnAiOverTime(float time)
@@ -360,19 +229,146 @@ namespace Iterium
             }
         }
 
-
-        public void GameOver()
+        //Get a random position near a spawn point for a ship to re-spawn
+        public Vector3 RandomScreenPosition(Transform spawnPoint)
         {
-            SceneManager.LoadScene("GameOver");
+            float x = Random.Range(-4f, 4f);
+            float z = Random.Range(-6f, 6f);
+            Vector3 position = new Vector3(spawnPoint.position.x + x, 0, spawnPoint.position.z + z);
+            return position;
         }
 
-        //Save leaderboard to file
+        #endregion
+
+        //Shake camera on player death
+        public void CameraShake(float time, float magnitude)
+        {
+            StartCoroutine(Shake(time, magnitude));
+        }
+
+        //Shake camera when player dies
+        IEnumerator Shake(float time, float magnitude)
+        {
+            Vector3 pos = Camera.main.transform.position;
+            float elapsedTime = 0;
+            while (elapsedTime < time)
+            {
+                elapsedTime += Time.deltaTime;
+                float x = Random.Range(-0.3f, 0.3f) * magnitude;
+                float y = Random.Range(-0.3f, 0.3f) * magnitude;
+                Camera.main.transform.position = new Vector3(x, pos.y, y);
+                yield return null;
+            }
+            Camera.main.transform.position = pos;
+        }
+
+        #endregion
+
+        #region Save/Load
+
+        //Save game data
+        public void SaveGame()
+        {
+            saveData.profileName = player.ProfileName;
+            saveData.bio = player.Bio;
+            saveData.email = player.Email;
+            saveData.xp = player.Xp;
+            saveData.level = player.Level;
+            saveData.iterium = player.Iterium;
+            saveData.bulletLvlUs = player.BulletLvlUs;
+            saveData.speedLvlUs = player.SpeedLvlUs;
+            saveData.shieldLvlUs = player.ShieldLvlUs;
+            saveData.bulletLvlUssr = player.BulletLvlUssr;
+            saveData.speedLvlUssr = player.SpeedLvlUssr;
+            saveData.shieldLvlUssr = player.ShieldLvlUssr;
+            saveData.bulletLvlChn = player.BulletLvlChn;
+            saveData.speedLvlChn = player.SpeedLvlChn;
+            saveData.shieldLvlChn = player.ShieldLvlChn;
+            saveData.character = player.Character;
+            saveData.effectVolume = player.EffectsVolume;
+            saveData.musicVolume = player.MusicVolume;
+
+            saveDataAi.xp = aiPlayer.Xp;
+            saveDataAi.level = aiPlayer.Level;
+            saveDataAi.iterium = aiPlayer.Iterium;
+            saveDataAi.bulletLvlUs = aiPlayer.BulletLvlUs;
+            saveDataAi.speedLvlUs = aiPlayer.SpeedLvlUs;
+            saveDataAi.shieldLvlUs = aiPlayer.ShieldLvlUs;
+            saveDataAi.bulletLvlUssr = aiPlayer.BulletLvlUssr;
+            saveDataAi.speedLvlUssr = aiPlayer.SpeedLvlUssr;
+            saveDataAi.shieldLvlUssr = aiPlayer.ShieldLvlUssr;
+            saveDataAi.bulletLvlChn = aiPlayer.BulletLvlChn;
+            saveDataAi.speedLvlChn = aiPlayer.SpeedLvlChn;
+            saveDataAi.shieldLvlChn = aiPlayer.ShieldLvlChn;
+
+            fileSaveHandler.Save(saveData, saveFile);
+            fileSaveHandler.Save(saveDataAi, saveFileAi);
+            print("Saved Game");
+            SaveLeaderboard();
+        }
+
+        //Load game data
+        public void LoadGame()
+        {
+            saveData = fileSaveHandler.Load(saveFile);
+            saveDataAi = fileSaveHandler.Load(saveFileAi);
+            print("Loaded Game");
+            LoadLeaderboard();
+
+            //Update player ScriptableObject with loaded data
+            player.ProfileName = saveData.profileName;
+            player.Bio = saveData.bio;
+            player.Email = saveData.email;
+            player.Xp = saveData.xp;
+            player.Level = saveData.level;
+            player.Iterium = saveData.iterium;
+            player.BulletLvlUs = saveData.bulletLvlUs;
+            player.SpeedLvlUs = saveData.speedLvlUs;
+            player.ShieldLvlUs = saveData.shieldLvlUs;
+            player.BulletLvlUssr = saveData.bulletLvlUssr;
+            player.SpeedLvlUssr = saveData.speedLvlUssr;
+            player.ShieldLvlUssr = saveData.shieldLvlUssr;
+            player.BulletLvlChn = saveData.bulletLvlChn;
+            player.SpeedLvlChn = saveData.speedLvlChn;
+            player.ShieldLvlChn = saveData.shieldLvlChn;
+            player.EffectsVolume = saveData.effectVolume;
+            player.MusicVolume = saveData.musicVolume;
+
+            //Update AI ScriptableObject with loaded data
+            aiPlayer.Xp = saveDataAi.xp;
+            aiPlayer.Level = saveDataAi.level;
+            aiPlayer.Iterium = saveDataAi.iterium;
+            aiPlayer.BulletLvlUs = saveDataAi.bulletLvlUs;
+            aiPlayer.SpeedLvlUs = saveDataAi.speedLvlUs;
+            aiPlayer.ShieldLvlUs = saveDataAi.shieldLvlUs;
+            aiPlayer.BulletLvlUssr = saveDataAi.bulletLvlUssr;
+            aiPlayer.SpeedLvlUssr = saveDataAi.speedLvlUssr;
+            aiPlayer.ShieldLvlUssr = saveDataAi.shieldLvlUssr;
+            aiPlayer.BulletLvlChn = saveDataAi.bulletLvlChn;
+            aiPlayer.SpeedLvlChn = saveDataAi.speedLvlChn;
+            aiPlayer.ShieldLvlChn = saveDataAi.shieldLvlChn;
+
+            //If a new game then set the default player ship
+            if (saveData.character != null)
+            {
+                player.Character = saveData.character;
+            }
+            else
+            {
+                player.Character = factions.Factions[2];
+            }
+
+            //Set upgrade levels
+            UpgradeLevelSync();
+        }
+
+        //Save leaderboard
         public void SaveLeaderboard()
         {
             fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
         }
 
-        //Load leaderboard from file
+        //Load leaderboard
         public void LoadLeaderboard()
         {
             leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
@@ -384,6 +380,57 @@ namespace Iterium
                 SaveLeaderboard();
             }
         }
+
+        #endregion
+
+        #region Scenes/Menu
+
+        //Quit the application
+        public void OnApplicationQuit()
+        {
+            SaveGame();
+            if (Application.platform == RuntimePlatform.WebGLPlayer)
+            {
+                Application.ExternalEval("window.open('https://mfg.gg','_self')");
+            }
+            else
+            {
+                Application.Quit();
+            }
+        }
+
+        //Load main menu scene
+        public void SceneMainMenu()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
+        //Load faction upgrade scene
+        public void SceneUpgrade()
+        {
+            switch (player.Character.Id)
+            {
+                case "chn":
+                    SceneManager.LoadScene(upgradeChnScene);
+                    break;
+                case "us":
+                    SceneManager.LoadScene(upgradeUsScene);
+                    break;
+                case "ussr":
+                    SceneManager.LoadScene(UpgradeUssrScene);
+                    break;
+            }
+        }
+
+        //Load game over scene
+        public void GameOver()
+        {
+            SceneManager.LoadScene("GameOver");
+        }
+
+        #endregion
+
+        #region Leaderboard
 
         //Add a new row to the leaderboard
         public void AddLeaderboardItem(bool isPlayer)
@@ -410,6 +457,7 @@ namespace Iterium
             }
         }
 
+        //Populate a new leaderboard with entries
         public void InitLeaderboard()
         {
             print("Initialising a new leaderboard");
@@ -424,34 +472,20 @@ namespace Iterium
             SortLeaderboard();
         }
 
+        //Sort all leaderboard rows
         public void SortLeaderboard()
         {
             leaderboard = leaderboard.OrderByDescending(x => x.score).ToList();
         }
 
-        public void CameraShake(float time, float magnitude)
-        {
-            StartCoroutine(Shake(time, magnitude));
-        }
+        #endregion
+     
+        #region XP/Levels/Iterium/Bonus
 
-        //Shake camera when player dies
-        IEnumerator Shake(float time, float magnitude)
-        {
-            Vector3 pos = Camera.main.transform.position;
-            float elapsedTime = 0;
-            while (elapsedTime < time)
-            {
-                elapsedTime += Time.deltaTime;
-                float x = Random.Range(-0.3f, 0.3f) * magnitude;
-                float y = Random.Range(-0.3f, 0.3f) * magnitude;
-                Camera.main.transform.position = new Vector3(x, pos.y, y);
-                yield return null;
-            }
-            Camera.main.transform.position = pos;
-        }
-
+        //Add XP gained from a battle and calculate leveling
         public void CalculateXP()
         {
+            //Player leveling
             player.Xp += player.XpCollected;
             if (player.Xp > xpLevelSteps * player.Level)
             {
@@ -460,6 +494,8 @@ namespace Iterium
                     player.Level++;
                 }
             }
+
+            //AI leveling
             aiPlayer.Xp += aiPlayer.XpCollected;
             if (aiPlayer.Xp > xpLevelSteps * aiPlayer.Level)
             {
@@ -470,12 +506,14 @@ namespace Iterium
             }
         }
 
+        //Calculate how much Iterium was collected from a battle
         public void CalculateIterium()
         {
             player.Iterium += player.IteriumCollected;
             aiPlayer.Iterium += aiPlayer.IteriumCollected;
         }
 
+        //Calculate player points bonus at end of battle
         public int CalculatePlayerBonus()
         {
             int bonus;
@@ -483,12 +521,17 @@ namespace Iterium
             return bonus;
         }
 
+        //Calculate AI points bonus at end of battle
         public void CalculateAiBonus()
         {
             aiPlayer.Score += aiPlayer.IteriumCollected * 100 * aiPlayer.Level;
         }
 
-        //Keep player bullet upgrade value in sync with current upgrade value
+        #endregion
+
+        #region Upgrades
+
+        //Keep player bullet upgrade data in sync with current game value
         private void BulletLvlChanged()
         {
             switch (Instance.player.Character.Id)
@@ -505,7 +548,7 @@ namespace Iterium
             }
         }
 
-        //Keep player shield upgrade value in sync with current upgrade value
+        //Keep player shield upgrade data in sync with current game value
         private void ShieldLvlChanged()
         {
             switch (Instance.player.Character.Id)
@@ -522,7 +565,7 @@ namespace Iterium
             }
         }
 
-        //Keep player speed upgrade value in sync with current upgrade value
+        //Keep player speed upgrade data in sync with current game value
         private void SpeedLvlChanged()
         {
             switch (Instance.player.Character.Id)
@@ -539,7 +582,7 @@ namespace Iterium
             }
         }
 
-        //Keep AI bullet upgrade value in sync with current upgrade value
+        //Keep AI bullet upgrade data in sync with current game value
         private void BulletLvlChangedAi()
         {
             switch (Instance.aiPlayer.Character.Id)
@@ -556,7 +599,7 @@ namespace Iterium
             }
         }
 
-        //Keep AI shield upgrade value in sync with current upgrade value
+        //Keep AI shield upgrade data in sync with current game value
         private void ShieldLvlChangedAi()
         {
             switch (Instance.aiPlayer.Character.Id)
@@ -573,7 +616,7 @@ namespace Iterium
             }
         }
 
-        //Keep AI speed upgrade value in sync with current upgrade value
+        //Keep AI speed upgrade data in sync with current game value
         private void SpeedLvlChangedAi()
         {
             switch (Instance.aiPlayer.Character.Id)
@@ -590,7 +633,7 @@ namespace Iterium
             }
         }
 
-        //Sync saved upgrade level data with current upgrade variables
+        //Update game upgrade variables with loaded upgrade data
         public void UpgradeLevelSync()
         {
             //Player upgrade sync
@@ -633,5 +676,7 @@ namespace Iterium
                     break;
             }
         }
+
+        #endregion 
     }
 }

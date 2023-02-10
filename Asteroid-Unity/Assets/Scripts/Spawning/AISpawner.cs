@@ -2,11 +2,11 @@ using UnityEngine;
 
 namespace Iterium
 {
-
     // Spawn AI ship prefab
+
     public class AISpawner : MonoBehaviour
     {
-        float spawnTime = 2f;
+        float spawnTime = 5f;
 
         private void Start()
         {

@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace Iterium
 {
+    //Player profile UI
+
     public class UI_Profile : MonoBehaviour
     {
         [Header("Scene to load on save")]

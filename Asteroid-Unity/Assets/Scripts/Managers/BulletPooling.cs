@@ -3,12 +3,10 @@ using UnityEngine.Pool;
 
 namespace Iterium
 {
+    /// Pooling of player/AI/NPC bullets
     public class BulletPooling : MonoBehaviour
     {
-        /// <summary>
-        /// Pool spawned/de-spawn bullets to improve performance
-        /// Used by players and NPCs
-        /// </summary>
+
         [Header("Player Bullet Pooling")]
         [SerializeField] private int capacity = 25;
         [SerializeField] private int maxCapacity = 30;
@@ -21,6 +19,7 @@ namespace Iterium
         [SerializeField] private int capacityNpc = 6;
         [SerializeField] private int maxCapacityNpc = 10;
 
+        //Pools
         public static ObjectPool<GameObject> bulletPoolPlayer;
         public static ObjectPool<GameObject> bulletPoolAi;
         public static ObjectPool<GameObject> bulletPoolNpc;
@@ -37,25 +36,24 @@ namespace Iterium
             bulletPoolNpc = new ObjectPool<GameObject>(PoolNew_NPC, PoolGet, PoolReturn, PoolDestroy, false, capacityNpc, maxCapacityNpc);
         }
 
-        // Add a PoolNew method for each firing character (bullet type)
-        private GameObject PoolNew_Player() //Player 1 bullet
+        //Instantiate a new player bullet
+        private GameObject PoolNew_Player()
         {
-            //Instantiate new player bullet
             return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.player.BulletLvl - 1]);
-
         }
-        private GameObject PoolNew_Ai() //AI bullet
+
+        //Instantiate a new AI bullet
+        private GameObject PoolNew_Ai()
         {
-            //Instantiate new AI bullet
             GameObject aiBullet = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.Bullet.Bullet[0]);
             Destroy(aiBullet.GetComponent<Bullet>());
             aiBullet.AddComponent<BulletAI>();
             return aiBullet;
         }
 
-        private GameObject PoolNew_NPC() //NPC bullet
+        //Instantiate a new NPC bullet
+        private GameObject PoolNew_NPC()
         {
-            //Instantiate new NPC bullet
             return Instantiate(GameManager.Instance.npcPlayer.Character.Ship.Bullet.Bullet[0]);
         }
 
@@ -65,7 +63,7 @@ namespace Iterium
             obj.SetActive(true);
         }
 
-        //Return a bullet to the pool
+        //Release a bullet to the pool
         private void PoolReturn(GameObject obj)
         {
             obj?.SetActive(false);

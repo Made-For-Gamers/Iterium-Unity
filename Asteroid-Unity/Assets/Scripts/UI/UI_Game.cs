@@ -6,11 +6,12 @@ using System.Net.Http.Headers;
 
 namespace Iterium
 {
+    // Game scene UI for player and AI
+    // * Score
+    // * Health
+    // * Iterium collected
+    // * lives
 
-    /// <summary>
-    /// Game scene UI data (UI Toolkit)
-    /// Player UI fields: score, health, iterium crystals, lives
-    /// </summary>
     public class UI_Game : MonoBehaviour
     {
         [Header("Drag scene to load")]
@@ -45,7 +46,7 @@ namespace Iterium
         [SerializeField] private string ship2Player2 = "ship2Player2";
         [SerializeField] private string ship3Player2 = "ship3Player2";
 
-        //Slider planes (shader graph materials)
+        //Health progress bar (planes with shader graph material)
         [Header("Player Health Sliders")]
         [SerializeField] private GameObject sliderPlayerHealth;
         [SerializeField] private GameObject sliderAiHealth;
@@ -164,6 +165,7 @@ namespace Iterium
             }
         }
 
+        //Pause the game
         private void Pause(InputAction.CallbackContext obj)
         {
             PauseGame();
@@ -184,26 +186,29 @@ namespace Iterium
             SoundManager.Instance.PlayEffect(2);
         }
 
+        //Exit button on pause panel
         private void ExitGame()
         {
             PauseGame();
+            GameManager.Instance.ResetArena();
             GameManager.Instance.isPlaying = false;
             SceneManager.LoadScene(sceneName);
         }
 
+        //Continue button on pause panel
         private void ExitPause()
         {
-            GameManager.Instance.ResetArena();
             PauseGame();
         }
 
+        //Player and AI names
         private void ChangeNames()
         {
             playerTextName.text = GameManager.Instance.player.ProfileName.ToString();
             aiTextName.text = GameManager.Instance.aiPlayer.ProfileName.ToString();
         }
 
-        //Player UI updates
+        //Player score
         private void ChangeScore()
         {
             playerTextScore.text = GameManager.Instance.player.Score.ToString();
@@ -211,36 +216,40 @@ namespace Iterium
             {
                 GameManager.Instance.player.Lives++;
                 extraLife = true;
-                //ChangeLives();
             }
         }
 
+        //Player health
         private void ChangeHealth()
         {
             matPlayerHealth.SetFloat("_RemovedSeg", 10 - GameManager.Instance.player.Health / 10);
         }
 
+        //Player iterium collected
         private void ChangeIterium()
         {
             playerTextIterium.text = GameManager.Instance.player.IteriumCollected.ToString();
         }
 
-        //AI UI updates
+        //AI score
         private void ChangeAiScore()
         {
             aiTextScore.text = GameManager.Instance.aiPlayer.Score.ToString();
         }
 
+        //AI health
         private void ChangeAiHealth()
         {
             matAiHealth.SetFloat("_RemovedSeg", 10 - GameManager.Instance.aiPlayer.Health / 10);
         }
 
+        //AI iterium collected
         private void ChangeAiIterium()
         {
             aiTextIterium.text = GameManager.Instance.aiPlayer.IteriumCollected.ToString();
         }
 
+        //Player lives
         private void ChangeLives()
         {
             switch (GameManager.Instance.player.Lives)
@@ -272,6 +281,7 @@ namespace Iterium
             }
         }
 
+        //AI lives
         private void ChangeAiLives()
         {
             switch (GameManager.Instance.aiPlayer.Lives)

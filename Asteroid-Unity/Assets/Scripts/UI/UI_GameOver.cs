@@ -4,14 +4,12 @@ using UnityEngine.SceneManagement;
 
 namespace Iterium
 {
+    // Game Over UI
+    // * Shows final score, iterium collected, total iterium, level
+    // * Indicates if a high score is achieved
+    // * Calculate XP/Leveling/points bonus
+    // * Display specific message depending on game performance
 
-    /// <summary>
-    /// Game Over UI
-    /// * Shows score and iterium collected
-    /// *Indicates if a high score is achieved
-    /// *Calculate XP/Leveling
-    /// *Display specific message depending on game performance
-    /// </summary>
     public class UI_GameOver : MonoBehaviour
     {
         [Header("Game Play Scene")]
@@ -80,9 +78,9 @@ namespace Iterium
             //Bonus
             roundBonus = GameManager.Instance.CalculatePlayerBonus();
             GameManager.Instance.CalculateAiBonus();
-            bonus.text = roundBonus.ToString();
+            bonus.text = roundBonus.ToString() + " points";
 
-            //AI firepower upgrades
+            //AI firepower upgrade
             if (GameManager.Instance.aiPlayer.BulletLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.firepowerLevel1)
             {
                 //Upgrade bullet to lvl 2
@@ -96,7 +94,7 @@ namespace Iterium
                 GameManager.Instance.aiPlayer.BulletLvl = 3;
             }
 
-            //AI shield upgrades
+            //AI shield upgrade
             if (GameManager.Instance.aiPlayer.ShieldLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.shieldLevel1)
             {
                 //Upgrade shield to lvl 2
@@ -110,6 +108,7 @@ namespace Iterium
                 GameManager.Instance.aiPlayer.ShieldLvl = 3;
             }
 
+            //AI speed upgrade
             if (GameManager.Instance.aiPlayer.SpeedLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.speedLevel1)
             {
                 //Upgrade speed to lvl 2
@@ -123,7 +122,7 @@ namespace Iterium
                 GameManager.Instance.aiPlayer.SpeedLvl = 3;
             }
 
-            //Player leaderboard challenge
+            //Player leaderboard entry if the score is higher than the last row
             if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
             {
                 //High Score greeting

@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 namespace Iterium
 {
+    //Load a scene from a UI Toolkit button element
+
     public class UI_Button : MonoBehaviour
     {
         [Header("Drag scene to load")]
