@@ -37,7 +37,7 @@ namespace Iterium
             firePosition = transform.GetChild(2);
             rigidBody = GetComponent<Rigidbody>();
             InvokeRepeating("Fire", fireStart, fireInterval);
-            InvokeRepeating("Shield", 0, GameManager.Instance.aiPlayer.Character.Ship.ShieldCooldown);
+            InvokeRepeating("Shield", 0, GameManager.Instance.aiPlayer.Faction.Ship.ShieldCooldown);
         }
 
         private void Update()
@@ -98,7 +98,7 @@ namespace Iterium
                     bullet.transform.Rotate(Vector3.zero);
                 }
 
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.aiPlayer.Character.Ship.Bullet.Speed * GameManager.Instance.aiPlayer.BulletLvl);
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed * GameManager.Instance.aiPlayer.BulletLvl);
                 shots++;
 
                 if (shots >= decisionCycle)
@@ -123,7 +123,7 @@ namespace Iterium
                     isThrusting = true;
                     thrusters.SetActive(true);
                 }
-                rigidBody.AddRelativeForce(new Vector3(0, 0, 0.2f * (GameManager.Instance.aiPlayer.Character.Ship.Thrust * GameManager.Instance.aiPlayer.SpeedLvl) * Time.deltaTime), ForceMode.Force);
+                rigidBody.AddRelativeForce(new Vector3(0, 0, 0.2f * (GameManager.Instance.aiPlayer.Faction.Ship.Thrust * GameManager.Instance.aiPlayer.SpeedLvl) * Time.deltaTime), ForceMode.Force);
             }
             else if (isThrusting)
             {
@@ -150,7 +150,7 @@ namespace Iterium
         {
             if (isShielding)
             {
-                GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Character.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvl));
+                GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Faction.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvl));
             }
             else
             {

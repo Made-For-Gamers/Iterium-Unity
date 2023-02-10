@@ -39,13 +39,13 @@ namespace Iterium
         //Instantiate a new player bullet
         private GameObject PoolNew_Player()
         {
-            return Instantiate(GameManager.Instance.player.Character.Ship.Bullet.Bullet[GameManager.Instance.player.BulletLvl - 1]);
+            return Instantiate(GameManager.Instance.player.Faction.Ship.Bullet.Bullet[GameManager.Instance.player.BulletLvl - 1]);
         }
 
         //Instantiate a new AI bullet
         private GameObject PoolNew_Ai()
         {
-            GameObject aiBullet = Instantiate(GameManager.Instance.aiPlayer.Character.Ship.Bullet.Bullet[0]);
+            GameObject aiBullet = Instantiate(GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Bullet[0]);
             Destroy(aiBullet.GetComponent<Bullet>());
             aiBullet.AddComponent<BulletAI>();
             return aiBullet;
@@ -54,7 +54,7 @@ namespace Iterium
         //Instantiate a new NPC bullet
         private GameObject PoolNew_NPC()
         {
-            return Instantiate(GameManager.Instance.npcPlayer.Character.Ship.Bullet.Bullet[0]);
+            return Instantiate(GameManager.Instance.npcPlayer.Faction.Ship.Bullet.Bullet[0]);
         }
 
         //Get a bullet from the pool

@@ -53,7 +53,7 @@ namespace Iterium
                 bullet.transform.LookAt(GameManager.Instance.targetAi.transform);
             }
 
-            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Character.Ship.Bullet.Speed;
+            bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Faction.Ship.Bullet.Speed;
 
             //Increase NPC velocity if ship speed becomes too slow
             if (transform.GetComponent<Rigidbody>().velocity.x <= 2f)

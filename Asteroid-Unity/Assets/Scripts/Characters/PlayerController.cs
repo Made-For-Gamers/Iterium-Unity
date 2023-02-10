@@ -51,7 +51,7 @@ namespace Iterium
         //Rotation
         private void Rotate()
         {
-            transform.Rotate(0, input.rotateInput.x * (GameManager.Instance.player.Character.Ship.TurnSpeed * GameManager.Instance.player.SpeedLvl) * Time.deltaTime, 0);
+            transform.Rotate(0, input.rotateInput.x * (GameManager.Instance.player.Faction.Ship.TurnSpeed * GameManager.Instance.player.SpeedLvl) * Time.deltaTime, 0);
         }
 
         //Fire
@@ -62,7 +62,7 @@ namespace Iterium
                 GameObject bullet = BulletPooling.bulletPoolPlayer.Get();
                 bullet.transform.position = firePosition.position;
                 bullet.transform.rotation = firePosition.rotation;
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.player.Character.Ship.Bullet.Speed * GameManager.Instance.player.BulletLvl);
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.player.Faction.Ship.Bullet.Speed * GameManager.Instance.player.BulletLvl);
                 input.isfire = false;
             }
         }
@@ -78,7 +78,7 @@ namespace Iterium
                     isThrusting = true;
                     thrusters.SetActive(true);
                 }
-                rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Character.Ship.Thrust * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
+                rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Faction.Ship.Thrust * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
             }
             //Stop thrusters
             else
@@ -98,7 +98,7 @@ namespace Iterium
                 shield.GetComponent<AudioSource>().Play();
                 isShielding = true;
                 StartCoroutine(ShieldTime());
-                shieldCooldown = GameManager.Instance.player.Character.Ship.ShieldCooldown;
+                shieldCooldown = GameManager.Instance.player.Faction.Ship.ShieldCooldown;
             }
 
             //Cooldown
@@ -127,7 +127,7 @@ namespace Iterium
         //Stop shield after a set time
         private IEnumerator ShieldTime()
         {
-            yield return new WaitForSeconds(GameManager.Instance.player.Character.Ship.ShieldTime);
+            yield return new WaitForSeconds(GameManager.Instance.player.Faction.Ship.ShieldTime);
             shield.SetActive(false);
         }
 
@@ -136,7 +136,7 @@ namespace Iterium
         {            
             if (isShielding)
             {
-                GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Character.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));
+                GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Faction.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));
             }
             else
             {

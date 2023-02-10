@@ -24,14 +24,14 @@ namespace Iterium
                 //Hit player
                 case "Player":
                     var playerHit = collision.transform.GetComponent<PlayerController>();
-                    playerHit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvlUs);
+                    playerHit.BulletHit(GameManager.Instance.npcPlayer.Faction.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvlUs);
                     BulletExplosion(collision);
                     break;
 
                 //Hit AI
                 case "AI":
                     var aiIhit = collision.transform.GetComponent<AIController>();
-                    aiIhit.BulletHit(GameManager.Instance.npcPlayer.Character.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvlUs);
+                    aiIhit.BulletHit(GameManager.Instance.npcPlayer.Faction.Ship.Bullet.FirePower * GameManager.Instance.npcPlayer.BulletLvlUs);
                     BulletExplosion(collision);
                     break;
 

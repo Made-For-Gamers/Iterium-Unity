@@ -137,22 +137,22 @@ namespace Iterium
                 switch (arenaScore)
                 {
                     case >= 200000:
-                        message.text = "Super score " + GameManager.Instance.player.ProfileName + "!, an arcade pro.";
+                        message.text = "Super score " + GameManager.Instance.player.ProfileName + ", an arcade pro!";
                         break;
                     case >= 100000:
-                        message.text = "Gosh brilliant score " + GameManager.Instance.player.ProfileName + "!, impressed";
+                        message.text = "Gosh brilliant score " + GameManager.Instance.player.ProfileName + ", impressed!";
                         break;
                     case >= 50000:
-                        message.text = "Well done " + GameManager.Instance.player.ProfileName + "!, a very good score.";
+                        message.text = "Well done " + GameManager.Instance.player.ProfileName + ", a very good score!";
                         break;
                     case >= 25000:
-                        message.text = "Descent score " + GameManager.Instance.player.ProfileName + "!, well played.";
+                        message.text = "Descent score " + GameManager.Instance.player.ProfileName + ", well played!";
                         break;
                     case >= 6000:
-                        message.text = "Nice score " + GameManager.Instance.player.ProfileName + "!, keep it up.";
+                        message.text = "Nice score " + GameManager.Instance.player.ProfileName + ", keep it up.";
                         break;
                     case < 6000:
-                        message.text = "Average score " + GameManager.Instance.player.ProfileName + "!, more practise.";
+                        message.text = "Average score " + GameManager.Instance.player.ProfileName + ", need more practise.";
                         break;
                 }
             }

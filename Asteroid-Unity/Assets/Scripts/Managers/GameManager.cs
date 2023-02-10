@@ -104,7 +104,7 @@ namespace Iterium
         private void SelectAiPlayer()
         {
             int rnd = Random.Range(1, 4);
-            aiPlayer.Character = factions.Factions[rnd];
+            aiPlayer.Faction = factions.Factions[rnd];
 
             //Reset AI bullet pool if a different ship is spawned
             if (curretAiFaction != rnd && BulletPooling.bulletPoolAi != null)
@@ -197,7 +197,7 @@ namespace Iterium
             yield return new WaitForSeconds(time);
             if (isPlaying)
             {
-                targetPlayer = Instantiate(Instance.player.Character.Ship.ShipPrefab);
+                targetPlayer = Instantiate(Instance.player.Faction.Ship.ShipPrefab);
                 targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
                 targetPlayer.transform.rotation = playerSpawner.rotation;
                 targetPlayer.transform.name = "Player";
@@ -218,7 +218,7 @@ namespace Iterium
             yield return new WaitForSeconds(time);
             if (isPlaying)
             {
-                targetAi = Instantiate(Instance.aiPlayer.Character.Ship.ShipPrefab);
+                targetAi = Instantiate(Instance.aiPlayer.Faction.Ship.ShipPrefab);
                 Destroy(targetAi.GetComponent<PlayerController>());
                 Destroy(targetAi.GetComponent<InputManager>());
                 targetAi.AddComponent<AIController>();
@@ -285,7 +285,7 @@ namespace Iterium
             saveData.bulletLvlChn = player.BulletLvlChn;
             saveData.speedLvlChn = player.SpeedLvlChn;
             saveData.shieldLvlChn = player.ShieldLvlChn;
-            saveData.character = player.Character;
+            saveData.character = player.Faction;
             saveData.effectVolume = player.EffectsVolume;
             saveData.musicVolume = player.MusicVolume;
 
@@ -352,11 +352,11 @@ namespace Iterium
             //If a new game then set the default player ship
             if (saveData.character != null)
             {
-                player.Character = saveData.character;
+                player.Faction = saveData.character;
             }
             else
             {
-                player.Character = factions.Factions[2];
+                player.Faction = factions.Factions[2];
             }
 
             //Set upgrade levels
@@ -409,7 +409,7 @@ namespace Iterium
         //Load faction upgrade scene
         public void SceneUpgrade()
         {
-            switch (player.Character.Id)
+            switch (player.Faction.Id)
             {
                 case "chn":
                     SceneManager.LoadScene(upgradeChnScene);
@@ -535,7 +535,7 @@ namespace Iterium
         //Keep player bullet upgrade data in sync with current game value
         private void BulletLvlChanged()
         {
-            switch (Instance.player.Character.Id)
+            switch (Instance.player.Faction.Id)
             {
                 case "chn":
                     player.BulletLvlChn = player.BulletLvl;
@@ -552,7 +552,7 @@ namespace Iterium
         //Keep player shield upgrade data in sync with current game value
         private void ShieldLvlChanged()
         {
-            switch (Instance.player.Character.Id)
+            switch (Instance.player.Faction.Id)
             {
                 case "chn":
                     player.ShieldLvlChn = player.ShieldLvl;
@@ -569,7 +569,7 @@ namespace Iterium
         //Keep player speed upgrade data in sync with current game value
         private void SpeedLvlChanged()
         {
-            switch (Instance.player.Character.Id)
+            switch (Instance.player.Faction.Id)
             {
                 case "chn":
                     player.SpeedLvlChn = player.SpeedLvl;
@@ -586,7 +586,7 @@ namespace Iterium
         //Keep AI bullet upgrade data in sync with current game value
         private void BulletLvlChangedAi()
         {
-            switch (Instance.aiPlayer.Character.Id)
+            switch (Instance.aiPlayer.Faction.Id)
             {
                 case "chn":
                     aiPlayer.BulletLvlChn = aiPlayer.BulletLvl;
@@ -603,7 +603,7 @@ namespace Iterium
         //Keep AI shield upgrade data in sync with current game value
         private void ShieldLvlChangedAi()
         {
-            switch (Instance.aiPlayer.Character.Id)
+            switch (Instance.aiPlayer.Faction.Id)
             {
                 case "chn":
                     aiPlayer.ShieldLvlChn = aiPlayer.ShieldLvl;
@@ -620,7 +620,7 @@ namespace Iterium
         //Keep AI speed upgrade data in sync with current game value
         private void SpeedLvlChangedAi()
         {
-            switch (Instance.aiPlayer.Character.Id)
+            switch (Instance.aiPlayer.Faction.Id)
             {
                 case "chn":
                     aiPlayer.SpeedLvlChn = aiPlayer.SpeedLvl;
@@ -638,7 +638,7 @@ namespace Iterium
         public void UpgradeLevelSync()
         {
             //Player upgrade sync
-            switch (Instance.player.Character.Id)
+            switch (Instance.player.Faction.Id)
             {
                 case "chn":
                     player.BulletLvl = player.BulletLvlChn;
@@ -658,7 +658,7 @@ namespace Iterium
             }
 
             //Ai upgrade sync
-            switch (Instance.aiPlayer.Character.Id)
+            switch (Instance.aiPlayer.Faction.Id)
             {
                 case "chn":
                     aiPlayer.BulletLvl = aiPlayer.BulletLvlChn;

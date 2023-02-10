@@ -153,21 +153,21 @@ namespace Iterium
         //Select faction China
         private void ButtonChina_clicked()
         {
-            GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[1];
+            GameManager.Instance.player.Faction = GameManager.Instance.factions.Factions[1];
             LoadScene();
         }
 
         //Select faction US
         private void ButtonUsa_clicked()
         {
-            GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[2];
+            GameManager.Instance.player.Faction = GameManager.Instance.factions.Factions[2];
             LoadScene();
         }
 
         //Select faction USSR
         private void ButtonUssr_clicked()
         {
-            GameManager.Instance.player.Character = GameManager.Instance.factions.Factions[3];
+            GameManager.Instance.player.Faction = GameManager.Instance.factions.Factions[3];
             LoadScene();
         }
 

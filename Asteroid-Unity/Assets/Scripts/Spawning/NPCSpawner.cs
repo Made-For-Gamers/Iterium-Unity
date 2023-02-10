@@ -26,7 +26,7 @@ namespace Iterium
         private void SpawnNPC()
         {
             int rnd = Random.Range(1, 5);
-            GameObject ship = Instantiate(GameManager.Instance.npcPlayer.Character.Ship.ShipPrefab);
+            GameObject ship = Instantiate(GameManager.Instance.npcPlayer.Faction.Ship.ShipPrefab);
             ship.transform.position = GetComponentsInChildren<Transform>()[rnd].position;
 
             //Target player first, or then AI, or then center of screen
