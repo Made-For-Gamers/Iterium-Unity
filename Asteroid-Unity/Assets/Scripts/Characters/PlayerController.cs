@@ -95,6 +95,7 @@ namespace Iterium
             if (input.isShield & !isShielding)
             {
                 shield.SetActive(true);
+                shield.GetComponent<AudioSource>().Play();
                 isShielding = true;
                 StartCoroutine(ShieldTime());
                 shieldCooldown = GameManager.Instance.player.Character.Ship.ShieldCooldown;
@@ -109,6 +110,7 @@ namespace Iterium
             {
                 input.isShield = false;
                 isShielding = false;
+                shield.GetComponent<AudioSource>().Stop();
             }
         }
 

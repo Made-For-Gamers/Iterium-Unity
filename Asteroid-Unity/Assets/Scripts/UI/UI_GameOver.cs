@@ -78,7 +78,7 @@ namespace Iterium
             //Bonus
             roundBonus = GameManager.Instance.CalculatePlayerBonus();
             GameManager.Instance.CalculateAiBonus();
-            bonus.text = roundBonus.ToString();
+            bonus.text = roundBonus.ToString() + " points";
 
             //AI firepower upgrade
             if (GameManager.Instance.aiPlayer.BulletLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.firepowerLevel1)
