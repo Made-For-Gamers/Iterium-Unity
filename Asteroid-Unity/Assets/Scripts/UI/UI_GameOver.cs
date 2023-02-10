@@ -123,7 +123,7 @@ namespace Iterium
             }
 
             //Player leaderboard entry if the score is higher than the last row
-            if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
+            if (GameManager.Instance.leaderboard.Leaderboard[GameManager.Instance.leaderboard.Leaderboard.Count - 1].score <= arenaScore)
             {
                 //High Score greeting
                 message.text = "Congratulations " + GameManager.Instance.player.ProfileName + "!, a new high score.";
@@ -159,7 +159,7 @@ namespace Iterium
 
             //AI leaderboard challenge
             arenaScore = GameManager.Instance.aiPlayer.Score;
-            if (GameManager.Instance.leaderboard[GameManager.Instance.leaderboard.Count - 1].score <= arenaScore)
+            if (GameManager.Instance.leaderboard.Leaderboard[GameManager.Instance.leaderboard.Leaderboard.Count - 1].score <= arenaScore)
             {
                 GameManager.Instance.AddLeaderboardItem(false);
             }

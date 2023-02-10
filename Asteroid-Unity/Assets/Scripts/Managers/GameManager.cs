@@ -72,7 +72,8 @@ namespace Iterium
 
         [Space(10)]
         //Save data objects
-        public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
+        //public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
+        public SO_Leaderboard leaderboard;
         [HideInInspector] public SaveData saveData = new SaveData();
         [HideInInspector] public SaveData saveDataAi = new SaveData();
 
@@ -365,16 +366,16 @@ namespace Iterium
         //Save leaderboard
         public void SaveLeaderboard()
         {
-            fileSaveHandler.SaveLeaderboard(leaderboard, saveFileLeaderboard);
+            fileSaveHandler.SaveLeaderboard(leaderboard.Leaderboard, saveFileLeaderboard);
         }
 
         //Load leaderboard
         public void LoadLeaderboard()
         {
-            leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
+            leaderboard.Leaderboard = fileSaveHandler.LoadLeaderboard<LeaderboardItem>(saveFileLeaderboard);
 
             // If the loaded leaderboard is empty then create a new default board and save
-            if (leaderboard.Count == 0)
+            if (leaderboard.Leaderboard.Count == 0)
             {
                 InitLeaderboard();
                 SaveLeaderboard();
@@ -447,13 +448,13 @@ namespace Iterium
                 item.playerName = aiPlayer.ProfileName;
             }
             item.date = System.DateTime.Now.Date.ToShortDateString();
-            leaderboard.Add(item);
+            leaderboard.Leaderboard.Add(item);
             SortLeaderboard();
 
             //Max leaderboard size
-            if (leaderboard.Count > leaderboardSize)
+            if (leaderboard.Leaderboard.Count > leaderboardSize)
             {
-                leaderboard.Remove(leaderboard[leaderboard.Count - 1]);
+                leaderboard.Leaderboard.Remove(leaderboard.Leaderboard[leaderboard.Leaderboard.Count - 1]);
             }
         }
 
@@ -467,7 +468,7 @@ namespace Iterium
                 item.score = (i + 1) * 10000;
                 item.date = System.DateTime.Now.Date.ToShortDateString();
                 item.playerName = "Imperial Xoid";
-                leaderboard.Add(item);
+                leaderboard.Leaderboard.Add(item);
             }
             SortLeaderboard();
         }
@@ -475,7 +476,7 @@ namespace Iterium
         //Sort all leaderboard rows
         public void SortLeaderboard()
         {
-            leaderboard = leaderboard.OrderByDescending(x => x.score).ToList();
+            leaderboard.Leaderboard = leaderboard.Leaderboard.OrderByDescending(x => x.score).ToList();
         }
 
         #endregion

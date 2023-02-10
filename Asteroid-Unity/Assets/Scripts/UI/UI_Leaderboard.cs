@@ -24,7 +24,7 @@ namespace Iterium
             GameManager.Instance.SortLeaderboard();
 
             //Populate leaderboard SrollView with rows
-            foreach (LeaderboardItem item in GameManager.Instance.leaderboard)
+            foreach (LeaderboardItem item in GameManager.Instance.leaderboard.Leaderboard)
             {
                 var rowTemplate = scoreRow.Instantiate();
                 scoreRank++;
