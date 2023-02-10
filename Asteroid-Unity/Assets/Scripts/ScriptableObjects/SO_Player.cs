@@ -16,7 +16,7 @@ public class SO_Player : ScriptableObject
     [SerializeField] private int xpCollected;
     [SerializeField] private int level = 1;
     [SerializeField] private int score;
-    [SerializeField] private SO_Character character;
+    [SerializeField] private SO_Faction character;
     [SerializeField] private int health;
     [SerializeField] private int iterium;
     [SerializeField] private int iteriumCollected;
@@ -91,7 +91,7 @@ public class SO_Player : ScriptableObject
             onChange_Score.Invoke();
         }
     }
-    public SO_Character Character
+    public SO_Faction Character
     {
         get => character;
         set

@@ -5,7 +5,7 @@ using UnityEngine;
 //Faction character
 //Contains a reference to the faction ship
 //Ship contains a reference to the SO_Bullet
-public class SO_Character : ScriptableObject
+public class SO_Faction : ScriptableObject
 {
     [SerializeField] private string id;
     [SerializeField] private string charName;

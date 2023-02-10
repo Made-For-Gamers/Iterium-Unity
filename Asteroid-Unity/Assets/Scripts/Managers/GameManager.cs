@@ -42,7 +42,7 @@ namespace Iterium
         [Header("Player Settings")]
         public SO_Player player;
 
-        public SO_Factions factions;
+        public SO_FactionList factions;
         public float deathRespawnTime = 4f;
         public int xpLevelSteps = 2000;
         public int maxLevel = 50;

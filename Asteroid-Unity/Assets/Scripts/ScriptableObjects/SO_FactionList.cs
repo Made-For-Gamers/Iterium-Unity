@@ -5,9 +5,9 @@ using UnityEngine;
 
 //List of faction characters
 //Do NOT change the index of items, used by UI_FactionSelection
-public class SO_Factions : ScriptableObject
+public class SO_FactionList : ScriptableObject
 {
-    [SerializeField] private List<SO_Character> factions = new List<SO_Character>();
+    [SerializeField] private List<SO_Faction> factions = new List<SO_Faction>();
 
-    public List<SO_Character> Factions { get => factions;}
+    public List<SO_Faction> Factions { get => factions;}
 }

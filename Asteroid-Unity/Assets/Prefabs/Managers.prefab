@@ -59,11 +59,13 @@ MonoBehaviour:
   saveFileLeaderboard: Leaderboard.save
   leaderboardSize: 50
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
-  targetPlayer: {fileID: 0}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
   deathRespawnTime: 5
   xpLevelSteps: 20000
   maxLevel: 20
+  freeShip: 100000
+  isPlaying: 0
+  targetPlayer: {fileID: 0}
   aiPlayer: {fileID: 11400000, guid: ac3d7b14a979eee4eaa4d3a240e65e88, type: 2}
   aiPermadeath: 0
   targetAi: {fileID: 0}
@@ -77,7 +79,7 @@ MonoBehaviour:
   shieldLevel2: 30
   firepowerLevel1: 10
   firepowerLevel2: 30
-  leaderboard: []
+  leaderboard: {fileID: 11400000, guid: 7958bcbafca21c942b13e04c9a3d3537, type: 2}
   saveData:
     profileName: 
     bio: 
@@ -95,6 +97,8 @@ MonoBehaviour:
     speedLvlChn: 0
     iterium: 0
     character: {fileID: 0}
+    effectVolume: 0
+    musicVolume: 0
   saveDataAi:
     profileName: 
     bio: 
@@ -112,6 +116,8 @@ MonoBehaviour:
     speedLvlChn: 0
     iterium: 0
     character: {fileID: 0}
+    effectVolume: 0
+    musicVolume: 0
   playerSpawner: {fileID: 0}
   aiSpawner: {fileID: 0}
 --- !u!114 &3129659794114194612
@@ -133,8 +139,6 @@ MonoBehaviour:
   audioSourceNumber: 20
   mixerMaster: {fileID: 24300002, guid: d79b3a73c105760479ef4bab8ba17768, type: 2}
   mixerMusic: {fileID: -7456260393111729204, guid: d79b3a73c105760479ef4bab8ba17768,
-    type: 2}
-  mixerUi: {fileID: -3433735044253712950, guid: d79b3a73c105760479ef4bab8ba17768,
     type: 2}
   mixerSfx: {fileID: -3628298216629300424, guid: d79b3a73c105760479ef4bab8ba17768,
     type: 2}

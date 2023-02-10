@@ -21,7 +21,7 @@ public class SaveData
     public int bulletLvlChn;
     public int speedLvlChn;
     public int iterium;
-    public SO_Character character;
+    public SO_Faction character;
     public float effectVolume;
     public float musicVolume;
 }
