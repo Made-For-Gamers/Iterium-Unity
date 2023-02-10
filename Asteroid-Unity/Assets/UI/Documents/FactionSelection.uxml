@@ -36,7 +36,7 @@
                             <ui:VisualElement name="leftPanel" style="width: 30%; height: 100%;">
                                 <ui:Label text="TOTAL XP :" display-tooltip-when-elided="true" name="xpTotalText" style="font-size: 30px; color: rgb(0, 255, 233);" />
                                 <ui:Label text="LEVEL :" display-tooltip-when-elided="true" name="levelText" style="color: rgb(0, 255, 233); font-size: 30px;" />
-                                <ui:Label text="Label" display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=21300000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 125px; height: 75px; flex-direction: row; margin-left: -50px;" />
+                                <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=21300000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 125px; height: 75px; flex-direction: row; margin-left: -50px;" />
                             </ui:VisualElement>
                             <ui:VisualElement name="rightPanel" style="height: 100%;">
                                 <ui:Label text="100000" display-tooltip-when-elided="false" name="playerXPTotal" enable-rich-text="false" style="font-size: 30px; color: rgb(0, 255, 233); -unity-font-style: bold;" />
