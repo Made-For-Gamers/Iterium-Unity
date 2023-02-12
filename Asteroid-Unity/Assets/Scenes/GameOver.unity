@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 631775913126008417, guid: dd9b24739366e9b4c935a684a0761eab,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 631775913126008419, guid: dd9b24739366e9b4c935a684a0761eab,
         type: 3}
@@ -400,7 +400,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0

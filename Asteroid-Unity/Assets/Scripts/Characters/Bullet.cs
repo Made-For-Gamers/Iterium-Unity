@@ -27,8 +27,8 @@ namespace Iterium
 
                 //Hit player
                 case "AI":
-                    var aiIhit = collision.transform.GetComponent<AIController>();
-                    aiIhit.BulletHit(GameManager.Instance.player.Faction.Ship.Bullet.FirePower * GameManager.Instance.player.BulletLvl);
+                    var aiHit = collision.transform.GetComponent<AIController>();
+                    aiHit.BulletHit(GameManager.Instance.player.Faction.Ship.Bullet.FirePower * GameManager.Instance.player.BulletLvl);
                     GameManager.Instance.player.Score += 500;
                     GameManager.Instance.player.XpCollected += 25;
                     BulletExplosion(collision);
