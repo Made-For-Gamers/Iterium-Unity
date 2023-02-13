@@ -68,9 +68,10 @@ namespace Iterium
             buttonFaction.clicked += FactionClicked;
 
             //Default panel focus
-            buttonStory.Focus();
             HideAllPanels();
-            panelStory.style.display = DisplayStyle.Flex;
+            buttonStory.Focus();
+            panelStory.RemoveFromClassList("fadeOutPanel");
+            panelStory.AddToClassList("fadeInPanel");
         }
 
         private void OnDisable()
@@ -88,52 +89,65 @@ namespace Iterium
         {
             SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
-            panelUpgrades.style.display = DisplayStyle.Flex;
+            panelUpgrades.RemoveFromClassList("fadeOutPanel");
+            panelUpgrades.AddToClassList("fadeInPanel");
         }
 
         private void ScoringClicked()
         {
             SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
-            panelScoring.style.display = DisplayStyle.Flex;
+            panelScoring.RemoveFromClassList("fadeOutPanel");
+            panelScoring.AddToClassList("fadeInPanel");
         }
 
         private void GameplayClicked()
         {
             SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
-            panelGameplay.style.display = DisplayStyle.Flex;
+            panelGameplay.RemoveFromClassList("fadeOutPanel");
+            panelGameplay.AddToClassList("fadeInPanel");
+
         }
 
         private void ControlsClicked()
         {
             SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
-            panelControls.style.display = DisplayStyle.Flex;
+            panelControls.RemoveFromClassList("fadeOutPanel");
+            panelControls.AddToClassList("fadeInPanel");
         }
 
         private void StoryClicked()
         {
             SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
-            panelStory.style.display = DisplayStyle.Flex;
+            panelStory.RemoveFromClassList("fadeOutPanel");
+            panelStory.AddToClassList("fadeInPanel");
         }
 
         private void FactionClicked()
         {
             SoundManager.Instance.PlayEffect(2);
             HideAllPanels();
-            panelFaction.style.display = DisplayStyle.Flex;
+            panelFaction.RemoveFromClassList("fadeOutPanel");
+            panelFaction.AddToClassList("fadeInPanel");
         }
 
         private void HideAllPanels()
         {
-            panelStory.style.display = DisplayStyle.None;
-            panelControls.style.display = DisplayStyle.None;
-            panelGameplay.style.display = DisplayStyle.None;
-            panelScoring.style.display = DisplayStyle.None;
-            panelUpgrades.style.display = DisplayStyle.None;
-            panelFaction.style.display = DisplayStyle.None;
+            panelStory.AddToClassList("fadeOutPanel");
+            panelStory.RemoveFromClassList("fadeInPanel");
+            panelControls.AddToClassList("fadeOutPanel");
+            panelControls.RemoveFromClassList("fadeInPanel");
+            panelGameplay.AddToClassList("fadeOutPanel");
+            panelGameplay.RemoveFromClassList("fadeInPanel");
+            panelScoring.AddToClassList("fadeOutPanel");
+            panelScoring.RemoveFromClassList("fadeInPanel");
+            panelUpgrades.AddToClassList("fadeOutPanel");
+            panelUpgrades.RemoveFromClassList("fadeInPanel");
+            panelFaction.AddToClassList("fadeOutPanel");
+            panelFaction.RemoveFromClassList("fadeInPanel");
         }
     }
 }
