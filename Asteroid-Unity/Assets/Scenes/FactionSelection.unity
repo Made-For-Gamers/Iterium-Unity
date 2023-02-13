@@ -368,15 +368,15 @@ MonoBehaviour:
   shipChn: {fileID: 11400000, guid: cd4c06634a525a74eb26c8106cb4bdb7, type: 2}
   shipUs: {fileID: 11400000, guid: a8a1e506ef485154ca30b6e60d5c90e2, type: 2}
   shipUssr: {fileID: 11400000, guid: 20feafd5063d60e46b1f1d66c19f5d40, type: 2}
-  sliderChnFirepower: {fileID: 1223189395}
-  sliderChnSpeed: {fileID: 1083219890}
-  sliderChnShield: {fileID: 1836732193}
-  sliderUsFirepower: {fileID: 1260376199}
-  sliderUsSpeed: {fileID: 1523726903}
-  sliderUsShield: {fileID: 412568351}
-  sliderUssrFirepower: {fileID: 614713917}
-  sliderUssrSpeed: {fileID: 2025802124}
-  sliderUssrShield: {fileID: 1363954683}
+  progressChnFirepower: {fileID: 1223189395}
+  progressChnSpeed: {fileID: 1083219890}
+  progressChnShield: {fileID: 1836732193}
+  progressUsFirepower: {fileID: 1260376199}
+  progressUsSpeed: {fileID: 1523726903}
+  progressUsShield: {fileID: 412568351}
+  progressUssrFirepower: {fileID: 614713917}
+  progressUssrSpeed: {fileID: 2025802124}
+  progressUssrShield: {fileID: 1363954683}
 --- !u!1 &202481127
 GameObject:
   m_ObjectHideFlags: 0

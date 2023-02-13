@@ -42,20 +42,20 @@ namespace Iterium
         [SerializeField] private SO_Ship shipUssr;
 
         //Progress bars (planes with a shader graph material)
-        [Header("Sliders Chn")]
-        [SerializeField] private GameObject sliderChnFirepower;
-        [SerializeField] private GameObject sliderChnSpeed;
-        [SerializeField] private GameObject sliderChnShield;
+        [Header("Progress Bar Chn")]
+        [SerializeField] private GameObject progressChnFirepower;
+        [SerializeField] private GameObject progressChnSpeed;
+        [SerializeField] private GameObject progressChnShield;
 
-        [Header("Sliders Us")]
-        [SerializeField] private GameObject sliderUsFirepower;
-        [SerializeField] private GameObject sliderUsSpeed;
-        [SerializeField] private GameObject sliderUsShield;
+        [Header("Progress Bar Us")]
+        [SerializeField] private GameObject progressUsFirepower;
+        [SerializeField] private GameObject progressUsSpeed;
+        [SerializeField] private GameObject progressUsShield;
 
-        [Header("Sliders Ussr")]
-        [SerializeField] private GameObject sliderUssrFirepower;
-        [SerializeField] private GameObject sliderUssrSpeed;
-        [SerializeField] private GameObject sliderUssrShield;
+        [Header("Progress Bar Ussr")]
+        [SerializeField] private GameObject progressUssrFirepower;
+        [SerializeField] private GameObject progressUssrSpeed;
+        [SerializeField] private GameObject progressUssrShield;
 
         //Player info labels
         private Label profileName;
@@ -105,47 +105,47 @@ namespace Iterium
             iterium.text = GameManager.Instance.player.Iterium.ToString();
 
             //Init Chn firepower slider
-            Renderer renderer = sliderChnFirepower.GetComponent<Renderer>();
+            Renderer renderer = progressChnFirepower.GetComponent<Renderer>();
             Material matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipChn.Bullet.FirePower * GameManager.Instance.player.BulletLvlChn);
 
             //Init Chn speed slider
-            renderer = sliderChnSpeed.GetComponent<Renderer>();
+            renderer = progressChnSpeed.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipChn.Thrust / 10 / 3 * GameManager.Instance.player.SpeedLvlChn);
 
             //Init Chn shield slider
-            renderer = sliderChnShield.GetComponent<Renderer>();
+            renderer = progressChnShield.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipChn.ShieldPower * 15 * GameManager.Instance.player.ShieldLvlChn);
 
             //Init Us firepower slider
-            renderer = sliderUsFirepower.GetComponent<Renderer>();
+            renderer = progressUsFirepower.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipUs.Bullet.FirePower * GameManager.Instance.player.BulletLvlUs);
 
             //Init Us speed slider
-            renderer = sliderUsSpeed.GetComponent<Renderer>();
+            renderer = progressUsSpeed.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipUs.Thrust / 10 / 3 * GameManager.Instance.player.SpeedLvlUs);
 
             //Init Us shield slider
-            renderer = sliderUsShield.GetComponent<Renderer>();
+            renderer = progressUsShield.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipUs.ShieldPower * 15 * GameManager.Instance.player.ShieldLvlUs);
 
             //Init Ussr firepower slider
-            renderer = sliderUssrFirepower.GetComponent<Renderer>();
+            renderer = progressUssrFirepower.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipUssr.Bullet.FirePower * GameManager.Instance.player.BulletLvlUssr);
 
             //Init Ussr speed slider
-            renderer = sliderUssrSpeed.GetComponent<Renderer>();
+            renderer = progressUssrSpeed.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipUssr.Thrust / 10 / 3 * GameManager.Instance.player.SpeedLvlUssr);
 
             //Init Ussr shield slider
-            renderer = sliderUssrShield.GetComponent<Renderer>();
+            renderer = progressUssrShield.GetComponent<Renderer>();
             matFirepower = renderer.material;
             matFirepower.SetFloat("_RemovedSeg", 100 - shipUssr.ShieldPower * 15 * GameManager.Instance.player.ShieldLvlUssr);
         }
