@@ -30,7 +30,6 @@ namespace Iterium
         private TextField nameTextfield;
         private TextField bioTextfield;
         private TextField emailTextfield;
-
         private Button saveButton;
 
         private void OnEnable()

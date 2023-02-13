@@ -9,7 +9,7 @@ namespace Iterium
     {
         [Header("UI button")]
         [SerializeField] private string upgradeButton = "upgrades";
-        Button button;
+        private Button button;
 
         private void OnEnable()
         {

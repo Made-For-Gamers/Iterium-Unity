@@ -16,11 +16,11 @@ namespace Iterium
         [SerializeField] private string soundIcon = "soundIcon";
 
         //Slider planes (shader graph materials)
-        [Header("Music/Sound Planes")]
-        [SerializeField] private GameObject musicPlane;
-        [SerializeField] private GameObject soundPlane;
+        [Header("Progress Bar Planes")]
+        [SerializeField] private GameObject progressMusic;
+        [SerializeField] private GameObject progressSound;
 
-        [Header("Audio Nixer Groups")]
+        [Header("Audio Mixer Groups")]
         [SerializeField] private AudioMixer audioMixer;
 
         private Renderer matRenderer;
@@ -52,11 +52,11 @@ namespace Iterium
         private void Start()
         {
             //Init music material (shader graph progress bar)
-            matRenderer = musicPlane.GetComponent<Renderer>();
+            matRenderer = progressMusic.GetComponent<Renderer>();
             matMusic = matRenderer.material;
 
             //Init sound material (shader graph progress bar)
-            matRenderer = soundPlane.GetComponent<Renderer>();
+            matRenderer = progressSound.GetComponent<Renderer>();
             matSound = matRenderer.material;
 
             InitSliders();

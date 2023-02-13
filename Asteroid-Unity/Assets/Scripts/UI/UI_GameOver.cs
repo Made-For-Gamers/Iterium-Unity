@@ -45,14 +45,14 @@ namespace Iterium
             VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
 
             //Init player UI elements
-            TextElement score = uiRoot.Q<TextElement>(playerScore);
-            TextElement iteriumCollected = uiRoot.Q<TextElement>(playerIteriumCollected);
-            TextElement iteriumTotal = uiRoot.Q<TextElement>(playerIteriumTotal);
-            TextElement message = uiRoot.Q<TextElement>(playerMessage);
-            TextElement xpTotal = uiRoot.Q<TextElement>(playerXpTotal);
-            TextElement xpEarned = uiRoot.Q<TextElement>(playerXpEarned);
-            TextElement level = uiRoot.Q<TextElement>(playerLevel);
-            TextElement bonus = uiRoot.Q<TextElement>(playerBonus);
+            Label score = uiRoot.Q<Label>(playerScore);
+            Label iteriumCollected = uiRoot.Q<Label>(playerIteriumCollected);
+            Label iteriumTotal = uiRoot.Q<Label>(playerIteriumTotal);
+            Label message = uiRoot.Q<Label>(playerMessage);
+            Label xpTotal = uiRoot.Q<Label>(playerXpTotal);
+            Label xpEarned = uiRoot.Q<Label>(playerXpEarned);
+            Label level = uiRoot.Q<Label>(playerLevel);
+            Label bonus = uiRoot.Q<Label>(playerBonus);
             rematch = uiRoot.Q<Button>(rematchButton);
 
             //Events

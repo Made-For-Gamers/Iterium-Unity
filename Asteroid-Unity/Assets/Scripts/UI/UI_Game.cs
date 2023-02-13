@@ -48,8 +48,8 @@ namespace Iterium
 
         //Health progress bar (planes with shader graph material)
         [Header("Player Health Sliders")]
-        [SerializeField] private GameObject sliderPlayerHealth;
-        [SerializeField] private GameObject sliderAiHealth;
+        [SerializeField] private GameObject progressPlayerHealth;
+        [SerializeField] private GameObject progressAiHealth;
 
         [Header("Pause Element")]
         [SerializeField] private string pause = "pause";
@@ -129,8 +129,8 @@ namespace Iterium
         private void Start()
         {
             //Init Health Sliders
-            rendererPlayer = sliderPlayerHealth.GetComponent<Renderer>();
-            rendererAi = sliderAiHealth.GetComponent<Renderer>();
+            rendererPlayer = progressPlayerHealth.GetComponent<Renderer>();
+            rendererAi = progressAiHealth.GetComponent<Renderer>();
             matPlayerHealth = rendererPlayer.material;
             matAiHealth = rendererAi.material;
 
