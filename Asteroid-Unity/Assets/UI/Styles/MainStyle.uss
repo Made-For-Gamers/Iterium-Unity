@@ -519,3 +519,16 @@
     background-image: url('project://database/Assets/Images/HS_opaque_45.png?fileID=21300000&guid=7c306ff313f548d499c93a9457d9a554&type=3#HS_opaque_45');
     -unity-background-image-tint-color: rgb(255, 141, 141);
 }
+
+.fadeOutPanel {
+    opacity: 0;
+    transition-property: opacity, rotate;
+    transition-duration: 0.5s, 0.5s;
+    transition-timing-function: ease, ease;
+    rotate: 30deg;
+}
+
+.fadeInPanel {
+    transition-property: opacity, rotate;
+    transition-duration: 1.5s, 1s;
+}
