@@ -89,42 +89,6 @@
     -unity-text-align: lower-center;
 }
 
-.stats {
-    width: 350px;
-    height: 50px;
-    align-items: flex-start;
-    justify-content: center;
-    bottom: auto;
-    font-size: 20px;
-    position: relative;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    color: rgb(255, 0, 0);
-    -unity-font-style: bold;
-    background-color: rgba(0, 0, 0, 0);
-    border-left-color: rgb(0, 0, 0);
-    border-right-color: rgb(0, 0, 0);
-    border-top-color: rgb(0, 0, 0);
-    border-bottom-color: rgb(0, 0, 0);
-    border-left-width: 0;
-    border-right-width: 0;
-    border-top-width: 0;
-    border-bottom-width: 0;
-    -unity-text-align: middle-left;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-    opacity: 1;
-    left: auto;
-}
-
 .header {
     -unity-font: none;
     font-size: 150px;
