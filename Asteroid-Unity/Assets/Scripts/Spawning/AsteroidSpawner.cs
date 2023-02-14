@@ -8,9 +8,9 @@ namespace Iterium
     public class AsteroidSpawner : MonoBehaviour
     {
         [Header("Asteroid Spawning")]
-        [SerializeField] private float spawnTime;
-        [SerializeField] private float speedMin;
-        [SerializeField] private float speedMax;
+        [SerializeField] private float spawnInterval;
+        [SerializeField] private float minSpeed;
+        [SerializeField] private float maxSpeed;
         [SerializeField] private bool spawnOnceOnly;
         [SerializeField] private GameObject target; //asteroids move towards this scene target
 
@@ -20,7 +20,7 @@ namespace Iterium
         {
             if (!spawnOnceOnly)
             {
-                InvokeRepeating("SpawnAsteroid", 0, spawnTime);
+                InvokeRepeating("SpawnAsteroid", 0, spawnInterval);
             }
             else
             {
@@ -36,7 +36,7 @@ namespace Iterium
             //Position, scale and speed
             spawnedAsteroid.transform.position = transform.position;
             spawnedAsteroid.transform.localScale = Vector3.one;
-            speed = Random.Range(speedMin, speedMax + 1);
+            speed = Random.Range(minSpeed, maxSpeed + 1);
 
             //Look and move towards target
             spawnedAsteroid.transform.LookAt(target.transform);
