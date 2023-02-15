@@ -241,9 +241,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 6
-  speedMin: 1
-  speedMax: 5
+  spawnInterval: 5
+  minSpeed: 2
+  maxSpeed: 7
   spawnOnceOnly: 0
   target: {fileID: 1444972401}
 --- !u!4 &250917985
@@ -290,9 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 5
-  speedMin: 1
-  speedMax: 2
+  spawnInterval: 6
+  minSpeed: 2
+  maxSpeed: 7
   spawnOnceOnly: 0
   target: {fileID: 1444972401}
 --- !u!4 &308645259
@@ -808,9 +808,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 10
-  speedMin: 1
-  speedMax: 5
+  spawnInterval: 7
+  minSpeed: 2
+  maxSpeed: 7
   spawnOnceOnly: 0
   target: {fileID: 1444972401}
 --- !u!4 &431738498
@@ -857,9 +857,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0fdc6afa916aa3468f90aae67fa0634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 4
-  speedMin: 2
-  speedMax: 5
+  spawnInterval: 8
+  minSpeed: 2
+  maxSpeed: 7
   spawnOnceOnly: 0
   target: {fileID: 1444972401}
 --- !u!4 &682639495
