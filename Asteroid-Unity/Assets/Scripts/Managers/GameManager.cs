@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Iterium
 {
@@ -48,7 +49,6 @@ namespace Iterium
         [HideInInspector] public bool isPlaying;
         [HideInInspector] public GameObject targetPlayer;
 
-
         [Header("AI Settings")]
         public SO_Player aiPlayer;
         public bool aiPermadeath;
@@ -60,6 +60,9 @@ namespace Iterium
 
         [Header("Iterium Settings")]
         public SO_GameObjects iterium;
+        public int iteriumScore = 250;
+        public int iteriumXp = 25;
+        public int iteriumSfx;
         public int iteriumChance = 20;
         public int speedLevel1 = 10;
         public int speedLevel2 = 30;
@@ -85,6 +88,100 @@ namespace Iterium
         #endregion
 
         #region General Methods
+        private void OnEnable()
+        {
+            //Bullet hit events
+            Bullet.bulletHit += PlayerBulletHit;
+            BulletAI.bulletHit += AiBulletHit;
+            BulletNpc.bulletHit += NpcBulletHit;
+            Iterium.CollectedIterium += CollectedIterium;
+        }
+
+        private void OnDisable()
+        {
+            //Clean-up bullet hit events
+            Bullet.bulletHit -= PlayerBulletHit;
+            BulletAI.bulletHit -= AiBulletHit;
+            BulletNpc.bulletHit -= NpcBulletHit;
+            Iterium.CollectedIterium -= CollectedIterium;
+        }
+
+        private void CollectedIterium(string collector)
+        {
+            switch (collector)
+            {
+                case "player":
+                    player.Score += iteriumScore;
+                    player.XpCollected += iteriumXp;
+                    player.IteriumCollected++;
+                    break;
+                case "ai":
+                    aiPlayer.Score += iteriumScore;
+                    aiPlayer.XpCollected += iteriumXp;
+                    aiPlayer.IteriumCollected++;
+                    break;
+            }
+            SoundManager.Instance.PlayEffect(iteriumSfx);
+        }
+
+
+        //Called by invoke of bulletHit event on Bullet
+        private void PlayerBulletHit(string objHit)
+        {
+            switch (objHit)
+            {
+                case "asteroid":
+                    GameManager.Instance.player.Score += 50;
+                    GameManager.Instance.player.XpCollected += 10;
+                    break;
+                case "ai":
+                    targetAi.transform.GetComponent<AIController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
+                    GameManager.Instance.player.Score += 500;
+                    GameManager.Instance.player.XpCollected += 25;
+                    break;
+                case "npc":
+                    GameManager.Instance.player.Score += 2500;
+                    GameManager.Instance.player.XpCollected += 100;
+                    SoundManager.Instance.PlayShipExplosion();
+                    break;
+            }
+        }
+
+        //Called by invoke of bulletHit event on BulletAI
+        private void AiBulletHit(string objHit)
+        {
+            switch (objHit)
+            {
+                case "asteroid":
+                    GameManager.Instance.aiPlayer.Score += 50;
+                    GameManager.Instance.aiPlayer.XpCollected += 10;
+                    break;
+                case "player":
+                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
+                    GameManager.Instance.aiPlayer.Score += 500;
+                    GameManager.Instance.aiPlayer.XpCollected += 25;
+                    break;
+                case "npc":
+                    GameManager.Instance.aiPlayer.Score += 2500;
+                    GameManager.Instance.aiPlayer.XpCollected += 100;
+                    SoundManager.Instance.PlayShipExplosion();
+                    break;
+            }
+        }
+
+        //Called by invoke of bulletHit event on BulletNPC
+        private void NpcBulletHit(string objHit)
+        {
+            switch (objHit)
+            {
+                case "player":
+                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
+                    break;
+                case "ai":
+                    targetAi.transform.GetComponent<AIController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
+                    break;
+            }
+        }
 
         private void Start()
         {
@@ -187,7 +284,7 @@ namespace Iterium
         }
 
 
-     
+
 
         //Spawn player
         public void SpawnPlayer(float time)

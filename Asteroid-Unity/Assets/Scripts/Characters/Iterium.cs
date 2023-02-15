@@ -1,15 +1,13 @@
+using System;
 using UnityEngine;
 
 namespace Iterium
 {
-    //Collecting of Iterium by players or AI
+    //Collecting of Iterium by player or AI
 
     public class Iterium : MonoBehaviour
     {
-        [Header("Collection Reward")]
-        [SerializeField] private int score = 250;
-        [SerializeField] private int xp = 25;
-        [SerializeField] private int sfxIndex;
+        public static event Action<string> CollectedIterium;
 
         //Iterium collision
         private void OnTriggerEnter(Collider collision)
@@ -18,21 +16,13 @@ namespace Iterium
             {
                 //Collected by player
                 case "Player":
-
-                    GameManager.Instance.player.Score += score;
-                    GameManager.Instance.player.XpCollected += xp;
-                    GameManager.Instance.player.IteriumCollected++;
-                    SoundManager.Instance.PlayEffect(sfxIndex);
-                    //Remove object
+                    CollectedIterium.Invoke("player");
                     Destroy(gameObject);
                     break;
 
                 //Collected by AI
                 case "AI":
-                    GameManager.Instance.aiPlayer.Score += score;
-                    GameManager.Instance.aiPlayer.XpCollected += xp;
-                    GameManager.Instance.aiPlayer.IteriumCollected++;
-                    //Remove object
+                    CollectedIterium.Invoke("ai");
                     Destroy(gameObject);
                     break;
             }

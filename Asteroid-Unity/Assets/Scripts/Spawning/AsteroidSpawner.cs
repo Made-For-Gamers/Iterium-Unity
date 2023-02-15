@@ -8,9 +8,9 @@ namespace Iterium
     public class AsteroidSpawner : MonoBehaviour
     {
         [Header("Asteroid Spawning")]
-        [SerializeField] private float spawnInterval;
-        [SerializeField] private float minSpeed;
-        [SerializeField] private float maxSpeed;
+        [SerializeField] private float spawnInterval = 5;
+        [SerializeField] private float minSpeed = 3;
+        [SerializeField] private float maxSpeed = 7;
         [SerializeField] private bool spawnOnceOnly;
         [SerializeField] private GameObject target; //asteroids move towards this scene target
 

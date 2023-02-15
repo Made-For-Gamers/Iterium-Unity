@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Iterium
@@ -12,6 +13,8 @@ namespace Iterium
 
     public class BulletAI : BulletBase
     {
+        public static event Action<string> bulletHit;
+
         //AI bullet collision
         private void OnTriggerEnter(Collider collision)
         {
@@ -19,26 +22,20 @@ namespace Iterium
             {
                 //Hit asteroid
                 case "Asteroid":
-                    GameManager.Instance.aiPlayer.Score += 50;
-                    GameManager.Instance.aiPlayer.XpCollected += 10;
+                    bulletHit.Invoke("asteroid");
                     BulletExplosion(collision);
                     AsteroidHit(collision);
                     break;
 
                 //Hit player
                 case "Player":
-                    var playerhit = collision.transform.GetComponent<PlayerController>();
-                    playerhit.BulletHit(GameManager.Instance.aiPlayer.Faction.Ship.Bullet.FirePower * GameManager.Instance.aiPlayer.BulletLvlUs);
-                    GameManager.Instance.aiPlayer.Score += 500;
-                    GameManager.Instance.aiPlayer.XpCollected += 25;
+                    bulletHit.Invoke("player");
                     BulletExplosion(collision);
                     break;
 
                 //Hit NPC
                 case "NPC":
-                    GameManager.Instance.aiPlayer.Score += 2500;
-                    GameManager.Instance.aiPlayer.XpCollected += 100;
-                    SoundManager.Instance.PlayShipExplosion();
+                    bulletHit.Invoke("npc");
                     BulletExplosion(collision);
                     Destroy(collision.gameObject);
                     break;
