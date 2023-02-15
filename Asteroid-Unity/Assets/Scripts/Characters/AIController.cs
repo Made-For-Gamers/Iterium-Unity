@@ -16,13 +16,12 @@ namespace Iterium
     public class AIController : MonoBehaviour
     {
         [Header("Bullet Settings")]
-        [SerializeField] private float fireStart = 2f;
+        [SerializeField] private float fireDelay = 2f;
         [SerializeField] private float fireInterval = 0.6f;
         [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a targeting descition round
 
         private Transform firePosition;
         private GameObject shield;
-        private float shieldCooldown;
         private bool isShielding;
         private GameObject thrusters;
         private bool isThrusting;
@@ -36,7 +35,7 @@ namespace Iterium
             thrusters = transform.GetChild(1).gameObject;
             firePosition = transform.GetChild(2);
             rigidBody = GetComponent<Rigidbody>();
-            InvokeRepeating("Fire", fireStart, fireInterval);
+            InvokeRepeating("Fire", fireDelay, fireInterval);
             InvokeRepeating("Shield", 0, GameManager.Instance.aiPlayer.Faction.Ship.ShieldCooldown);
         }
 

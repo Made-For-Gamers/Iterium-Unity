@@ -37,7 +37,6 @@ namespace Iterium
         [SerializeField] private string saveFileAi = "AI.save";
         [SerializeField] private string saveFileLeaderboard = "Leaderboard.save";
         [SerializeField] private int leaderboardSize = 25;
-        private FileSaveHandler fileSaveHandler;
 
         [Header("Player Settings")]
         public SO_Player player;
@@ -48,7 +47,7 @@ namespace Iterium
         public int freeShip = 100000;
         [HideInInspector] public bool isPlaying;
         [HideInInspector] public GameObject targetPlayer;
-        private int curretAiFaction;
+
 
         [Header("AI Settings")]
         public SO_Player aiPlayer;
@@ -71,7 +70,6 @@ namespace Iterium
 
         [Space(10)]
         //Save data objects
-        //public List<LeaderboardItem> leaderboard = new List<LeaderboardItem>();
         public SO_Leaderboard leaderboard;
         [HideInInspector] public SaveData saveData = new SaveData();
         [HideInInspector] public SaveData saveDataAi = new SaveData();
@@ -79,6 +77,10 @@ namespace Iterium
         //Spawn points
         [HideInInspector] public Transform playerSpawner;
         [HideInInspector] public Transform aiSpawner;
+
+        //Private
+        private FileSaveHandler fileSaveHandler;
+        private int curretAiFaction;
 
         #endregion
 
@@ -105,7 +107,7 @@ namespace Iterium
             int rnd = Random.Range(1, 4);
             aiPlayer.Faction = factions.Factions[rnd];
 
-            //Reset AI bullet pool if a different ship is spawned
+            //Clear AI bullet pool if a different ship is spawned
             if (curretAiFaction != rnd && BulletPooling.bulletPoolAi != null)
             {
                 BulletPooling.bulletPoolAi.Clear();
@@ -184,7 +186,8 @@ namespace Iterium
             isPlaying = true;
         }
 
-        #region Spawning
+
+     
 
         //Spawn player
         public void SpawnPlayer(float time)
@@ -238,7 +241,6 @@ namespace Iterium
             return position;
         }
 
-        #endregion
 
         //Shake camera on player death
         public void CameraShake(float time, float magnitude)
@@ -461,7 +463,7 @@ namespace Iterium
         public void InitLeaderboard()
         {
             print("Initialising a new leaderboard");
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < leaderboardSize; i++)
             {
                 LeaderboardItem item = new LeaderboardItem();
                 item.score = (i + 1) * 10000;
@@ -479,7 +481,7 @@ namespace Iterium
         }
 
         #endregion
-     
+
         #region XP/Levels/Iterium/Bonus
 
         //Add XP gained from a battle and calculate leveling
