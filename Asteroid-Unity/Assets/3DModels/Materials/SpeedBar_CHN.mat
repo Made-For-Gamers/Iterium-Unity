@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: SpeedBar_CHN
-  m_Shader: {fileID: -6465566751694194690, guid: 24edd635558681e44b911d6906f86509,
+  m_Shader: {fileID: -6465566751694194690, guid: ef3e50629ceda454cb7066670bd74e0b,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
