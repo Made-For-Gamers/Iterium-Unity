@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ThrustBar_USSR
-  m_Shader: {fileID: -6465566751694194690, guid: 1fb7e88d11a666041bce75e6a73fe86d,
+  m_Shader: {fileID: -6465566751694194690, guid: 24edd635558681e44b911d6906f86509,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
