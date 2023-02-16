@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: ShieldBar_CHN
-  m_Shader: {fileID: -6465566751694194690, guid: 24edd635558681e44b911d6906f86509,
+  m_Shader: {fileID: -6465566751694194690, guid: c95b27b558a346741b6e2f14c1969570,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
