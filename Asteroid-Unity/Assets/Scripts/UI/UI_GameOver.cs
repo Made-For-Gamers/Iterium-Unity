@@ -56,10 +56,15 @@ namespace Iterium
             rematch = uiRoot.Q<Button>(rematchButton);
 
             //Events
-            rematch.clicked += Rematch;
+            rematch.clicked += Rematch; 
+            
+            //Bonus
+            roundBonus = GameManager.Instance.CalculatePlayerBonus();
+            GameManager.Instance.CalculateAiBonus();
+            bonus.text = roundBonus.ToString() + " points";
 
             //Score
-            arenaScore = GameManager.Instance.player.Score;
+            arenaScore = GameManager.Instance.player.Score + roundBonus;
             score.text = arenaScore.ToString();
 
             //XP
@@ -75,10 +80,7 @@ namespace Iterium
             iteriumCollected.text = GameManager.Instance.player.IteriumCollected.ToString();
             iteriumTotal.text = GameManager.Instance.player.Iterium.ToString();
 
-            //Bonus
-            roundBonus = GameManager.Instance.CalculatePlayerBonus();
-            GameManager.Instance.CalculateAiBonus();
-            bonus.text = roundBonus.ToString() + " points";
+          
 
             //AI firepower upgrade
             if (GameManager.Instance.aiPlayer.BulletLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.firepowerLevel1)
