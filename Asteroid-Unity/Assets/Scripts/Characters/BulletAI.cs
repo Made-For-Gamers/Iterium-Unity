@@ -13,7 +13,7 @@ namespace Iterium
 
     public class BulletAI : BulletBase
     {
-        public static event Action<string> bulletHit;
+        public static event Action<string> BulletHit;
 
         //AI bullet collision
         private void OnTriggerEnter(Collider collision)
@@ -22,20 +22,20 @@ namespace Iterium
             {
                 //Hit asteroid
                 case "Asteroid":
-                    bulletHit.Invoke("asteroid");
+                    BulletHit.Invoke("asteroid");
                     BulletExplosion(collision);
                     AsteroidHit(collision);
                     break;
 
                 //Hit player
                 case "Player":
-                    bulletHit.Invoke("player");
+                    BulletHit.Invoke("player");
                     BulletExplosion(collision);
                     break;
 
                 //Hit NPC
                 case "NPC":
-                    bulletHit.Invoke("npc");
+                    BulletHit.Invoke("npc");
                     BulletExplosion(collision);
                     Destroy(collision.gameObject);
                     break;

@@ -7,7 +7,7 @@ namespace Iterium
 
     public class Iterium : MonoBehaviour
     {
-        public static event Action<string> CollectedIterium;
+        public static event Action<string> CollectIterium;
 
         //Iterium collision
         private void OnTriggerEnter(Collider collision)
@@ -16,13 +16,13 @@ namespace Iterium
             {
                 //Collected by player
                 case "Player":
-                    CollectedIterium.Invoke("player");
+                    CollectIterium.Invoke("player");
                     Destroy(gameObject);
                     break;
 
                 //Collected by AI
                 case "AI":
-                    CollectedIterium.Invoke("ai");
+                    CollectIterium.Invoke("ai");
                     Destroy(gameObject);
                     break;
             }

@@ -91,22 +91,22 @@ namespace Iterium
         private void OnEnable()
         {
             //Bullet hit events
-            Bullet.bulletHit += PlayerBulletHit;
-            BulletAI.bulletHit += AiBulletHit;
-            BulletNpc.bulletHit += NpcBulletHit;
-            Iterium.CollectedIterium += CollectedIterium;
+            Bullet.BulletHit += PlayerBulletHit;
+            BulletAI.BulletHit += AiBulletHit;
+            BulletNpc.BulletHit += NpcBulletHit;
+            Iterium.CollectIterium += CollectIterium;
         }
 
         private void OnDisable()
         {
             //Clean-up bullet hit events
-            Bullet.bulletHit -= PlayerBulletHit;
-            BulletAI.bulletHit -= AiBulletHit;
-            BulletNpc.bulletHit -= NpcBulletHit;
-            Iterium.CollectedIterium -= CollectedIterium;
+            Bullet.BulletHit -= PlayerBulletHit;
+            BulletAI.BulletHit -= AiBulletHit;
+            BulletNpc.BulletHit -= NpcBulletHit;
+            Iterium.CollectIterium -= CollectIterium;
         }
 
-        private void CollectedIterium(string collector)
+        private void CollectIterium(string collector)
         {
             switch (collector)
             {
