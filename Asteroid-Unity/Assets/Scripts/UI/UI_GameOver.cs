@@ -64,7 +64,7 @@ namespace Iterium
             bonus.text = roundBonus.ToString() + " points";
 
             //Score
-            arenaScore = GameManager.Instance.player.Score + roundBonus;
+            arenaScore = GameManager.Instance.player.Score;
             score.text = arenaScore.ToString();
 
             //XP

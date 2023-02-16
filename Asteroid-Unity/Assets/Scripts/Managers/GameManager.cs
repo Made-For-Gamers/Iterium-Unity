@@ -157,7 +157,7 @@ namespace Iterium
                     GameManager.Instance.aiPlayer.XpCollected += 10;
                     break;
                 case "player":
-                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
+                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(aiPlayer.Faction.Ship.Bullet.FirePower * aiPlayer.BulletLvl);
                     GameManager.Instance.aiPlayer.Score += 500;
                     GameManager.Instance.aiPlayer.XpCollected += 25;
                     break;
@@ -175,7 +175,7 @@ namespace Iterium
             switch (objHit)
             {
                 case "player":
-                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
+                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(aiPlayer.Faction.Ship.Bullet.FirePower * aiPlayer.BulletLvl);
                     break;
                 case "ai":
                     targetAi.transform.GetComponent<AIController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
@@ -282,9 +282,6 @@ namespace Iterium
 
             isPlaying = true;
         }
-
-
-
 
         //Spawn player
         public void SpawnPlayer(float time)
@@ -617,13 +614,14 @@ namespace Iterium
         {
             int bonus;
             bonus = player.IteriumCollected * 100 * player.Level;
+            player.Score += bonus;
             return bonus;
         }
 
         //Calculate AI points bonus at end of battle
         public void CalculateAiBonus()
         {
-            aiPlayer.Score += aiPlayer.IteriumCollected * 100 * aiPlayer.Level;
+            aiPlayer.Score += (aiPlayer.IteriumCollected * 100) * aiPlayer.Level;
         }
 
         #endregion
