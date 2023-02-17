@@ -8,49 +8,53 @@
             <ui:VisualElement name="player" style="width: 100%; height: 20%; flex-grow: 1; align-items: center; justify-content: flex-start; -unity-text-align: upper-left;">
                 <ui:Label text="message" display-tooltip-when-elided="true" name="message" style="font-size: 80px; color: rgb(0, 255, 233); -unity-font-style: bold; width: auto; height: auto; align-items: center; justify-content: flex-end; flex-grow: 1; flex-shrink: 1; -unity-text-align: middle-center;" />
             </ui:VisualElement>
-            <ui:VisualElement name="resultsPanel" style="flex-grow: 1; background-image: none; width: 100%; height: 100%; -unity-text-align: upper-center; align-items: center; flex-direction: row; justify-content: space-between; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-wrap: wrap; padding-bottom: -44px;">
-                <ui:VisualElement name="leftPanel" style="width: 33%; height: 100%; align-items: center; justify-content: center; padding-bottom: 159px; background-image: none;">
+            <ui:VisualElement name="resultsPanel" style="flex-grow: 1; background-image: none; width: 100%; height: 100%; -unity-text-align: upper-center; align-items: center; flex-direction: row; justify-content: center; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-wrap: wrap; padding-bottom: -44px;">
+                <ui:VisualElement name="leftPanel" style="width: 20%; height: 70%; align-items: center; justify-content: center; padding-bottom: 0; background-image: url(&apos;project://database/Assets/Images/panel_noCorner_45.png?fileID=21300000&amp;guid=d6823e79994a4f741b1e93ee9be1095c&amp;type=3#panel_noCorner_45&apos;); margin-bottom: 145px; margin-left: 0; margin-right: 150px; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0.67);">
                     <ui:VisualElement name="upgradesPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; margin-bottom: 0;">
-                        <ui:Button text="UPGRADES" display-tooltip-when-elided="true" name="upgrades" class="button" style="padding-bottom: 0; margin-bottom: 0;" />
+                        <ui:Button text="UPGRADES" display-tooltip-when-elided="true" name="upgrades" class="button" style="padding-bottom: 0; margin-bottom: 0; padding-top: 0; padding-left: 0; padding-right: 0; margin-top: 0; margin-right: 0; margin-left: 0;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="ShipTexture" style="width: 500px; height: 500px; background-image: url(&apos;project://database/Assets/RenderTextures/USASword.renderTexture?fileID=8400000&amp;guid=2707a264cfb639845a7c64d82b333aa4&amp;type=2#USASword&apos;);" />
-                    <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; padding-top: 15px;">
+                    <ui:VisualElement name="ShipTexture" style="width: 696px; height: 514px; background-image: url(&apos;project://database/Assets/RenderTextures/USASword.renderTexture?fileID=8400000&amp;guid=2707a264cfb639845a7c64d82b333aa4&amp;type=2#USASword&apos;);" />
+                    <ui:VisualElement name="rematchPanel" style="align-items: center; justify-content: flex-start; flex-direction: column; width: auto; height: auto; padding-top: 0;">
                         <ui:Button text="REMATCH" display-tooltip-when-elided="true" name="rematch" class="button" style="margin-bottom: 0;" />
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="middlePanel" style="width: 33%; height: 100%; justify-content: space-between;">
+                <ui:VisualElement name="middlePanel" style="width: 30%; height: 80%; justify-content: space-between; margin-bottom: 155px;">
                     <ui:VisualElement name="resultsSubPanel" style="align-items: center; justify-content: space-between; flex-wrap: nowrap; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; flex-grow: 1; width: 100%; height: 100%; flex-direction: column; padding-bottom: 0; padding-right: 0; padding-left: 0; padding-top: 0;">
-                        <ui:VisualElement name="score" style="align-items: center; -unity-text-align: lower-center; justify-content: space-between; flex-direction: column; flex-grow: 1; width: 100%; height: 100%; padding-bottom: 0; background-image: none; background-color: rgba(0, 0, 0, 0); -unity-background-image-tint-color: rgba(255, 255, 255, 0.37);">
+                        <ui:VisualElement name="topPanel" style="background-image: url(&apos;project://database/Assets/Images/panel_noCornerSm_45.png?fileID=21300000&amp;guid=097d28c6130c2ee4fb69e5d799693310&amp;type=3#panel_noCornerSm_45&apos;); width: 600px; height: 150px; align-items: center; justify-content: center;">
+                            <ui:VisualElement name="xpEarnedPanel" style="position: relative; top: auto;">
+                                <ui:Label text="XP EARNED :" display-tooltip-when-elided="true" name="xpEarnedText" style="font-size: 40px; color: rgb(255, 115, 61); -unity-font-style: bold; margin-left: 18px;" />
+                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerXPEarned" class="text" style="color: rgb(255, 115, 61); align-items: center; justify-content: center; font-size: 50px; margin-top: -10px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="centrePanel" style="background-image: url(&apos;project://database/Assets/Images/panel_noCorner_45.png?fileID=21300000&amp;guid=d6823e79994a4f741b1e93ee9be1095c&amp;type=3#panel_noCorner_45&apos;); width: 800px; height: 500px; justify-content: space-between; align-items: center; padding-top: 50px; padding-bottom: 50px;">
                             <ui:VisualElement name="scorePanel" style="margin-top: 0;">
-                                <ui:Label text="SCORE :" display-tooltip-when-elided="true" name="scoreText" style="font-size: 80px; color: rgb(255, 19, 0); -unity-font-style: bold; margin-left: 33px;" />
+                                <ui:Label text="SCORE" display-tooltip-when-elided="true" name="scoreText" style="font-size: 80px; color: rgb(255, 19, 0); -unity-font-style: bold; margin-left: -9px; text-shadow: 0 0 0 rgb(0, 0, 0); letter-spacing: 100px;" />
                                 <ui:Label text="0" display-tooltip-when-elided="true" name="playerScore" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 150px;" />
                             </ui:VisualElement>
-                            <ui:VisualElement name="xpEarnedPanel" style="position: absolute; top: 355px;">
-                                <ui:Label text="XP EARNED :" display-tooltip-when-elided="true" name="xpEarnedText" style="font-size: 40px; color: rgb(255, 19, 0); -unity-font-style: bold; margin-left: 18px;" />
-                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerXPEarned" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 50px; margin-top: -10px;" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="bonusPanel" style="position: absolute; top: 500px;">
-                                <ui:Label text="BONUS :" display-tooltip-when-elided="true" name="bonusText" style="font-size: 40px; color: rgb(255, 19, 0); -unity-font-style: bold; margin-left: 27px;" />
-                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerBonus" class="text" style="color: rgb(255, 19, 0); align-items: center; justify-content: center; font-size: 50px; margin-top: -10px;" />
-                            </ui:VisualElement>
-                            <ui:VisualElement name="iteriumCollectedPanel" style="flex-direction: row; align-items: center; justify-content: flex-end; padding-right: 53px; position: absolute; top: 759px;">
+                            <ui:VisualElement name="iteriumCollectedPanel" style="flex-direction: row; align-items: center; justify-content: flex-end; padding-right: 53px; position: relative; top: auto;">
                                 <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 150px; height: 100px; align-items: center; flex-direction: row; -unity-text-align: lower-center; padding-left: 70px; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: -35px; margin-top: 0; margin-bottom: 0;" />
                                 <ui:Label text="COLLECTED :" display-tooltip-when-elided="true" name="collectedText" style="font-size: 40px; color: rgb(255, 19, 0); -unity-font-style: bold;" />
                                 <ui:Label text="0" display-tooltip-when-elided="true" name="playerIterium" style="font-size: 50px; color: rgb(15, 243, 34); -unity-text-align: upper-center;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
+                        <ui:VisualElement name="bottomPanel" style="background-image: url(&apos;project://database/Assets/Images/panel_noCornerSm_45.png?fileID=21300000&amp;guid=097d28c6130c2ee4fb69e5d799693310&amp;type=3#panel_noCornerSm_45&apos;); width: 600px; height: 150px; justify-content: center; align-items: center;">
+                            <ui:VisualElement name="bonusPanel" style="position: relative; top: auto;">
+                                <ui:Label text="BONUS :" display-tooltip-when-elided="true" name="bonusText" style="font-size: 40px; color: rgb(255, 115, 61); -unity-font-style: bold; margin-left: 27px;" />
+                                <ui:Label text="0" display-tooltip-when-elided="true" name="playerBonus" class="text" style="color: rgb(255, 115, 61); align-items: center; justify-content: center; font-size: 50px; margin-top: -10px;" />
+                            </ui:VisualElement>
+                        </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:VisualElement name="rightPanel" style="align-items: center; width: 33%; height: 100%; justify-content: space-between; padding-bottom: 0; margin-top: 0;">
-                    <ui:VisualElement name="xpTotalPanel" style="position: absolute; top: 206px;">
+                <ui:VisualElement name="rightPanel" style="align-items: center; width: 20%; height: 70%; justify-content: space-between; padding-bottom: 0; margin-top: 0; background-image: url(&apos;project://database/Assets/Images/panel_noCorner_45.png?fileID=21300000&amp;guid=d6823e79994a4f741b1e93ee9be1095c&amp;type=3#panel_noCorner_45&apos;); margin-bottom: 145px; margin-right: 0; margin-left: 150px; -unity-background-image-tint-color: rgba(255, 255, 255, 0.67); padding-top: 0;">
+                    <ui:VisualElement name="xpTotalPanel" style="position: relative; top: auto; margin-top: 20px;">
                         <ui:Label text="TOTAL XP :" display-tooltip-when-elided="true" name="xpTotalText" style="font-size: 40px; color: rgb(0, 255, 233); -unity-font-style: bold;" />
                         <ui:Label text="0" display-tooltip-when-elided="true" name="playerXPTotal" class="text" style="color: rgb(0, 255, 233); align-items: center; justify-content: center; font-size: 50px;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="levelPanel" style="position: absolute; top: 420px;">
+                    <ui:VisualElement name="levelPanel" style="position: relative; top: auto;">
                         <ui:Label text="LEVEL :" display-tooltip-when-elided="true" name="levelText" style="font-size: 40px; color: rgb(0, 255, 233); -unity-font-style: bold;" />
                         <ui:Label text="0" display-tooltip-when-elided="true" name="playerLevel" class="text" style="color: rgb(0, 255, 233); align-items: center; justify-content: center; font-size: 50px;" />
                     </ui:VisualElement>
-                    <ui:VisualElement name="iteriumTotalPanel" style="flex-direction: row; align-items: center; justify-content: flex-end; -unity-text-align: middle-center; padding-right: 49px; position: absolute; top: 642px;">
+                    <ui:VisualElement name="iteriumTotalPanel" style="flex-direction: row; align-items: center; justify-content: flex-end; -unity-text-align: middle-center; padding-right: 49px; position: relative; top: auto; margin-bottom: 20px;">
                         <ui:Label display-tooltip-when-elided="true" name="iteriumIcon" style="background-image: url(&apos;project://database/Assets/Images/CrystalPNG.png?fileID=2800000&amp;guid=e2c9b6a9ad88e844abe0f2d9e9f78bc1&amp;type=3#CrystalPNG&apos;); width: 125px; height: 75px; align-items: center; flex-direction: row; -unity-text-align: lower-center; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: -35px; margin-top: 0; margin-bottom: 0;" />
                         <ui:Label text="Total:" display-tooltip-when-elided="true" name="TotalText" style="font-size: 40px; color: rgb(0, 255, 233); -unity-font-style: bold;" />
                         <ui:Label text="0" display-tooltip-when-elided="true" name="playerIteriumTotal" style="font-size: 50px; color: rgb(15, 243, 34); -unity-text-align: middle-center;" />
