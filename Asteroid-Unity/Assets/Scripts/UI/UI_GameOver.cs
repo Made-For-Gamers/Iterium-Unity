@@ -1,6 +1,9 @@
 using UnityEngine.UIElements;
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GUILayout;
+using UnityEngine.SocialPlatforms.Impl;
 
 namespace Iterium
 {
@@ -39,33 +42,41 @@ namespace Iterium
         private Button rematch;
         private int arenaScore;
         private int roundBonus;
+        Label score;
+        Label iteriumCollected;
+        Label iteriumTotal;
+        Label message;
+        Label xpTotal;
+        Label xpEarned;
+        Label level;
+        Label bonus;
 
         private void OnEnable()
         {
             VisualElement uiRoot = GetComponent<UIDocument>().rootVisualElement;
 
             //Init player UI elements
-            Label score = uiRoot.Q<Label>(playerScore);
-            Label iteriumCollected = uiRoot.Q<Label>(playerIteriumCollected);
-            Label iteriumTotal = uiRoot.Q<Label>(playerIteriumTotal);
-            Label message = uiRoot.Q<Label>(playerMessage);
-            Label xpTotal = uiRoot.Q<Label>(playerXpTotal);
-            Label xpEarned = uiRoot.Q<Label>(playerXpEarned);
-            Label level = uiRoot.Q<Label>(playerLevel);
-            Label bonus = uiRoot.Q<Label>(playerBonus);
+            score = uiRoot.Q<Label>(playerScore);
+            iteriumCollected = uiRoot.Q<Label>(playerIteriumCollected);
+            iteriumTotal = uiRoot.Q<Label>(playerIteriumTotal);
+            message = uiRoot.Q<Label>(playerMessage);
+            xpTotal = uiRoot.Q<Label>(playerXpTotal);
+            xpEarned = uiRoot.Q<Label>(playerXpEarned);
+            level = uiRoot.Q<Label>(playerLevel);
+            bonus = uiRoot.Q<Label>(playerBonus);
             rematch = uiRoot.Q<Button>(rematchButton);
 
             //Events
-            rematch.clicked += Rematch; 
-            
+            rematch.clicked += Rematch;
+
             //Bonus
             roundBonus = GameManager.Instance.CalculatePlayerBonus();
             GameManager.Instance.CalculateAiBonus();
             bonus.text = roundBonus.ToString() + " points";
 
             //Score
+            StartCoroutine(ScoreTicker());
             arenaScore = GameManager.Instance.player.Score;
-            score.text = arenaScore.ToString();
 
             //XP
             GameManager.Instance.CalculateXP();
@@ -80,7 +91,7 @@ namespace Iterium
             iteriumCollected.text = GameManager.Instance.player.IteriumCollected.ToString();
             iteriumTotal.text = GameManager.Instance.player.Iterium.ToString();
 
-          
+
 
             //AI firepower upgrade
             if (GameManager.Instance.aiPlayer.BulletLvl == 1 && GameManager.Instance.aiPlayer.Iterium >= GameManager.Instance.firepowerLevel1)
@@ -181,6 +192,19 @@ namespace Iterium
             SoundManager.Instance.PlayEffect(2);
             GameManager.Instance.ResetArena();
             SceneManager.LoadScene(gameScene);
+        }
+
+
+        IEnumerator ScoreTicker()
+        {
+            int increment = GameManager.Instance.player.Score / 100;
+            for (int i = 0; i < GameManager.Instance.player.Score; i += increment)
+            {
+                score.text = i.ToString();
+                SoundManager.Instance.PlayEffect(0);
+                yield return new WaitForSeconds(0.05f);
+            }
+            score.text = GameManager.Instance.player.Score.ToString();
         }
     }
 }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e11697c1fef89084e85ad513036405d3, type: 3}
   m_Name: Xoid
   m_EditorClassIdentifier: 
-  bulletName: Rocket
+  bulletName: Xoid Bullet
   description: 
   image: {fileID: 0}
   speed: 13
