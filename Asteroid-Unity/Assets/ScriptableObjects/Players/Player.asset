@@ -12,32 +12,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: Player
   m_EditorClassIdentifier: 
-  profileName: PaxRon
-  bio: I am a arcade friek!
-  email: paxron@gmail.com
-  xp: 31110
+  profileName: Player 1
+  bio: 
+  email: 
+  xp: 0
   xpCollected: 0
-  level: 2
+  level: 1
   score: 0
-  character: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
+  faction: {fileID: 0}
   health: 100
-  iterium: 43
+  iterium: 0
   iteriumCollected: 0
   lives: 3
-  bulletLvl: 3
-  shieldLvl: 3
-  speedLvl: 3
-  bulletLvlUs: 3
-  shieldLvlUs: 3
-  speedLvlUs: 3
+  bulletLvl: 1
+  shieldLvl: 1
+  speedLvl: 1
+  bulletLvlUs: 1
+  shieldLvlUs: 1
+  speedLvlUs: 1
   bulletLvlUssr: 1
   shieldLvlUssr: 1
-  speedLvlUssr: 2
+  speedLvlUssr: 1
   bulletLvlChn: 1
   shieldLvlChn: 1
-  speedLvlChn: 3
+  speedLvlChn: 1
   effectsVolume: 0
-  musicVolume: -6.8
+  musicVolume: 0
   onChange_Health:
     m_PersistentCalls:
       m_Calls: []

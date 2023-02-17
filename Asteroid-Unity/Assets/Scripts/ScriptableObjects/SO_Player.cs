@@ -10,16 +10,16 @@ public class SO_Player : ScriptableObject
 {
     [SerializeField] private string profileName = "Player 1";
     [TextArea(5, 5)]
-    [SerializeField] private string bio;
-    [SerializeField] private string email;
-    [SerializeField] private int xp;
+    [SerializeField] private string bio = null;
+    [SerializeField] private string email = null;
+    [SerializeField] private int xp = 0;
     [SerializeField] private int xpCollected;
     [SerializeField] private int level = 1;
-    [SerializeField] private int score;
+    [SerializeField] private int score = 0;
     [SerializeField] private SO_Faction faction;
-    [SerializeField] private int health;
+    [SerializeField] private int health = 100;
     [SerializeField] private int iterium;
-    [SerializeField] private int iteriumCollected;
+    [SerializeField] private int iteriumCollected = 0;
     [SerializeField] private int lives = 3;
     [SerializeField] private int bulletLvl = 1;
     [SerializeField] private int shieldLvl = 1;

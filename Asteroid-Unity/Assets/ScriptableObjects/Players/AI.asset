@@ -12,30 +12,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: AI
   m_EditorClassIdentifier: 
-  profileName: AI Player
-  bio: Death to all human players!
+  profileName: Player 1
+  bio: 
   email: 
-  xp: 1800
-  xpCollected: 1030
+  xp: 0
+  xpCollected: 0
   level: 1
-  score: 16400
-  faction: {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
-  health: 40
-  iterium: 920
+  score: 0
+  faction: {fileID: 0}
+  health: 100
+  iterium: 0
   iteriumCollected: 0
   lives: 3
-  bulletLvl: 2
-  shieldLvl: 2
-  speedLvl: 3
+  bulletLvl: 1
+  shieldLvl: 1
+  speedLvl: 1
   bulletLvlUs: 1
   shieldLvlUs: 1
-  speedLvlUs: 2
-  bulletLvlUssr: 2
-  shieldLvlUssr: 2
+  speedLvlUs: 1
+  bulletLvlUssr: 1
+  shieldLvlUssr: 1
   speedLvlUssr: 1
-  bulletLvlChn: 2
-  shieldLvlChn: 2
-  speedLvlChn: 3
+  bulletLvlChn: 1
+  shieldLvlChn: 1
+  speedLvlChn: 1
   effectsVolume: 0
   musicVolume: 0
   onChange_Health:
