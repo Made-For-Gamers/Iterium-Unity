@@ -18,6 +18,7 @@ namespace Iterium
         [Header("Bullet Settings")]
         [SerializeField] private float fireDelay = 2f;
         [SerializeField] private float fireInterval = 0.6f;
+        [SerializeField] private float warpInterval = 15f;
         [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a targeting descition round
 
         private Transform firePosition;
@@ -37,6 +38,7 @@ namespace Iterium
             rigidBody = GetComponent<Rigidbody>();
             InvokeRepeating("Fire", fireDelay, fireInterval);
             InvokeRepeating("Shield", 0, GameManager.Instance.aiPlayer.Faction.Ship.ShieldCooldown);
+            InvokeRepeating("Warp", warpInterval, warpInterval);
         }
 
         private void Update()
@@ -97,7 +99,7 @@ namespace Iterium
                     bullet.transform.Rotate(Vector3.zero);
                 }
 
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed * GameManager.Instance.aiPlayer.BulletLvl);
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed + ((GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed / 5) * GameManager.Instance.aiPlayer.BulletLvl));
                 shots++;
 
                 if (shots >= decisionCycle)
@@ -122,7 +124,7 @@ namespace Iterium
                     isThrusting = true;
                     thrusters.SetActive(true);
                 }
-                rigidBody.AddRelativeForce(new Vector3(0, 0, 0.2f * (GameManager.Instance.aiPlayer.Faction.Ship.Thrust * GameManager.Instance.aiPlayer.SpeedLvl) * Time.deltaTime), ForceMode.Force);
+                rigidBody.AddRelativeForce(new Vector3(0, 0, 0.2f * (GameManager.Instance.aiPlayer.Faction.Ship.Thrust + (GameManager.Instance.aiPlayer.Faction.Ship.Thrust / 5) * GameManager.Instance.aiPlayer.SpeedLvl) * Time.deltaTime), ForceMode.Force);
             }
             else if (isThrusting)
             {
@@ -141,6 +143,16 @@ namespace Iterium
             else
             {
                 shield.SetActive(true);
+            }
+        }
+
+        private void Warp()
+        {
+            int rnd = Random.Range(1,3);
+            if (rnd == 1)
+            {
+                transform.position = GameManager.Instance.RandomScreenPosition(GameManager.Instance.aiSpawner);
+                rigidBody.velocity = Vector3.zero;
             }
         }
 

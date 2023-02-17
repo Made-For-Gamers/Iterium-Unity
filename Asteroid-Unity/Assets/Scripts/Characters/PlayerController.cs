@@ -51,7 +51,7 @@ namespace Iterium
         //Rotation
         private void Rotate()
         {
-            transform.Rotate(0, input.rotateInput.x * (GameManager.Instance.player.Faction.Ship.TurnSpeed * GameManager.Instance.player.SpeedLvl) * Time.deltaTime, 0);
+            transform.Rotate(0, input.rotateInput.x * (GameManager.Instance.player.Faction.Ship.TurnSpeed + (GameManager.Instance.player.Faction.Ship.TurnSpeed / 5) * GameManager.Instance.player.SpeedLvl) * Time.deltaTime, 0);
         }
 
         //Fire
@@ -62,7 +62,7 @@ namespace Iterium
                 GameObject bullet = BulletPooling.bulletPoolPlayer.Get();
                 bullet.transform.position = firePosition.position;
                 bullet.transform.rotation = firePosition.rotation;
-                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.player.Faction.Ship.Bullet.Speed * GameManager.Instance.player.BulletLvl);
+                bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.player.Faction.Ship.Bullet.Speed + ((GameManager.Instance.player.Faction.Ship.Bullet.Speed / 5) * GameManager.Instance.player.BulletLvl));
                 input.isfire = false;
             }
         }
@@ -78,7 +78,7 @@ namespace Iterium
                     isThrusting = true;
                     thrusters.SetActive(true);
                 }
-                rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Faction.Ship.Thrust * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
+                rigidBody.AddRelativeForce(new Vector3(0, 0, input.thrustInput.y * (GameManager.Instance.player.Faction.Ship.Thrust + (GameManager.Instance.player.Faction.Ship.Thrust / 5) * GameManager.Instance.player.SpeedLvl) * Time.deltaTime), ForceMode.Force);
             }
             //Stop thrusters
             else
@@ -88,7 +88,7 @@ namespace Iterium
             }
         }
 
-        //Shield
+        //Shield 
         private void Shield()
         {
             //Deploy Shield
@@ -133,7 +133,7 @@ namespace Iterium
 
         //Calculate damage from a hit, uding bullet firepower offset by activated shield strength
         public void BulletHit(float firePower)
-        {            
+        {
             if (isShielding)
             {
                 GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Faction.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));
@@ -185,7 +185,7 @@ namespace Iterium
 
         //Wrap ship to opposite side of the screen when exiting
         private void OnBecameInvisible()
-        {            
+        {
             if (gameObject.activeSelf)
             {
                 Vector3 viewPort = Camera.main.WorldToViewportPoint(transform.position);
