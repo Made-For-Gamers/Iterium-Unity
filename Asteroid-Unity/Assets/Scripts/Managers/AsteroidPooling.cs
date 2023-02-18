@@ -9,7 +9,7 @@ namespace Iterium
     {
 
         [Header("Asteroid Pooling")]
-        [SerializeField] private int capacity = 30;
+        [SerializeField] private int capacity = 35;
         [SerializeField] private int maxCapacity = 50;
         [SerializeField] private SO_GameObjects asteroids;
 

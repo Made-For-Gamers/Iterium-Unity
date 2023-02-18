@@ -19,7 +19,7 @@ namespace Iterium
 
         //number of re-usable AudioSources
         [Header("AudioSources")]
-        [SerializeField] private int audioSourceNumber = 10;
+        [SerializeField] private int audioSourceNumber = 25;
 
         [Header("Audio Mixer Channels")]
         [SerializeField] private AudioMixerGroup mixerMaster;

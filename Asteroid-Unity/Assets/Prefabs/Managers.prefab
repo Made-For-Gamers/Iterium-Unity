@@ -72,6 +72,9 @@ MonoBehaviour:
   npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
   targetNpc: {fileID: 0}
   iterium: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
+  iteriumScore: 250
+  iteriumXp: 25
+  iteriumSfx: 0
   iteriumChance: 20
   speedLevel1: 10
   speedLevel2: 30
@@ -136,7 +139,7 @@ MonoBehaviour:
   shipExplosion: {fileID: 11400000, guid: 8f0ac79bf2c87664182c1464b378ad61, type: 2}
   effects: {fileID: 11400000, guid: 096d6536bbdc6a14481b69840e0bde1d, type: 2}
   music: {fileID: 11400000, guid: bae91d4af4039f54e929638b15af498a, type: 2}
-  audioSourceNumber: 20
+  audioSourceNumber: 25
   mixerMaster: {fileID: 24300002, guid: d79b3a73c105760479ef4bab8ba17768, type: 2}
   mixerMusic: {fileID: -7456260393111729204, guid: d79b3a73c105760479ef4bab8ba17768,
     type: 2}
