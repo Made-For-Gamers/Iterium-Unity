@@ -7,9 +7,6 @@ namespace Iterium
 
     public abstract class BulletBase : MonoBehaviour, IDamage
     {
-        [Header("Bullet Hit SFX")]
-        [SerializeField] protected int sfxIndex = 1;
-
         //Release bullet after leaving the screen
         private void OnBecameInvisible()
         {
@@ -24,7 +21,7 @@ namespace Iterium
         //Explosion
         protected void BulletExplosion(Collider obj)
         {
-            SoundManager.Instance.PlayEffect(sfxIndex);
+            SoundManager.Instance.PlayEffect(1);
             GameObject explosionObject = ExplosionPooling.explosionPool.Get();
             explosionObject.transform.position = obj.transform.position;
             explosionObject.transform.rotation = obj.transform.rotation;

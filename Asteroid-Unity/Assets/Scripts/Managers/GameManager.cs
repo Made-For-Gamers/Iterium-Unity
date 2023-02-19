@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SocialPlatforms.Impl;
 
 namespace Iterium
 {
@@ -63,7 +61,6 @@ namespace Iterium
         public int iteriumScore = 250;
         public int iteriumXp = 25;
         public int iteriumSfx;
-        public int iteriumChance = 20;
         public int speedLevel1 = 10;
         public int speedLevel2 = 30;
         public int shieldLevel1 = 10;
@@ -90,21 +87,23 @@ namespace Iterium
         #region General Methods
         private void OnEnable()
         {
-            //Bullet hit events
+            //Events
             PlayerController.PlayerDamage += PlayerDamage;
             AIController.AiDamage += AiDamage;
             NPCController.NpcDamage += NpcDamage;
             Asteroid.AsteroidDamage += AsteroidDamage;
+            Asteroid.DropIterium += DropIterium;
             Iterium.CollectIterium += CollectIterium;
         }
 
         private void OnDisable()
         {
-            //Clean-up bullet hit events
+            //Disable events
             PlayerController.PlayerDamage -= PlayerDamage;
             AIController.AiDamage -= AiDamage;
             NPCController.NpcDamage -= NpcDamage;
             Asteroid.AsteroidDamage -= AsteroidDamage;
+            Asteroid.DropIterium -= DropIterium;
             Iterium.CollectIterium -= CollectIterium;
         }
 
@@ -130,45 +129,55 @@ namespace Iterium
         //Called by invoke of bulletHit event on Bullet
         private void PlayerDamage()
         {
-            GameManager.Instance.aiPlayer.Score += 500;
-            GameManager.Instance.aiPlayer.XpCollected += 25;
+            SoundManager.Instance.PlayEffect(1);
+            aiPlayer.Score += 500;
+            aiPlayer.XpCollected += 25;
         }
 
         //Called by invoke of bulletHit event on BulletAI
         private void AiDamage()
         {
-            GameManager.Instance.player.Score += 500;
-            GameManager.Instance.player.XpCollected += 25;
+            SoundManager.Instance.PlayEffect(1);
+            player.Score += 500;
+            player.XpCollected += 25;
+        }
+
+        private void DropIterium(Vector3 position)
+        {
+            Instantiate(iterium.GetRandomGameObject(), position, Random.rotation);
         }
 
         //Called by invoke of bulletHit event on BulletNPC
         private void NpcDamage(string attacker)
         {
+            SoundManager.Instance.PlayEffect(1);
             SoundManager.Instance.PlayShipExplosion();
             switch (attacker)
             {
                 case "player":
-                    GameManager.Instance.player.Score += 2500;
-                    GameManager.Instance.player.XpCollected += 100;
+                    player.Score += 2500;
+                    player.XpCollected += 100;
                     break;
                 case "ai":
-                    GameManager.Instance.aiPlayer.Score += 2500;
-                    GameManager.Instance.aiPlayer.XpCollected += 100;
+                    aiPlayer.Score += 2500;
+                    aiPlayer.XpCollected += 100;
                     break;
             }
         }
 
         public void AsteroidDamage(string attacker)
         {
+            SoundManager.Instance.PlayEffect(1);
+            SoundManager.Instance.PlayAsteroidExplosion();
             switch (attacker)
             {
                 case "player":
-                    GameManager.Instance.player.Score += 50;
-                    GameManager.Instance.player.XpCollected += 10;
+                    player.Score += 50;
+                    player.XpCollected += 10;
                     break;
                 case "ai":
-                    GameManager.Instance.aiPlayer.Score += 50;
-                    GameManager.Instance.aiPlayer.XpCollected += 10;
+                    aiPlayer.Score += 50;
+                    aiPlayer.XpCollected += 10;
                     break;
             }
         }
@@ -179,7 +188,7 @@ namespace Iterium
             fileSaveHandler = new FileSaveHandler(Application.persistentDataPath);
             LoadGame();
 
-            //Events
+            //Event subscriptions
             player.onChange_bulletLvl.AddListener(BulletLvlChanged);
             player.onChange_shieldLvl.AddListener(ShieldLvlChanged);
             player.onChange_speedLvl.AddListener(SpeedLvlChanged);

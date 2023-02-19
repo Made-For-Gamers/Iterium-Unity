@@ -7,6 +7,7 @@ namespace Iterium
 
     public class Iterium : MonoBehaviour
     {
+        //Events
         public static event Action<string> CollectIterium;
 
         //Iterium collision

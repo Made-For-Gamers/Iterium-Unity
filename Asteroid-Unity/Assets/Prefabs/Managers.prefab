@@ -75,7 +75,7 @@ MonoBehaviour:
   iteriumScore: 250
   iteriumXp: 25
   iteriumSfx: 0
-  iteriumChance: 60
+  iteriumChance: 40
   speedLevel1: 10
   speedLevel2: 30
   shieldLevel1: 10

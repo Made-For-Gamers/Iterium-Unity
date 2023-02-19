@@ -6,7 +6,10 @@ namespace Iterium
 {
     public class Asteroid : MonoBehaviour, IDamage
     {
+        //Events
         public static event Action<string> AsteroidDamage;
+        public static event Action<Vector3> DropIterium;
+        [SerializeField] private int iteriumChance = 40;
 
         public void Damage(float firePower, string attacker)
         {
@@ -26,14 +29,12 @@ namespace Iterium
                     spawnedAsteroid.GetComponent<Rigidbody>().mass = transform.GetComponent<Rigidbody>().mass / rnd;
                 }
 
-                SoundManager.Instance.PlayAsteroidExplosion();
-
                 //Random spawn of a crystal
-                int chance = Random.Range(1, GameManager.Instance.iteriumChance);
+                int chance = Random.Range(1, iteriumChance);
                 if (chance == 1)
                 {
                     Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
-                    Instantiate(GameManager.Instance.iterium.GetRandomGameObject(), pos, Random.rotation);
+                    DropIterium.Invoke(pos);
                 }
             }
 
