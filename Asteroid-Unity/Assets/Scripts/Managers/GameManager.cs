@@ -91,18 +91,20 @@ namespace Iterium
         private void OnEnable()
         {
             //Bullet hit events
-            Bullet.BulletHit += PlayerBulletHit;
-            BulletAI.BulletHit += AiBulletHit;
-            BulletNpc.BulletHit += NpcBulletHit;
+            PlayerController.PlayerDamage += PlayerDamage;
+            AIController.AiDamage += AiDamage;
+            NPCController.NpcDamage += NpcDamage;
+            Asteroid.AsteroidDamage += AsteroidDamage;
             Iterium.CollectIterium += CollectIterium;
         }
 
         private void OnDisable()
         {
             //Clean-up bullet hit events
-            Bullet.BulletHit -= PlayerBulletHit;
-            BulletAI.BulletHit -= AiBulletHit;
-            BulletNpc.BulletHit -= NpcBulletHit;
+            PlayerController.PlayerDamage -= PlayerDamage;
+            AIController.AiDamage -= AiDamage;
+            NPCController.NpcDamage -= NpcDamage;
+            Asteroid.AsteroidDamage -= AsteroidDamage;
             Iterium.CollectIterium -= CollectIterium;
         }
 
@@ -126,59 +128,47 @@ namespace Iterium
 
 
         //Called by invoke of bulletHit event on Bullet
-        private void PlayerBulletHit(string objHit)
+        private void PlayerDamage()
         {
-            switch (objHit)
+            GameManager.Instance.aiPlayer.Score += 500;
+            GameManager.Instance.aiPlayer.XpCollected += 25;
+        }
+
+        //Called by invoke of bulletHit event on BulletAI
+        private void AiDamage()
+        {
+            GameManager.Instance.player.Score += 500;
+            GameManager.Instance.player.XpCollected += 25;
+        }
+
+        //Called by invoke of bulletHit event on BulletNPC
+        private void NpcDamage(string attacker)
+        {
+            SoundManager.Instance.PlayShipExplosion();
+            switch (attacker)
             {
-                case "asteroid":
+                case "player":
+                    GameManager.Instance.player.Score += 2500;
+                    GameManager.Instance.player.XpCollected += 100;
+                    break;
+                case "ai":
+                    GameManager.Instance.aiPlayer.Score += 2500;
+                    GameManager.Instance.aiPlayer.XpCollected += 100;
+                    break;
+            }
+        }
+
+        public void AsteroidDamage(string attacker)
+        {
+            switch (attacker)
+            {
+                case "player":
                     GameManager.Instance.player.Score += 50;
                     GameManager.Instance.player.XpCollected += 10;
                     break;
                 case "ai":
-                    targetAi.transform.GetComponent<AIController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
-                    GameManager.Instance.player.Score += 500;
-                    GameManager.Instance.player.XpCollected += 25;
-                    break;
-                case "npc":
-                    GameManager.Instance.player.Score += 2500;
-                    GameManager.Instance.player.XpCollected += 100;
-                    SoundManager.Instance.PlayShipExplosion();
-                    break;
-            }
-        }
-
-        //Called by invoke of bulletHit event on BulletAI
-        private void AiBulletHit(string objHit)
-        {
-            switch (objHit)
-            {
-                case "asteroid":
                     GameManager.Instance.aiPlayer.Score += 50;
                     GameManager.Instance.aiPlayer.XpCollected += 10;
-                    break;
-                case "player":
-                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(aiPlayer.Faction.Ship.Bullet.FirePower * aiPlayer.BulletLvl);
-                    GameManager.Instance.aiPlayer.Score += 500;
-                    GameManager.Instance.aiPlayer.XpCollected += 25;
-                    break;
-                case "npc":
-                    GameManager.Instance.aiPlayer.Score += 2500;
-                    GameManager.Instance.aiPlayer.XpCollected += 100;
-                    SoundManager.Instance.PlayShipExplosion();
-                    break;
-            }
-        }
-
-        //Called by invoke of bulletHit event on BulletNPC
-        private void NpcBulletHit(string objHit)
-        {
-            switch (objHit)
-            {
-                case "player":
-                    targetPlayer.transform.GetComponent<PlayerController>().BulletHit(aiPlayer.Faction.Ship.Bullet.FirePower * aiPlayer.BulletLvl);
-                    break;
-                case "ai":
-                    targetAi.transform.GetComponent<AIController>().BulletHit(player.Faction.Ship.Bullet.FirePower * player.BulletLvl);
                     break;
             }
         }

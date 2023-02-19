@@ -15,14 +15,14 @@ MonoBehaviour:
   profileName: Player 1
   bio: 
   email: 
-  xp: 0
-  xpCollected: 0
+  xp: 1635
+  xpCollected: 365
   level: 1
-  score: 0
-  faction: {fileID: 0}
-  health: 100
-  iterium: 0
-  iteriumCollected: 0
+  score: 4950
+  faction: {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
+  health: 20
+  iterium: 1
+  iteriumCollected: 1
   lives: 3
   bulletLvl: 1
   shieldLvl: 1

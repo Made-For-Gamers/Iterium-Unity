@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System;
 
 namespace Iterium
 {
@@ -15,7 +16,7 @@ namespace Iterium
 
     [RequireComponent(typeof(InputManager))]
 
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : MonoBehaviour, IDamage
     {
         private InputManager input;
         private Transform firePosition;
@@ -25,6 +26,8 @@ namespace Iterium
         private GameObject thrusters;
         private bool isThrusting;
         private Rigidbody rigidBody;
+
+        public static event Action PlayerDamage;
 
         void Start()
         {
@@ -63,6 +66,7 @@ namespace Iterium
                 bullet.transform.position = firePosition.position;
                 bullet.transform.rotation = firePosition.rotation;
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.player.Faction.Ship.Bullet.Speed + ((GameManager.Instance.player.Faction.Ship.Bullet.Speed / 5) * GameManager.Instance.player.BulletLvl));
+                bullet.GetComponent<Bullet>().firePower = GameManager.Instance.player.Faction.Ship.Bullet.FirePower;
                 input.isfire = false;
             }
         }
@@ -132,8 +136,9 @@ namespace Iterium
         }
 
         //Calculate damage from a hit, uding bullet firepower offset by activated shield strength
-        public void BulletHit(float firePower)
+        public void Damage(float firePower, string attacker)
         {
+            PlayerDamage.Invoke();
             if (isShielding)
             {
                 GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Faction.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));

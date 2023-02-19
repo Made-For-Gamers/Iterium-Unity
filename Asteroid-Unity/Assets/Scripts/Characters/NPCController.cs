@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Iterium
 {
@@ -8,12 +10,13 @@ namespace Iterium
     /// * De-spawn when leaving the screen
     /// </summary>
 
-    public class NPCController : MonoBehaviour
+    public class NPCController : MonoBehaviour, IDamage
     {
         [Header("Bullet")]
         [SerializeField] private float fireDelay = 2f;
         [SerializeField] private float fireInterval = 0.5f;
 
+        public static event Action<string> NpcDamage;
         private int target;
 
         private void Start()
@@ -60,6 +63,11 @@ namespace Iterium
             {
                 transform.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-6, 7), 0, Random.Range(-6, 7));
             }
+        }
+
+        public void Damage(float firePower, string attacker)
+        {
+            NpcDamage.Invoke(attacker);
         }
 
         //Destroy NPC when leaving the screen

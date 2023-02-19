@@ -1106,19 +1106,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
         type: 3}
-      propertyPath: leaderboard
-      value: 
-      objectReference: {fileID: 11400000, guid: 7958bcbafca21c942b13e04c9a3d3537,
-        type: 2}
-    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
-        type: 3}
-      propertyPath: leaderboardSize
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
-        type: 3}
-      propertyPath: leaderboard.Array.size
-      value: 0
+      propertyPath: iteriumChance
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd9b24739366e9b4c935a684a0761eab, type: 3}

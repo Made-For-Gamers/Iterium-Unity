@@ -57,7 +57,7 @@ MonoBehaviour:
   saveFile: Player.save
   saveFileAi: AI.save
   saveFileLeaderboard: Leaderboard.save
-  leaderboardSize: 50
+  leaderboardSize: 25
   player: {fileID: 11400000, guid: c8f3aadd87727d24c93b88bbb9a5bfc9, type: 2}
   factions: {fileID: 11400000, guid: 01c57ecefbaac834db417ef3aed0037b, type: 2}
   deathRespawnTime: 5
@@ -75,7 +75,7 @@ MonoBehaviour:
   iteriumScore: 250
   iteriumXp: 25
   iteriumSfx: 0
-  iteriumChance: 20
+  iteriumChance: 60
   speedLevel1: 10
   speedLevel2: 30
   shieldLevel1: 10

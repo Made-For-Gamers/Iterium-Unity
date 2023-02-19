@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -6279894998753694800}
   - component: {fileID: 8123934873754591382}
   - component: {fileID: 5642413665727668240}
+  - component: {fileID: 2094068627458039922}
   m_Layer: 0
   m_Name: Asteroid1
   m_TagString: Asteroid
@@ -149,3 +150,15 @@ CapsuleCollider:
   m_Height: 2.948974
   m_Direction: 1
   m_Center: {x: -0.25, y: 0.09, z: 0.28638798}
+--- !u!114 &2094068627458039922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2265590906735085459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df1387d5e9b1d94fabcfeb31e388043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

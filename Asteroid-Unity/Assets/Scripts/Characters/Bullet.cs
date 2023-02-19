@@ -1,46 +1,22 @@
-using System;
 using UnityEngine;
 
 namespace Iterium
-{
-    /// <summary>
-    /// Player bullet that handles...
-    /// * Collision detection
-    /// * Asteroid splitting (base class)
-    /// * Crystal spawning (base class)
-    /// * Bullet de-spawning
-    /// </summary>
+{    
+    // Player bullet that handles...
+    // * Collision detection
+    // * Bullet de-spawning
 
     public class Bullet : BulletBase
     {
-        public static event Action<string> BulletHit;
+        public float firePower;
 
         //Player bullet collision
         private void OnTriggerEnter(Collider collision)
         {
-            switch (collision.gameObject.tag)
-            {
-                //Hit asteroid
-                case "Asteroid":
-                    BulletHit.Invoke("asteroid");
-                    BulletExplosion(collision);
-                    AsteroidHit(collision);
-                    break;
-
-                //Hit player
-                case "AI":
-                    BulletHit.Invoke("ai");
-                    BulletExplosion(collision);
-                    break;
-
-                //Hit NPC
-                case "NPC":
-                    BulletHit.Invoke("npc");
-                    BulletExplosion(collision);
-                    Destroy(collision.gameObject);
-                    break;
-
-            }
+            var hitObj = collision.GetComponent<IDamage>();
+            if (hitObj == null) return;
+            BulletExplosion(collision);
+            hitObj.Damage(firePower, "player");
         }
 
         //Release bullet to pool

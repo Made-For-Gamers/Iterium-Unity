@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using System;
+using Random = UnityEngine.Random;
 
 namespace Iterium
 {
@@ -13,7 +15,7 @@ namespace Iterium
     /// * Screen warping
     /// </summary>
 
-    public class AIController : MonoBehaviour
+    public class AIController : MonoBehaviour, IDamage
     {
         [Header("Bullet Settings")]
         [SerializeField] private float fireDelay = 2f;
@@ -29,6 +31,8 @@ namespace Iterium
         private Rigidbody rigidBody;
         private int shots;
         private bool attackNPC;
+
+        public static event Action AiDamage;
 
         private void Start()
         {
@@ -100,6 +104,7 @@ namespace Iterium
                 }
 
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed + ((GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed / 5) * GameManager.Instance.aiPlayer.BulletLvl));
+                bullet.GetComponent<BulletAI>().firePower = GameManager.Instance.aiPlayer.Faction.Ship.Bullet.FirePower;
                 shots++;
 
                 if (shots >= decisionCycle)
@@ -157,8 +162,9 @@ namespace Iterium
         }
 
         //Calculate damage when the ship is hit. Taking account of shield strength and striking bullets power
-        public void BulletHit(float firePower)
+        public void Damage(float firePower, string attacker)
         {
+            AiDamage.Invoke();
             if (isShielding)
             {
                 GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Faction.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvl));
