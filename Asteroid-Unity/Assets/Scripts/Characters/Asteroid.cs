@@ -6,10 +6,13 @@ namespace Iterium
 {
     public class Asteroid : MonoBehaviour, IDamage
     {
+        [Header("Iterium Drop ?:1")] 
+        [SerializeField] private int iteriumChance = 60;
+        
         //Events
         public static event Action<string> AsteroidDamage;
         public static event Action<Vector3> DropIterium;
-        [SerializeField] private int iteriumChance = 40;
+       
 
         public void Damage(float firePower, string attacker)
         {
@@ -39,6 +42,15 @@ namespace Iterium
             }
 
             //Release asteroid to pool
+            if (gameObject.activeSelf)
+            {
+                AsteroidPooling.asteroidPool.Release(gameObject);
+            }
+        }
+
+        //Remove asteroid after it leaves the screen
+        private void OnBecameInvisible()
+        {
             if (gameObject.activeSelf)
             {
                 AsteroidPooling.asteroidPool.Release(gameObject);

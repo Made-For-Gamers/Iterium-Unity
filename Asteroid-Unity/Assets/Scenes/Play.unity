@@ -2017,7 +2017,7 @@ PrefabInstance:
     - target: {fileID: 602120685965762839, guid: 3978e1be4afbd394989c8461bc58b5ba,
         type: 3}
       propertyPath: m_Name
-      value: AI Spawner
+      value: AISpawner
       objectReference: {fileID: 0}
     - target: {fileID: 602120685965762839, guid: 3978e1be4afbd394989c8461bc58b5ba,
         type: 3}
@@ -2181,7 +2181,7 @@ PrefabInstance:
     - target: {fileID: 5589843235130775554, guid: 95ee9ef301b4885429de2b1c8a8036f1,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5589843235130775554, guid: 95ee9ef301b4885429de2b1c8a8036f1,
         type: 3}

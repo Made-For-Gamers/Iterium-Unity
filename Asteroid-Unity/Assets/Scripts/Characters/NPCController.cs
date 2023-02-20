@@ -68,10 +68,16 @@ namespace Iterium
         public void Damage(float firePower, string attacker)
         {
             NpcDamage.Invoke(attacker);
+            DestroyShip();
         }
 
         //Destroy NPC when leaving the screen
         private void OnBecameInvisible()
+        {
+            DestroyShip();
+        }
+
+        private void DestroyShip()
         {
             Destroy(gameObject);
         }

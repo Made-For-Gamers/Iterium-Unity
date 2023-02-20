@@ -7,13 +7,14 @@ namespace Iterium
 
     public abstract class BulletBase : MonoBehaviour, IDamage
     {
+
         //Release bullet after leaving the screen
         private void OnBecameInvisible()
         {
             ReleaseBullet();
         }
 
-        public void Damage(float firePower, string attacker)
+        public void Damage(float firepower, string attacker)
         {
             ReleaseBullet();
         }
