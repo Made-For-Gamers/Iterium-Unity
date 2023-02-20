@@ -1,5 +1,5 @@
 .button {
-    width: 300px;
+    width: 320px;
     height: 70px;
     align-items: center;
     justify-content: center;
@@ -24,8 +24,6 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=0fb1fb9ef5333cd4699faacf74123412&type=3#NotInter-Regular');
-    -unity-font-definition: none;
     padding-top: 10px;
     padding-bottom: 10px;
     background-image: url('project://database/Assets/Images/button_diag_45.png?fileID=21300000&guid=a935d72c013235d44801f538a5568c59&type=3#button_diag_45');
@@ -34,6 +32,10 @@
     transition-duration: 0.5s;
     transition-timing-function: ease;
     transition-delay: 0s;
+    -unity-font-style: normal;
+    -unity-text-align: middle-center;
+    -unity-font: url('project://database/Assets/Fonts/manaspc.ttf?fileID=12800000&guid=2f04db4312135d248a11fd7a68b136d0&type=3#manaspc');
+    -unity-font-definition: url('project://database/Assets/Fonts/manaspc%20SDF.asset?fileID=11400000&guid=629c3f4a76ff2194c96851dbc7acc335&type=2#manaspc SDF');
 }
 
 .text {
@@ -253,7 +255,7 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    -unity-font: url('project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&guid=0fb1fb9ef5333cd4699faacf74123412&type=3#NotInter-Regular');
+    -unity-font: url('project://database/Assets/Fonts/manaspc.ttf?fileID=12800000&guid=2f04db4312135d248a11fd7a68b136d0&type=3#manaspc');
     -unity-font-definition: none;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -375,7 +377,7 @@
 }
 
 .unity-scroller__slider {
-    background-image: url('project://database/Assets/Images/tut_opaque_45.png?fileID=21300000&guid=cd2e07b2dfa659846afd8b3f1f680518&type=3#tut_opaque_45');
+    background-image: url('project://database/Assets/Fonts/manaspc%20SDF.asset?fileID=11400000&guid=629c3f4a76ff2194c96851dbc7acc335&type=2#manaspc SDF');
 }
 
 .unity-scroller__low-button {

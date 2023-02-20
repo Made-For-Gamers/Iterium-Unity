@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8be4c8ebfa697544bbb7f901b896e86b
+guid: 2f04db4312135d248a11fd7a68b136d0
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Retroheavyfuture
+  - Manaspace
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
