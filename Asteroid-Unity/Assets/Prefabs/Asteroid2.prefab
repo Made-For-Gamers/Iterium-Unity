@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 3930694317308148017}
   - component: {fileID: 1254348076657446395}
   - component: {fileID: 2084467608612618519}
-  - component: {fileID: -3752416040387061962}
-  - component: {fileID: 6840693746281900784}
-  - component: {fileID: -362179649576235399}
   - component: {fileID: -3463234557777447175}
+  - component: {fileID: -3752416040387061962}
+  - component: {fileID: -362179649576235399}
   m_Layer: 0
   m_Name: Asteroid2
   m_TagString: Asteroid
@@ -104,6 +103,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 4
   m_CollisionDetection: 0
+--- !u!114 &-3463234557777447175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750036934536145966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0df1387d5e9b1d94fabcfeb31e388043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iteriumChance: 25
 --- !u!114 &-3752416040387061962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,18 +136,6 @@ MonoBehaviour:
   rotationX: 0
   rotationY: 0
   rotationZ: 0
---- !u!114 &6840693746281900784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750036934536145966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2c0d1a35427baa4391772f9b8835734, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!136 &-362179649576235399
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -150,16 +150,3 @@ CapsuleCollider:
   m_Height: 2.807913
   m_Direction: 1
   m_Center: {x: -0.26631355, y: -0.062090695, z: 0.21124399}
---- !u!114 &-3463234557777447175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 750036934536145966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0df1387d5e9b1d94fabcfeb31e388043, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iteriumChance: 40
