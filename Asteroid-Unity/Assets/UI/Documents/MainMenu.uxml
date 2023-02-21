@@ -35,7 +35,7 @@
                 </ui:VisualElement>
                 <ui:VisualElement name="rightPanel" style="width: 33%;" />
             </ui:VisualElement>
-            <ui:VisualElement name="footer" style="width: 2560px; flex-direction: row; justify-content: space-between; padding-left: 45px; padding-right: 45px; padding-top: 14px; padding-bottom: 14px;">
+            <ui:VisualElement name="footer" style="width: 2560px; flex-direction: row; justify-content: space-between; padding-left: 45px; padding-right: 45px; padding-top: 14px; padding-bottom: 14px; height: 100px;">
                 <ui:Label text="Version 1.0" display-tooltip-when-elided="true" name="version" class="footer" style="left: auto; bottom: auto; width: auto; height: auto; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; align-items: center; flex-direction: column; justify-content: center; position: relative;" />
                 <ui:Label text="MFG Arcade 1980 ©" display-tooltip-when-elided="true" name="mfgCopyright" class="footer" style="width: auto; height: auto; position: relative; left: auto; right: auto; bottom: auto; font-size: 25px; -unity-text-align: upper-center; -unity-font-style: italic; -unity-text-outline-color: rgb(255, 255, 255); color: rgb(255, 255, 255); padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; align-items: center; flex-direction: column; justify-content: center;" />
             </ui:VisualElement>
