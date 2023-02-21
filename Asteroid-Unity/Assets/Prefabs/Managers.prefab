@@ -71,11 +71,15 @@ MonoBehaviour:
   targetAi: {fileID: 0}
   npcPlayer: {fileID: 11400000, guid: 13f506d7f180c6a49b61fc59b52c92bf, type: 2}
   targetNpc: {fileID: 0}
+  minSpeed: 3
+  maxSpeed: 7
+  bossPlayer: {fileID: 11400000, guid: 2ea53345f8cd38d4e8344ae8cac4755f, type: 2}
+  bossMinSpeed: 1
+  BossMaxSpeed: 4
   iterium: {fileID: 11400000, guid: 8b53088a70d9ce743ad163d9f22e7adc, type: 2}
   iteriumScore: 250
   iteriumXp: 25
   iteriumSfx: 0
-  iteriumChance: 40
   speedLevel1: 10
   speedLevel2: 30
   shieldLevel1: 10

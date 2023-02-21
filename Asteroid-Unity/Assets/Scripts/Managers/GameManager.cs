@@ -57,7 +57,12 @@ namespace Iterium
         [HideInInspector] public GameObject targetNpc;
         [SerializeField] int minSpeed = 3;
         [SerializeField] int maxSpeed = 7;
-       
+
+        [Header("Boss Settings")]
+        public SO_Player bossPlayer;
+        [SerializeField] int bossMinSpeed = 1;
+        [SerializeField] int BossMaxSpeed = 4;
+
 
         [Header("Iterium Settings")]
         public SO_GameObjects iterium;
@@ -102,6 +107,7 @@ namespace Iterium
             PlayerSpawner.SpawnPlayer += PlayerSpawning;
             AISpawner.SpawnAi += AiSpawning;
             NPCSpawner.SpawnNpc += NpcSpawning;
+            BossSpawner.SpawnBoss += BossSpawning;
         }
 
         private void OnDisable()
@@ -116,6 +122,12 @@ namespace Iterium
             PlayerSpawner.SpawnPlayer -= PlayerSpawning;
             AISpawner.SpawnAi -= AiSpawning;
             NPCSpawner.SpawnNpc -= NpcSpawning;
+            BossSpawner.SpawnBoss -= BossSpawning;
+        }
+
+        private void BossSpawning()
+        { 
+        
         }
 
         private void NpcSpawning(Vector3 position)
@@ -233,8 +245,9 @@ namespace Iterium
         #endregion
 
         #region General Methods
-        private new void Awake()
+        override protected void Awake()
         {
+            base.Awake(); 
             //Init gameObjects
             playerSpawner = new GameObject().transform;
             aiSpawner = new GameObject().transform;
