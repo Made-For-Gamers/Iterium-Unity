@@ -59,8 +59,8 @@ namespace Iterium
         [Header("NPC Settings")]
         public SO_Player npcPlayer;
         [HideInInspector] public GameObject targetNpc;
-        [SerializeField] int minSpeed = 3;
-        [SerializeField] int maxSpeed = 7;
+        [SerializeField] int minSpeedNpc = 3;
+        [SerializeField] int maxSpeedNpc = 7;
 
         [Header("Boss Settings")]
         public SO_Player bossPlayer;
@@ -158,7 +158,7 @@ namespace Iterium
                 ship.transform.Rotate(Vector3.zero);
             }
 
-            npcSpeed = Random.Range(minSpeed, maxSpeed);
+            npcSpeed = Random.Range(minSpeedNpc, maxSpeedNpc);
             ship.GetComponent<Rigidbody>().velocity = ship.transform.forward * npcSpeed;
             targetNpc = ship;
         }
@@ -556,8 +556,7 @@ namespace Iterium
         {
             SaveGame();
             if (Application.platform == RuntimePlatform.WebGLPlayer)
-            {
-                //Application.ExternalEval("window.open('https://mfg.gg','_self')");
+            {             
                 OpenURL("https://mfg.gg");
             }
             else
