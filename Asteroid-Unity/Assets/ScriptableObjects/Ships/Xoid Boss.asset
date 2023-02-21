@@ -15,12 +15,11 @@ MonoBehaviour:
   shipName: Xoid
   description: 
   image: {fileID: 0}
-  faction: {fileID: 0}
   shieldPower: 2
   shieldCooldown: 10
   shieldTime: 5
   thrust: 500
   turnSpeed: 100
   bullet: {fileID: 11400000, guid: efd5c5543c0ed284295587f75af9a1a6, type: 2}
-  shipPrefab: {fileID: 1905784828285053549, guid: 4573ccc1d6fd47e4695ae8516c169a71,
+  shipPrefab: {fileID: 2352914202424645838, guid: 85c7d2e7048e33b43b9d9c487538aec2,
     type: 3}

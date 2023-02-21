@@ -9,17 +9,18 @@ namespace Iterium
         // Invoke boss spawn event for GameManager
 
         [Header("Spawning")]
-        [SerializeField] int spawnInterval = 5;
-        public static event Action SpawnBoss;
+        [SerializeField] int spawnInterval = 120;
+        [SerializeField] int spawnStartDelay = 120;
+        public static event Action<Vector3> SpawnBoss;
 
         private void Start()
         {
-            InvokeRepeating("Bossspawn", spawnInterval, spawnInterval);
+            InvokeRepeating("BossSpawn", spawnStartDelay, spawnInterval);
         }
 
         private void BossSpawn()
         {
-            SpawnBoss.Invoke();
+            SpawnBoss.Invoke(transform.position);
         }
     }
 }

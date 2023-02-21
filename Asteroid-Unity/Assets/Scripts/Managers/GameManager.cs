@@ -2,7 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static UnityEngine.GraphicsBuffer;
+using System.Runtime.InteropServices;
 
 namespace Iterium
 {
@@ -11,6 +11,9 @@ namespace Iterium
     public class GameManager : Singleton<GameManager>
     {
         #region Variables
+
+        [DllImport("__Internal")]
+        private static extern void OpenURL(string url);
 
         [Header("Faction Upgrade Scenes")]
 #if UNITY_EDITOR
@@ -61,9 +64,6 @@ namespace Iterium
 
         [Header("Boss Settings")]
         public SO_Player bossPlayer;
-        [SerializeField] int bossMinSpeed = 1;
-        [SerializeField] int BossMaxSpeed = 4;
-
 
         [Header("Iterium Settings")]
         public SO_GameObjects iterium;
@@ -109,6 +109,7 @@ namespace Iterium
             AISpawner.SpawnAi += AiSpawning;
             NPCSpawner.SpawnNpc += NpcSpawning;
             BossSpawner.SpawnBoss += BossSpawning;
+            BossController.BossDestroy += BossDestroy;
         }
 
         private void OnDisable()
@@ -126,9 +127,16 @@ namespace Iterium
             BossSpawner.SpawnBoss -= BossSpawning;
         }
 
-        private void BossSpawning()
-        { 
-        
+        private void BossSpawning(Vector3 position)
+        {
+            GameObject boss = Instantiate(bossPlayer.Faction.Ship.ShipPrefab);
+            boss.transform.position = position;
+            SoundManager.Instance.MusicPitch(1.3f);
+        }
+
+        private void BossDestroy()
+        {
+            SoundManager.Instance.MusicPitch(1);
         }
 
         private void NpcSpawning(Vector3 position)
@@ -549,7 +557,8 @@ namespace Iterium
             SaveGame();
             if (Application.platform == RuntimePlatform.WebGLPlayer)
             {
-                Application.ExternalEval("window.open('https://mfg.gg','_self')");
+                //Application.ExternalEval("window.open('https://mfg.gg','_self')");
+                OpenURL("https://mfg.gg");
             }
             else
             {

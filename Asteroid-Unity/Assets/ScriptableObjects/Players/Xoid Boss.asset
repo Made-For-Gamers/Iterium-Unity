@@ -19,7 +19,7 @@ MonoBehaviour:
   xpCollected: 0
   level: 1
   score: 0
-  faction: {fileID: 11400000, guid: abf9b3b698f041c4eb70d61f567ae4f3, type: 2}
+  faction: {fileID: 11400000, guid: 52467011e36d0474280a02562b5727dc, type: 2}
   health: 100
   iterium: 0
   iteriumCollected: 0

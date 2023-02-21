@@ -112,6 +112,11 @@ namespace Iterium
             }
         }
 
+        public void MusicPitch(float pitch)
+        {
+            audiosourceMusic.pitch = pitch;
+        }
+
         //Return an unused audio source
         private AudioSource GetAudioSourceSfx()
         {

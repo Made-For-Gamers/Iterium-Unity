@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef446240436fd92488493614ee60a2a3, type: 3}
   m_Name: CharXoidBoss
   m_EditorClassIdentifier: 
-  id: xoid
-  charName: Star Master Xakkha
+  id: xoidBoss
+  charName: Star Commander Xakis
   description: 
   image: {fileID: 0}
   country: Planet Xena
   flag: {fileID: 0}
-  ship: {fileID: 11400000, guid: 28ec4a4cf4b12d34ea5ac8f3b6954881, type: 2}
+  ship: {fileID: 11400000, guid: 851ca48477163ad46a44c7dbc36e9a2b, type: 2}

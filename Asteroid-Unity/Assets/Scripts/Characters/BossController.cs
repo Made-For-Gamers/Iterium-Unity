@@ -4,27 +4,29 @@ using Random = UnityEngine.Random;
 
 namespace Iterium
 {
-    /// <summary>
-    /// NPC ship script that handles...
-    /// * Firing (rate, target)
-    /// * De-spawn when leaving the screen
-    /// </summary>
-
-    public class NPCController : MonoBehaviour, IDamage
+    public class BossController : MonoBehaviour
     {
-        [Header("Bullet")]
+        [Header("Boss Settings")]
+        [SerializeField] private float minSpeed;
+        [SerializeField] private float maxSpeed;
         [SerializeField] private float fireDelay = 2f;
-        [SerializeField] private float fireInterval = 0.4f;
+        [SerializeField] private float fireInterval = 0.5f;
 
-        public static event Action<string> NpcDamage;
+        private float speed;
         private int target;
+        public static event Action BossDestroy;
 
         private void Start()
         {
+            speed = Random.Range(minSpeed, maxSpeed);
             InvokeRepeating("Fire", fireDelay, fireInterval);
         }
 
-        //Fire
+        void Update()
+        {
+            transform.Translate(-Vector3.forward * speed * Time.deltaTime);
+        }
+
         private void Fire()
         {
             GameObject bullet = BulletPooling.bulletPoolNpc.Get();
@@ -57,23 +59,11 @@ namespace Iterium
             }
 
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Faction.Ship.Bullet.Speed;
-
-            //Increase NPC velocity if ship speed becomes too slow
-            if (transform.GetComponent<Rigidbody>().velocity.x <= 2f)
-            {
-                transform.GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(-6, 7), 0, Random.Range(-6, 7));
-            }
         }
 
-        public void Damage(float firePower, string attacker)
-        {
-            NpcDamage.Invoke(attacker);
-            DestroyShip();
-        }
-
-        //Destroy NPC when leaving the screen
         private void OnBecameInvisible()
-        {          
+        {
+            BossDestroy.Invoke();
             DestroyShip();
         }
 
