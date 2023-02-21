@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.GraphicsBuffer;
 
 namespace Iterium
 {
@@ -83,8 +84,8 @@ namespace Iterium
         [HideInInspector] public SaveData saveDataAi = new SaveData();
 
         //Spawn points
-        [HideInInspector] public Transform playerSpawner;
-        [HideInInspector] public Transform aiSpawner;
+        [HideInInspector] public Vector3 playerSpawner;
+        [HideInInspector] public Vector3 aiSpawner;
 
         //Private
         private FileSaveHandler fileSaveHandler;
@@ -157,13 +158,13 @@ namespace Iterium
 
         private void PlayerSpawning(Vector2 pos, float delay)
         {
-            playerSpawner.position = pos;
+            playerSpawner = pos;
             SpawnPlayer(delay);
         }
 
         private void AiSpawning(Vector2 pos, float delay)
         {
-            aiSpawner.position = pos;
+            aiSpawner = pos;
             SpawnAi(delay);
         }
 
@@ -245,20 +246,12 @@ namespace Iterium
         #endregion
 
         #region General Methods
-        override protected void Awake()
-        {
-            base.Awake(); 
-            //Init gameObjects
-            playerSpawner = new GameObject().transform;
-            aiSpawner = new GameObject().transform;
-        }
-
+      
         private void Start()
         {
             //Load Game Save
             fileSaveHandler = new FileSaveHandler(Application.persistentDataPath);
             LoadGame();
-
             //Event subscriptions
             player.onChange_bulletLvl.AddListener(BulletLvlChanged);
             player.onChange_shieldLvl.AddListener(ShieldLvlChanged);
@@ -365,7 +358,7 @@ namespace Iterium
             {
                 targetPlayer = Instantiate(Instance.player.Faction.Ship.ShipPrefab);
                 targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
-                targetPlayer.transform.rotation = playerSpawner.rotation;
+                targetPlayer.transform.RotateAround(targetPlayer.transform.position, Vector3.up, 90);
                 targetPlayer.transform.name = "Player";
                 targetPlayer.transform.tag = "Player";
                 player.Health = 100;
@@ -389,7 +382,6 @@ namespace Iterium
                 Destroy(targetAi.GetComponent<InputManager>());
                 targetAi.AddComponent<AIController>();
                 targetAi.transform.position = RandomScreenPosition(aiSpawner);
-                targetAi.transform.rotation = aiSpawner.rotation;
                 targetAi.transform.name = "AI";
                 targetAi.transform.tag = "AI";
                 aiPlayer.Health = 100;
@@ -397,11 +389,11 @@ namespace Iterium
         }
 
         //Get a random position near a spawn point for a ship to re-spawn
-        public Vector3 RandomScreenPosition(Transform spawnPoint)
+        public Vector3 RandomScreenPosition(Vector3 spawnPoint)
         {
             float x = Random.Range(-4f, 4f);
             float z = Random.Range(-6f, 6f);
-            Vector3 position = new Vector3(spawnPoint.position.x + x, 0, spawnPoint.position.z + z);
+            Vector3 position = new Vector3(spawnPoint.x + x, 0, spawnPoint.z + z);
             return position;
         }
 
