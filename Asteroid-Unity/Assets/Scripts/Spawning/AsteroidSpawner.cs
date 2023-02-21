@@ -14,7 +14,7 @@ namespace Iterium
         [SerializeField] private bool spawnOnceOnly;
         [SerializeField] private GameObject target; //asteroids move towards this scene target
 
-        private float speed;
+        [SerializeField] private float speed;
 
         private void Start()
         {

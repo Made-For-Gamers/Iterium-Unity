@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Iterium
@@ -6,12 +7,12 @@ namespace Iterium
 
     public class AISpawner : MonoBehaviour
     {
-        float spawnTime = 5f;
+        [SerializeField] private float spawnTime = 5f;
+        public static event Action<Vector2, float> SpawnAi;
 
         private void Start()
         {
-            GameManager.Instance.aiSpawner = gameObject.transform;
-            GameManager.Instance.SpawnAi(spawnTime);
+            SpawnAi.Invoke(transform.position, spawnTime);
         }
     }
 }

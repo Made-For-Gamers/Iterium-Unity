@@ -55,6 +55,9 @@ namespace Iterium
         [Header("NPC Settings")]
         public SO_Player npcPlayer;
         [HideInInspector] public GameObject targetNpc;
+        [SerializeField] int minSpeed = 3;
+        [SerializeField] int maxSpeed = 7;
+       
 
         [Header("Iterium Settings")]
         public SO_GameObjects iterium;
@@ -80,11 +83,13 @@ namespace Iterium
 
         //Private
         private FileSaveHandler fileSaveHandler;
-        private int curretAiFaction;
+        private int curretAiFaction; 
+        private int npcSpeed;
 
         #endregion
 
-        #region General Methods
+        #region Event Subscriptions
+
         private void OnEnable()
         {
             //Events
@@ -94,6 +99,9 @@ namespace Iterium
             Asteroid.AsteroidDamage += AsteroidDamage;
             Asteroid.DropIterium += DropIterium;
             Iterium.CollectIterium += CollectIterium;
+            PlayerSpawner.SpawnPlayer += PlayerSpawning;
+            AISpawner.SpawnAi += AiSpawning;
+            NPCSpawner.SpawnNpc += NpcSpawning;
         }
 
         private void OnDisable()
@@ -105,6 +113,46 @@ namespace Iterium
             Asteroid.AsteroidDamage -= AsteroidDamage;
             Asteroid.DropIterium -= DropIterium;
             Iterium.CollectIterium -= CollectIterium;
+            PlayerSpawner.SpawnPlayer -= PlayerSpawning;
+            AISpawner.SpawnAi -= AiSpawning;
+            NPCSpawner.SpawnNpc -= NpcSpawning;
+        }
+
+        private void NpcSpawning(Vector3 position)
+        {
+            GameObject ship = Instantiate(npcPlayer.Faction.Ship.ShipPrefab);
+            ship.transform.position = position;
+
+            //Target player first, or then AI, or then center of screen
+            if (targetPlayer.gameObject)
+            {
+                ship.transform.LookAt(targetPlayer.transform);
+            }
+            else if (targetAi.gameObject)
+            {
+                ship.transform.LookAt(targetAi.transform);
+            }
+            else
+            {
+                ship.transform.Rotate(Vector3.zero);
+            }
+
+            npcSpeed = Random.Range(minSpeed, maxSpeed);
+            ship.GetComponent<Rigidbody>().velocity = ship.transform.forward * npcSpeed;
+            targetNpc = ship;
+        }
+
+
+        private void PlayerSpawning(Vector2 pos, float delay)
+        {
+            playerSpawner.position = pos;
+            SpawnPlayer(delay);
+        }
+
+        private void AiSpawning(Vector2 pos, float delay)
+        {
+            aiSpawner.position = pos;
+            SpawnAi(delay);
         }
 
         private void CollectIterium(string collector)
@@ -180,6 +228,16 @@ namespace Iterium
                     aiPlayer.XpCollected += 10;
                     break;
             }
+        }
+
+        #endregion
+
+        #region General Methods
+        private new void Awake()
+        {
+            //Init gameObjects
+            playerSpawner = new GameObject().transform;
+            aiSpawner = new GameObject().transform;
         }
 
         private void Start()

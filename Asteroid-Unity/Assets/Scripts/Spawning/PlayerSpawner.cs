@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Iterium
@@ -6,12 +7,12 @@ namespace Iterium
 
     public class PlayerSpawner : MonoBehaviour
     {
-        float spawnTime = 5f;
+        [SerializeField] private float spawnTime = 5f;
+        public static event Action<Vector2, float> SpawnPlayer;
 
         private void Start()
         {
-            GameManager.Instance.playerSpawner = gameObject.transform;
-            GameManager.Instance.SpawnPlayer(spawnTime);
+            SpawnPlayer.Invoke(transform.position, spawnTime);
         }
     }
 }
