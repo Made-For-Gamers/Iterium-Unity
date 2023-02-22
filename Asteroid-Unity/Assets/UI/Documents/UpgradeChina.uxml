@@ -29,7 +29,7 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="upgrade" style="margin-left: 70px;">
-                                <ui:Button text="THRUST" display-tooltip-when-elided="true" name="thrustUpgrade" class="button" style="-unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;); margin-top: 100px;" />
+                                <ui:Button text="THRUST" display-tooltip-when-elided="true" name="thrustUpgrade" class="button" style="margin-top: 100px;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
@@ -54,7 +54,7 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="upgrade" style="margin-left: 70px;">
-                                <ui:Button text="SHIELDS" display-tooltip-when-elided="true" name="shieldUpgrade" class="button" style="-unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;); margin-top: 100px;" />
+                                <ui:Button text="SHIELDS" display-tooltip-when-elided="true" name="shieldUpgrade" class="button" style="margin-top: 100px;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>
@@ -79,7 +79,7 @@
                                 </ui:VisualElement>
                             </ui:VisualElement>
                             <ui:VisualElement name="upgrade" style="margin-left: 70px;">
-                                <ui:Button text="FIREPOWER" display-tooltip-when-elided="true" name="firepowerUpgrade" class="button" style="-unity-font: url(&apos;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=0fb1fb9ef5333cd4699faacf74123412&amp;type=3#NotInter-Regular&apos;); margin-top: 100px;" />
+                                <ui:Button text="FIREPOWER" display-tooltip-when-elided="true" name="firepowerUpgrade" class="button" style="margin-top: 100px;" />
                             </ui:VisualElement>
                         </ui:VisualElement>
                     </ui:VisualElement>

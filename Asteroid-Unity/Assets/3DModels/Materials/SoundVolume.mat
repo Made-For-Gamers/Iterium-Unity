@@ -47,6 +47,7 @@ Material:
     - _NoiseRotaionSpeed: 500
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _SparkleOffset: 0.19
     - _WavHight: 1
     - _Wave2Hight: 1
     - _wavnumbr: 41.9
@@ -54,6 +55,7 @@ Material:
     m_Colors:
     - _Color: {r: 2, g: 1.280107, b: 0.02094245, a: 0}
     - _Color_1: {r: 4, g: 0, b: 0, a: 0}
+    - _NoiseScale: {r: 2000, g: 2000, b: 0, a: 0}
     - _NosieScale: {r: 2000, g: 2000, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1236934996082702384
