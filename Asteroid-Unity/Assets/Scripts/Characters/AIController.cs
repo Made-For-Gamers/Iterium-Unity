@@ -31,6 +31,7 @@ namespace Iterium
         private Rigidbody rigidBody;
         private int shots;
         private int target; // 0 = Dont fire / 1 = Player / 2 = NPC / 3 = Boss
+        private int rnd;
 
         public static event Action AiDamage;
 
@@ -92,35 +93,42 @@ namespace Iterium
             //New decision round - attack Player/NPC/Boss or stop firing
             if (shots == 0)
             {
-                //Who is on the screen 
-                if (!GameManager.Instance.targetNpc.gameObject && !GameManager.Instance.targetBoss.gameObject)
+                target = 0;
+
+                //Decide on a target
+                do
                 {
-                    target = 1;
-                }
-                else if (GameManager.Instance.targetNpc.gameObject && GameManager.Instance.targetBoss.gameObject)
-                {
-                    int rnd = Random.Range(1, 3);
-                    if (rnd == 1)
+                    if (!GameManager.Instance.targetNpc.gameObject && !GameManager.Instance.targetBoss.gameObject)
                     {
-                        target = 2;
+                        target = 1;
                     }
                     else
                     {
-                        target = 3;
+                        rnd = Random.Range(1, 4);
+                        switch (rnd)
+                        {
+                            case 1:
+                                if (GameManager.Instance.targetPlayer.gameObject)
+                                {
+                                    target = 1;
+                                }
+                                break;
+                            case 2:
+                                if (GameManager.Instance.targetNpc.gameObject)
+                                {
+                                    target = 2;
+                                }
+                                break;
+                            case 3:
+                                if (GameManager.Instance.targetBoss.gameObject)
+                                {
+                                    target = 3;
+                                }
+                                break;
+                        }
                     }
                 }
-                else if (GameManager.Instance.targetNpc.gameObject)
-                {
-                    target = 2;
-                }
-                else if (GameManager.Instance.targetBoss.gameObject)
-                {
-                    target = 3;
-                }
-                else
-                {
-                    target = 0;
-                }
+                while (target == 0);
             }
 
             if (target > 0)
@@ -150,8 +158,10 @@ namespace Iterium
                 {
                     //reset decision round
                     shots = 0;
+                    print("reset decision");
                 }
             }
+
         }
 
         //Thrust
