@@ -312,7 +312,7 @@ MonoBehaviour:
   minSpeed: 0.6
   maxSpeed: 1
   fireDelay: 2
-  fireInterval: 0.5
+  fireInterval: 0.3
 --- !u!1 &6869844894135195733
 GameObject:
   m_ObjectHideFlags: 0

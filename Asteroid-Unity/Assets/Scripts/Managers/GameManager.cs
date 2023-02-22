@@ -12,6 +12,7 @@ namespace Iterium
     {
         #region Variables
 
+        //Plugin function - open a webpage in the current browser
         [DllImport("__Internal")]
         private static extern void OpenURL(string url);
 
@@ -63,7 +64,8 @@ namespace Iterium
         [SerializeField] int maxSpeedNpc = 7;
 
         [Header("Boss Settings")]
-        public SO_Player bossPlayer;
+        [SerializeField] private SO_Player bossPlayer;
+        [HideInInspector] public GameObject targetBoss;
 
         [Header("Iterium Settings")]
         public SO_GameObjects iterium;
@@ -110,6 +112,7 @@ namespace Iterium
             NPCSpawner.SpawnNpc += NpcSpawning;
             BossSpawner.SpawnBoss += BossSpawning;
             BossController.BossDestroy += BossDestroy;
+            BossController.BossDamage += BossDamage;
         }
 
         private void OnDisable()
@@ -125,18 +128,36 @@ namespace Iterium
             AISpawner.SpawnAi -= AiSpawning;
             NPCSpawner.SpawnNpc -= NpcSpawning;
             BossSpawner.SpawnBoss -= BossSpawning;
+            BossController.BossDestroy -= BossDestroy;
+            BossController.BossDamage -= BossDamage;
         }
 
         private void BossSpawning(Vector3 position)
         {
-            GameObject boss = Instantiate(bossPlayer.Faction.Ship.ShipPrefab);
-            boss.transform.position = position;
+            targetBoss = Instantiate(bossPlayer.Faction.Ship.ShipPrefab);
+            targetBoss.transform.position = position;
             SoundManager.Instance.MusicPitch(1.3f);
         }
 
         private void BossDestroy()
         {
             SoundManager.Instance.MusicPitch(1);
+        }
+
+        private void BossDamage(string attacker)
+        {
+            SoundManager.Instance.PlayEffect(1);
+            switch (attacker)
+            {
+                case "player":
+                    player.Score += 800;
+                    player.XpCollected += 50;
+                    break;
+                case "ai":
+                    aiPlayer.Score += 800;
+                    aiPlayer.XpCollected += 50;
+                    break;
+            }
         }
 
         private void NpcSpawning(Vector3 position)

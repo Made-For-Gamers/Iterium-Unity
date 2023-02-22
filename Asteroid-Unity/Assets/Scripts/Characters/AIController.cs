@@ -21,7 +21,7 @@ namespace Iterium
         [SerializeField] private float fireDelay = 2f;
         [SerializeField] private float fireInterval = 0.6f;
         [SerializeField] private float warpInterval = 15f;
-        [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a targeting descition round
+        [SerializeField] private int decisionCycle = 3; //Number of bullets to fire in a targeting decision round
 
         private Transform firePosition;
         private GameObject shield;
@@ -30,7 +30,7 @@ namespace Iterium
         private bool isThrusting;
         private Rigidbody rigidBody;
         private int shots;
-        private bool attackNPC;
+        private int target; // 0 = Dont fire / 1 = Player / 2 = NPC / 3 = Boss
 
         public static event Action AiDamage;
 
@@ -58,49 +58,88 @@ namespace Iterium
         //AI Ship targeting, either the player or NPC
         private void Rotate()
         {
-            if (attackNPC && GameManager.Instance.targetNpc.gameObject)
+            if (target == 1 && GameManager.Instance.targetPlayer.gameObject)
+            {
+                transform.LookAt(GameManager.Instance.targetPlayer.transform);
+            }
+            else if (target == 2 && GameManager.Instance.targetNpc.gameObject)
             {
                 transform.LookAt(GameManager.Instance.targetNpc.transform);
             }
-            else if (GameManager.Instance.targetPlayer.gameObject)
+            else if (target == 3 && GameManager.Instance.targetBoss.gameObject)
             {
-                transform.LookAt(GameManager.Instance.targetPlayer.transform);
+                transform.LookAt(GameManager.Instance.targetBoss.transform);
             }
         }
 
         //Firing
         private void Fire()
         {
-            if (!GameManager.Instance.targetNpc.gameObject)
+            //Check if current target is destoryed then reset descision cycle
+            if (target == 1 && !GameManager.Instance.targetPlayer.gameObject)
             {
-                attackNPC = false;
+                shots = 0;
             }
-            if (GameManager.Instance.targetPlayer.gameObject || GameManager.Instance.targetNpc.gameObject)
+            else if (target == 2 && !GameManager.Instance.targetNpc.gameObject)
             {
-                GameObject bullet = BulletPooling.bulletPoolAi.Get();
-                bullet.transform.position = firePosition.position;
+                shots = 0;
+            }
+            else if (target == 3 && !GameManager.Instance.targetBoss.gameObject)
+            {
+                shots = 0;
+            }
 
-                //New descition round - attack NPC or not?
-                if (attackNPC == false && shots == 0 && GameManager.Instance.targetNpc.gameObject)
+            //New decision round - attack Player/NPC/Boss or stop firing
+            if (shots == 0)
+            {
+                //Who is on the screen 
+                if (!GameManager.Instance.targetNpc.gameObject && !GameManager.Instance.targetBoss.gameObject)
+                {
+                    target = 1;
+                }
+                else if (GameManager.Instance.targetNpc.gameObject && GameManager.Instance.targetBoss.gameObject)
                 {
                     int rnd = Random.Range(1, 3);
                     if (rnd == 1)
                     {
-                        attackNPC = true;
+                        target = 2;
+                    }
+                    else
+                    {
+                        target = 3;
                     }
                 }
-
-                if (attackNPC) //Point bullet towards NPC, else the player
+                else if (GameManager.Instance.targetNpc.gameObject)
                 {
-                    bullet.transform.LookAt(GameManager.Instance.targetNpc.transform);
+                    target = 2;
                 }
-                else if (GameManager.Instance.targetPlayer.gameObject) 
+                else if (GameManager.Instance.targetBoss.gameObject)
                 {
-                    bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
+                    target = 3;
                 }
                 else
                 {
-                    bullet.transform.Rotate(Vector3.zero);
+                    target = 0;
+                }
+            }
+
+            if (target > 0)
+            {
+                GameObject bullet = BulletPooling.bulletPoolAi.Get();
+                bullet.transform.position = firePosition.position;
+
+                //Point bullet towards target
+                if (target == 1 && GameManager.Instance.targetPlayer.gameObject)
+                {
+                    bullet.transform.LookAt(GameManager.Instance.targetPlayer.transform);
+                }
+                else if (target == 2 && GameManager.Instance.targetNpc.gameObject)
+                {
+                    bullet.transform.LookAt(GameManager.Instance.targetNpc.transform);
+                }
+                else if (target == 3 && GameManager.Instance.targetBoss.gameObject)
+                {
+                    bullet.transform.LookAt(GameManager.Instance.targetBoss.transform);
                 }
 
                 bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * (GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed + ((GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Speed / 5) * GameManager.Instance.aiPlayer.BulletLvl));
@@ -109,12 +148,8 @@ namespace Iterium
 
                 if (shots >= decisionCycle)
                 {
-                    //reset descition round
+                    //reset decision round
                     shots = 0;
-                    if (attackNPC)
-                    {
-                        attackNPC = false;
-                    }
                 }
             }
         }
@@ -153,7 +188,7 @@ namespace Iterium
 
         private void Warp()
         {
-            int rnd = Random.Range(1,3);
+            int rnd = Random.Range(1, 3);
             if (rnd == 1)
             {
                 transform.position = GameManager.Instance.RandomScreenPosition(GameManager.Instance.aiSpawner);
@@ -213,7 +248,7 @@ namespace Iterium
         }
 
 
-       //Wrap ship to opposite side of the screen when exiting
+        //Wrap ship to opposite side of the screen when exiting
         private void OnBecameInvisible()
         {
             if (gameObject.activeSelf)

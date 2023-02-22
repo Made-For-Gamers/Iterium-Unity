@@ -2293,6 +2293,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6442042656117237718, guid: c2a4ef8be6765264aaa009d52b75d197,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2a4ef8be6765264aaa009d52b75d197, type: 3}
 --- !u!1001 &7545132595387661451

@@ -4,16 +4,19 @@ using Random = UnityEngine.Random;
 
 namespace Iterium
 {
-    public class BossController : MonoBehaviour
+    public class BossController : MonoBehaviour, IDamage
     {
         [Header("Boss Settings")]
-        [SerializeField] private float minSpeed;
-        [SerializeField] private float maxSpeed;
+        [SerializeField] private float minSpeed = 0.6f;
+        [SerializeField] private float maxSpeed = 1f;
         [SerializeField] private float fireDelay = 2f;
-        [SerializeField] private float fireInterval = 0.5f;
+        [SerializeField] private float fireInterval = 0.3f;
 
         private float speed;
         private int target;
+
+        //Events
+        public static event Action<string> BossDamage; 
         public static event Action BossDestroy;
 
         private void Start()
@@ -59,6 +62,11 @@ namespace Iterium
             }
 
             bullet.GetComponent<Rigidbody>().velocity = bullet.transform.forward * GameManager.Instance.npcPlayer.Faction.Ship.Bullet.Speed;
+        }
+
+        public void Damage(float firePower, string attacker)
+        {
+            BossDamage.Invoke(attacker);
         }
 
         private void OnBecameInvisible()
