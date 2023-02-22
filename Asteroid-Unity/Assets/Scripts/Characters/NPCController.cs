@@ -14,7 +14,7 @@ namespace Iterium
     {
         [Header("Bullet")]
         [SerializeField] private float fireDelay = 2f;
-        [SerializeField] private float fireInterval = 0.5f;
+        [SerializeField] private float fireInterval = 0.4f;
 
         public static event Action<string> NpcDamage;
         private int target;
@@ -73,7 +73,7 @@ namespace Iterium
 
         //Destroy NPC when leaving the screen
         private void OnBecameInvisible()
-        {
+        {          
             DestroyShip();
         }
 

@@ -10,6 +10,7 @@ TagManager:
   - AI
   - Bullet
   - BaseCamera
+  - Boss
   layers:
   - Default
   - TransparentFX

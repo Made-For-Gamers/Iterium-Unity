@@ -11,4 +11,8 @@ mergeInto(LibraryManager.library,
     {
         window.alert(Pointer_stringify(message));
     },
+
+    OpenURL: function (url) {
+    window.open(Pointer_stringify(url), '_self');
+    }
 });

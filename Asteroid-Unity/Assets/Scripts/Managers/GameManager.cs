@@ -2,6 +2,7 @@ using System.Collections;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 namespace Iterium
 {
@@ -10,6 +11,9 @@ namespace Iterium
     public class GameManager : Singleton<GameManager>
     {
         #region Variables
+
+        [DllImport("__Internal")]
+        private static extern void OpenURL(string url);
 
         [Header("Faction Upgrade Scenes")]
 #if UNITY_EDITOR
@@ -55,9 +59,11 @@ namespace Iterium
         [Header("NPC Settings")]
         public SO_Player npcPlayer;
         [HideInInspector] public GameObject targetNpc;
-        [SerializeField] int minSpeed = 3;
-        [SerializeField] int maxSpeed = 7;
-       
+        [SerializeField] int minSpeedNpc = 3;
+        [SerializeField] int maxSpeedNpc = 7;
+
+        [Header("Boss Settings")]
+        public SO_Player bossPlayer;
 
         [Header("Iterium Settings")]
         public SO_GameObjects iterium;
@@ -78,8 +84,8 @@ namespace Iterium
         [HideInInspector] public SaveData saveDataAi = new SaveData();
 
         //Spawn points
-        [HideInInspector] public Transform playerSpawner;
-        [HideInInspector] public Transform aiSpawner;
+        [HideInInspector] public Vector3 playerSpawner;
+        [HideInInspector] public Vector3 aiSpawner;
 
         //Private
         private FileSaveHandler fileSaveHandler;
@@ -102,6 +108,8 @@ namespace Iterium
             PlayerSpawner.SpawnPlayer += PlayerSpawning;
             AISpawner.SpawnAi += AiSpawning;
             NPCSpawner.SpawnNpc += NpcSpawning;
+            BossSpawner.SpawnBoss += BossSpawning;
+            BossController.BossDestroy += BossDestroy;
         }
 
         private void OnDisable()
@@ -116,6 +124,19 @@ namespace Iterium
             PlayerSpawner.SpawnPlayer -= PlayerSpawning;
             AISpawner.SpawnAi -= AiSpawning;
             NPCSpawner.SpawnNpc -= NpcSpawning;
+            BossSpawner.SpawnBoss -= BossSpawning;
+        }
+
+        private void BossSpawning(Vector3 position)
+        {
+            GameObject boss = Instantiate(bossPlayer.Faction.Ship.ShipPrefab);
+            boss.transform.position = position;
+            SoundManager.Instance.MusicPitch(1.3f);
+        }
+
+        private void BossDestroy()
+        {
+            SoundManager.Instance.MusicPitch(1);
         }
 
         private void NpcSpawning(Vector3 position)
@@ -137,7 +158,7 @@ namespace Iterium
                 ship.transform.Rotate(Vector3.zero);
             }
 
-            npcSpeed = Random.Range(minSpeed, maxSpeed);
+            npcSpeed = Random.Range(minSpeedNpc, maxSpeedNpc);
             ship.GetComponent<Rigidbody>().velocity = ship.transform.forward * npcSpeed;
             targetNpc = ship;
         }
@@ -145,13 +166,13 @@ namespace Iterium
 
         private void PlayerSpawning(Vector2 pos, float delay)
         {
-            playerSpawner.position = pos;
+            playerSpawner = pos;
             SpawnPlayer(delay);
         }
 
         private void AiSpawning(Vector2 pos, float delay)
         {
-            aiSpawner.position = pos;
+            aiSpawner = pos;
             SpawnAi(delay);
         }
 
@@ -233,19 +254,12 @@ namespace Iterium
         #endregion
 
         #region General Methods
-        private new void Awake()
-        {
-            //Init gameObjects
-            playerSpawner = new GameObject().transform;
-            aiSpawner = new GameObject().transform;
-        }
-
+      
         private void Start()
         {
             //Load Game Save
             fileSaveHandler = new FileSaveHandler(Application.persistentDataPath);
             LoadGame();
-
             //Event subscriptions
             player.onChange_bulletLvl.AddListener(BulletLvlChanged);
             player.onChange_shieldLvl.AddListener(ShieldLvlChanged);
@@ -352,7 +366,7 @@ namespace Iterium
             {
                 targetPlayer = Instantiate(Instance.player.Faction.Ship.ShipPrefab);
                 targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
-                targetPlayer.transform.rotation = playerSpawner.rotation;
+                targetPlayer.transform.RotateAround(targetPlayer.transform.position, Vector3.up, 90);
                 targetPlayer.transform.name = "Player";
                 targetPlayer.transform.tag = "Player";
                 player.Health = 100;
@@ -376,7 +390,6 @@ namespace Iterium
                 Destroy(targetAi.GetComponent<InputManager>());
                 targetAi.AddComponent<AIController>();
                 targetAi.transform.position = RandomScreenPosition(aiSpawner);
-                targetAi.transform.rotation = aiSpawner.rotation;
                 targetAi.transform.name = "AI";
                 targetAi.transform.tag = "AI";
                 aiPlayer.Health = 100;
@@ -384,11 +397,11 @@ namespace Iterium
         }
 
         //Get a random position near a spawn point for a ship to re-spawn
-        public Vector3 RandomScreenPosition(Transform spawnPoint)
+        public Vector3 RandomScreenPosition(Vector3 spawnPoint)
         {
             float x = Random.Range(-4f, 4f);
             float z = Random.Range(-6f, 6f);
-            Vector3 position = new Vector3(spawnPoint.position.x + x, 0, spawnPoint.position.z + z);
+            Vector3 position = new Vector3(spawnPoint.x + x, 0, spawnPoint.z + z);
             return position;
         }
 
@@ -543,8 +556,8 @@ namespace Iterium
         {
             SaveGame();
             if (Application.platform == RuntimePlatform.WebGLPlayer)
-            {
-                Application.ExternalEval("window.open('https://mfg.gg','_self')");
+            {             
+                OpenURL("https://mfg.gg");
             }
             else
             {
