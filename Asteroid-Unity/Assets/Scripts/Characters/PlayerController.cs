@@ -118,6 +118,7 @@ namespace Iterium
             }
         }
 
+        //Warp Player to new random position near spawn point
         private void Warp()
         {
             if (input.isWarping)

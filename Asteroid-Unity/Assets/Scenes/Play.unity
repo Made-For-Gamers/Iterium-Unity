@@ -2127,7 +2127,7 @@ PrefabInstance:
     - target: {fileID: 5589843235130775552, guid: 95ee9ef301b4885429de2b1c8a8036f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 5589843235130775553, guid: 95ee9ef301b4885429de2b1c8a8036f1,
         type: 3}
@@ -2226,12 +2226,12 @@ PrefabInstance:
     - target: {fileID: 6442042656117237716, guid: c2a4ef8be6765264aaa009d52b75d197,
         type: 3}
       propertyPath: spawnInterval
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6442042656117237716, guid: c2a4ef8be6765264aaa009d52b75d197,
         type: 3}
       propertyPath: spawnStartDelay
-      value: 60
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 6442042656117237717, guid: c2a4ef8be6765264aaa009d52b75d197,
         type: 3}

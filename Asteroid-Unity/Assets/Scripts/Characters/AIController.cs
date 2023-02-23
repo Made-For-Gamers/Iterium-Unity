@@ -56,7 +56,7 @@ namespace Iterium
             Thrust();
         }
 
-        //AI Ship targeting, either the player or NPC
+        //Rotate towards target
         private void Rotate()
         {
             if (target == 1 && GameManager.Instance.targetPlayer.gameObject)
@@ -80,55 +80,17 @@ namespace Iterium
             if (target == 1 && !GameManager.Instance.targetPlayer.gameObject)
             {
                 shots = 0;
+                target = 0;
             }
             else if (target == 2 && !GameManager.Instance.targetNpc.gameObject)
             {
                 shots = 0;
+                target = 0;
             }
             else if (target == 3 && !GameManager.Instance.targetBoss.gameObject)
             {
                 shots = 0;
-            }
-
-            //New decision round - attack Player/NPC/Boss or stop firing
-            if (shots == 0)
-            {
                 target = 0;
-
-                //Decide on a target
-                do
-                {
-                    if (!GameManager.Instance.targetNpc.gameObject && !GameManager.Instance.targetBoss.gameObject)
-                    {
-                        target = 1;
-                    }
-                    else
-                    {
-                        rnd = Random.Range(1, 4);
-                        switch (rnd)
-                        {
-                            case 1:
-                                if (GameManager.Instance.targetPlayer.gameObject)
-                                {
-                                    target = 1;
-                                }
-                                break;
-                            case 2:
-                                if (GameManager.Instance.targetNpc.gameObject)
-                                {
-                                    target = 2;
-                                }
-                                break;
-                            case 3:
-                                if (GameManager.Instance.targetBoss.gameObject)
-                                {
-                                    target = 3;
-                                }
-                                break;
-                        }
-                    }
-                }
-                while (target == 0);
             }
 
             if (target > 0)
@@ -154,14 +116,57 @@ namespace Iterium
                 bullet.GetComponent<BulletAI>().firePower = GameManager.Instance.aiPlayer.Faction.Ship.Bullet.FirePower;
                 shots++;
 
+                //reset decision round
                 if (shots >= decisionCycle)
                 {
-                    //reset decision round
                     shots = 0;
-                    print("reset decision");
                 }
             }
 
+            //New target decision round
+            if (shots == 0)
+            {
+                //Zero target if ther is no spawned Player/NPC/Boss
+                if (!GameManager.Instance.targetNpc.gameObject && !GameManager.Instance.targetBoss.gameObject && !GameManager.Instance.targetPlayer.gameObject)
+                {
+                    target = 0;
+                }
+                //Target Player if there is no NPC/Boss
+                else if (!GameManager.Instance.targetNpc.gameObject && !GameManager.Instance.targetBoss.gameObject)
+                {
+                    target = 1;
+                }
+                //Randomly select a target if there is 2 or more characters on screen
+                else
+                {
+                    do
+                    {
+                        rnd = Random.Range(1, 4);
+                        switch (rnd)
+                        {
+                            case 1: //Player tageted
+                                if (GameManager.Instance.targetPlayer.gameObject)
+                                {
+                                    target = 1;
+                                }
+                                break;
+                            case 2: //NPC targeted
+                                if (GameManager.Instance.targetNpc.gameObject)
+                                {
+                                    target = 2;
+                                }
+                                break;
+                            case 3: //Boss targeted
+                                if (GameManager.Instance.targetBoss.gameObject)
+                                {
+                                    target = 3;
+                                }
+                                break;
+                        }
+                    }
+                    while (target == 0);
+                }
+            }
         }
 
         //Thrust
@@ -196,6 +201,7 @@ namespace Iterium
             }
         }
 
+        //Warp AI to new random position near spawn point
         private void Warp()
         {
             int rnd = Random.Range(1, 3);

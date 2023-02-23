@@ -16,7 +16,7 @@ namespace Iterium
         private int target;
 
         //Events
-        public static event Action<string> BossDamage; 
+        public static event Action<string> BossDamage;
         public static event Action BossDestroy;
 
         private void Start()
@@ -32,8 +32,10 @@ namespace Iterium
 
         private void Fire()
         {
+            //Xoid boss uses the same bullet as Xoid NPC
             GameObject bullet = BulletPooling.bulletPoolNpc.Get();
             bullet.transform.position = transform.position;
+            bullet.GetComponent<BulletNpc>().firePower = GameManager.Instance.npcPlayer.Faction.Ship.Bullet.FirePower;
             if (GameManager.Instance.targetPlayer.gameObject && GameManager.Instance.targetAi.gameObject)
             {
                 //Radomly attack player or AI

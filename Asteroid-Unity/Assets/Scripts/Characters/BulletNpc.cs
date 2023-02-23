@@ -8,6 +8,8 @@ namespace Iterium
 
     public class BulletNpc : BulletBase
     {
+        [HideInInspector] public float firePower;
+
         //NPC bullet collision
         private void OnTriggerEnter(Collider collision)
         {
@@ -15,7 +17,7 @@ namespace Iterium
             var hitObj = collision.GetComponent<IDamage>();
             if (hitObj == null) return;
             BulletExplosion(collision);
-            hitObj.Damage(50, "npc");
+            hitObj.Damage(firePower, "npc");
         }
 
         //Release bullet to pool

@@ -8,7 +8,7 @@ namespace Iterium
 
     public class BulletAI : BulletBase
     {
-        public float firePower;
+        [HideInInspector] public float firePower;
 
         //AI bullet collision
         private void OnTriggerEnter(Collider collision)

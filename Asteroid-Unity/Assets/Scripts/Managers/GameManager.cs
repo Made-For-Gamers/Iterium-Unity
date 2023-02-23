@@ -64,7 +64,7 @@ namespace Iterium
         [SerializeField] int maxSpeedNpc = 7;
 
         [Header("Boss Settings")]
-        [SerializeField] private SO_Player bossPlayer;
+        public SO_Player bossPlayer;
         [HideInInspector] public GameObject targetBoss;
 
         [Header("Iterium Settings")]

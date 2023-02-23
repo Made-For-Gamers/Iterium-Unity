@@ -11,7 +11,7 @@ namespace Iterium
     public class NPCSpawner : MonoBehaviour
     {
         [Header("Spawning")]
-        [SerializeField] int spawnInterval = 12;
+        [SerializeField] int spawnInterval = 30;
         public static event Action<Vector3> SpawnNpc;
         private Vector3 spawnPosition;
 
