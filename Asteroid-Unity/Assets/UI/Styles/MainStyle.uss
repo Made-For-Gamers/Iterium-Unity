@@ -281,11 +281,11 @@
     border-bottom-left-radius: 0;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    -unity-font: url('project://database/Assets/Fonts/manaspc%20SDF.asset?fileID=11400000&guid=629c3f4a76ff2194c96851dbc7acc335&type=2#manaspc SDF');
-    -unity-font-definition: none;
     padding-top: 10px;
     padding-bottom: 10px;
     -unity-background-image-tint-color: rgb(245, 255, 0);
+    -unity-font: url('project://database/Assets/Fonts/manaspc.ttf?fileID=12800000&guid=2f04db4312135d248a11fd7a68b136d0&type=3#manaspc');
+    -unity-font-definition: url('project://database/Assets/Fonts/manaspc%20SDF.asset?fileID=11400000&guid=629c3f4a76ff2194c96851dbc7acc335&type=2#manaspc SDF');
 }
 
 .unity-base-text-field__input {
