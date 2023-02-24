@@ -8,7 +8,7 @@ namespace Iterium
 
     public class Bullet : BulletBase
     {
-        public float firePower;
+        [HideInInspector] public float firePower;
 
         //Player bullet collision
         private void OnTriggerEnter(Collider collision)

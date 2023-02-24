@@ -64,7 +64,7 @@ namespace Iterium
         [SerializeField] int maxSpeedNpc = 7;
 
         [Header("Boss Settings")]
-        [SerializeField] private SO_Player bossPlayer;
+        public SO_Player bossPlayer;
         [HideInInspector] public GameObject targetBoss;
 
         [Header("Iterium Settings")]
@@ -221,7 +221,7 @@ namespace Iterium
         {
             SoundManager.Instance.PlayEffect(1);
             aiPlayer.Score += 500;
-            aiPlayer.XpCollected += 25;
+            aiPlayer.XpCollected += 50;
         }
 
         //Called by invoke of bulletHit event on BulletAI
@@ -229,7 +229,7 @@ namespace Iterium
         {
             SoundManager.Instance.PlayEffect(1);
             player.Score += 500;
-            player.XpCollected += 25;
+            player.XpCollected += 50;
         }
 
         private void DropIterium(Vector3 position)
@@ -245,11 +245,11 @@ namespace Iterium
             switch (attacker)
             {
                 case "player":
-                    player.Score += 2500;
+                    player.Score += 1500;
                     player.XpCollected += 100;
                     break;
                 case "ai":
-                    aiPlayer.Score += 2500;
+                    aiPlayer.Score += 1500;
                     aiPlayer.XpCollected += 100;
                     break;
             }

@@ -29,6 +29,7 @@ namespace Iterium
         {
             GameObject bullet = BulletPooling.bulletPoolNpc.Get();
             bullet.transform.position = transform.position;
+            bullet.GetComponent<BulletNpc>().firePower = GameManager.Instance.npcPlayer.Faction.Ship.Bullet.FirePower;
             if (GameManager.Instance.targetPlayer.gameObject && GameManager.Instance.targetAi.gameObject)
             {
                 //Radomly attack player or AI
