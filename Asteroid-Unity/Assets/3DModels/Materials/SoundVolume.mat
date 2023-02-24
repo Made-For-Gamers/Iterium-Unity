@@ -47,7 +47,7 @@ Material:
     - _NoiseRotaionSpeed: 500
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SparkleOffset: 0.19
+    - _SparkleOffset: 0.01
     - _WavHight: 1
     - _Wave2Hight: 1
     - _wavnumbr: 41.9
