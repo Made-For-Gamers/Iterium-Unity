@@ -151,11 +151,11 @@ namespace Iterium
             {
                 case "player":
                     player.Score += 800;
-                    player.XpCollected += 50;
+                    player.XpCollected += 25;
                     break;
                 case "ai":
                     aiPlayer.Score += 800;
-                    aiPlayer.XpCollected += 50;
+                    aiPlayer.XpCollected += 25;
                     break;
             }
         }
