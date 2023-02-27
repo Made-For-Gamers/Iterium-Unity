@@ -19,6 +19,8 @@ namespace Iterium
         [Header("Progress Bar Planes")]
         [SerializeField] private GameObject progressMusic;
         [SerializeField] private GameObject progressSound;
+        [SerializeField] private GameObject waveformMusic;
+        [SerializeField] private GameObject waveformSound;
 
         [Header("Audio Mixer Groups")]
         [SerializeField] private AudioMixer audioMixer;
@@ -26,6 +28,8 @@ namespace Iterium
         private Renderer matRenderer;
         private Material matMusic;
         private Material matSound;
+        private Material waveformMatMusic;
+        private Material waveformMatSound;
         private VisualElement iconMusic;
         private VisualElement iconSound;
         private Slider musicSlider;
@@ -51,25 +55,42 @@ namespace Iterium
 
         private void Start()
         {
-            //Init music material (shader graph progress bar)
+            //Init music progress bar material (shader graph)
             matRenderer = progressMusic.GetComponent<Renderer>();
             matMusic = matRenderer.material;
 
-            //Init sound material (shader graph progress bar)
+            //Init sound progress bar material (shader graph)
             matRenderer = progressSound.GetComponent<Renderer>();
             matSound = matRenderer.material;
+
+            //Init music waveform material (shader graph)
+            matRenderer = waveformMusic.GetComponent<Renderer>();
+            waveformMatMusic = matRenderer.material;
+
+            //Init sound waveform material (shader graph)
+            matRenderer = waveformSound.GetComponent<Renderer>();
+            waveformMatSound = matRenderer.material;
 
             InitSliders();
         }
 
         private void InitSliders()
         {
+            //Music slider
             matMusic.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
             iconMusic.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - GameManager.Instance.player.MusicVolume) * 3.33f);
             musicSlider.value = GameManager.Instance.player.MusicVolume;
+            
+            //Sound slider
             matSound.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
             iconSound.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - GameManager.Instance.player.MusicVolume) * 3.33f);
             soundSlider.value = GameManager.Instance.player.EffectsVolume;
+
+            //Music waveform
+            waveformMatMusic.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
+
+            //Music waveform
+            waveformMatSound.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
         }
 
         //Update music from slider
@@ -77,6 +98,7 @@ namespace Iterium
         {
             float volume = slider.newValue;
             matMusic.SetFloat("_RemovedSeg", -0 - volume);
+            waveformMatMusic.SetFloat("_HeightAdjustmentMusic", 1 + volume/50);
             iconMusic.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - volume) * 3.33f);
             if (volume <= -50)
             {
@@ -91,7 +113,8 @@ namespace Iterium
         private void SoundChanged(ChangeEvent<float> slider)
         {
             float volume = slider.newValue;
-            matSound.SetFloat("_RemovedSeg", -0 - volume);
+            matSound.SetFloat("_RemovedSeg", volume);
+            waveformMatSound.SetFloat("_HeightAdjustmentSound", 1 + volume / 50);
             iconSound.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - volume) * 3.33f);
             if (volume <= -50)
             {

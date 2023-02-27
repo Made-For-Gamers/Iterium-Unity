@@ -305,6 +305,8 @@ MonoBehaviour:
   soundIcon: soundIcon
   progressMusic: {fileID: 292937085}
   progressSound: {fileID: 835966083}
+  waveformMusic: {fileID: 113078841}
+  waveformSound: {fileID: 431936828}
   audioMixer: {fileID: 24100000, guid: d79b3a73c105760479ef4bab8ba17768, type: 2}
 --- !u!4 &167099278 stripped
 Transform:
@@ -423,7 +425,7 @@ GameObject:
   - component: {fileID: 406901210}
   - component: {fileID: 406901213}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Waveforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -816,6 +818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5642413665727668240, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
+    - {fileID: 1540662700597066155, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
 --- !u!1001 &759948496
 PrefabInstance:
@@ -1211,6 +1214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5642413665727668240, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
+    - {fileID: 1540662700597066155, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
 --- !u!1 &965289857
 GameObject:
@@ -1445,6 +1449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5642413665727668240, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
+    - {fileID: 1540662700597066155, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1db93925bf4573446bd2235e2e8f69bf, type: 3}
 --- !u!4 &1130537698 stripped
 Transform:
@@ -1536,6 +1541,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5950032867674953879, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
+    - {fileID: -4576196949725517908, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
 --- !u!4 &1253613757 stripped
 Transform:
@@ -1742,6 +1748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5950032867674953879, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
+    - {fileID: -4576196949725517908, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
 --- !u!4 &1377770622 stripped
 Transform:
