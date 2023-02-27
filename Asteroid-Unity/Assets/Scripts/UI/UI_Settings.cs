@@ -123,7 +123,7 @@ namespace Iterium
         private void SoundChanged(ChangeEvent<float> slider)
         {
             float volume = slider.newValue;
-            matSound.SetFloat("_RemovedSeg", volume);
+            matSound.SetFloat("_RemovedSeg", -0 - volume);
             waveformMatSound.SetFloat("_HeightAdjustmentSound", 1 + volume / 50);
             iconSound.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - volume) * 3.33f);
             if (volume <= -50)
