@@ -17,6 +17,6 @@ The GitHub project was created using the below Unity version and packages. The g
 
 1) Create a new repository folder locally from GitHub
 2) From the Unity Hub, select to open a project and point the file browser window to the root of the “Asteroid-Unity” folder inside the repository, as example C:\Unity Projects\Iterium-Unity\Asteroid-Unity. 
-3) Preferably use the Unity version below to ensure full compatibility and to avoid issues.
+3) Preferably use the Unity version above to ensure full compatibility and to avoid issues.
 4) Once the project opens change the Build Settings to WebGL.
 5) Open the MainMenu scene and run the game.
