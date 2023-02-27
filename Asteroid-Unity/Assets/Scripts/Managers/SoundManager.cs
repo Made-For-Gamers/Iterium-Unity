@@ -27,7 +27,7 @@ namespace Iterium
         [SerializeField] private AudioMixerGroup mixerSfx;
 
         private AudioSource[] audiosourceSfx;
-        private AudioSource audiosourceMusic;
+        public AudioSource audiosourceMusic;
 
         private new void Awake()
         {
