@@ -111,7 +111,12 @@ namespace Iterium
 
         private void Update()
         {
-            waveformMatMusic.SetFloat("_HeightAdjustmentMusic", SoundManager.Instance.audiosourceMusic.GetOutputData(1, 0)[0]);
+            if ((1 + musicSlider.value / 50) > 0)
+            {
+                waveformMatMusic.SetFloat("_HeightAdjustmentMusic", SoundManager.Instance.audiosourceMusic.GetOutputData(1, 0)[0] - (1 + musicSlider.value / 50));
+            }
+
+            
         }
 
         //Update sound effects from slider
