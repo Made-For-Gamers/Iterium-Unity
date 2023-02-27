@@ -16,9 +16,6 @@
             "m_Id": "ed2f2c0f592c42ee82825a2dde58e628"
         },
         {
-            "m_Id": "413ded7d79e34c738212198f668e98f3"
-        },
-        {
             "m_Id": "1dc7aa62a83a4aeb8a650f312e20f332"
         },
         {
@@ -26,9 +23,6 @@
         },
         {
             "m_Id": "316809e678ff4ec9be0b5781d15da40a"
-        },
-        {
-            "m_Id": "c107e226c67d4d138d571f02a0775af6"
         },
         {
             "m_Id": "bd944f2579c0480ea2cbf445c67ed018"
@@ -2337,9 +2331,6 @@
             "m_Id": "ed2f2c0f592c42ee82825a2dde58e628"
         },
         {
-            "m_Id": "413ded7d79e34c738212198f668e98f3"
-        },
-        {
             "m_Id": "1dc7aa62a83a4aeb8a650f312e20f332"
         },
         {
@@ -2347,9 +2338,6 @@
         },
         {
             "m_Id": "316809e678ff4ec9be0b5781d15da40a"
-        },
-        {
-            "m_Id": "c107e226c67d4d138d571f02a0775af6"
         },
         {
             "m_Id": "bd944f2579c0480ea2cbf445c67ed018"
@@ -2653,33 +2641,6 @@
     "m_PreviewMode": 0,
     "m_CustomColors": {
         "m_SerializableColors": []
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "413ded7d79e34c738212198f668e98f3",
-    "m_Guid": {
-        "m_GuidSerialized": "fc7fa043-5dd6-4f47-92c5-0f32e41417cb"
-    },
-    "m_Name": "WavHight",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "WavHight",
-    "m_DefaultReferenceName": "_WavHight",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 1.0,
-    "m_FloatType": 1,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
     }
 }
 
@@ -5873,10 +5834,10 @@
     "m_Guid": {
         "m_GuidSerialized": "0777056a-cf37-4c25-87f3-880fa34942a3"
     },
-    "m_Name": "yellowwaveheight",
+    "m_Name": "HeightAdjustmentSound",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "yellowwaveheight",
-    "m_DefaultReferenceName": "_yellowwaveheight",
+    "m_RefNameGeneratedByDisplayName": "HeightAdjustmentSound",
+    "m_DefaultReferenceName": "_HeightAdjustmentSound",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
@@ -6001,33 +5962,6 @@
         "y": 0.0,
         "z": 0.0,
         "w": 0.0
-    }
-}
-
-{
-    "m_SGVersion": 1,
-    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
-    "m_ObjectId": "c107e226c67d4d138d571f02a0775af6",
-    "m_Guid": {
-        "m_GuidSerialized": "629807d2-da21-4cf4-b33e-425ca5746442"
-    },
-    "m_Name": "Wave2Hight",
-    "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Wave2Hight",
-    "m_DefaultReferenceName": "_Wave2Hight",
-    "m_OverrideReferenceName": "",
-    "m_GeneratePropertyBlock": true,
-    "m_UseCustomSlotLabel": false,
-    "m_CustomSlotLabel": "",
-    "m_Precision": 0,
-    "overrideHLSLDeclaration": false,
-    "hlslDeclarationOverride": 0,
-    "m_Hidden": false,
-    "m_Value": 0.2800000011920929,
-    "m_FloatType": 0,
-    "m_RangeValues": {
-        "x": 0.0,
-        "y": 1.0
     }
 }
 
@@ -7313,7 +7247,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "f3d26b14e9434fd695e4bbbae85f3f30",
     "m_Id": 0,
-    "m_DisplayName": "yellowwaveheight",
+    "m_DisplayName": "HeightAdjustmentSound",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",

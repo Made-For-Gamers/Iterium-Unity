@@ -1135,7 +1135,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "076901bbe36242288d0ea6992d22972f",
     "m_Id": 0,
-    "m_DisplayName": "Float",
+    "m_DisplayName": "HeightAdjustmentMusic",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
@@ -5364,10 +5364,10 @@
     "m_Guid": {
         "m_GuidSerialized": "ba59cd15-2a90-42ab-8d1a-b5ba5f2236d1"
     },
-    "m_Name": "Float",
+    "m_Name": "HeightAdjustmentMusic",
     "m_DefaultRefNameVersion": 1,
-    "m_RefNameGeneratedByDisplayName": "Float",
-    "m_DefaultReferenceName": "_Float",
+    "m_RefNameGeneratedByDisplayName": "HeightAdjustmentMusic",
+    "m_DefaultReferenceName": "_HeightAdjustmentMusic",
     "m_OverrideReferenceName": "",
     "m_GeneratePropertyBlock": true,
     "m_UseCustomSlotLabel": false,
