@@ -80,17 +80,17 @@ namespace Iterium
             matMusic.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
             iconMusic.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - GameManager.Instance.player.MusicVolume) * 3.33f);
             musicSlider.value = GameManager.Instance.player.MusicVolume;
-            
+
             //Sound slider
             matSound.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
             iconSound.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - GameManager.Instance.player.MusicVolume) * 3.33f);
             soundSlider.value = GameManager.Instance.player.EffectsVolume;
 
             //Music waveform
-            waveformMatMusic.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
+            waveformMatMusic.SetFloat("_HeightAdjustmentMusic", 1 + musicSlider.value / 50);
 
-            //Music waveform
-            waveformMatSound.SetFloat("_RemovedSeg", -0 - GameManager.Instance.player.MusicVolume);
+            //Sound waveform
+            waveformMatSound.SetFloat("_HeightAdjustmentSound", 1 + soundSlider.value / 50);
         }
 
         //Update music from slider
@@ -98,7 +98,7 @@ namespace Iterium
         {
             float volume = slider.newValue;
             matMusic.SetFloat("_RemovedSeg", -0 - volume);
-            waveformMatMusic.SetFloat("_HeightAdjustmentMusic", 1 + volume/50);
+            waveformMatMusic.SetFloat("_HeightAdjustmentMusic", 1 + volume / 50);
             iconMusic.transform.rotation = Quaternion.Euler(0f, 0f, (-0 - volume) * 3.33f);
             if (volume <= -50)
             {
@@ -116,7 +116,7 @@ namespace Iterium
                 waveformMatMusic.SetFloat("_HeightAdjustmentMusic", SoundManager.Instance.audiosourceMusic.GetOutputData(1, 0)[0] - (1 + musicSlider.value / 50));
             }
 
-            
+
         }
 
         //Update sound effects from slider

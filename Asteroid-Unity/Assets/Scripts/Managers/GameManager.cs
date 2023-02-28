@@ -72,12 +72,12 @@ namespace Iterium
         public int iteriumScore = 250;
         public int iteriumXp = 25;
         public int iteriumSfx;
-        public int speedLevel1 = 10;
-        public int speedLevel2 = 30;
+        public int speedLevel1 = 15;
+        public int speedLevel2 = 40;
         public int shieldLevel1 = 10;
         public int shieldLevel2 = 30;
-        public int firepowerLevel1 = 10;
-        public int firepowerLevel2 = 30;
+        public int firepowerLevel1 = 20;
+        public int firepowerLevel2 = 50;
 
         [Space(10)]
         //Save data objects
