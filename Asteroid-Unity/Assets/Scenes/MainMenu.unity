@@ -1106,5 +1106,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
+        type: 3}
+      propertyPath: speedLevel1
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
+        type: 3}
+      propertyPath: speedLevel2
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
+        type: 3}
+      propertyPath: firepowerLevel1
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 631775913126008420, guid: dd9b24739366e9b4c935a684a0761eab,
+        type: 3}
+      propertyPath: firepowerLevel2
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dd9b24739366e9b4c935a684a0761eab, type: 3}
