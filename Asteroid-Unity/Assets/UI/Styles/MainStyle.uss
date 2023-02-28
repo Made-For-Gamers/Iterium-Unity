@@ -345,7 +345,7 @@
 
 .unity-base-slider__dragger {
     background-color: rgba(255, 255, 255, 0);
-    background-image: url('project://database/Assets/Images/Favicon-1.png?fileID=21300000&guid=fffad4977ac67474fa2291475cbabaff&type=3#Favicon-1');
+    background-image: url('project://database/Assets/Images/Favicon-1.png?fileID=2800000&guid=fffad4977ac67474fa2291475cbabaff&type=3#Favicon-1');
     width: 50px;
     height: 50px;
     -unity-background-image-tint-color: rgb(255, 255, 255);
@@ -369,7 +369,8 @@
 }
 
 .unity-scroller__slider {
-    background-image: url('project://database/Assets/Fonts/manaspc%20SDF.asset?fileID=11400000&guid=629c3f4a76ff2194c96851dbc7acc335&type=2#manaspc SDF');
+    background-image: none;
+    background-color: rgba(133, 200, 159, 255);
 }
 
 .unity-scroller__low-button {
@@ -387,7 +388,7 @@
 
 #scrollViewHS .unity-scroller--vertical .unity-base-slider__dragger {
     background-image: url('project://database/Assets/Images/HS_opaque_45.png?fileID=21300000&guid=7c306ff313f548d499c93a9457d9a554&type=3#HS_opaque_45');
-    -unity-background-image-tint-color: rgb(255, 141, 141);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
 
 .fadeOutPanel {

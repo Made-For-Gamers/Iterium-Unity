@@ -54,9 +54,12 @@ Material:
     m_Floats:
     - _Float: 1
     - _GlitterOffset: 0.22
+    - _HeightAdjustmentMusic: 1
     - _NoiseRotaionSpeed: 800
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _SparkleOffset: 0.28
     m_Colors:
+    - _NoiseScale: {r: 2000, g: 2000, b: 0, a: 0}
     - _NosieScale: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
