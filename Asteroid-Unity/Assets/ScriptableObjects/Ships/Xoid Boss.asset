@@ -21,5 +21,5 @@ MonoBehaviour:
   thrust: 500
   turnSpeed: 100
   bullet: {fileID: 11400000, guid: efd5c5543c0ed284295587f75af9a1a6, type: 2}
-  shipPrefab: {fileID: 2352914202424645838, guid: 85c7d2e7048e33b43b9d9c487538aec2,
+  shipPrefab: {fileID: 5484256699594209707, guid: 47b8370c8276ea444aa403059ca593fb,
     type: 3}

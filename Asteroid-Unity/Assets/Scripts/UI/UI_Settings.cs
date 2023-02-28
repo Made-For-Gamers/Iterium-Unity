@@ -74,6 +74,7 @@ namespace Iterium
             InitSliders();
         }
 
+        //Set sliders/waveforms/progress bars to game save loaded values
         private void InitSliders()
         {
             //Music slider

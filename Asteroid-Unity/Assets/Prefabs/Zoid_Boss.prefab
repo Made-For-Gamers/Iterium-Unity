@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7788032155775947993}
   - component: {fileID: 8237910574839108290}
   - component: {fileID: 8289227584765972600}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Favicon-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,9 +94,11 @@ GameObject:
   - component: {fileID: 5972268436906457216}
   - component: {fileID: 1454211054549055997}
   - component: {fileID: 3476093537985892565}
-  m_Layer: 0
-  m_Name: Zoid_BossV2
-  m_TagString: Untagged
+  - component: {fileID: 4870139631750944017}
+  - component: {fileID: 8908176168421676961}
+  m_Layer: 6
+  m_Name: Zoid_Boss
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,9 +110,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5484256699594209707}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -90.98307, y: 0, z: -39.93885}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7788032155775947993}
@@ -171,3 +173,32 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4870139631750944017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484256699594209707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14884dd7ebd7c7c4bb090c0515181143, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minSpeed: 0.6
+  maxSpeed: 1
+  fireDelay: 2
+  fireInterval: 0.3
+--- !u!65 &8908176168421676961
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5484256699594209707}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9.5, y: 2.97, z: 9.5}
+  m_Center: {x: -0.0000009536743, y: 1.21, z: -0.00000047683716}
