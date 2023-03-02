@@ -12,17 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: AI
   m_EditorClassIdentifier: 
-  profileName: Player 1
+  profileName: AI Player
   bio: 
   email: 
-  xp: 1635
-  xpCollected: 365
+  xp: 11810
+  xpCollected: 0
   level: 1
-  score: 4950
+  score: 0
   faction: {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
-  health: 20
-  iterium: 1
-  iteriumCollected: 1
+  health: 100
+  iterium: 6
+  iteriumCollected: 0
   lives: 3
   bulletLvl: 1
   shieldLvl: 1
