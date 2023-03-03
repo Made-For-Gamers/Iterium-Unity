@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 namespace Iterium
@@ -9,11 +10,25 @@ namespace Iterium
 
     public class UI_Settings : MonoBehaviour
     {
+        [Header("Drag scene to load")]
+#if UNITY_EDITOR
+        public UnityEditor.SceneAsset destinationScene;
+        private void OnValidate()
+        {
+            if (destinationScene != null)
+            {
+                mainMenu = destinationScene.name;
+            }
+        }
+#endif
+        [HideInInspector] public string mainMenu;
+
         [Header("UI Elements")]
         [SerializeField] private string sliderMusic = "musicSlider";
         [SerializeField] private string sliderSound = "soundSlider";
         [SerializeField] private string musicIcon = "musicIcon";
         [SerializeField] private string soundIcon = "soundIcon";
+        [SerializeField] private string homeButton = "mainMenu";
 
         //Slider planes (shader graph materials)
         [Header("Progress Bar Planes")]
@@ -34,6 +49,7 @@ namespace Iterium
         private VisualElement iconSound;
         private Slider musicSlider;
         private Slider soundSlider;
+        private Button buttonHome;
 
         private void OnEnable()
         {
@@ -43,6 +59,7 @@ namespace Iterium
             soundSlider = uiRoot.Q<Slider>(sliderSound);
             iconMusic = uiRoot.Q<VisualElement>(musicIcon);
             iconSound = uiRoot.Q<VisualElement>(soundIcon);
+            buttonHome = uiRoot.Q<Button>(homeButton);
             musicSlider.highValue = -0;
             musicSlider.lowValue = -50;
             soundSlider.highValue = -0;
@@ -51,6 +68,7 @@ namespace Iterium
             //Events
             musicSlider.RegisterCallback<ChangeEvent<float>>(MusicChanged);
             soundSlider.RegisterCallback<ChangeEvent<float>>(SoundChanged);
+            buttonHome.clicked += MainMenu;
         }
 
         private void Start()
@@ -125,6 +143,12 @@ namespace Iterium
             audioMixer.SetFloat("Sound", volume);
             GameManager.Instance.player.EffectsVolume = volume;
             SoundManager.Instance.PlayEffect(2);
+        }
+
+        private void MainMenu()
+        {
+            GameManager.Instance.SaveGame();
+            SceneManager.LoadScene(mainMenu);
         }
     }
 }
