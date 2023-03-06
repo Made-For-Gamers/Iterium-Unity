@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4492135459917672472}
   - component: {fileID: 4492135459917672473}
   m_Layer: 0
-  m_Name: Asteroid
+  m_Name: AsteroidSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
