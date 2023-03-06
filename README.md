@@ -17,7 +17,7 @@ This GitHub project was created using the below Unity version and packages. The 
 5) Timeline
 6) Shader Graph
 7) Build platform: WebGL
-8) 2 Unity version modules installed, namely WebGL Build Support and Windows Build Support (IL2CPP)
+8) Unity version modules installed, namely WebGL Build Support and Windows Build Support (IL2CPP)
 
 ## Unity Project Setup:
 
