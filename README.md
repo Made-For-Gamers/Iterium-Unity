@@ -26,3 +26,5 @@ The GitHub project was created using the below Unity version and packages. The g
 3) Preferably use the Unity version above to ensure full compatibility and to avoid issues.
 4) Once the project opens change the Build Settings to WebGL.
 5) Open the MainMenu scene and run the game.
+
+### [Documentation](https://github.com/Made-For-Gamers/Iterium-Unity/blob/main/Documentation/Iterium%20Unity%20Documentation.pdf)
