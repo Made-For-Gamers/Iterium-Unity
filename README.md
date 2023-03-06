@@ -1,6 +1,8 @@
 # Iterium 
 
 ### Developed by [Made For Gamers](https://mfg.gg)
+
+![MFG](https://mfg.gg/wp-content/uploads/2022/05/landscape-logo-white.png)
  
 This WebGL Unity game follows a typical arcade genre where you try and survive as long as possible to gain the highest score and be entered on the leaderboard. Score can be achieved by shooting asteroids, collecting Iterium crystals, killing AI ships and Xoid flying Saucers. 
 
