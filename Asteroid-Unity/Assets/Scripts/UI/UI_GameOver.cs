@@ -164,8 +164,11 @@ namespace Iterium
                     case >= 6000:
                         message.text = "Nice score " + GameManager.Instance.player.ProfileName + ", keep it up.";
                         break;
-                    case < 6000:
-                        message.text = "Average score " + GameManager.Instance.player.ProfileName + ", need more practise.";
+                    case 0 :
+                        message.text = "Really " + GameManager.Instance.player.ProfileName + "?, zero score!";
+                        break;
+                    case <6000:
+                        message.text = "Average score " + GameManager.Instance.player.ProfileName + ", you need more practise.";
                         break;
                 }
             }
