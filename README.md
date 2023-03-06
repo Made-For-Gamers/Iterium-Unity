@@ -1,5 +1,7 @@
-# Iterium by Made For Gamers - mfg.gg
+# Iterium 
 
+## Developed by [Made For Gamers](https://mfg.gg)
+ 
 The GitHub project was created using the below Unity version and packages. The goal was to keep the project and code as standard as possible without any 3rd party dependencies. The project should work on any 2021.x version and above.
 
 ## Unity Project Requirements:
