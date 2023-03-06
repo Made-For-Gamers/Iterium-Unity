@@ -6,7 +6,7 @@ This WebGL Unity game follows a typical arcade genre where you try and survive a
 
 [Play The Game Here...](https://made-for-gamers.github.io/Iterium-Unity/Index.html)
 
-The GitHub project was created using the below Unity version and packages. The goal was to keep the project and code as standard as possible without any 3rd party dependencies. The project should work on any 2021.x version and above.
+This GitHub project was created using the below Unity version and packages. The goal was to keep the project and code as standard as possible without any 3rd party dependencies. The project should work on any 2021.x version and above.
 
 ## Unity Project Requirements:
 
