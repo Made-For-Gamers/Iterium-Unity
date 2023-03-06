@@ -180,7 +180,7 @@ MonoBehaviour:
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 0
-  m_Antialiasing: 2
+  m_Antialiasing: 1
   m_AntialiasingQuality: 2
   m_StopNaN: 0
   m_Dithering: 0
@@ -480,6 +480,7 @@ PrefabInstance:
     - {fileID: 8319736821633970125, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
     - {fileID: 5950032867674953879, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
     - {fileID: -4576196949725517908, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
+    - {fileID: 5046650511024615605, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 35b5b23ea9c50944589d2c46187cc56a, type: 3}
 --- !u!4 &559584625 stripped
 Transform:
@@ -543,13 +544,13 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.85
     m_Bias: 0.05
     m_NormalBias: 0.4
-    m_NearPlane: 0.2
+    m_NearPlane: 0.1
     m_CullingMatrixOverride:
       e00: 1
       e01: 0
@@ -741,6 +742,7 @@ PrefabInstance:
     - {fileID: 6840693746281900784, guid: f24682cdab8586645a096b8757ba658f, type: 3}
     - {fileID: -362179649576235399, guid: f24682cdab8586645a096b8757ba658f, type: 3}
     - {fileID: -3463234557777447175, guid: f24682cdab8586645a096b8757ba658f, type: 3}
+    - {fileID: 2084467608612618519, guid: f24682cdab8586645a096b8757ba658f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f24682cdab8586645a096b8757ba658f, type: 3}
 --- !u!4 &899835267 stripped
 Transform:
