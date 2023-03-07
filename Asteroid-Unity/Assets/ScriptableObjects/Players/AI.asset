@@ -12,28 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e60bf1e246f6a54cbc3a4a41fa3f9a8, type: 3}
   m_Name: AI
   m_EditorClassIdentifier: 
-  profileName: Captain Ace (AI)
+  profileName: AI Player
   bio: Number one collector of Iterium, nobody stands in my way
   email: 
-  xp: 2110
-  xpCollected: 450
+  xp: 0
+  xpCollected: 0
   level: 1
-  score: 5000
-  faction: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
+  score: 0
+  faction: {fileID: 11400000, guid: e4eb8a4f6f3be1840a8db0babe35eb4e, type: 2}
   health: 100
   iterium: 0
   iteriumCollected: 0
   lives: 3
-  bulletLvl: 2
+  bulletLvl: 1
   shieldLvl: 1
   speedLvl: 1
-  bulletLvlUs: 2
+  bulletLvlUs: 1
   shieldLvlUs: 1
   speedLvlUs: 1
-  bulletLvlUssr: 2
+  bulletLvlUssr: 1
   shieldLvlUssr: 1
   speedLvlUssr: 1
-  bulletLvlChn: 2
+  bulletLvlChn: 1
   shieldLvlChn: 1
   speedLvlChn: 1
   effectsVolume: 1
