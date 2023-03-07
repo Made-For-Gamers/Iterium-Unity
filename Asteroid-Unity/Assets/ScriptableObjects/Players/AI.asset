@@ -15,25 +15,25 @@ MonoBehaviour:
   profileName: Captain Ace (AI)
   bio: Number one collector of Iterium, nobody stands in my way
   email: 
-  xp: 0
-  xpCollected: 0
+  xp: 2110
+  xpCollected: 450
   level: 1
-  score: 0
-  faction: {fileID: 11400000, guid: fb9486489f068b14cb18ed72264d1663, type: 2}
+  score: 5000
+  faction: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
   health: 100
-  iterium: 6
+  iterium: 0
   iteriumCollected: 0
   lives: 3
-  bulletLvl: 1
+  bulletLvl: 2
   shieldLvl: 1
   speedLvl: 1
-  bulletLvlUs: 1
+  bulletLvlUs: 2
   shieldLvlUs: 1
   speedLvlUs: 1
-  bulletLvlUssr: 1
+  bulletLvlUssr: 2
   shieldLvlUssr: 1
   speedLvlUssr: 1
-  bulletLvlChn: 1
+  bulletLvlChn: 2
   shieldLvlChn: 1
   speedLvlChn: 1
   effectsVolume: 1
