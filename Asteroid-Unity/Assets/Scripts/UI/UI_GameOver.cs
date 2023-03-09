@@ -68,6 +68,11 @@ namespace Iterium
 
             //Events
             rematch.clicked += Rematch;
+            
+            //XP
+            GameManager.Instance.CalculateXP();
+            xpEarned.text = GameManager.Instance.player.XpCollected.ToString();
+            xpTotal.text = GameManager.Instance.player.Xp.ToString() + " / " + GameManager.Instance.xpLevelSteps * GameManager.Instance.player.Level;
 
             //Bonus
             roundBonus = GameManager.Instance.CalculatePlayerBonus();
@@ -76,12 +81,7 @@ namespace Iterium
 
             //Score
             StartCoroutine(ScoreTicker());
-            arenaScore = GameManager.Instance.player.Score;
-
-            //XP
-            GameManager.Instance.CalculateXP();
-            xpEarned.text = GameManager.Instance.player.XpCollected.ToString();
-            xpTotal.text = GameManager.Instance.player.Xp.ToString() + " / " + GameManager.Instance.xpLevelSteps * GameManager.Instance.player.Level;
+            arenaScore = GameManager.Instance.player.Score;          
 
             //Level
             level.text = GameManager.Instance.player.Level.ToString();
@@ -90,7 +90,6 @@ namespace Iterium
             GameManager.Instance.CalculateIterium();
             iteriumCollected.text = GameManager.Instance.player.IteriumCollected.ToString();
             iteriumTotal.text = GameManager.Instance.player.Iterium.ToString();
-
 
 
             //AI firepower upgrade
