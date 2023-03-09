@@ -612,6 +612,7 @@ namespace Iterium
         //Load game over scene
         public void GameOver()
         {
+            isPlaying = false;
             SceneManager.LoadScene("GameOver");
         }
 

@@ -541,7 +541,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 1
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -2097,7 +2097,7 @@ PrefabInstance:
     - target: {fileID: 5589843235130775552, guid: 95ee9ef301b4885429de2b1c8a8036f1,
         type: 3}
       propertyPath: spawnInterval
-      value: 30
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 5589843235130775553, guid: 95ee9ef301b4885429de2b1c8a8036f1,
         type: 3}
@@ -2196,12 +2196,12 @@ PrefabInstance:
     - target: {fileID: 6442042656117237716, guid: c2a4ef8be6765264aaa009d52b75d197,
         type: 3}
       propertyPath: spawnInterval
-      value: 120
+      value: 118
       objectReference: {fileID: 0}
     - target: {fileID: 6442042656117237716, guid: c2a4ef8be6765264aaa009d52b75d197,
         type: 3}
       propertyPath: spawnStartDelay
-      value: 120
+      value: 118
       objectReference: {fileID: 0}
     - target: {fileID: 6442042656117237717, guid: c2a4ef8be6765264aaa009d52b75d197,
         type: 3}

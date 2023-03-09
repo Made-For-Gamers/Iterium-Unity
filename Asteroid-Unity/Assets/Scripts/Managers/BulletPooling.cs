@@ -45,7 +45,7 @@ namespace Iterium
         //Instantiate a new AI bullet
         private GameObject PoolNew_Ai()
         {
-            GameObject aiBullet = Instantiate(GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Bullet[0]);
+            GameObject aiBullet = Instantiate(GameManager.Instance.aiPlayer.Faction.Ship.Bullet.Bullet[GameManager.Instance.aiPlayer.BulletLvl - 1]);
             Destroy(aiBullet.GetComponent<Bullet>());
             aiBullet.AddComponent<BulletAI>();
             return aiBullet;
