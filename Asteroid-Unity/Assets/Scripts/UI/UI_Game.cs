@@ -123,6 +123,7 @@ namespace Iterium
 
         private void OnDisable()
         {
+            StopAllCoroutines();
             input.Player.Pause.started -= Pause;
         }
 
@@ -190,8 +191,8 @@ namespace Iterium
         private void ExitGame()
         {
             PauseGame();
-            GameManager.Instance.ResetArena();
-            GameManager.Instance.isPlaying = false;
+            GameManager.Instance.ResetArena();            
+            GameManager.Instance.StopAllCoroutines();         
             SceneManager.LoadScene(sceneName);
         }
 

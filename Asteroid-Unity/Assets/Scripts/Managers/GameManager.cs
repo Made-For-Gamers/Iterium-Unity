@@ -49,7 +49,6 @@ namespace Iterium
         public int xpLevelSteps = 2000;
         public int maxLevel = 50;
         public int freeShip = 100000;
-        [HideInInspector] public bool isPlaying;
         [HideInInspector] public GameObject targetPlayer;
 
         [Header("AI Settings")]
@@ -91,7 +90,7 @@ namespace Iterium
 
         //Private
         private FileSaveHandler fileSaveHandler;
-        private int curretAiFaction; 
+        private int curretAiFaction;
         private int npcSpeed;
 
         #endregion
@@ -275,7 +274,7 @@ namespace Iterium
         #endregion
 
         #region General Methods
-      
+
         private void Start()
         {
             //Load Game Save
@@ -371,8 +370,6 @@ namespace Iterium
             aiPlayer.IteriumCollected = 0;
             aiPlayer.XpCollected = 0;
             aiPlayer.Lives = 3;
-
-            isPlaying = true;
         }
 
         //Spawn player
@@ -383,15 +380,12 @@ namespace Iterium
         IEnumerator SpawnPlayerOverTime(float time)
         {
             yield return new WaitForSeconds(time);
-            if (isPlaying)
-            {
-                targetPlayer = Instantiate(Instance.player.Faction.Ship.ShipPrefab);
-                targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
-                targetPlayer.transform.RotateAround(targetPlayer.transform.position, Vector3.up, 90);
-                targetPlayer.transform.name = "Player";
-                targetPlayer.transform.tag = "Player";
-                player.Health = 100;
-            }
+            targetPlayer = Instantiate(Instance.player.Faction.Ship.ShipPrefab);
+            targetPlayer.transform.position = RandomScreenPosition(playerSpawner);
+            targetPlayer.transform.RotateAround(targetPlayer.transform.position, Vector3.up, 90);
+            targetPlayer.transform.name = "Player";
+            targetPlayer.transform.tag = "Player";
+            player.Health = 100;
         }
 
         //Spawn AI
@@ -404,17 +398,14 @@ namespace Iterium
         IEnumerator SpawnAiOverTime(float time)
         {
             yield return new WaitForSeconds(time);
-            if (isPlaying)
-            {
-                targetAi = Instantiate(Instance.aiPlayer.Faction.Ship.ShipPrefab);
-                Destroy(targetAi.GetComponent<PlayerController>());
-                Destroy(targetAi.GetComponent<InputManager>());
-                targetAi.AddComponent<AIController>();
-                targetAi.transform.position = RandomScreenPosition(aiSpawner);
-                targetAi.transform.name = "AI";
-                targetAi.transform.tag = "AI";
-                aiPlayer.Health = 100;
-            }
+            targetAi = Instantiate(Instance.aiPlayer.Faction.Ship.ShipPrefab);
+            Destroy(targetAi.GetComponent<PlayerController>());
+            Destroy(targetAi.GetComponent<InputManager>());
+            targetAi.AddComponent<AIController>();
+            targetAi.transform.position = RandomScreenPosition(aiSpawner);
+            targetAi.transform.name = "AI";
+            targetAi.transform.tag = "AI";
+            aiPlayer.Health = 100;
         }
 
         //Get a random position near a spawn point for a ship to re-spawn
@@ -447,6 +438,11 @@ namespace Iterium
                 yield return null;
             }
             Camera.main.transform.position = pos;
+        }
+
+        public void StopCoroutines()
+        {
+            StopAllCoroutines();
         }
 
         #endregion
@@ -577,7 +573,7 @@ namespace Iterium
         {
             SaveGame();
             if (Application.platform == RuntimePlatform.WebGLPlayer)
-            {             
+            {
                 OpenURL("https://mfg.gg");
             }
             else
@@ -612,7 +608,7 @@ namespace Iterium
         //Load game over scene
         public void GameOver()
         {
-            isPlaying = false;
+            GameManager.Instance.StopAllCoroutines();
             SceneManager.LoadScene("GameOver");
         }
 

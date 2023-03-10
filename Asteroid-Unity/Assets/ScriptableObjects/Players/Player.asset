@@ -15,11 +15,11 @@ MonoBehaviour:
   profileName: Player 1
   bio: Enter a short bio about yourself.
   email: Enter email address
-  xp: 0
+  xp: 13155
   xpCollected: 0
   level: 1
   score: 0
-  faction: {fileID: 11400000, guid: 7680a1865f6c1c74c85f8c94d9c7685d, type: 2}
+  faction: {fileID: 11400000, guid: fb9486489f068b14cb18ed72264d1663, type: 2}
   health: 100
   iterium: 0
   iteriumCollected: 0
@@ -31,7 +31,7 @@ MonoBehaviour:
   shieldLvlUs: 1
   speedLvlUs: 1
   bulletLvlUssr: 1
-  shieldLvlUssr: 1
+  shieldLvlUssr: 2
   speedLvlUssr: 1
   bulletLvlChn: 1
   shieldLvlChn: 1
