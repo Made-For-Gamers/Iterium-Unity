@@ -24,7 +24,7 @@ namespace Iterium
         {
             int rnd = Random.Range(1, 5);
             spawnPosition = GetComponentsInChildren<Transform>()[rnd].position;
-            SpawnNpc.Invoke(spawnPosition);
+            SpawnNpc?.Invoke(spawnPosition);
         }
     }
 }

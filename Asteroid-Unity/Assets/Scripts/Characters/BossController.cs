@@ -68,12 +68,12 @@ namespace Iterium
 
         public void Damage(float firePower, string attacker)
         {
-            BossDamage.Invoke(attacker);
+            BossDamage?.Invoke(attacker);
         }
 
         private void OnBecameInvisible()
         {
-            BossDestroy.Invoke();
+            BossDestroy?.Invoke();
             DestroyShip();
         }
 

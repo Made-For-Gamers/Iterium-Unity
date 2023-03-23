@@ -68,7 +68,7 @@ namespace Iterium
 
         public void Damage(float firePower, string attacker)
         {
-            NpcDamage.Invoke(attacker);
+            NpcDamage?.Invoke(attacker);
             DestroyShip();
         }
 

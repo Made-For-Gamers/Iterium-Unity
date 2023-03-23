@@ -16,7 +16,7 @@ namespace Iterium
 
         public void Damage(float firePower, string attacker)
         {
-            AsteroidDamage.Invoke(attacker);
+            AsteroidDamage?.Invoke(attacker);
             //Split if larger than a quarter of its size
             Vector3 scale = transform.localScale;
             if (scale.x > 0.25)
@@ -37,7 +37,7 @@ namespace Iterium
                 if (chance == 1)
                 {
                     Vector3 pos = new Vector3(transform.position.x, 0, transform.position.z);
-                    DropIterium.Invoke(pos);
+                    DropIterium?.Invoke(pos);
                 }
             }
 

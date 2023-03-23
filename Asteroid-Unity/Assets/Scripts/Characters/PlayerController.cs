@@ -139,7 +139,7 @@ namespace Iterium
         //Calculate damage from a hit, uding bullet firepower offset by activated shield strength
         public void Damage(float firePower, string attacker)
         {
-            PlayerDamage.Invoke();
+            PlayerDamage?.Invoke();
             if (isShielding)
             {
                 GameManager.Instance.player.Health -= (int)(firePower / (GameManager.Instance.player.Faction.Ship.ShieldPower * GameManager.Instance.player.ShieldLvl));

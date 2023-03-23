@@ -17,13 +17,13 @@ namespace Iterium
             {
                 //Collected by player
                 case "Player":
-                    CollectIterium.Invoke("player");
+                    CollectIterium?.Invoke("player");
                     Destroy(gameObject);
                     break;
 
                 //Collected by AI
                 case "AI":
-                    CollectIterium.Invoke("ai");
+                    CollectIterium?.Invoke("ai");
                     Destroy(gameObject);
                     break;
             }

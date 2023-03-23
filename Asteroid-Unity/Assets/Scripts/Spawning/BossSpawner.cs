@@ -20,7 +20,7 @@ namespace Iterium
 
         private void BossSpawn()
         {
-            SpawnBoss.Invoke(transform.position);
+            SpawnBoss?.Invoke(transform.position);
         }
     }
 }

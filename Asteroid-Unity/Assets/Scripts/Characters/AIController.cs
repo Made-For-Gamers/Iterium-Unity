@@ -215,7 +215,7 @@ namespace Iterium
         //Calculate damage when the ship is hit. Taking account of shield strength and striking bullets power
         public void Damage(float firePower, string attacker)
         {
-            AiDamage.Invoke();
+            AiDamage?.Invoke();
             if (isShielding)
             {
                 GameManager.Instance.aiPlayer.Health -= (int)(firePower / (GameManager.Instance.aiPlayer.Faction.Ship.ShieldPower * GameManager.Instance.aiPlayer.ShieldLvl));

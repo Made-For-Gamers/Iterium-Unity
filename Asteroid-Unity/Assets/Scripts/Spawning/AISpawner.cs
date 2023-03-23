@@ -12,7 +12,7 @@ namespace Iterium
 
         private void Start()
         {
-            SpawnAi.Invoke(transform.position, spawnTime);
+            SpawnAi?.Invoke(transform.position, spawnTime);
         }
     }
 }
